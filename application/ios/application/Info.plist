@@ -6,10 +6,14 @@
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<string>MyClient</string>
 =======
 	<string>application</string>
 >>>>>>> 06b8cbbe (app)
+=======
+	<string>MyClient</string>
+>>>>>>> f9a7299b (src)
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -56,6 +60,9 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f9a7299b (src)
 	<key>UIAppFonts</key>
 <array>
   <string>AntDesign.ttf</string>
@@ -74,7 +81,10 @@
   <string>Octicons.ttf</string>
   <string>Zocial.ttf</string>
 </array>
+<<<<<<< HEAD
 =======
 >>>>>>> 06b8cbbe (app)
+=======
+>>>>>>> f9a7299b (src)
 </dict>
 </plist>
