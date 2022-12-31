@@ -13,6 +13,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f9a7299b (src)
 =======
 >>>>>>> f9a7299b (src)
     "@react-native-async-storage/async-storage": "^1.17.11",
@@ -22,6 +25,7 @@
     "@react-navigation/native": "^6.1.1",
     "@react-navigation/stack": "^6.3.10",
     "axios": "^1.2.2",
+<<<<<<< HEAD
 <<<<<<< HEAD
     "react": "18.1.0",
     "react-native": "0.70.6",
@@ -42,6 +46,9 @@
 >>>>>>> 06b8cbbe (app)
 =======
     "react": "18.1.0",
+=======
+    "react": "18.1.0",
+>>>>>>> f9a7299b (src)
     "react-native": "0.70.6",
     "react-native-confirmation-code-field": "^7.3.1",
     "react-native-confirmation-code-input": "^1.0.4",
@@ -54,11 +61,14 @@
     "react-native-svg-transformer": "^1.0.0",
     "react-native-vector-icons": "^9.2.0",
     "react-navigation": "^4.4.4"
+<<<<<<< HEAD
 >>>>>>> f9a7299b (src)
 =======
     "react": "18.1.0",
     "react-native": "0.70.6"
 >>>>>>> 06b8cbbe (app)
+=======
+>>>>>>> f9a7299b (src)
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

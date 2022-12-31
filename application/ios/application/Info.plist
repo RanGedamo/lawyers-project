@@ -8,6 +8,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<string>MyClient</string>
 =======
 	<string>application</string>
@@ -18,6 +19,9 @@
 =======
 	<string>application</string>
 >>>>>>> 06b8cbbe (app)
+=======
+	<string>MyClient</string>
+>>>>>>> f9a7299b (src)
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -66,6 +70,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f9a7299b (src)
 =======
 >>>>>>> f9a7299b (src)
 	<key>UIAppFonts</key>
@@ -87,11 +94,14 @@
   <string>Zocial.ttf</string>
 </array>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 06b8cbbe (app)
 =======
 >>>>>>> f9a7299b (src)
 =======
 >>>>>>> 06b8cbbe (app)
+=======
+>>>>>>> f9a7299b (src)
 </dict>
 </plist>

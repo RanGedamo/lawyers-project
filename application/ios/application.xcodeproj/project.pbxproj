@@ -119,6 +119,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				CED0AB02295FD6D800135AD2 /* Fonts */,
 =======
 >>>>>>> 06b8cbbe (app)
@@ -127,6 +128,9 @@
 >>>>>>> f9a7299b (src)
 =======
 >>>>>>> 06b8cbbe (app)
+=======
+				CED0AB02295FD6D800135AD2 /* Fonts */,
+>>>>>>> f9a7299b (src)
 				13B07FAE1A68108700A75B9A /* application */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* applicationTests */,
@@ -162,6 +166,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f9a7299b (src)
 =======
 >>>>>>> f9a7299b (src)
 		CED0AB02295FD6D800135AD2 /* Fonts */ = {
@@ -173,12 +180,15 @@
 			sourceTree = "<group>";
 		};
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 06b8cbbe (app)
 =======
 >>>>>>> f9a7299b (src)
 =======
 >>>>>>> 06b8cbbe (app)
+=======
+>>>>>>> f9a7299b (src)
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -596,6 +606,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 =======
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
@@ -606,6 +617,9 @@
 =======
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 >>>>>>> 06b8cbbe (app)
+=======
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
+>>>>>>> f9a7299b (src)
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -642,6 +656,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 =======
 >>>>>>> 06b8cbbe (app)
@@ -650,6 +665,9 @@
 >>>>>>> f9a7299b (src)
 =======
 >>>>>>> 06b8cbbe (app)
+=======
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
+>>>>>>> f9a7299b (src)
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -690,6 +708,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 =======
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
@@ -700,6 +719,9 @@
 =======
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 >>>>>>> 06b8cbbe (app)
+=======
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
+>>>>>>> f9a7299b (src)
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -728,6 +750,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 =======
 >>>>>>> 06b8cbbe (app)
@@ -736,6 +759,9 @@
 >>>>>>> f9a7299b (src)
 =======
 >>>>>>> 06b8cbbe (app)
+=======
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
+>>>>>>> f9a7299b (src)
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
