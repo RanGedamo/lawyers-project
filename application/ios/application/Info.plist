@@ -7,6 +7,7 @@
 	<key>CFBundleDisplayName</key>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<string>MyClient</string>
 =======
 	<string>application</string>
@@ -14,6 +15,9 @@
 =======
 	<string>MyClient</string>
 >>>>>>> f9a7299b (src)
+=======
+	<string>application</string>
+>>>>>>> 06b8cbbe (app)
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -61,6 +65,7 @@
 	<false/>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f9a7299b (src)
 	<key>UIAppFonts</key>
@@ -86,5 +91,7 @@
 >>>>>>> 06b8cbbe (app)
 =======
 >>>>>>> f9a7299b (src)
+=======
+>>>>>>> 06b8cbbe (app)
 </dict>
 </plist>

@@ -12,6 +12,7 @@
   "dependencies": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f9a7299b (src)
     "@react-native-async-storage/async-storage": "^1.17.11",
@@ -54,6 +55,10 @@
     "react-native-vector-icons": "^9.2.0",
     "react-navigation": "^4.4.4"
 >>>>>>> f9a7299b (src)
+=======
+    "react": "18.1.0",
+    "react-native": "0.70.6"
+>>>>>>> 06b8cbbe (app)
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

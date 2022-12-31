@@ -7,6 +7,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f9a7299b (src)
 // module.exports = {
@@ -37,11 +38,17 @@ module.exports = {
 >>>>>>> 06b8cbbe (app)
 =======
 >>>>>>> f9a7299b (src)
+=======
+module.exports = {
+  transformer: {
+    getTransformOptions: async () => ({
+>>>>>>> 06b8cbbe (app)
       transform: {
         experimentalImportSupport: false,
         inlineRequires: true,
       },
     }),
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     babelTransformerPath: require.resolve("react-native-svg-transformer")
@@ -66,3 +73,7 @@ module.exports = {
   };
 })();
 >>>>>>> f9a7299b (src)
+=======
+  },
+};
+>>>>>>> 06b8cbbe (app)
