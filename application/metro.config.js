@@ -5,6 +5,7 @@
  * @format
  */
 
+<<<<<<< HEAD
 // module.exports = {
 //   transformer: {
 //     getTransformOptions: async () => ({
@@ -25,11 +26,17 @@ module.exports = (async () => {
   return {
     transformer: {
           getTransformOptions: async () => ({
+=======
+module.exports = {
+  transformer: {
+    getTransformOptions: async () => ({
+>>>>>>> 06b8cbbe (app)
       transform: {
         experimentalImportSupport: false,
         inlineRequires: true,
       },
     }),
+<<<<<<< HEAD
     babelTransformerPath: require.resolve("react-native-svg-transformer")
   },
     resolver: {
@@ -38,3 +45,7 @@ module.exports = (async () => {
     }
   };
 })();
+=======
+  },
+};
+>>>>>>> 06b8cbbe (app)

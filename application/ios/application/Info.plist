@@ -5,7 +5,11 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
+<<<<<<< HEAD
 	<string>MyClient</string>
+=======
+	<string>application</string>
+>>>>>>> 06b8cbbe (app)
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -51,6 +55,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+<<<<<<< HEAD
 	<key>UIAppFonts</key>
 <array>
   <string>AntDesign.ttf</string>
@@ -69,5 +74,7 @@
   <string>Octicons.ttf</string>
   <string>Zocial.ttf</string>
 </array>
+=======
+>>>>>>> 06b8cbbe (app)
 </dict>
 </plist>
