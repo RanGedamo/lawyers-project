@@ -9,10 +9,14 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 217666ab (server)
 	<string>MyClient</string>
 =======
 	<string>application</string>
 >>>>>>> 06b8cbbe (app)
+<<<<<<< HEAD
 =======
 	<string>MyClient</string>
 >>>>>>> f9a7299b (src)
@@ -22,6 +26,8 @@
 =======
 	<string>MyClient</string>
 >>>>>>> f9a7299b (src)
+=======
+>>>>>>> 217666ab (server)
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -71,10 +77,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f9a7299b (src)
 =======
 >>>>>>> f9a7299b (src)
+=======
+>>>>>>> 217666ab (server)
 	<key>UIAppFonts</key>
 <array>
   <string>AntDesign.ttf</string>
@@ -95,6 +104,7 @@
 </array>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 06b8cbbe (app)
 =======
@@ -103,5 +113,9 @@
 >>>>>>> 06b8cbbe (app)
 =======
 >>>>>>> f9a7299b (src)
+=======
+=======
+>>>>>>> 06b8cbbe (app)
+>>>>>>> 217666ab (server)
 </dict>
 </plist>

@@ -9,10 +9,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f9a7299b (src)
 =======
 >>>>>>> f9a7299b (src)
+=======
+>>>>>>> 217666ab (server)
 // module.exports = {
 //   transformer: {
 //     getTransformOptions: async () => ({
@@ -35,11 +38,15 @@ module.exports = (async () => {
           getTransformOptions: async () => ({
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 217666ab (server)
 =======
 module.exports = {
   transformer: {
     getTransformOptions: async () => ({
 >>>>>>> 06b8cbbe (app)
+<<<<<<< HEAD
 =======
 >>>>>>> f9a7299b (src)
 =======
@@ -49,6 +56,8 @@ module.exports = {
 >>>>>>> 06b8cbbe (app)
 =======
 >>>>>>> f9a7299b (src)
+=======
+>>>>>>> 217666ab (server)
       transform: {
         experimentalImportSupport: false,
         inlineRequires: true,
@@ -58,6 +67,9 @@ module.exports = {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 217666ab (server)
     babelTransformerPath: require.resolve("react-native-svg-transformer")
   },
     resolver: {
@@ -70,6 +82,7 @@ module.exports = {
   },
 };
 >>>>>>> 06b8cbbe (app)
+<<<<<<< HEAD
 =======
     babelTransformerPath: require.resolve("react-native-svg-transformer")
   },
@@ -91,3 +104,5 @@ module.exports = {
 >>>>>>> 06b8cbbe (app)
 =======
 >>>>>>> f9a7299b (src)
+=======
+>>>>>>> 217666ab (server)

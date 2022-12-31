@@ -14,10 +14,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f9a7299b (src)
 =======
 >>>>>>> f9a7299b (src)
+=======
+>>>>>>> 217666ab (server)
     "@react-native-async-storage/async-storage": "^1.17.11",
     "@react-native-cookies/cookies": "^6.2.1",
     "@react-native-material/core": "^1.3.7",
@@ -44,6 +47,7 @@
     "react": "18.1.0",
     "react-native": "0.70.6"
 >>>>>>> 06b8cbbe (app)
+<<<<<<< HEAD
 =======
     "react": "18.1.0",
 =======
@@ -69,6 +73,8 @@
 >>>>>>> 06b8cbbe (app)
 =======
 >>>>>>> f9a7299b (src)
+=======
+>>>>>>> 217666ab (server)
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
