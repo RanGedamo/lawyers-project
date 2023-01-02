@@ -8,9 +8,14 @@ app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
+const lawyerRouter=require("./routes/lawyeRouter")
+const categoryRouter=require("./routes/categoryRouter")
+
+app.use("/lawyer",lawyerRouter)
+app.use("/category",categoryRouter)
 
 app.get('/', (req, res) => {
-  res.send('hello world')
+  res.send('server online ')
 });
 
 app.listen(process.env.PORT, () => {
