@@ -1,8 +1,7 @@
 const LawyerModel = require("../models/lawyerModel");
 
 const getLawyers = async (req, res) => {
-  const lawyer = await LawyerModel.find().populate("category");
-
+  const lawyer = await LawyerModel.find().populate("category").populate("reviews");
   if (!lawyer) {
     return res.status(400).json({ message: "layers not found" });
   }
