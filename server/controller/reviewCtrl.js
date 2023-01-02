@@ -15,25 +15,27 @@ const getReview = async (req, res) => {
 };
 
 const createReview = async (req, res) => {
-  const {} = req.body; //13
+  const {userEmail,comments} = req.body; //13
 
-  let lawyer;
+  let review;
   try {
-    lawyer = new LawyerModel({});
+    review = new ReviewModel({
+        userEmail,comments
+    });
 
-    lawyer = await lawyer.save();
+    review = await review.save();
   } catch (error) {
     console.log(error);
   }
 
-  if (!lawyer) {
-    return res.status(400).json({ message: "error in creating lawyers" });
+  if (!review) {
+    return res.status(400).json({ message: "error in creating review" });
   }
 
-  return res.status(200).json(lawyer);
+  return res.status(200).json(review);
 };
 
 module.exports = {
-  getLawyers,
-  createLayer,
+    getReview,
+    createReview,
 };

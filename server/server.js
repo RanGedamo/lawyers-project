@@ -10,9 +10,13 @@ app.use(cors());
 
 const lawyerRouter=require("./routes/lawyeRouter")
 const categoryRouter=require("./routes/categoryRouter")
+const reviewRouter=require("./routes/reviewRouter")
+
 
 app.use("/lawyer",lawyerRouter)
 app.use("/category",categoryRouter)
+app.use("/review",reviewRouter)
+
 
 app.get('/', (req, res) => {
   res.send('server online ')

@@ -28,7 +28,7 @@ const lawyer = new Schema({
     ref:"category",
     required: true,
   }],
-  review: [{
+  reviews: [{
     type: mongoose.Types.ObjectId,
     ref:"reviews",
     required: true,
