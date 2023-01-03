@@ -55,7 +55,6 @@ const lawyer = new Schema({
   },
   token: {
     type: String,
-    required: true,
   },
 });
 

@@ -36,7 +36,24 @@ const createCategory = async (req, res) => {
   return res.status(200).json(category);
 };
 
+
+const getCategoryById = async (req, res) => {
+
+  let category;
+
+  try {
+    category = await CategoryModel.findById(req.params.id);
+  } catch (err) {
+     console.log(err);
+  }
+  if (!category) {
+    return res.status(404).json( "No category found");
+  }
+  return res.status(200).json(category);
+};
+
 module.exports = {
     getCategory,
     createCategory,
+    getCategoryById
 };

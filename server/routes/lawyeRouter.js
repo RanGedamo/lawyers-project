@@ -1,7 +1,11 @@
 const router=require("express").Router();
-const {getLawyers,createLayer}=require("../controller/lawyerCtrl")
+const {getLawyers,registerLawyer,loginLawyer,getLawyerByEmail}=require("../controller/lawyerCtrl")
 
 router.get("/",getLawyers)
-router.post("/",createLayer)
+router.get("/:email",getLawyerByEmail)
+
+router.post("/register",registerLawyer)
+router.post("/login",loginLawyer)
+
 
 module.exports=router
