@@ -12,11 +12,16 @@
     "@testing-library/user-event": "^13.5.0",
     "dotenv": "^16.0.3",
     "firebase": "^9.15.0",
+<<<<<<< HEAD
     "firebase-tools": "^11.19.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-dotenv": "^0.1.3",
     "react-firebase-hooks": "^5.1.1",
+=======
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+>>>>>>> be4f594 (server-znevu , client-Ran)
     "react-google-button": "^0.7.2",
     "react-router-dom": "^6.6.1",
     "react-scripts": "5.0.1",
