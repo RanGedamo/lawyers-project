@@ -1,7 +1,16 @@
 .App {
   text-align: center;
+  height: 100%;
 }
-
+.main{
+  height: 80vh;
+}
+.header{
+  height: 10vh;
+}
+.footer{
+  height: 10vh;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
