@@ -8,10 +8,18 @@ import { AuthContextProvider } from './context/UserContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <AuthContextProvider>
+<<<<<<< HEAD
   <React.StrictMode>
     <App />
   </React.StrictMode>
   </AuthContextProvider>
+=======
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </AuthContextProvider>
+
+>>>>>>> be4f594 (server-znevu , client-Ran)
 );
 
 // If you want to start measuring performance in your app, pass a function
