@@ -9,6 +9,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <AuthContextProvider>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <React.StrictMode>
     <App />
   </React.StrictMode>
@@ -20,6 +21,12 @@ root.render(
   </AuthContextProvider>
 
 >>>>>>> be4f594 (server-znevu , client-Ran)
+=======
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+  </AuthContextProvider>
+>>>>>>> 9405a1f (firebase with google - ran gedamo)
 );
 
 // If you want to start measuring performance in your app, pass a function
