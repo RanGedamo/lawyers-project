@@ -11,6 +11,10 @@ const reviews = new Schema({
     type: String,
     required:true,
   },
+  lawyerEmail:{
+  type:String,
+  required:true
+  }
 });
 
 module.exports = mongoose.model("reviews", reviews);
