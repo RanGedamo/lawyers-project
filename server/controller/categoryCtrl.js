@@ -47,7 +47,7 @@ const getCategoryById = async (req, res) => {
      console.log(err);
   }
   if (!category) {
-    return res.status(404).json( "No category found");
+    return res.status(404).json( {message:"No category found"});
   }
   return res.status(200).json(category);
 };

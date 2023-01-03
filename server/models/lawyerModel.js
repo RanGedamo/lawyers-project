@@ -49,7 +49,27 @@ const lawyer = new Schema({
     type: String,
     required: true,
   },
+  selectedCover: {
+    type: String,
+    required: true,
+  },
   phone: {
+    type: String,
+    required: true,
+  },
+  rate: {
+    type: String,
+    required: true,
+  },
+  expiriance: {
+    type: String,
+    required: true,
+  },
+  avgResplayTime: {
+    type: String,
+    required: true,
+  },
+  workDueTime: {
     type: String,
     required: true,
   },
@@ -59,3 +79,8 @@ const lawyer = new Schema({
 });
 
 module.exports = mongoose.model("lawyer", lawyer);
+// selectedCover
+// rate
+// expiriance
+//avgResplayTime
+// workDueTime
