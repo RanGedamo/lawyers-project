@@ -1,6 +1,5 @@
 const Joi = require("joi");
-const pattern = "/^[a-zA-Z0-9]{3,30}$/";
-const passwordComplexity = require("joi-password-complexity")
+const passwordComplexity = require("joi-password-complexity");
 const userRegisterValidate = (data) => {
   const userRegister = Joi.object({
     firstName: Joi.string().required(),

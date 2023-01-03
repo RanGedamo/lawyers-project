@@ -40,6 +40,12 @@ const registerLawyer = async (req, res) => {
     avgResplayTime,
     workDueTime,
   } = req.body; //13
+
+  const {error} = validate(req.body);
+
+  if(error){
+    return res.status(400).send({message:error.details[0].message})
+  };
   const emailExist = await LawyerModel.findOne({ email });
   if (emailExist) {
     return res.status(400).json({ message: "email already exist" });
@@ -151,16 +157,23 @@ const updateLawyer = async (req, res) => {
     price,
     selectedCover,
     rate,
-    expiriance,
+    experience,
     avgResplayTime,
     workDueTime,
   } = req.body;
   let lawyer;
-
+ 
+  
   const emailExist = await LawyerModel.findOne({ email });
   if (emailExist) {
     return res.status(201).json({ message: "email already exist" });
-  }
+  };
+  const {error} = validate(req.body);
+
+  if(error){
+    return res.status(400).send({message:error.details[0].message})
+  };
+  
   const salt = await bcrypt.genSalt(8);
   const hashedPassword = await bcrypt.hash(password, salt);
   try {
@@ -182,7 +195,7 @@ const updateLawyer = async (req, res) => {
         price,
         selectedCover,
         rate,
-        expiriance,
+        experience,
         avgResplayTime,
         workDueTime,
       }
