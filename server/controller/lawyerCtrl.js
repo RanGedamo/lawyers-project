@@ -33,10 +33,15 @@ const registerLawyer = async (req, res) => {
     phone,
     token,
     price,
+    selectedCover,
+    rate,
+    expiriance,
+    avgResplayTime,
+    workDueTime
   } = req.body; //13
   const emailExist = await LawyerModel.findOne({ email });
   if (emailExist) {
-    return res.status(201).json({ massage: "email already exist" });
+    return res.status(400).json({ message: "email already exist" });
   }
   const salt = await bcrypt.genSalt(8);
   const hashedPassword = await bcrypt.hash(password, salt);
@@ -55,6 +60,11 @@ const registerLawyer = async (req, res) => {
     phone,
     token,
     price,
+    selectedCover,
+    rate,
+    expiriance,
+    avgResplayTime,
+    workDueTime
   });
   try {
     lawyer = await lawyer.save();
@@ -73,20 +83,20 @@ const loginLawyer = async (req, res) => {
 
   const existUser = await LawyerModel.findOne({ email }).populate("category").populate("reviews").select("-_id -password")
   if (!existUser) {
-    return res.status(404).json({ massage: "user not found" });
+    return res.status(404).json({ message: "user not found" });
   }
 
   const comperedPassword = bcrypt.compare(password, existUser.password);
 
   if (!comperedPassword) {
-    return res.status(400).json({ massage: "password invalid" });
+    return res.status(400).json({ message: "password invalid" });
   }
 
   const token = jwt.sign({ email: existUser.email }, process.env.SECRET_TOKEN);
   existUser.token=token
 
 
-  return res.status(200).header("auth-token",token).json({user:existUser, massage: "login successfully",});
+  return res.status(200).header("auth-token",token).json({user:existUser, message: "login successfully",});
 };
 
 const getLawyerByEmail= async (req, res) => {
@@ -99,14 +109,79 @@ const getLawyerByEmail= async (req, res) => {
   }
 
   if (!lawyer) {
-    return res.status(400).json("lawyer not found");
+    return res.status(400).json({ message: "lawyer not found" });
   }
 
   return res.status(200).json(lawyer);
 };
+
+const updateLawyer = async (req, res) => {
+  const {
+    firstName,
+    lastName,
+    location,
+    description,
+    image,
+    title,
+    reviews,
+    category,
+    email,
+    password,
+    token,
+
+    phone,
+    price,
+    selectedCover,
+    rate,
+    expiriance,
+    avgResplayTime,
+    workDueTime
+  } = req.body; 
+  let lawyer;
+
+  const emailExist = await LawyerModel.findOne({ email });
+  if (emailExist) {
+    return res.status(201).json({ message: "email already exist" });
+  }
+  const salt = await bcrypt.genSalt(8);
+  const hashedPassword = await bcrypt.hash(password, salt);
+  try {
+    lawyer = await LawyerModel.findOneAndUpdate({email:req.params.email}, {
+      firstName,
+      lastName,
+      location,
+      description,
+      image,
+      title,
+      reviews,
+      category,
+      email,
+      password:hashedPassword,
+      token,
+      phone,
+      price,
+      selectedCover,
+    rate,
+    expiriance,
+    avgResplayTime,
+    workDueTime
+    });
+  } catch (error) {
+    console.log(error);
+  }
+  if (!lawyer) {
+    return res.status(400).json({ message: "error in updating lawyers" });
+  }
+
+  return res.status(200).json(lawyer);
+};
+
+
+
 module.exports = {
   getLawyers,
   registerLawyer,
   loginLawyer,
   getLawyerByEmail,
+  updateLawyer
 };
