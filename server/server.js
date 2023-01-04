@@ -11,11 +11,15 @@ app.use(cors());
 const lawyerRouter=require("./routes/lawyeRouter")
 const categoryRouter=require("./routes/categoryRouter")
 const reviewRouter=require("./routes/reviewRouter")
+const userRouter=require("./routes/userRouter")
+
 
 
 app.use("/lawyer",lawyerRouter)
 app.use("/category",categoryRouter)
 app.use("/review",reviewRouter)
+app.use("/user",userRouter)
+
 
 
 app.get('/', (req, res) => {
