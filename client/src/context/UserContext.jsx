@@ -15,8 +15,8 @@ export const AuthContextProvider = ({ children }) => {
 
   const googleSignIn = () => {
     const googleProvider = new GoogleAuthProvider();
-    // signInWithPopup(auth, googleProvider);
-    signInWithRedirect(auth, googleProvider)
+    signInWithPopup(auth, googleProvider);
+    // signInWithRedirect(auth, googleProvider)
   };
   const facebookSignIn = () => {
     const facebookProvider = new FacebookAuthProvider();
@@ -31,7 +31,7 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      console.log( currentUser)
+      // console.log( currentUser)
     });
 
     return () => {
