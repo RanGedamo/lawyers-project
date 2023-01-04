@@ -5,7 +5,6 @@ const PopupContext = createContext()
 
 export const PopupProvider = ({ children }) => {
    const [popChat, setPopChat] = useState(Chat)
- 
    
    return (
      <PopupContext.Provider popChat={{ popChat}}>
