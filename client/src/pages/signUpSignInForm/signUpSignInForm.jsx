@@ -7,7 +7,7 @@ import {
   MDBCol,
   MDBCardImage,
 } from "mdb-react-ui-kit";
-import SignInSignUpTab from "../../features/SignInSignUpTab/SignInSignUpTab";
+import SignInSignUpTab from "../../component/SignInSignUpTab/SignInSignUpTab";
 
 const SignUpSignInForm = () => {
   return (
