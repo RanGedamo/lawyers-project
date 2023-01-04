@@ -1,12 +1,11 @@
 const router=require("express").Router();
-const {getUsers,registerUser}=require("../controller/userCtrl")
+const {getUsers,registerUser,loginUser,getUserByEmail,updateUser}=require("../controller/userCtrl")
 
 router.get("/",getUsers)
-// router.get("/:email",getLawyerByEmail)
-
+router.get("/:email",getUserByEmail)
 router.post("/register",registerUser)
-// router.post("/login",loginLawyer)
-// router.put("/:email",updateLawyer)
+router.post("/login",loginUser)
+router.put("/:email",updateUser)
 
 
 

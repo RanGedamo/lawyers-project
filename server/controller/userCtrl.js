@@ -18,7 +18,7 @@ const getUsers = async (req, res) => {
 };
 
 const registerUser = async (req, res) => {
-  const { token,firstName, lastName, image, email, password } = req.body; //13
+  const { token, firstName, lastName, image, email, password } = req.body; //13
   const emailExistInLayerModel = await LawyerModel.findOne({ email });
   const emailExistInUserModel = await UsersModel.findOne({ email });
   if (emailExistInLayerModel || emailExistInUserModel) {
@@ -30,10 +30,10 @@ const registerUser = async (req, res) => {
   let user = new UsersModel({
     firstName,
     lastName,
-    image,
+    image: "",
     email,
     password: hashedPassword,
-    token
+    token: "",
   });
   try {
     user = await user.save();
@@ -48,7 +48,79 @@ const registerUser = async (req, res) => {
   return res.status(200).json(user);
 };
 
+const loginUser = async (req, res) => {
+  const { email, password } = req.body;
+
+  const existUser = await UsersModel.findOne({ email }).select("-_id ");
+  if (!existUser) {
+    return res.status(404).json({ message: "user not found" });
+  }
+
+  const comperedPassword = bcrypt.compareSync(password, existUser.password);
+
+  if (!comperedPassword) {
+    return res.status(400).json({ message: "password invalid" });
+  }
+
+  const token = jwt.sign({ email: existUser.email }, process.env.SECRET_TOKEN);
+  existUser.token = token;
+
+  return res
+    .status(200)
+    .header("auth-token", token)
+    .json({ user: existUser, message: "login successfully" });
+};
+
+const getUserByEmail = async (req, res) => {
+  let user;
+  let email = req.params.email;
+  try {
+    user = await UsersModel.findOne({ email }).select("-_id -password");
+  } catch (error) {
+    console.log(error);
+  }
+
+  if (!user) {
+    return res.status(400).json({ message: "user not found" });
+  }
+
+  return res.status(200).json(user);
+};
+const updateUser = async (req, res) => {
+  const {firstName, lastName, image, email, password } = req.body;
+  let user;
+
+  const emailExist = await UsersModel.findOne({ email });
+  if (emailExist) {
+    return res.status(201).json({ message: "email already exist" });
+  }
+  const salt = await bcrypt.genSalt(8);
+  const hashedPassword = await bcrypt.hash(password, salt);
+  try {
+    user = await UsersModel.findOneAndUpdate(
+      { email: req.params.email },
+      {
+        firstName,
+        lastName,
+        image,
+        email,
+        password:hashedPassword,
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+  if (!user) {
+    return res.status(400).json({ message: "error in updating user" });
+  }
+
+  return res.status(200).json(user);
+};
+
 module.exports = {
   getUsers,
-  registerUser
+  registerUser,
+  loginUser,
+  getUserByEmail,
+  updateUser
 };

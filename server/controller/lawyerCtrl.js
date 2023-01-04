@@ -81,12 +81,12 @@ const registerLawyer = async (req, res) => {
 const loginLawyer = async (req, res) => {
   const { email, password } = req.body;
 
-  const existUser = await LawyerModel.findOne({ email }).populate("category").populate("reviews").select("-_id -password")
+  const existUser = await LawyerModel.findOne({ email }).populate("category").populate("reviews").select("-_id ")
   if (!existUser) {
     return res.status(404).json({ message: "user not found" });
   }
 
-  const comperedPassword = bcrypt.compare(password, existUser.password);
+  const comperedPassword = bcrypt.compareSync(password, existUser.password);
 
   if (!comperedPassword) {
     return res.status(400).json({ message: "password invalid" });
