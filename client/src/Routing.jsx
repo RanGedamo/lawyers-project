@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import Home from "./pages/Home/Home"
-import SignIn from "./pages/SignIn"
+import SignUpSignInForm from "./pages/signUpSignInForm"
 
 
 
@@ -10,7 +10,7 @@ const Routing = ()=>{
         <div className="routing main">
         <Routes>
             <Route path="/" element={<Home/>}/>
-            <Route path="SignIn" element={<SignIn/>}/>
+            <Route path="SignIn" element={<signUpSignInForm/>}/>
         </Routes>
         </div>
     )

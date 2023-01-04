@@ -1,53 +1,70 @@
-import React, { useEffect } from 'react';
-import { GoogleButton } from 'react-google-button';
-import { UserAuth } from '../../context/UserContext';
-import {FacebookLoginButton,GoogleLoginButton} from 'react-social-login-buttons';
+import React from "react";
+import { MDBCardBody, MDBIcon, MDBInput, MDBBtn, MDBContainer } from "mdb-react-ui-kit";
+import { UserAuth } from "../../context/UserContext";
+import { FacebookLoginButton,GoogleLoginButton  } from "react-social-login-buttons";
+import { useState } from "react";
+import { Alert } from '@mui/material';
 
-// import { useNavigate } from 'react-router-dom';
-
-const SignIn = () => {
-  const { googleSignIn,facebookSignIn, user } = UserAuth();
-  // const navigate = useNavigate();
-
-  const handleGoogleSignIn = async () => {
-
+export default function SignIn() {
+  const { googleSignIn, facebookSignIn } = UserAuth();
+  const [error,setError] = useState("")
+  const handleGoogleSignIn = async (event) => {
+    event.preventDefault()
     try {
       await googleSignIn();
-      
     } catch (error) {
-      console.log(error);
+      console.log(error.message)
     }
   };
+  const signInWithFacebook = async (event) => {
+    event.preventDefault()
+    try {
+      await facebookSignIn()
+    } catch (error) {
+      console.log(error.message);
 
-  // useEffect(() => {
-  //   if (user != null) {
-  //     navigate('/account');
-  //   }
-  // }, [user]);
-
-
-
-  const signInWithFacebook = async () => {
-      try {
-      return  await facebookSignIn();
-        
-      } catch (error) {
-        console.log(error);
-      }
-    };
-  
+    }
+  };
   return (
-    
-    <div className='  signIn'>
-      <h1 className='text-center text-3xl font-bold py-8'>Sign in</h1>
-      <div className='max-w-[240px] m-auto py-4 d-flex justify-content-center'>
-        <GoogleLoginButton style={{width:"250px"}} onClick={handleGoogleSignIn} />
-      </div>
-      <div className='max-w-[240px] m-auto py-4 d-flex justify-content-center'>
-        <FacebookLoginButton style={{width:"250px"}} onClick={signInWithFacebook} />
-      
-      </div>
-    </div>
+    <>
+      <MDBCardBody className="d-flex flex-column">
+        <div className="d-flex flex-row mt-2">
+          <MDBIcon fas icon="cubes fa-3x me-3" style={{ color: "black" }} />
+          <span className="h1 fw-bold mb-0">Lawyer & Order</span>
+        </div>
+        <h5 className="fw-normal my-4 pb-3" style={{ letterSpacing: "1px" }}>
+          Sign into your account
+        </h5>
+        {error && <Alert severity="error">{error}</Alert>}        <MDBInput
+          wrapperClass="mb-4"
+          label="Email address"
+          id="formControlLgEmail"
+          type="email"
+          size="lg"
+        />
+        <MDBInput
+          wrapperClass="mb-4"
+          label="Password"
+          id="formControlLgPassword"
+          type="password"
+          size="lg"
+        />
+        <MDBBtn className="mb-3 px-5"  size="lg">
+          Login
+        </MDBBtn>
+        <GoogleLoginButton onClick={handleGoogleSignIn} />
+        <FacebookLoginButton className="mt-3"
+          onClick={signInWithFacebook}
+        />
+        <div className="d-flex justify-content-center text-center align-items-center mt-5">
+          <p href="#!" className="small text-muted me-1">
+            Terms of use.
+          </p>
+          <p href="#!" className="small text-muted">
+            Privacy policy
+          </p>
+        </div>
+      </MDBCardBody>
+    </>
   );
-};
-export default SignIn;
+}
