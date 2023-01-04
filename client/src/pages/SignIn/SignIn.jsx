@@ -3,7 +3,7 @@ import { GoogleButton } from 'react-google-button';
 import { UserAuth } from '../../context/UserContext';
 // import { useNavigate } from 'react-router-dom';
 
-const SignIn = () => {
+function SignIn(){
   const { googleSignIn, user } = UserAuth();
   // const navigate = useNavigate();
 
@@ -24,6 +24,7 @@ const SignIn = () => {
   // }, [user]);
 
   return (
+    
     <div className='  signIn'>
       <h1 className='text-center text-3xl font-bold py-8'>Sign in</h1>
       <div className='max-w-[240px] m-auto py-4 d-flex justify-content-center'>
