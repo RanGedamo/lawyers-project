@@ -1,25 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import MuiProfileCard from './components/cards/TopLawyerCard';
+import HomeLawyerCard from './components/cards/HomeLawyerCard';
+import AccessibilityButton from './components/accessibilityButton/AccessibilityButton';
+import Category from './components/cards/Category';
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn css
-        </a>
-      </header>
+      <AccessibilityButton style={{ position: "sticky", bottom: "0", }}/>
+      <Category/>
+      <MuiProfileCard/>
+      <HomeLawyerCard/>
     </div>
   );
-}
-
-export default App;
+};
