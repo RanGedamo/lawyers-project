@@ -11,16 +11,16 @@ import {auth} from '../firebase/firebase.js';
 const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState("");
 
   const googleSignIn = () => {
     const googleProvider = new GoogleAuthProvider();
-    // signInWithPopup(auth, googleProvider);
-    signInWithRedirect(auth, googleProvider)
+   return signInWithPopup(auth, googleProvider);
+    // return signInWithRedirect(auth, googleProvider)
   };
   const facebookSignIn = () => {
     const facebookProvider = new FacebookAuthProvider();
-    signInWithPopup(auth, facebookProvider);
+    return signInWithPopup(auth, facebookProvider);
     // signInWithRedirect(auth, facebookProvider)
   };
 

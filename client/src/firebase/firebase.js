@@ -3,14 +3,16 @@ import { initializeApp } from "firebase/app";
 import { getAuth  } from "firebase/auth";
 
 
+const firebaseApi =  process.env.REACT_APP_HOT_APR_KEY
+
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: "lawyersproject-b2142.firebaseapp.com",
-  projectId: "lawyersproject-b2142",
-  storageBucket: "lawyersproject-b2142.appspot.com",
-  messagingSenderId: "686274577363",
-  appId: "1:686274577363:web:69f2ff9029711197136526",
-  measurementId: "G-RS5DLNFP7C"
+  apiKey: firebaseApi,
+  authDomain: "my-store-fd987.firebaseapp.com",
+  projectId: "my-store-fd987",
+  storageBucket: "my-store-fd987.appspot.com",
+  messagingSenderId: "1083504488537",
+  appId: "1:1083504488537:web:8044ebde8fb5713cb74148",
+  measurementId: "G-R3J93HWPMQ"
 };
 
 
