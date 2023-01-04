@@ -1,9 +1,9 @@
 import React, { createContext, useState, useContext } from 'react'
-import Chat from '../component/features/chat/Chat'
+import Chat from '../component/chat/Chat'
 
 const PopupContext = createContext()
 
-export const PopupProvider = ({ children }) => {
+export const ChatProvider = ({ children }) => {
    const [popChat, setPopChat] = useState(Chat)
    
    return (
