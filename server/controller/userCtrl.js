@@ -1,5 +1,7 @@
 const UsersModel = require("../models/usersModel");
 const LawyerModel = require("../models/lawyerModel");
+const {userRegisterValidate} = require('../validation/userRegisterValidation');
+const {userLoginValidate} = require('../validation/userLogin');
 
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -21,6 +23,11 @@ const registerUser = async (req, res) => {
   const { token, firstName, lastName, image, email, password } = req.body; //13
   const emailExistInLayerModel = await LawyerModel.findOne({ email });
   const emailExistInUserModel = await UsersModel.findOne({ email });
+  const {error} = userRegisterValidate(req.body);
+
+  if(error){
+    return res.status(400).send({message: error.details[0].message})
+  }
   if (emailExistInLayerModel || emailExistInUserModel) {
     return res.status(400).json({ message: "email already exist" });
   }
@@ -50,12 +57,16 @@ const registerUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
-
+  
+  const {error} = userLoginValidate(req.body);
+  if(error){
+    return res.status(400).send({message:error.details[0].message})
+  }
   const existUser = await UsersModel.findOne({ email }).select("-_id ");
   if (!existUser) {
     return res.status(404).json({ message: "user not found" });
   }
-
+ 
   const comperedPassword = bcrypt.compareSync(password, existUser.password);
 
   if (!comperedPassword) {
