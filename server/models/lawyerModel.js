@@ -61,7 +61,7 @@ const lawyer = new Schema({
     type: String,
     required: true,
   },
-  expiriance: {
+  experience: {
     type: String,
     required: true,
   },
