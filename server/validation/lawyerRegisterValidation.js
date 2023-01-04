@@ -1,4 +1,5 @@
 const Joi = require("joi");
+const passwordComplexity = require("joi-password-complexity");
 const validate = (data) => {
   const lawyerRegisterSchema = Joi.object({
     firstName: Joi.string().required(),
@@ -11,7 +12,7 @@ const validate = (data) => {
     image: Joi.string().required(),
     price: Joi.string().required(),
     email: Joi.string().email().required(),
-    password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).required(),
+    password: passwordComplexity().required(),
     selectedCover: Joi.string().required(),
     phone: Joi.string().required(),
     rate: Joi.string().required(),
