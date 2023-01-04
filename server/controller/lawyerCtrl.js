@@ -1,7 +1,8 @@
 const LawyerModel = require("../models/lawyerModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const { validate } = require("../validation/index");
+const { validate } = require("../validation/lawyerRegisterValidation");
+const {validationLogin} = require('../validation/lawyerLoginValidation');
 
 const getLawyers = async (req, res) => {
   const lawyer = await LawyerModel.find()
@@ -84,12 +85,17 @@ const registerLawyer = async (req, res) => {
   return res.status(200).json(lawyer);
 };
 const loginLawyer = async (req, res) => {
+  const {error} = validationLogin(req.body);
+   
+  if(error){
+    return res.status(400).send({message:error.details[0].message})
+  }
   const { email, password } = req.body;
 
   const existUser = await LawyerModel.findOne({ email })
     .populate("category")
     .populate("reviews")
-    .select("-_id -password");
+    .select("-_id ");
   if (!existUser) {
     return res.status(404).json({ message: "user not found" });
   }
