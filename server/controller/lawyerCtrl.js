@@ -144,22 +144,21 @@ const updateLawyer = async (req, res) => {
     title,
     reviews,
     category,
-    email,
     password,
     token,
     phone,
     price,
     selectedCover,
     rate,
-    expiriance,
+    experience,
     avgResplayTime,
     workDueTime,
   } = req.body;
   let lawyer;
 
-  const emailExist = await LawyerModel.findOne({ email });
-  if (emailExist) {
-    return res.status(201).json({ message: "email already exist" });
+  const layerExist = await LawyerModel.findOne({ email:req.params.email })
+  if (!layerExist) {
+    return res.status(201).json({ message: "lawyer not exist" });
   }
   const salt = await bcrypt.genSalt(8);
   const hashedPassword = await bcrypt.hash(password, salt);
@@ -175,14 +174,13 @@ const updateLawyer = async (req, res) => {
         title,
         reviews,
         category,
-        email,
         password: hashedPassword,
         token,
         phone,
         price,
         selectedCover,
         rate,
-        expiriance,
+        experience,
         avgResplayTime,
         workDueTime,
       }

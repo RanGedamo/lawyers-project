@@ -98,12 +98,12 @@ const getUserByEmail = async (req, res) => {
   return res.status(200).json(user);
 };
 const updateUser = async (req, res) => {
-  const {firstName, lastName, image, email, password } = req.body;
+  const {firstName, lastName, image, password } = req.body;
   let user;
 
-  const emailExist = await UsersModel.findOne({ email });
-  if (emailExist) {
-    return res.status(201).json({ message: "email already exist" });
+  const userExist =await UsersModel.findOne({ email:req.params.email })
+  if (!userExist) {
+    return res.status(201).json({ message: "user not exist" });
   }
   const salt = await bcrypt.genSalt(8);
   const hashedPassword = await bcrypt.hash(password, salt);
@@ -114,7 +114,6 @@ const updateUser = async (req, res) => {
         firstName,
         lastName,
         image,
-        email,
         password:hashedPassword,
       }
     );
