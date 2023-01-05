@@ -1,7 +1,7 @@
 const LawyerModel = require("../models/lawyerModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const { validate } = require("../validation/lawyerRegisterValidation");
+const { validateLawyer , validateUpdateLawyer } = require("../validation/lawyerRegisterValidation");
 const {validationLogin} = require('../validation/lawyerLoginValidation');
 const mongoose=require("mongoose");
 const lawyerModel = require("../models/lawyerModel");
@@ -70,7 +70,7 @@ const registerLawyer = async (req, res) => {
     available
   });
   try {
-    const { error } = validate(req.body);
+    const { error } = validateLawyer(req.body);
 
     if (error) {
       return res.status(400).send({ message: error.details[0].message });
@@ -165,6 +165,11 @@ const updateLawyer = async (req, res) => {
   const hashedPassword = await bcrypt.hash(password, salt);
   
   try {
+    const {error} = validateUpdateLawyer(req.body);
+   
+    if(error){
+      return res.status(400).send({message:error.details[0].message})
+    }
     lawyer = await LawyerModel.findOneAndUpdate(
       { email: req.params.email },
       {

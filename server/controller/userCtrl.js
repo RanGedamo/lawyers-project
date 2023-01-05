@@ -1,6 +1,6 @@
 const UsersModel = require("../models/usersModel");
 const LawyerModel = require("../models/lawyerModel");
-const {userRegisterValidate} = require("../validation/userRegisterValidation");
+const {userRegisterValidate,userUpdateValidate} = require("../validation/userRegisterValidation");
 const { userLoginValidate } = require("../validation/userLogin");
 
 const bcrypt = require("bcryptjs");
@@ -106,6 +106,10 @@ const updateUser = async (req, res) => {
   const salt = await bcrypt.genSalt(8);
   const hashedPassword = await bcrypt.hash(password, salt);
   try {
+    const {error} = userUpdateValidate(req.body);
+    if(error){
+      return res.status(400).send({message:error.details[0].message})
+    }
     user = await UsersModel.findOneAndUpdate(
       { email: req.params.email },
       {
