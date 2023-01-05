@@ -7,8 +7,17 @@ const userRegisterValidate = (data) => {
     image: Joi.string(),
     email: Joi.string().email().required(),
     password: passwordComplexity().required(),
-    token: Joi.string(),
   });
   return userRegister.validate(data);
 };
- module.exports = {userRegisterValidate}
+
+const userUpdateValidate = (data) => {
+  const userRegister = Joi.object({
+    firstName: Joi.string().required(),
+    lastName: Joi.string().required(),
+    image: Joi.string(),
+    password: passwordComplexity().required(),
+  });
+  return userRegister.validate(data);
+};
+ module.exports = {userRegisterValidate,userUpdateValidate}
