@@ -20,7 +20,7 @@ const getUsers = async (req, res) => {
 };
 
 const registerUser = async (req, res) => {
-  const { token, firstName, lastName, image, email, password } = req.body; //13
+  const { firstName, lastName,image, email, password } = req.body; //13
   const emailExistInLayerModel = await LawyerModel.findOne({ email });
   const emailExistInUserModel = await UsersModel.findOne({ email });
   const {error} = userRegisterValidate(req.body);
@@ -40,7 +40,6 @@ const registerUser = async (req, res) => {
     image: "",
     email,
     password: hashedPassword,
-    token: "",
   });
   try {
     user = await user.save();
@@ -74,7 +73,6 @@ const loginUser = async (req, res) => {
   }
 
   const token = jwt.sign({ email: existUser.email }, process.env.SECRET_TOKEN);
-  existUser.token = token;
 
   return res
     .status(200)

@@ -10,6 +10,9 @@ const reviews = new Schema({
   image: {
     type: String,
   },
+  name: {
+    type: String,
+  },
   comments: {
     type: String,
     required:true,
@@ -18,6 +21,8 @@ const reviews = new Schema({
   type:String,
   required:true
   }
-});
+},{
+  timestamps:true
+  });
 
 module.exports = mongoose.model("reviews", reviews);

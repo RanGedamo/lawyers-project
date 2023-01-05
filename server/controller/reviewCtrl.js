@@ -18,7 +18,7 @@ const getReview = async (req, res) => {
 
 const createReview = async (req, res) => {
 let email=req.params.email
-let {image,userEmail,comments}=req.body
+let {name,image,userEmail,comments}=req.body
 let lawyerExist;
 
   try {
@@ -35,6 +35,7 @@ let lawyerExist;
         userEmail,
         comments,
         image,
+        name,
         lawyerEmail:req.params.email
     });
     const session = await mongoose.startSession();

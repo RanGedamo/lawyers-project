@@ -57,14 +57,13 @@ const lawyer = new Schema({
     required: true,
   },
   rate: {
-    type: String,
-    required: true,
+    type: Number,
   },
   experience: {
     type: String,
     required: true,
   },
-  avgResplayTime: {
+  avgReplayTime: {
     type: String,
     required: true,
   },
@@ -72,14 +71,10 @@ const lawyer = new Schema({
     type: String,
     required: true,
   },
-  token: {
-    type: String,
-  },
+
+},{
+timestamps:true
 });
 
 module.exports = mongoose.model("lawyer", lawyer);
-// selectedCover
-// rate
-// expiriance
-//avgResplayTime
-// workDueTime
+

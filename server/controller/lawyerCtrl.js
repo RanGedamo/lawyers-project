@@ -3,6 +3,8 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { validate } = require("../validation/lawyerRegisterValidation");
 const {validationLogin} = require('../validation/lawyerLoginValidation');
+const mongoose=require("mongoose");
+const lawyerModel = require("../models/lawyerModel");
 
 const getLawyers = async (req, res) => {
   const lawyer = await LawyerModel.find()
@@ -32,14 +34,13 @@ const registerLawyer = async (req, res) => {
     email,
     password,
     phone,
-    token,
     price,
     selectedCover,
     rate,
     experience,
-    avgResplayTime,
+    avgReplayTime,
     workDueTime,
-  } = req.body; //13
+  } = req.body; //18
   const emailExist = await LawyerModel.findOne({ email });
   if (emailExist) {
     return res.status(400).json({ message: "email already exist" });
@@ -59,12 +60,11 @@ const registerLawyer = async (req, res) => {
     email,
     password: hashedPassword,
     phone,
-    token,
     price,
     selectedCover,
     rate,
     experience,
-    avgResplayTime,
+    avgReplayTime,
     workDueTime,
   });
   try {
@@ -107,7 +107,6 @@ const loginLawyer = async (req, res) => {
   }
 
   const token = jwt.sign({ email: existUser.email }, process.env.SECRET_TOKEN);
-  existUser.token = token;
 
   return res
     .status(200)
@@ -145,13 +144,12 @@ const updateLawyer = async (req, res) => {
     reviews,
     category,
     password,
-    token,
     phone,
     price,
     selectedCover,
     rate,
     experience,
-    avgResplayTime,
+    avgReplayTime,
     workDueTime,
   } = req.body;
   let lawyer;
@@ -175,13 +173,13 @@ const updateLawyer = async (req, res) => {
         reviews,
         category,
         password: hashedPassword,
-        token,
         phone,
         price,
         selectedCover,
         rate,
         experience,
-        avgResplayTime,
+        avgReplayTime,
+        avgReplayTime,
         workDueTime,
       }
     );
@@ -194,6 +192,23 @@ const updateLawyer = async (req, res) => {
 
   return res.status(200).json(lawyer);
 };
+const deleteLawyer = async (req, res) => {
+  const email = req.params.email;
+
+  let lawyer;
+
+  try {
+    lawyer=await lawyerModel.findOneAndRemove({email})
+
+  } catch (err) {
+    return console.log(err);
+  }
+  if (!lawyer) {
+    return res.status(500).json({ message: "Unable to delete" });
+  }
+
+  return res.status(200).json({ message: "Deleted Successfully" });
+};
 
 module.exports = {
   getLawyers,
@@ -201,4 +216,5 @@ module.exports = {
   loginLawyer,
   getLawyerByEmail,
   updateLawyer,
+  deleteLawyer
 };
