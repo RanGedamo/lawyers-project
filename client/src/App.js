@@ -4,10 +4,7 @@ import Footer from './component/Footer/Footer'
 import Header from './component/Header/Header';
 import Routing from './Routing';
 
-
-
-function App() {
-console.log(process.env.REACT_APP_HOT_APR_KEY);
+export default function App() {
   
   return (
     <div className="App">
@@ -18,8 +15,4 @@ console.log(process.env.REACT_APP_HOT_APR_KEY);
       </BrowserRouter>
     </div>
   );
-}
-
-export default App;
-
-
+};
