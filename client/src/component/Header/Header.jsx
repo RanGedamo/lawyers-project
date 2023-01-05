@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { UserAuth } from "../../context/UserContext";
+import Chat from "../chat/Chat";
 
 const Header = () => {
   const { user, logOut } = UserAuth();
@@ -14,6 +15,7 @@ const Header = () => {
   };
 
   return (
+    <div className="">
     <nav className="navbar navbar-light bg-light">
       <div className="container">
         <a className="navbar-brand" href="#">
@@ -31,6 +33,10 @@ const Header = () => {
         )}
       </div>
     </nav>
+      <div className="chat d-flex justify-content-end col-12" style={{position:"absolute",zIndex:"5"}}>
+                <Chat />
+            </div>
+            </div>
   );
 };
 
