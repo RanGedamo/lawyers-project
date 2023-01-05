@@ -32,14 +32,14 @@ const registerLawyer = async (req, res) => {
     email,
     password,
     phone,
-    token,
     price,
     selectedCover,
     rate,
     experience,
-    avgResplayTime,
+    avgReplayTime,
     workDueTime,
-  } = req.body; //13
+    available
+  } = req.body; //19
 
   const {error} = validate(req.body);
 
@@ -65,13 +65,13 @@ const registerLawyer = async (req, res) => {
     email,
     password: hashedPassword,
     phone,
-    token,
     price,
     selectedCover,
     rate,
     experience,
-    avgResplayTime,
+    avgReplayTime,
     workDueTime,
+    available
   });
   try {
     const { error } = validate(req.body);
@@ -151,14 +151,14 @@ const updateLawyer = async (req, res) => {
     reviews,
     category,
     password,
-    token,
     phone,
     price,
     selectedCover,
     rate,
     experience,
-    avgResplayTime,
+    avgReplayTime,
     workDueTime,
+    available
   } = req.body;
   let lawyer;
 
@@ -188,14 +188,14 @@ const updateLawyer = async (req, res) => {
         reviews,
         category,
         password: hashedPassword,
-        token,
         phone,
         price,
         selectedCover,
         rate,
         experience,
-        avgResplayTime,
+        avgReplayTime,
         workDueTime,
+        available
       }
     );
   } catch (error) {

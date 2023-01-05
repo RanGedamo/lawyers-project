@@ -15,11 +15,11 @@ const validate = (data) => {
     password: passwordComplexity().required(),
     selectedCover: Joi.string().required(),
     phone: Joi.string().required(),
-    rate: Joi.string().required(),
+    rate: Joi.number().required(),
     experience: Joi.string().required(),
-    avgResplayTime: Joi.string().required(),
+    avgReplayTime: Joi.string().required(),
     workDueTime: Joi.string().required(),
-    token: Joi.string(),
+    available: Joi.boolean().required()
   });
   return lawyerRegisterSchema.validate(data);
 };

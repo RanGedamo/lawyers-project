@@ -1,3 +1,4 @@
+const { boolean } = require("joi");
 const mongoose = require("mongoose");
 
 const Schema = require("mongoose").Schema;
@@ -23,15 +24,19 @@ const lawyer = new Schema({
     type: String,
     required: true,
   },
-  category:[ {
-    type: mongoose.Types.ObjectId,
-    ref:"category",
-    required: true,
-  }],
-  reviews: [{
-    type: mongoose.Types.ObjectId,
-    ref:"reviews",
-  }],
+  category: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "category",
+      required: true,
+    },
+  ],
+  reviews: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "reviews",
+    },
+  ],
   image: {
     type: String,
     required: true,
@@ -57,14 +62,13 @@ const lawyer = new Schema({
     required: true,
   },
   rate: {
-    type: String,
-    required: true,
+    type: Number,
   },
   experience: {
     type: String,
     required: true,
   },
-  avgResplayTime: {
+  avgReplayTime: {
     type: String,
     required: true,
   },
@@ -72,9 +76,7 @@ const lawyer = new Schema({
     type: String,
     required: true,
   },
-  token: {
-    type: String,
-  },
+  available: { type: Boolean },
 });
 
 module.exports = mongoose.model("lawyer", lawyer);
