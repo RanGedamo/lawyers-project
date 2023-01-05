@@ -163,6 +163,7 @@ const updateLawyer = async (req, res) => {
   let lawyer;
 
   const emailExist = await LawyerModel.findOne({ email });
+  
   if (emailExist) {
     return res.status(201).json({ message: "email already exist" });
   };
