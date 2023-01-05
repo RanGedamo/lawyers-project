@@ -7,7 +7,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const getUsers = async (req, res) => {
-  const users = await UsersModel.find();
+  const users = await UsersModel.find().select("-_id -password");
   if (!users) {
     return res.status(400).json({ message: "users not found" });
   }

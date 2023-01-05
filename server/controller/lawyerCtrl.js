@@ -7,7 +7,7 @@ const {validationLogin} = require('../validation/lawyerLoginValidation');
 const getLawyers = async (req, res) => {
   const lawyer = await LawyerModel.find()
     .populate("category")
-    .populate("reviews");
+    .populate("reviews").select("-_id -password");
   if (!lawyer) {
     return res.status(400).json({ message: "layers not found" });
   }
