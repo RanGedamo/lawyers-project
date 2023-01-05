@@ -8,7 +8,7 @@ const validate = (data) => {
     location: Joi.string().required(),
     description: Joi.string().required(),
     category: Joi.string().required(),
-    reviews: Joi.string().required(),
+    reviews: Joi.string(),
     image: Joi.string().required(),
     price: Joi.string().required(),
     email: Joi.string().email().required(),

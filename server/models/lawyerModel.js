@@ -31,7 +31,6 @@ const lawyer = new Schema({
   reviews: [{
     type: mongoose.Types.ObjectId,
     ref:"reviews",
-    required: true,
   }],
   image: {
     type: String,
