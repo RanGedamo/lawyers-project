@@ -3,6 +3,8 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { validate } = require("../validation/lawyerRegisterValidation");
 const {validationLogin} = require('../validation/lawyerLoginValidation');
+const mongoose=require("mongoose");
+const lawyerModel = require("../models/lawyerModel");
 
 const getLawyers = async (req, res) => {
   const lawyer = await LawyerModel.find()
@@ -38,14 +40,7 @@ const registerLawyer = async (req, res) => {
     experience,
     avgReplayTime,
     workDueTime,
-    available
-  } = req.body; //19
-
-  const {error} = validate(req.body);
-
-  if(error){
-    return res.status(400).send({message:error.details[0].message})
-  };
+  } = req.body; //18
   const emailExist = await LawyerModel.findOne({ email });
   if (emailExist) {
     return res.status(400).json({ message: "email already exist" });
@@ -113,7 +108,6 @@ const loginLawyer = async (req, res) => {
   }
 
   const token = jwt.sign({ email: existUser.email }, process.env.SECRET_TOKEN);
-  existUser.token = token;
 
   return res
     .status(200)
@@ -162,17 +156,10 @@ const updateLawyer = async (req, res) => {
   } = req.body;
   let lawyer;
 
-  const emailExist = await LawyerModel.findOne({ email });
-  
-  if (emailExist) {
-    return res.status(201).json({ message: "email already exist" });
-  };
-  const {error} = validate(req.body);
-
-  if(error){
-    return res.status(400).send({message:error.details[0].message})
-  };
-
+  const layerExist = await LawyerModel.findOne({ email:req.params.email })
+  if (!layerExist) {
+    return res.status(201).json({ message: "lawyer not exist" });
+  }
   const salt = await bcrypt.genSalt(8);
   const hashedPassword = await bcrypt.hash(password, salt);
   try {
@@ -194,6 +181,7 @@ const updateLawyer = async (req, res) => {
         rate,
         experience,
         avgReplayTime,
+        avgReplayTime,
         workDueTime,
         available
       }
@@ -207,6 +195,23 @@ const updateLawyer = async (req, res) => {
 
   return res.status(200).json(lawyer);
 };
+const deleteLawyer = async (req, res) => {
+  const email = req.params.email;
+
+  let lawyer;
+
+  try {
+    lawyer=await lawyerModel.findOneAndRemove({email})
+
+  } catch (err) {
+    return console.log(err);
+  }
+  if (!lawyer) {
+    return res.status(500).json({ message: "Unable to delete" });
+  }
+
+  return res.status(200).json({ message: "Deleted Successfully" });
+};
 
 module.exports = {
   getLawyers,
@@ -214,4 +219,5 @@ module.exports = {
   loginLawyer,
   getLawyerByEmail,
   updateLawyer,
+  deleteLawyer
 };

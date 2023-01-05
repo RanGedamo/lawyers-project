@@ -8,17 +8,12 @@ app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-const lawyerRouter=require("./routes/lawyeRouter")
-const categoryRouter=require("./routes/categoryRouter")
-const reviewRouter=require("./routes/reviewRouter")
-const userRouter=require("./routes/userRouter")
 
 
-
-app.use("/lawyer",lawyerRouter)
-app.use("/category",categoryRouter)
-app.use("/review",reviewRouter)
-app.use("/user",userRouter)
+app.use("/lawyer",require("./routes/lawyerRouter"))
+app.use("/category",require("./routes/categoryRouter"))
+app.use("/review",require("./routes/reviewRouter"))
+app.use("/user",require("./routes/userRouter")) 
 
 
 
@@ -31,15 +26,5 @@ app.listen(process.env.PORT, () => {
 })
 
 
-/* ----------------------------------------------------- */
-
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/build')));
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
-  });
-};
-
-/* ----------------------------------------------------- */
 
 

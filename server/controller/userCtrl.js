@@ -20,7 +20,7 @@ const getUsers = async (req, res) => {
 };
 
 const registerUser = async (req, res) => {
-  const { token, firstName, lastName, image, email, password } = req.body; //13
+  const { firstName, lastName,image, email, password } = req.body; //13
   const emailExistInLayerModel = await LawyerModel.findOne({ email });
   const emailExistInUserModel = await UsersModel.findOne({ email });
 
@@ -36,7 +36,6 @@ const registerUser = async (req, res) => {
     image: "",
     email,
     password: hashedPassword,
-    token: "",
   });
   try {
     const { error } = userRegisterValidate(req.body);
@@ -74,7 +73,6 @@ const loginUser = async (req, res) => {
   }
 
   const token = jwt.sign({ email: existUser.email }, process.env.SECRET_TOKEN);
-  existUser.token = token;
 
   return res
     .status(200)
@@ -98,16 +96,12 @@ const getUserByEmail = async (req, res) => {
   return res.status(200).json(user);
 };
 const updateUser = async (req, res) => {
-
-  const { firstName, lastName, image, email, password } = req.body;
+  const {firstName, lastName, image, password } = req.body;
   let user;
-  const { error } = userRegisterValidate(req.body);
-  if (error) {
-    return res.status(400).send({ message: error.details[0].message });
-  }
-  const emailExist = await UsersModel.findOne({ email });
-  if (emailExist) {
-    return res.status(201).json({ message: "email already exist" });
+
+  const userExist =await UsersModel.findOne({ email:req.params.email })
+  if (!userExist) {
+    return res.status(201).json({ message: "user not exist" });
   }
   const salt = await bcrypt.genSalt(8);
   const hashedPassword = await bcrypt.hash(password, salt);
@@ -118,8 +112,6 @@ const updateUser = async (req, res) => {
         firstName,
         lastName,
         image,
-        email,
-        password: hashedPassword,
         password:hashedPassword,
       }
     );

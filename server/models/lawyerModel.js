@@ -24,19 +24,15 @@ const lawyer = new Schema({
     type: String,
     required: true,
   },
-  category: [
-    {
-      type: mongoose.Types.ObjectId,
-      ref: "category",
-      required: true,
-    },
-  ],
-  reviews: [
-    {
-      type: mongoose.Types.ObjectId,
-      ref: "reviews",
-    },
-  ],
+  category:[ {
+    type: mongoose.Types.ObjectId,
+    ref:"category",
+    required: true,
+  }],
+  reviews: [{
+    type: mongoose.Types.ObjectId,
+    ref:"reviews",
+  }],
   image: {
     type: String,
     required: true,
@@ -76,12 +72,10 @@ const lawyer = new Schema({
     type: String,
     required: true,
   },
-  available: { type: Boolean },
+
+},{
+timestamps:true
 });
 
 module.exports = mongoose.model("lawyer", lawyer);
-// selectedCover
-// rate
-// expiriance
-//avgResplayTime
-// workDueTime
+
