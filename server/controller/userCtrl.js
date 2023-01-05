@@ -9,7 +9,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const getUsers = async (req, res) => {
-  const users = await UsersModel.find();
+  const users = await UsersModel.find().select("-_id -password");
   if (!users) {
     return res.status(400).json({ message: "users not found" });
   }
@@ -100,6 +100,7 @@ const getUserByEmail = async (req, res) => {
   return res.status(200).json(user);
 };
 const updateUser = async (req, res) => {
+
   const { firstName, lastName, image, email, password } = req.body;
   let user;
   const { error } = userRegisterValidate(req.body);
@@ -121,6 +122,7 @@ const updateUser = async (req, res) => {
         image,
         email,
         password: hashedPassword,
+        password:hashedPassword,
       }
     );
   } catch (error) {

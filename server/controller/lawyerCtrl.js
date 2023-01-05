@@ -7,7 +7,7 @@ const {validationLogin} = require('../validation/lawyerLoginValidation');
 const getLawyers = async (req, res) => {
   const lawyer = await LawyerModel.find()
     .populate("category")
-    .populate("reviews");
+    .populate("reviews").select("-_id -password");
   if (!lawyer) {
     return res.status(400).json({ message: "layers not found" });
   }
@@ -150,7 +150,6 @@ const updateLawyer = async (req, res) => {
     title,
     reviews,
     category,
-    email,
     password,
     token,
     phone,
@@ -162,8 +161,7 @@ const updateLawyer = async (req, res) => {
     workDueTime,
   } = req.body;
   let lawyer;
- 
-  
+
   const emailExist = await LawyerModel.findOne({ email });
   if (emailExist) {
     return res.status(201).json({ message: "email already exist" });
@@ -173,7 +171,7 @@ const updateLawyer = async (req, res) => {
   if(error){
     return res.status(400).send({message:error.details[0].message})
   };
-  
+
   const salt = await bcrypt.genSalt(8);
   const hashedPassword = await bcrypt.hash(password, salt);
   try {
@@ -188,7 +186,6 @@ const updateLawyer = async (req, res) => {
         title,
         reviews,
         category,
-        email,
         password: hashedPassword,
         token,
         phone,

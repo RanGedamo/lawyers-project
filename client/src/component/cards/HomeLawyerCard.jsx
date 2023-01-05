@@ -60,17 +60,7 @@ export default function HomeLawyerCard() {
         date: new Date("01/02/2022")
 
       },
-      // {
-      //   user: {
-      //     fullName: "Sunn Kadosh",
-      //     img: "https://images.pexels.com/photos/445109/pexels-photo-445109.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-      //   },
-      //   user: "Sun",
-      //   comment: "helped me alot",
-      //   title: "Excelent",
-      //   rate: 5,
-      //   date: new Date("11/12/2022")
-      // },
+ 
       {
         user: {
           fullName: "Sunkra Kadosh",

@@ -3,13 +3,13 @@
   height: 100%;
 }
 .main{
-  height: 80vh;
+  height: 80%;
 }
 .header{
-  height: 10vh;
+  height: 10%;
 }
 .footer{
-  height: 10vh;
+  height: 10%;
 }
 .App-logo {
   height: 40vmin;
