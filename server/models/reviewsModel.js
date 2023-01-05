@@ -7,6 +7,9 @@ const reviews = new Schema({
     type: String,
     required:true,
   },
+  image: {
+    type: String,
+  },
   comments: {
     type: String,
     required:true,
