@@ -40,6 +40,7 @@ const registerLawyer = async (req, res) => {
     experience,
     avgReplayTime,
     workDueTime,
+    available
   } = req.body; //18
   const emailExist = await LawyerModel.findOne({ email });
   if (emailExist) {
@@ -162,6 +163,7 @@ const updateLawyer = async (req, res) => {
   }
   const salt = await bcrypt.genSalt(8);
   const hashedPassword = await bcrypt.hash(password, salt);
+  
   try {
     lawyer = await LawyerModel.findOneAndUpdate(
       { email: req.params.email },

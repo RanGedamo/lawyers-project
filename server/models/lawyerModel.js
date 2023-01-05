@@ -72,6 +72,9 @@ const lawyer = new Schema({
     type: String,
     required: true,
   },
+  available: {
+    type: Boolean,
+  },
 
 },{
 timestamps:true

@@ -19,7 +19,7 @@ const validate = (data) => {
     experience: Joi.string().required(),
     avgReplayTime: Joi.string().required(),
     workDueTime: Joi.string().required(),
-    available: Joi.boolean().required()
+    available: Joi.boolean()
   });
   return lawyerRegisterSchema.validate(data);
 };

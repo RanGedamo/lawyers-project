@@ -124,6 +124,22 @@ const updateUser = async (req, res) => {
 
   return res.status(200).json(user);
 };
+const deleteUser= async (req, res) => {
+  const email = req.params.email;
+  let user;
+
+  try {
+    user=await UsersModel.findOneAndRemove({email})
+
+  } catch (err) {
+    return console.log(err);
+  }
+  if (!user) {
+    return res.status(500).json({ message: "Unable to delete" });
+  }
+
+  return res.status(200).json({ message: "Deleted Successfully" });
+};
 
 module.exports = {
   getUsers,
@@ -131,4 +147,5 @@ module.exports = {
   loginUser,
   getUserByEmail,
   updateUser,
+  deleteUser
 };
