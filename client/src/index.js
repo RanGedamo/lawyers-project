@@ -16,5 +16,4 @@ root.render(
       </React.StrictMode>
     </ChatProvider>
   </AuthContextProvider>
-
 );

@@ -1,9 +1,7 @@
-import "./Footer.css";
-import React from "react";
 
 function Footer() {
   return (
-    <div className="footer">
+    <div className="footer" style={{ position: "sticky "}}>
       <h1>Footer</h1>
     </div>
   );
