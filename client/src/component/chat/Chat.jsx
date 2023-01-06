@@ -23,10 +23,11 @@ const steps = [
 
 function Chat() {
   const [supportChat, setSupportChat] = useState(false)
+
   return (
-    <div className="chat col-2 d-flex z-index-1 col-12" style={{ marginTop: "20px", justifyContent: "end" }} >
+    <div className="chat d-flex " style={{ marginTop: "20px", justifyContent: "end" }} >
       {supportChat ?
-        (<div >
+        (<div className="" >
           <ThemeProvider theme={{
               background: '#f5f8fb',
               fontFamily: 'Helvetica Neue',
@@ -52,8 +53,8 @@ function Chat() {
         </div>) :
         ""
       }
-      <div className="" style={{ marginTop: "480px" }} onClick={() => supportChat ? setSupportChat(false) : setSupportChat(true)}>
-        <img src="https://www.insegment.com/blog/wp-content/uploads/2020/11/chatbot-marketing.gif" className="col-sm-1 col-lg-5" style={{ width: 120 }} />
+      <div style={{ marginTop: "480px" }} onClick={() => supportChat ? setSupportChat(false) : setSupportChat(true)}>
+       <button style={{background:"transparent",border:"solid 1px transparent"}}> <img src="https://www.insegment.com/blog/wp-content/uploads/2020/11/chatbot-marketing.gif"  style={{ width: 100 }} /></button>
       </div>
 
     </div>

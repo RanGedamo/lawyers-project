@@ -1,5 +1,6 @@
 const ReviewModel = require("../models/reviewsModel");
 const LawyerModel = require("../models/lawyerModel");
+const {sendEmail} = require("../validation/emailValidation")
 const mongoose=require("mongoose");
 
 const getReview = async (req, res) => {
@@ -38,6 +39,9 @@ let lawyerExist;
         name,
         lawyerEmail:req.params.email
     });
+    
+    sendEmail(email,review.comments,review.userEmail)
+
     const session = await mongoose.startSession();
     session.startTransaction();
     lawyerExist.reviews.push(review);

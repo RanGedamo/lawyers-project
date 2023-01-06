@@ -15,8 +15,8 @@ const Header = () => {
   };
 
   return (
-    <div className="sticky-top">
-    <nav className="navbar navbar-light bg-light">
+    <div className="sticky-top " >
+    <nav className="navbar navbar-light bg-light" style={{width:"100%"}}>
       <div className="container">
         <a className="navbar-brand" href="#">
           <img
@@ -33,7 +33,7 @@ const Header = () => {
         )}
       </div>
     </nav>
-      <div className="chat d-flex justify-content-end col-12" style={{position:"absolute",zIndex:"5"}}>
+      <div className="chat d-flex " style={{height:"0px",justifyContent:"end",width:"100"}}>
                 <Chat />
             </div>
             </div>

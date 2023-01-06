@@ -7,7 +7,7 @@ import SignUpSignInForm from "./pages/signUpSignInForm"
 const Routing = () => {
 
     return (
-        <div className="main" style={{position:"relative",zIndex:"3"}}>
+        <div className="main" >
             <Routes>      
                 <Route path="/" element={<Home /> } />
                 <Route path="SignIn" element={<signUpSignInForm />} />
