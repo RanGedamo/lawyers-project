@@ -1,3 +1,4 @@
+import react from "react";
 import { MDBContainer } from 'mdb-react-ui-kit';
 
 const CategoryArr = [
@@ -229,7 +230,7 @@ export default function Category() {
               <img
                 src={category.categoryImg}
                 className="w-100 h-100"
-                alt="category"
+                alt="category-image"
               />
               <div className="mask" style={{
               background: 'linear-gradient(to bottom, hsla(0, 0%, 0%, 0) 50%, hsla(0.8, 0%, 0%, 0.8))',

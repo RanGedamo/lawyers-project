@@ -46,7 +46,7 @@ export default function TopLawyerCard({lawyer}) {
         }
         title={lawyer.fullName}
         subheader={lawyer.filedCategory}
-        subheader={`service cost:  ${lawyer.cost}$`}
+        // subheader={`service cost:  ${lawyer.cost}$`}
       />
       <CardContent>
         {/* <Typography variant="body2" color="text.secondary">
