@@ -44,12 +44,11 @@ export default function Hero() {
             </Text>
             <br />
             <Text as={'span'} color={'blue.400'}>
-              use everywhere!
+            Find legal experts to give you the guidance you need
             </Text>
           </Heading>
           <Text color={'gray.500'}>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, delectus porro quos voluptates aliquam nihil totam animi, odio cupiditate fugit corporis labore deserunt voluptate, harum nesciunt molestiae. Praesentium, assumenda a.
-          </Text>
+          Hundreds of independent professionals to help you create, navigate, and translate legal documents; register a trademark; or get general advice.          </Text>
           <Stack
             spacing={{ base: 4, sm: 6 }}
             direction={{ base: 'column', sm: 'row' }}>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import {
   ChakraProvider,
   Box,
@@ -9,16 +10,19 @@ import {
   Grid,
   theme,
 } from '@chakra-ui/react';
-import Home  from "./pages/Home/Home"
+import Navbar from './components/Navbar/Navbar';
+import Home  from "./pages/Home/Home";
+import Footer from "./components/Footer/Footer";
 
 export default function App() {
   return (
     <ChakraProvider theme={theme}>
+           {/* <BrowserRouter> */}
+          <Navbar/>
 <Home/>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-        </Grid>
-      </Box>
+<Footer/>
+
+      {/* </BrowserRouter> */}
     </ChakraProvider>
   );
 };

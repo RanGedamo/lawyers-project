@@ -6,10 +6,9 @@ import {
     Text,
     Button,
     Icon,
-    IconProps,
   } from '@chakra-ui/react';
   
-  export default function CallToActionWithIllustration() {
+  export default function Scheduling() {
     return (
       <Container maxW={'5xl'}>
         <Stack
@@ -55,7 +54,7 @@ import {
     );
   }
   
-  export const Illustration = (props: IconProps) => {
+  export const Illustration = (props) => {
     return (
       <Icon
         width="100%"
