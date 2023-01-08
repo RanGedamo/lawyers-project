@@ -30,7 +30,7 @@ export default function PopUpRole() {
           Close
         </MDBBtn>
         <MDBModalBody className="pt-0">
-          {(user+lawyer) == false ? (
+          {(user+lawyer) === false ? (
             <MDBCard>
               <h1>Who Are You ?</h1>
               <MDBCardBody>
@@ -48,9 +48,9 @@ export default function PopUpRole() {
             ""
           )}
 
-          {user == true ? <SignUpFormUser /> : ""}
+          {user === true ? <SignUpFormUser /> : ""}
 
-          {lawyer == true ? <SignUpFormLawyer /> : ""}
+          {lawyer === true ? <SignUpFormLawyer /> : ""}
         </MDBModalBody>
       </MDBModal>
     </>
