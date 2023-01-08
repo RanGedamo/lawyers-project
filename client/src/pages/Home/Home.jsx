@@ -1,8 +1,30 @@
 import Category from "../../component/cards/Category";
 import TopLawyerCard from "../../component/cards/TopLawyerCard";
 import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
+import { deleteLawyer, getLawyerByEmail, loginLawyer, updateLawyer } from "../../services/lawyerService";
+import { useEffect } from "react";
 
 function Home() {
+const data={
+  firstName:"zimbabDog",
+  lastName:"ardai",
+  location:"roma",
+  description:"sadsad",
+  image:"asdasd",
+  title:"asdsad",
+  category:"63b57f21bf06bcefd6812ec2",
+  password:"Zimbaba@12345",
+  phone:"25464564",
+  price:"4545",
+  selectedCover:"5454",
+  rate:3,
+  experience:"554",
+  avgReplayTime:"44",
+  workDueTime:"45",
+  available:false
+}
+  updateLawyer(data,"zimbaba@gmal.com").then((res)=>console.log(res)).catch((error)=>console.log(error.response.data.message))
+
   const Lawyers = [
     {
       id: "1",

@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 
-const sendEmail = (email,comments,userEmail) => {
+const sendEmail = (rate,email,comments,userEmail) => {
     return new Promise((resolve, reject) => {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -13,7 +13,7 @@ const sendEmail = (email,comments,userEmail) => {
             from:'tech.career.campus@gmail.com',
             to:email,
             subject:"testing our nodemailer",
-            html:`<h4>Comment from:</h4><h3> ${userEmail}</h3> </br><h2 style=color:"blue">${comments}</h2>`
+            html:`<h4>Comment from:</h4><h3> ${userEmail}</h3> </br><h2 style=color:"blue">${comments}</h2><h2>${rate}</h2>`
       
         }
         transporter.sendMail(mail_configs, (error)=>{
