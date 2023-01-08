@@ -12,7 +12,7 @@ export default function SignInLawyer() {
           <span className="h1 fw-bold mb-0">Lawyer & Order</span>
         </div>
         <h5 className="fw-normal my-4 pb-3" style={{ letterSpacing: "1px" }}>
-          Sign into your account Lawyer
+          Sign into your Lawyer account 
         </h5>
         <MDBInput
           wrapperClass="mb-4"
