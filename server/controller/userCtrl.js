@@ -16,7 +16,7 @@ const getUsers = async (req, res) => {
     return res.status(400).json({ message: "users empty" });
   }
 
-  return res.status(200).json(users);
+  return res.status(200).json({users});
 };
 
 const registerUser = async (req, res) => {
@@ -33,7 +33,7 @@ const registerUser = async (req, res) => {
   let user = new UsersModel({
     firstName,
     lastName,
-    image: "",
+    image,
     email,
     password: hashedPassword,
   });
