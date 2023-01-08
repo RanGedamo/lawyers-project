@@ -117,7 +117,14 @@ function Home() {
         )}
     </MDBRow>
       </MDBContainer>
-      <Form/>
+      <MDBContainer>
+        <MDBRow>
+          <MDBCol size={8}><Form/></MDBCol>
+          <MDBCol size={8}></MDBCol>
+          <MDBCol size={8}></MDBCol>
+        </MDBRow>
+      </MDBContainer>
+      
     </div>
   );
 }
