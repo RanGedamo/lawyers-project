@@ -6,7 +6,6 @@ import {
   MDBRow,
   MDBCol,
   MDBCheckbox,
-  MDBFile
 } from "mdb-react-ui-kit";
 export default function SignUp() {
   return (
@@ -38,8 +37,7 @@ export default function SignUp() {
           id="form4"
           type="password"
         />
-          <MDBFile label='Profile Picture' id='customFile' />
-        <div className="d-flex justify-content-center mb-4 mt-4">
+        <div className="d-flex justify-content-center mb-4">
           <MDBCheckbox
             name="flexCheck"
             value=""
@@ -47,7 +45,6 @@ export default function SignUp() {
             label="Subscribe to our newsletter"
           />
         </div>
-
         <MDBBtn className="w-100 mb-4" size="md">
           sign up
         </MDBBtn>

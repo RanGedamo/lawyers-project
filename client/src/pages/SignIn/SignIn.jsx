@@ -1,30 +1,28 @@
 import React from "react";
 import { MDBCardBody, MDBIcon, MDBInput, MDBBtn } from "mdb-react-ui-kit";
 import { UserAuth } from "../../context/UserContext";
-import {
-  FacebookLoginButton,
-  GoogleLoginButton,
-} from "react-social-login-buttons";
+import { FacebookLoginButton,GoogleLoginButton  } from "react-social-login-buttons";
 import { useState } from "react";
-import { Alert } from "@mui/material";
+import { Alert } from '@mui/material';
 
 export default function SignIn() {
   const { googleSignIn, facebookSignIn } = UserAuth();
-  const [error] = useState("");
+  const [error,] = useState("")
   const handleGoogleSignIn = async (event) => {
-    event.preventDefault();
+    event.preventDefault()
     try {
       await googleSignIn();
     } catch (error) {
-      console.log(error.message);
+      console.log(error.message)
     }
   };
   const signInWithFacebook = async (event) => {
-    event.preventDefault();
+    event.preventDefault()
     try {
-      await facebookSignIn();
+      await facebookSignIn()
     } catch (error) {
       console.log(error.message);
+
     }
   };
   return (
@@ -37,8 +35,7 @@ export default function SignIn() {
         <h5 className="fw-normal my-4 pb-3" style={{ letterSpacing: "1px" }}>
           Sign into your account
         </h5>
-        {error && <Alert severity="error">{error}</Alert>}
-        <MDBInput
+        {error && <Alert severity="error">{error}</Alert>}        <MDBInput
           wrapperClass="mb-4"
           label="Email address"
           id="formControlLgEmail"
@@ -52,11 +49,13 @@ export default function SignIn() {
           type="password"
           size="lg"
         />
-        <MDBBtn className="mb-3 px-5" size="lg">
+        <MDBBtn className="mb-3 px-5"  size="lg">
           Login
         </MDBBtn>
         <GoogleLoginButton onClick={handleGoogleSignIn} />
-        <FacebookLoginButton className="mt-3" onClick={signInWithFacebook} />
+        <FacebookLoginButton className="mt-3"
+          onClick={signInWithFacebook}
+        />
         <div className="d-flex justify-content-center text-center align-items-center mt-5">
           <p href="#!" className="small text-muted me-1">
             Terms of use.
