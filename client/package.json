@@ -52,5 +52,8 @@
   },
   "devDependencies": {
     "web-vitals": "^3.1.0"
+  },
+  "overrides": {
+    "autoprefixer": "10.4.5"
   }
 }

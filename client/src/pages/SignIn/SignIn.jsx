@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBCardBody, MDBIcon, MDBInput, MDBBtn, MDBContainer } from "mdb-react-ui-kit";
+import { MDBCardBody, MDBIcon, MDBInput, MDBBtn } from "mdb-react-ui-kit";
 import { UserAuth } from "../../context/UserContext";
 import { FacebookLoginButton,GoogleLoginButton  } from "react-social-login-buttons";
 import { useState } from "react";
@@ -7,7 +7,7 @@ import { Alert } from '@mui/material';
 
 export default function SignIn() {
   const { googleSignIn, facebookSignIn } = UserAuth();
-  const [error,setError] = useState("")
+  const [error,] = useState("")
   const handleGoogleSignIn = async (event) => {
     event.preventDefault()
     try {
