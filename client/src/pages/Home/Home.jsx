@@ -118,13 +118,13 @@ function Home() {
         )}
     </MDBRow>
       </MDBContainer>
-      <MDBContainer>
+      {/* <MDBContainer>
         <MDBRow>
           <MDBCol size={8}><Form/></MDBCol>
           <MDBCol size={8}></MDBCol>
           <MDBCol size={8}></MDBCol>
         </MDBRow>
-      </MDBContainer>
+      </MDBContainer> */}
       
     </div>
   );

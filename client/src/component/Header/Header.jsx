@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { UserAuth } from "../../context/UserContext";
 import Chat from "../chat/Chat";
@@ -10,10 +10,11 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import PopUpRole from "../PopUpRole/PopUpBtn";
 
 const Header = () => {
   const { user, logOut } = UserAuth();
-
+  const [form,setForm] = useState(false)
   const handleSignOut = async () => {
     try {
       await logOut();
@@ -21,6 +22,10 @@ const Header = () => {
       console.log(error);
     }
   };
+
+  const formChange = ()=>{
+    return setForm(true)
+  }
 
   return (
     <>
@@ -34,10 +39,7 @@ const Header = () => {
               loading="lazy"
             />
           </a>
-
-          {user?.displayName ? (
-            <button onClick={handleSignOut}>Logout</button>
-          ) : AlertDialog()}
+          <button onClick={formChange}>SignIn {form !== false?<PopUpRole/>:""}</button>
         </div>
       </nav>
       <div className="chat d-flex sticky-top" style={{ height: "0px", justifyContent: "end", width: "100" }}>
@@ -53,14 +55,15 @@ export default Header;
 
 
 function AlertDialog() {
-  const [open, setOpen] = React.useState(false);
-
+  const [open, setOpen] = useState(false);
+  const [form,setForm] = useState(false)
   const handleClickOpen = () => {
     setOpen(true);
   };
 
   const handleClose = () => {
     setOpen(false);
+    setForm(true)
   };
 
   return (
