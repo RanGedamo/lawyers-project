@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { UserAuth } from "../../context/UserContext";
 import Chat from "../chat/Chat";
-
-
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -26,7 +24,7 @@ const Header = () => {
     <>
       <nav className="navbar navbar-light bg-light" style={{ width: "100%" }}>
         <div className="container">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" href="https://">
             <img
               src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
               height="20"

@@ -10,7 +10,7 @@ const Routing = () => {
         <div className="main" >
             <Routes>      
                 <Route path="/" element={<Home /> } />
-                <Route path="SignIn" element={<signUpSignInForm />} />
+                <Route path="SignIn" element={<SignUpSignInForm/>} />
             </Routes>
         </div>
     )
