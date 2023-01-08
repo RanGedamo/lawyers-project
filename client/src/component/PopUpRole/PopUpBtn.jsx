@@ -15,7 +15,7 @@ export default function PopUpRole() {
   const [basicModal, setBasicModal] = useState(true);
   const [user, setUser] = useState(false);
   const [lawyer, setLawyer] = useState(false);
-  const toggleShow = () => setBasicModal(!basicModal);
+  const toggleShow = () => setLawyer(false) + setUser(false)+ setBasicModal(!basicModal);
 
   const formUser = () => {
     setUser(true);
