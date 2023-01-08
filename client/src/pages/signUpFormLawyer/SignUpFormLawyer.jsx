@@ -6,7 +6,6 @@ import {
   MDBCol,
   MDBCardImage,
 } from "mdb-react-ui-kit";
-import SignInSignUpTab from "../../component/SignInTabUser/SignInTabUser";
 import SignInTabLawyer from "../../component/signInTabLawyer/SignInTabLawyer";
 
 const SignUpFormLawyer = () => {

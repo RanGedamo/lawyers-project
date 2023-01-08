@@ -26,7 +26,7 @@ const Header = () => {
     <>
       <nav className="navbar navbar-light bg-light" style={{ width: "100%" }}>
         <div className="container">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" href="http/:">
             <img
               src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
               height="20"
