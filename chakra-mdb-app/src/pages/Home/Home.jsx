@@ -1,15 +1,17 @@
-import { Box } from '@chakra-ui/react'
-import React from 'react'
-import Navbar from '../../components/Navbar/Navbar'
-import Hero from '../../components/Hero/Hero'
-import Scheduiling from "../../components/Section/Scheduling"
+import { Box } from '@chakra-ui/react';
+import react from 'react';
+import Hero from '../../components/Hero/Hero';
+import Scheduling from '../../components/Section/Scheduling';
+import HowToHire from '../../components/Section/HowToHire';
+import SupportBoard from '../../components/Section/SupportBoard';
 
 export default function Home() {
   return (
     <Box>
-        <Navbar/>
-        <Hero/>
-        <Scheduiling/>
+      <Hero />
+      <SupportBoard />
+      <Scheduling />
+      <HowToHire />
     </Box>
-  )
-};
+  );
+}
