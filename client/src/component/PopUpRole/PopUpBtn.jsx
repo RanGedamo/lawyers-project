@@ -12,10 +12,11 @@ import SignUpFormUser from "../../pages/signUpFormUser/SignUpFormUser";
 import SignUpFormLawyer from "../../pages/signUpFormLawyer/SignUpFormLawyer";
 
 export default function PopUpRole() {
-  const [basicModal, setBasicModal] = useState(true);
   const [user, setUser] = useState(false);
   const [lawyer, setLawyer] = useState(false);
-  const toggleShow = () => setBasicModal(!basicModal);
+  const [staticModal, setStaticModal] = useState(true);
+  const toggleShow = () => setStaticModal(!staticModal);
+  
 
   const formUser = () => {
     setUser(true);
@@ -25,20 +26,30 @@ export default function PopUpRole() {
   };
   return (
     <>
-      <MDBModal show={basicModal} tabIndex="-1">
+      <MDBModal staticBackdrop tabIndex='-1' show={staticModal} setShow={setStaticModal}>
         <MDBBtn className=" mt-5 mb-3" color="secondary" onClick={toggleShow}>
           Close
         </MDBBtn>
         <MDBModalBody className="pt-0">
-          {(user+lawyer) === false ? (
+          {user + lawyer == false ? (
             <MDBCard>
               <h1>Who Are You ?</h1>
               <MDBCardBody>
                 <MDBRow>
                   <MDBCol>
+                    <img
+                      src="https://mdbootstrap.com/img/new/standard/city/041.webp"
+                      className="img-thumbnail"
+                      alt="..."
+                    />
                     <MDBBtn onClick={formLawyer}>Lawyer</MDBBtn>
                   </MDBCol>
                   <MDBCol>
+                    <img
+                      src="https://mdbootstrap.com/img/new/standard/city/041.webp"
+                      className="img-thumbnail"
+                      alt="..."
+                    />
                     <MDBBtn onClick={formUser}>User</MDBBtn>
                   </MDBCol>
                 </MDBRow>
