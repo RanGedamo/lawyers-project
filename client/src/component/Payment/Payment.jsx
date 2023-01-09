@@ -1,36 +1,11 @@
-import { MDBContainer,MDBRating } from "mdb-react-ui-kit";
-// import { MDBRating } from "mdbreact";
-
-import { useState } from "react";
 
 
 
 export default function Payment() {
-    const [basic] = useState([
-        {
-          tooltip: 'Very Bad'
-        },
-        {
-          tooltip: 'Poor'
-        },
-        {
-          tooltip: 'Ok',
-          choosed: true
-        },
-        {
-          tooltip: 'Good'
-        },
-        {
-          tooltip: 'Excellent'
-        }
-      ]);
-    
+
 
     return (
         <div className="payment">
-                <MDBContainer>
-      <MDBRating data={basic} />
-    </MDBContainer>
             <div className="card col-lg-4 col-sm-12" >
                 <div className="card-body col-12 " >
                     <div className='col-12 d-flex'>
