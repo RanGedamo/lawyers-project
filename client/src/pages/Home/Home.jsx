@@ -1,10 +1,9 @@
-import react from 'react';
-import Hero from '../../components/Hero/Hero';
-import Scheduling from '../../components/Section/Scheduling';
-import HowToHire from '../../components/Section/HowToHire';
-import SupportBoard from '../../components/Section/SupportBoard';
-import Category from '../../components/Cards/Category';
-import ContactUs from '../../components/Section/ContactUs';
+import Hero from '../../component/Hero/Hero';
+import Scheduling from '../../component/Section/Scheduling';
+import HowToHire from '../../component/Section/HowToHire';
+import SupportBoard from '../../component/Section/SupportBoard';
+// import Category from '../../component/cards/Category';
+// import ContactUs from '../../components/Section/ContactUs';
 import { SimpleGrid, Box, VStack } from '@chakra-ui/react';
 
 export default function Home() {
@@ -17,12 +16,12 @@ export default function Home() {
         <SupportBoard />
       </Box>
       <Box>
-        <Category />
+        {/* <Category /> */}
       </Box>
       <Box>
         <SimpleGrid columns={2} spacingX="40px" spacingY="20px">
           <Box height="80px">
-            <ContactUs bg={'blue.400'} />
+            {/* <ContactUs bg={'blue.400'} /> */}
           </Box>
           <Box height="80px">
             <Scheduling bg={'blue.400'} />

@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import ChatBot from "react-simple-chatbot";
-import icon_user from '../../assets/images/icon-user.png';
-import support_avatar from '../../assets/images/supportAvatar.png';
 import { ThemeProvider } from 'styled-components';
 const steps = [
   {
@@ -45,8 +43,8 @@ function Chat() {
               speechSynthesis={{ enable: true, lang: 'he' }}
               color={{ background: '#f5f8fb' }}
               steps={steps}
-              botAvatar={support_avatar}
-              userAvatar={icon_user}
+              botAvatar={"images/chat-bot-img/supportAvatar.png"}
+              userAvatar={"images/chat-bot-img/icon-user.png"}
 
             />
           </ThemeProvider>
