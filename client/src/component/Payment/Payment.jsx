@@ -2,8 +2,6 @@
 
 
 export default function Payment() {
-
-
     return (
         <div className="payment">
             <div className="card col-lg-4 col-sm-12" >
