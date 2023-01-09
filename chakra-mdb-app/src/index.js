@@ -1,4 +1,3 @@
-import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import { ColorModeScript } from '@chakra-ui/react';
 import React, { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
