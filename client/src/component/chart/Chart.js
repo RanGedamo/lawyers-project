@@ -46,7 +46,7 @@ export default function AreaChart({item}) {
       {
         fill: true,
         label: 'Added Users',
-        data: [233,343,432,32434],
+        data: [450,343,432,400],
         borderColor: 'rgb(53, 162, 235)',
         tension:0.4,
         backgroundColor: 'rgba(21, 50, 235, 0.6)',
