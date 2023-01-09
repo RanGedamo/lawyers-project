@@ -19,7 +19,7 @@ const getReview = async (req, res) => {
 
 const createReview = async (req, res) => {
 let email=req.params.email
-let {name,image,userEmail,comments}=req.body
+let {rate,name,image,userEmail,comments}=req.body
 let lawyerExist;
 
   try {
@@ -37,10 +37,11 @@ let lawyerExist;
         comments,
         image,
         name,
+        rate,
         lawyerEmail:req.params.email
     });
     
-    sendEmail(email,review.comments,review.userEmail)
+    sendEmail(review.rate,email,review.comments,review.userEmail).then(res=>res).catch(error=>console.log(error))
 
     const session = await mongoose.startSession();
     session.startTransaction();

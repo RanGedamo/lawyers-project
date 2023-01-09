@@ -1,8 +1,9 @@
 import Category from "../../component/cards/Category";
 import TopLawyerCard from "../../component/cards/TopLawyerCard";
 import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
-
+import Form from "../../component/form/Form";
 function Home() {
+
   const Lawyers = [
     {
       id: "1",
@@ -116,8 +117,15 @@ function Home() {
         </MDBCol>
         )}
     </MDBRow>
-
       </MDBContainer>
+      {/* <MDBContainer>
+        <MDBRow>
+          <MDBCol size={8}><Form/></MDBCol>
+          <MDBCol size={8}></MDBCol>
+          <MDBCol size={8}></MDBCol>
+        </MDBRow>
+      </MDBContainer> */}
+      
     </div>
   );
 }

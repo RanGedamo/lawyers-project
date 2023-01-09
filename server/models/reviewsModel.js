@@ -13,6 +13,9 @@ const reviews = new Schema({
   name: {
     type: String,
   },
+  rate: {
+    type: Number,
+  },
   comments: {
     type: String,
     required:true,
