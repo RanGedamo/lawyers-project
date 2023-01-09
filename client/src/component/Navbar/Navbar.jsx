@@ -16,6 +16,7 @@ import {
   Center,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from '../../ColorModeSwitcher';
+import Chat from '../chat/Chat';
 
 const NavLink = ({ children }) => (
   <Link
@@ -84,6 +85,9 @@ export default function Navbar() {
           </Flex>
         </Flex>
       </Box>
+      <div className="chat d-flex sticky-top" style={{ height: "0px", justifyContent: "end", width: "100" }}>
+        <Chat />
+      </div>
     </>
   );
 }
