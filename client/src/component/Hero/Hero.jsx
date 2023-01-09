@@ -12,11 +12,14 @@ import {
   createIcon,
   IconProps,
   useColorModeValue,
+  useDisclosure
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Blob from "../Shape/Blob";
+import PopUpRole from "../pop/PopUpBtn";
 
 export default function Hero() {
+  const { onOpen } = useDisclosure()
   return (
     <Container maxW={"7xl"}>
       <Stack
@@ -60,7 +63,7 @@ export default function Hero() {
           <Stack
             spacing={{ base: 4, sm: 6 }}
             direction={{ base: "column", sm: "row" }}
-          >
+          >{onOpen? <PopUpRole text='Get started'/>: 
             <Button
               rounded={"full"}
               size={"lg"}
@@ -69,14 +72,15 @@ export default function Hero() {
               colorScheme={"blue"}
               bg={"blue.400"}
               _hover={{ bg: "blue.500" }}
+              // onClick={()=>document.documentElement.scrollTo(0,1500) }
             >
               Get started
-            </Button>
-            <Link to={`category/63b57de7bf06bcefd6812eaa`}>
-              <Button rounded={"full"} size={"lg"} fontWeight={"normal"} px={6}>
+            </Button>}
+            
+              <Button rounded={"full"} size={"lg"} fontWeight={"normal"} px={6}
+              onClick={()=>document.documentElement.scrollTo(0,2000) }>
                 How It Works
               </Button>
-            </Link>
           </Stack>
         </Stack>
         <Flex

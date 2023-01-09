@@ -14,7 +14,10 @@ import {
   import { CheckCircleIcon } from '@chakra-ui/icons'
   import { ReactElement } from 'react';
 
+
   const Feature = ({ text, icon, iconBg }) => {
+  
+
     return (
       <Stack direction={'row'} align={'center'}>
         <Flex

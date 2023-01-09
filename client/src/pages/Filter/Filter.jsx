@@ -25,7 +25,7 @@ export default function Filter() {
   }, []);
 
   let result = lawyers.filter((lawyer) =>
-   lawyer.category[0].name.includes(category.name)
+   lawyer?.category[0]?.name.includes(category.name)
   );
 
   return (

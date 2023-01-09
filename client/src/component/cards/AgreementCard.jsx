@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Alert, AlertDescription, AlertIcon, AlertTitle } from "@chakra-ui/react";
+
 import {
   MDBCard,
   MDBCardBody,
@@ -19,44 +21,70 @@ import {
   MDBListGroup,
   MDBListGroupItem,
 } from "mdb-react-ui-kit";
-import { postContactUs } from "../../services/emailHandler";
-export default function AgreementCard({category}) {
-  const [inputs,setInputs] = useState()
-  const [sendForm,setSendForm] =useState(false)
+import { postContactUs, postContactUsPayment } from "../../services/emailHandler";
+import { lawyerData } from "../../store/lawyerReducer";
+import { useNavigate } from "react-router-dom";
+export default function AgreementCard({category,o,lawyer}) {
+  const [inputs,setInputs] = useState({lname:"",fname:"",phone:"",message:"",date:""})
+  const [sendForm,setSendForm]=useState(false)
+  const [send,setSend]=useState(false)
 
+const navigate=useNavigate()
   const formInputs = (e)=>{
     setInputs({...inputs,[e.target.name]: e.target.value})
+    console.log(inputs);
   }
 
-  const submitForm = async()=>{
-    setSendForm(true)
-    return await postContactUs(inputs).then(res=>console.log(res))
+  const submitForm =(e)=>{
+    e.preventDefault()
+      postContactUsPayment(inputs).then((res)=>console.log(res)).catch(res=>console.log(res))
+
+      setSend(true)
+      setTimeout(() => {
+        navigate('/')
+      }, 1200);
   }
 
+  useEffect(()=>{
+    if(inputs.fname&&inputs.lname&&inputs.phone&&inputs.message&&inputs.date){
+
+      setSendForm(true)
+      
+  
+    }
+  
+  })
   return (
-    <MDBCard className="">
+    <>
+{category?.subCategory.map((item) => {
+if(item.name==o){
+          
+
+  return <MDBCard className="">
+
+        
+
+      
       <MDBCardImage
         style={{ height: 250 }}
-        src="https://mdbootstrap.com/img/new/standard/nature/184.webp"
+        src={item.img}
         position="top"
         alt="..."
       />
       <MDBCardBody>
-        <MDBCardTitle className="">{category.categoryName}</MDBCardTitle>
+        <MDBCardTitle className="">{item.name}</MDBCardTitle>
         <MDBCardText>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content. Some quick example text to build on the
-          card title and make up the bulk of the card's content. Some quick
-          example text to build on the card title and make up the bulk of the
-          card's content.
+       {
+        item.description
+       }
         </MDBCardText>
         <MDBCardBody>
           <MDBRow className="mb-4">
             <MDBCol>
-              <MDBInput id="form6Example1" label="First name" name="firstName"/>
+              <MDBInput id="form6Example1" label="First name" name="fname" onChange={formInputs}/>
             </MDBCol>
             <MDBCol>
-              <MDBInput id="form6Example2" label="Last name" name="lastName"/>
+              <MDBInput id="form6Example2" label="Last name" name="lname" onChange={formInputs}/>
             </MDBCol>
           </MDBRow>
 
@@ -67,7 +95,7 @@ export default function AgreementCard({category}) {
             label="Email"
             name="email"
           />
-          <MDBInput wrapperClass="mb-4" type="date" label="BirthDay" name="bit"/>
+          <MDBInput wrapperClass="mb-4" type="date" label="BirthDay" defaultValue="2023-01-29" name="date" onChange={(e)=>formInputs(e)}/>
           <div className="text-start">
             sex
             <div className="d-flex">
@@ -89,7 +117,9 @@ export default function AgreementCard({category}) {
             wrapperClass="mb-4"
             type="tel"
             id="form6Example6"
-            label="Phone"
+            label="phone"
+            name="phone"
+            onChange={formInputs}
           />
           <MDBInput
             wrapperClass="mb-4"
@@ -97,12 +127,26 @@ export default function AgreementCard({category}) {
             id="form6Example7"
             rows={4}
             label="Additional information"
+            name="message"
+            onChange={formInputs}
           />
         </MDBCardBody>
-        <MDBBtn className="float-start mt-4" href="#">
-          Button
+        <MDBBtn  disabled={sendForm?false:true} className="float-start mt-4 mb-4" href="#" onClick={submitForm}>
+        Contact {lawyer?.firstName}
         </MDBBtn>
+        {send?(
+        <Alert status='success' className="mt-4">
+          <AlertIcon />
+          <AlertTitle>Successfully :</AlertTitle>
+          <AlertDescription>Welcome to law market</AlertDescription>
+        </Alert>
+        ):""}
       </MDBCardBody>
+      
     </MDBCard>
+    }
+
+  })}
+    </>
   );
 }

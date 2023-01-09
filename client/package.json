@@ -33,10 +33,13 @@
     "react-google-button": "^0.7.2",
     "react-google-recaptcha": "^2.1.0",
     "react-icons": "^4.7.1",
+    "react-loading-skeleton": "^3.1.0",
     "react-places-autocomplete": "^7.3.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.6.1",
     "react-scripts": "5.0.1",
+    "react-scroll": "^1.8.9",
+    "react-scroll-to-top": "^3.0.0",
     "react-simple-chatbot": "^0.6.1",
     "react-social-login-buttons": "^3.6.1",
     "styled-components": "^4.4.1"

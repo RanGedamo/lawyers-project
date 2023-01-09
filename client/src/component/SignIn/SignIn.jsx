@@ -39,13 +39,16 @@ export default function SignIn() {
   }
 console.log( Cookies.get('user'));
   FireBaseConfig()
-  const user = useSelector((state) => state.userData)
+  const user = useSelector((state) => state.userReducer.userData)
   console.log(user);
   // const [error] = useState("");
   const handleGoogleSignIn = async (event) => {
     event.preventDefault();
     try {
       await user.google();
+
+      Cookies.set("user",user.currentUser.displayName,{expires:7})
+      navigate("/")
     } catch (error) {
       console.log(error.message);
     }
@@ -117,6 +120,7 @@ console.log( Cookies.get('user'));
         <MDBBtn className="w-100 mb-4" size="md" onClick={() => submitUserLogin()}>
           sign in
         </MDBBtn>
+      
         <div className="d-flex justify-content-center text-center align-items-center mt-5">
           <p href="#!" className="small text-muted me-1">
             Terms of use.

@@ -8,6 +8,7 @@ import {
   Text,
   useColorModeValue,
   Flex,
+  
 } from "@chakra-ui/react";
 import Blob from "../Shape/Blob";
 

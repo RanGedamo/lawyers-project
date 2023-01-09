@@ -1,23 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Muli:400,700&display=swap");
 
-body {
-  margin: 0;
-  height: calc(100vh - 8em);
-  font-family: "Muli", sans-serif;
-  background-color: #f9f9f9;
+.imageLawyerPicture{
+  min-height: 50vh;
 }
-
-/* h1 {
-  text-align: center;
-  margin: 1.5em;
-}
-
-img {
-  width: 35%;
-  border-radius: 50%;
-} */
-
-.container {
+.containerr {
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -27,7 +13,10 @@ img {
   display: flex;
   align-items: center;
   width: fit-content;
-  animation: carouselAnim 10s infinite alternate linear;
+  animation: carouselAnim 60s infinite alternate linear;
+}
+.items:hover{
+  animation-play-state: paused;
 }
 
 .entry {
@@ -40,12 +29,12 @@ img {
   margin: 1em;
   padding: 0.5em;
   border-radius: 10px;
-  box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.5);
+  /* box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.5); */
 }
 
 @media only screen and (max-width: 768px) {
   .items {
-    animation: carouselAnim 8s infinite alternate linear;
+    animation: carouselAnim 25s infinite alternate linear;
   }
   
   @keyframes carouselAnim {

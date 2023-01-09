@@ -1,6 +1,5 @@
 import { Route, Routes  } from "react-router-dom"
 import { Home, Filter, Payment, LawyerProfile, ErrorPage } from "./pagesRoute/pages"
-import StamHome from "../pages/Home/StamHome"
 
 export default function Routing() {
     return (

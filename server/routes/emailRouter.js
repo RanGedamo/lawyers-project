@@ -1,8 +1,10 @@
 const router = require('express').Router()
-const {postContactUs} = require('../controller/emailHandler');
+const {postContactUs,postContactUsPayment} = require('../controller/emailHandler');
 
 
 router.post('/contactUs',postContactUs);
+router.post('/contactUs/payment',postContactUsPayment);
+
 
 
 

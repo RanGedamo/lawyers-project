@@ -20,7 +20,7 @@ const getUsers = async (req, res) => {
 };
 
 const registerUser = async (req, res) => {
-  const { firstName, lastName, email, password , confirmPassword } = req.body; //13
+  const { firstName, lastName, email, password , image } = req.body; //13
   const emailExistInLayerModel = await LawyerModel.findOne({ email });
   const emailExistInUserModel = await UsersModel.findOne({ email });
 
@@ -39,6 +39,7 @@ const registerUser = async (req, res) => {
     lastName,
     email,
     password: hashedPassword,
+    image,
   });
   try {
 

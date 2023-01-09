@@ -12,7 +12,7 @@ import {
 export default function LawyerCategories({ item }) {
   return (
       <MDBRipple className='bg-image col-sm-12 ' rippleTag='div' rippleColor='light'>
-      <img src={item.img} className="ms-3"  style={{maxHeight:"20vh" ,width:"100%"}} />
+      <img src={item.img} className="ms-3"  style={{maxHeight:"20vh" ,width:"100vh"}} />
         <div className='mask' >
           <div className='d-flex justify-content-center align-items-center h-100'>
             <p className=' text-white'><b>{item.name}</b></p>
