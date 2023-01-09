@@ -5,6 +5,7 @@ import Form from "../../component/form/Form";
 import CardSuit from "../../component/cards/CardSuit"
 
 function Home() {
+
   const Lawyers = [
     {
       id: "1",
@@ -126,7 +127,6 @@ function Home() {
           <MDBCol size={8}></MDBCol>
         </MDBRow>
       </MDBContainer> */}
-      <CardSuit/>
     </div>
   );
 }

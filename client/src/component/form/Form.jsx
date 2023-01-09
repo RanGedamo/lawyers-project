@@ -3,7 +3,6 @@ import {
     MDBInput,
     MDBCol,
     MDBRow,
-    MDBCheckbox,
     MDBBtn,
     MDBRadio,
     MDBTextArea,
@@ -18,7 +17,7 @@ import {
 
         <MDBCard  className='mb-4' >
         <MDBCardImage className='mb-4' src='/suit-card-img.jpg' fluid alt='suit-card-image' />
-        <a>
+        <a href='http/:'>
           <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}></div>
         </a>
     <div className='d-grid justify-content-center'> 
