@@ -6,8 +6,8 @@ import {
   MDBTabsContent,
   MDBTabsPane
 } from 'mdb-react-ui-kit';
-import SignInLawyer from '../../pages/signInLawyer/signInLawyer';
-import SignUpLawyer from '../../pages/signUpLawyer/signUpLawyer';
+import SignInLawyer from '../SignIn/signInLawyer';
+import SignUpLawyer from '../SignUp/signUpLawyer';
 
 export default function SignInTabLawyer() {
   const [basicActive, setBasicActive] = useState('tab1');

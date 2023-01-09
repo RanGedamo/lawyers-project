@@ -6,10 +6,10 @@ import {
   MDBTabsContent,
   MDBTabsPane
 } from 'mdb-react-ui-kit';
-import SignIn from '../../pages/SignIn/SignIn';
-import SignUp from '../../pages/SignUp/SignUp';
+import SignIn from '../SignIn/SignIn';
+import SignUp from '../SignUp/SignUp';
 
-export default function SignInSignUpTab() {
+export default function SignInTabUser() {
   const [basicActive, setBasicActive] = useState('tab1');
   const handleBasicClick = (value) => {
     if (value === basicActive) {
