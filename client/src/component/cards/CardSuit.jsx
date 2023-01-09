@@ -13,13 +13,14 @@ import {
 
 function CardSuit() {
     return (
-        <MDBContainer className="my-5 square border border-2 rounded-5 ">
+        <MDBContainer className="my-3 square border border-2 rounded-5 ">
             <MDBCarouselInner>
                 <br />
-                <br />
               <MDBCarouselItem className="active text-center">
-                
-              <MDBCol lg="8">
+                <div className="d-flex justify-content-evenly">
+              <MDBCol lg="4">
+                <br />
+                <br />
                     <h5 className="text-end">Lawyer Name</h5>
                     <p className="text-end" >Crime Lawyer</p>
                   </MDBCol>
@@ -29,9 +30,11 @@ function CardSuit() {
                   className="rounded-circle shadow-1-strong mb-4 d-flex justify-content-center"
                   style={{ width: "150px" }}
                 />
-                 <p className="md-8">fhvd idfds ijsef ojsef</p>
-                <MDBRow className="d-flex justify-content-center">
-                  <div className="text-start" >
+                </div>
+                 <p className="text-start">Lawyer for criminals</p>
+                 <hr class="hr" />
+                <MDBRow className="d-flex justify-content-center text-end">
+                  <div className="text-start mi-1" >
                     <span><li>money</li></span>
                     <span><li>Family</li></span>  
                     </div>
