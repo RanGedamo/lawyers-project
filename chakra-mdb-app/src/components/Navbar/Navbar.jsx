@@ -16,8 +16,10 @@ import {
   Center,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from '../../ColorModeSwitcher';
+// import { useNavigate } from "react-router-dom";
 
 const NavLink = ({ children }) => (
+
   <Link
     px={2}
     py={1}
@@ -34,16 +36,14 @@ const NavLink = ({ children }) => (
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  // const navigate = useNavigate()
+
   return (
     <>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <Box>Themis</Box>
-          <NavLink
-              href={'/categories'}
-          >
-          <Box>Categories</Box>
-          </NavLink>
+
 
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>

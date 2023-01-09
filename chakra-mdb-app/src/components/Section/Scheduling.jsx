@@ -37,11 +37,9 @@ import {
               colorScheme={'orange'}
               bg={'orange.400'}
               _hover={{ bg: 'orange.500' }}>
-              Get started
+              schedular
             </Button>
-            <Button rounded={'full'} px={6}>
-              Learn more
-            </Button>
+
           </Stack>
           <Flex w={'full'}>
             <Illustration
