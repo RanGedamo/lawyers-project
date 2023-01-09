@@ -2,7 +2,6 @@ import { useContext, createContext, useEffect, useState } from 'react';
 import {
   GoogleAuthProvider,
   signInWithPopup,
-  // signInWithRedirect,
   signOut,
   onAuthStateChanged,
   FacebookAuthProvider
@@ -16,12 +15,10 @@ export const AuthContextProvider = ({ children }) => {
   const googleSignIn = () => {
     const googleProvider = new GoogleAuthProvider();
    return signInWithPopup(auth, googleProvider);
-    // return signInWithRedirect(auth, googleProvider)
   };
   const facebookSignIn = () => {
     const facebookProvider = new FacebookAuthProvider();
     return signInWithPopup(auth, facebookProvider);
-    // signInWithRedirect(auth, facebookProvider)
   };
 
   const logOut = () => {
@@ -31,9 +28,7 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      // console.log( currentUser)
     });
-
     return () => {
       unsubscribe();
     };

@@ -5,6 +5,7 @@ import Header from './component/Header/Header';
 import PopUpRole from './component/PopUpRole/PopUpBtn';
 import Routing from './Routing';
 import Navbar from "./component/Navbar/Navbar"
+import PayPal from './component/payPal/PayPal';
 export default function App() {
   
   return (
@@ -12,8 +13,9 @@ export default function App() {
       <BrowserRouter>
       {/* <Header /> */}
       <Navbar/>
-      <Routing />
-      <Footer />
+      <PayPal/>
+      {/* <Routing />
+      <Footer /> */}
       </BrowserRouter>
     </div>
   );
