@@ -24,7 +24,8 @@
     "react-scripts": "5.0.1",
     "react-simple-chatbot": "^0.6.1",
     "react-social-login-buttons": "^3.6.1",
-    "styled-components": "^4.4.1"
+    "styled-components": "^4.4.1",
+    "twilio": "^3.84.0"
   },
   "scripts": {
     "start": "react-scripts start",
