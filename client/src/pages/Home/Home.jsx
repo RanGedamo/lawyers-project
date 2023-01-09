@@ -2,6 +2,7 @@ import Category from "../../component/cards/Category";
 import TopLawyerCard from "../../component/cards/TopLawyerCard";
 import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 import Form from "../../component/form/Form";
+import CardSuit from "../../component/cards/CardSuit"
 
 function Home() {
 
@@ -119,14 +120,13 @@ function Home() {
         )}
     </MDBRow>
       </MDBContainer>
-      <MDBContainer>
+      {/* <MDBContainer>
         <MDBRow>
           <MDBCol size={8}><Form/></MDBCol>
           <MDBCol size={8}></MDBCol>
           <MDBCol size={8}></MDBCol>
         </MDBRow>
-      </MDBContainer>
-      
+      </MDBContainer> */}
     </div>
   );
 }

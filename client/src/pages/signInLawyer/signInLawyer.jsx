@@ -1,6 +1,5 @@
 import React from "react";
 import { MDBCardBody, MDBIcon, MDBInput, MDBBtn } from "mdb-react-ui-kit";
-import { Alert } from '@mui/material';
 
 export default function SignInLawyer() {
 
