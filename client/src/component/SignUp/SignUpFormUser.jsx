@@ -6,10 +6,9 @@ import {
   MDBCol,
   MDBCardImage,
 } from "mdb-react-ui-kit";
-import SignInSignUpTab from "../../component/SignInTabUser/SignInTabUser";
+import SignInTabUser from "../Tab/SignInTabUser";
 
-const SignUpFormUser = () => {
-
+export default function SignUpFormUser() {
   return (
         <MDBContainer>
           <MDBCard>
@@ -22,7 +21,7 @@ const SignUpFormUser = () => {
                 />
               </MDBCol>
               <MDBCol md="6">
-                <SignInSignUpTab />
+                <SignInTabUser />
               </MDBCol>
             </MDBRow>
           </MDBCard>
@@ -30,5 +29,3 @@ const SignUpFormUser = () => {
 
   );
 };
-
-export default SignUpFormUser;

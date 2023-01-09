@@ -1,15 +1,7 @@
 import React, { useState } from "react";
-import {
-  MDBBtn,
-  MDBModal,
-  MDBModalBody,
-  MDBCard,
-  MDBCardBody,
-  MDBCol,
-  MDBRow,
-} from "mdb-react-ui-kit";
-import SignUpFormUser from "../../pages/signUpFormUser/SignUpFormUser";
-import SignUpFormLawyer from "../../pages/signUpFormLawyer/SignUpFormLawyer";
+import { MDBBtn, MDBModal, MDBModalBody, MDBCard,  MDBCardBody,  MDBCol,  MDBRow } from "mdb-react-ui-kit";
+import SignUpFormUser from "../SignUp/SignUpFormUser";
+import SignUpFormLawyer from "../SignUp/SignUpFormLawyer";
 
 export default function PopUpRole() {
   const [user, setUser] = useState(false);
@@ -58,9 +50,7 @@ export default function PopUpRole() {
           ) : (
             ""
           )}
-
           {user === true ? <SignUpFormUser /> : ""}
-
           {lawyer === true ? <SignUpFormLawyer /> : ""}
         </MDBModalBody>
       </MDBModal>
