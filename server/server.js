@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
 });
 
 app.listen(process.env.PORT, () => {
-  console.log(`listen to port : ${process.env.PORT}`);
+  console.log(`listen to port : ${process.env.PORT}, in http://localhost:${process.env.PORT}/`);
 });
 
 // function sendMessageText(){
