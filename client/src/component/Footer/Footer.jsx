@@ -12,10 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { FaTwitter, FaYoutube, FaInstagram } from 'react-icons/fa';
 
-// import AppStoreBadge from '@/components/AppStoreBadge';
-// import PlayStoreBadge from '@/components/PlayStoreBadge';
-
-const ListHeader = ({ children }: { children: ReactNode }) => {
+const ListHeader = ({ children })=> {
   return (
     <Text fontWeight={'500'} fontSize={'lg'} mb={2}>
       {children}
@@ -27,10 +24,6 @@ const SocialButton = ({
   children,
   label,
   href,
-}: {
-  children: ReactNode;
-  label: string;
-  href: string;
 }) => {
   return (
     <chakra.button
@@ -54,7 +47,7 @@ const SocialButton = ({
   );
 };
 
-export default function LargeWithAppLinksAndSocial() {
+export default function Footer() {
   return (
     <Box
       bg={useColorModeValue('gray.50', 'gray.900')}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
 
-export default function LawyerProfile() {
+export default function LawyerProfileCard() {
   return (
     <section className="vh-100" style={{ backgroundColor: '#f4f5f7' }}>
       <MDBContainer className="py-5 h-100">

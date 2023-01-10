@@ -1,9 +1,24 @@
-import React from 'react'
+import React from 'react';
+import { MDBRow, MDBCol } from 'mdb-react-ui-kit';
+import LawyerProfileCard from '../../component/cards/LawyerProfileCard';
 
-function LawyerProfile() {
+export default function LawyerProfile() {
   return (
-    <div>LawyerProfile</div>
-  )
+        <MDBRow>
+            <MDBCol md='4'>
+            <LawyerProfileCard/>
+           </MDBCol>
+           <MDBCol md='8'>
+        <div className='pb-3'>about me</div>
+        <MDBRow>
+          <MDBCol md='6'>
+            chart
+          </MDBCol>
+          <MDBCol md='6'>
+            chart
+          </MDBCol>
+        </MDBRow>
+      </MDBCol>
+      </MDBRow>
+  );
 }
-
-export default LawyerProfile
