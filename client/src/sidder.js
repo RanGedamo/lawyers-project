@@ -207,7 +207,7 @@ const Lawyers = [
     {
       rate:4,
       location:"Ramle",
-      prize:500,
+      prize:450,
       experience:5,
       available:false,
       category:"Ecident",

@@ -22,10 +22,12 @@ function Filter() {
     setCollection([...new Set(LawyerFake.map((key)=>key.prize))]);
   },[])
   
-  const handleChange = (e) => {
-    const filterData = LawyerFake.filter((key)=> key.prize === e)
-    setFilter(filterData)
-  }
+  // const handleChange = (e) => {
+  //   const filterData = LawyerFake.filter((key)=> key.prize === e)
+  //   setFilter(filterData)
+  // }
+  console.log(collection);
+  console.log(filter);
 
 
   
@@ -77,14 +79,9 @@ function Filter() {
           </select>
       </MDBCardBody>
       <br />
-      {
-        collection.map((key)=>{
-          <MDBBtn outline className='mx-4' color='dark' onClick={(key)} >
-          Search
-        </MDBBtn>
-        })
-      }
-   
+      <MDBBtn outline className='mx-4' color='dark' >
+        Search
+      </MDBBtn>
       <br />
     </MDBCard>
     
