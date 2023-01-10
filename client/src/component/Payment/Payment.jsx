@@ -1,40 +1,53 @@
-import PayPal from "../payPal/PayPal"
-import PaypalCheckoutButton from "../PaypalCheckoutButton/PaypalCheckoutButton"
-
-
+import {
+  MDBBtn,
+  MDBCard,
+  MDBCardBody,
+  MDBCardHeader,
+  MDBCol,
+  MDBListGroup,
+  MDBListGroupItem,
+  MDBTypography,
+} from "mdb-react-ui-kit";
+import PaypalCheckoutButton from "../PaypalCheckoutButton/PaypalCheckoutButton";
 
 export default function Payment() {
-    const product = {
-        description: "Lawyer hire",
-        price: 10
-      };
-    return (
-        <div className="payment">
-            <div className="card col-lg-4 col-sm-12" >
-                <div className="card-body col-12 " >
-                    <div className='col-12 d-flex'>
-                        <div className="card-title fw-bolder fs-6 col-10 " style={{ justifyContent: "flex-start" }}>Agreement is funded between the two parties</div>
-                        <div className='text-Primary fw-bolder col-2' style={{ color: "blue" }}>$100</div>
-                    </div>
-                    <p className="card-text mb-3 d-flex text-align-start justify-content-start">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <div className='d-flex col-12 '>
-                        <ul>
-                            <li className='col-12 m-2'>Severance pay</li>
-                            <li className='col-12 m-2'>convalescence pay</li>
-                            <li className='col-12 m-2 justify-content-start'>lease</li>
-                            <li className='col-12 m-2'>overtime</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <PaypalCheckoutButton product={product} />
-                    </div>
-
-                    <button type="button" className="btn btn-primary col-7 fw-bolder fs-6 mb-2" style={{ fontFamily: "inherit" }}>Payment</button>
-                    <div>
-                        <a href="" className='col-8'>Package comparison</a>
-                    </div>
-                </div>
-            </div>
-        </div >
-    )
+  const product = {
+    description: "Lawyer hire asds djkabk kjdbcnoa",
+    price: 10,
+  };
+  return (
+    <MDBCol md="4">
+      <MDBCard className="mb-4">
+        <MDBCardHeader>
+          <MDBTypography tag="h5" className="mb-0">
+            Summary
+          </MDBTypography>
+        </MDBCardHeader>
+        <MDBCardBody>
+          <MDBListGroup flush>
+            <MDBListGroupItem className="d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+              Products
+              <span>$53.98</span>
+            </MDBListGroupItem>
+            <MDBListGroupItem className="d-flex justify-content-between align-items-center px-0 mt-3">
+              Shipping
+              <span>Gratis</span>
+            </MDBListGroupItem>
+            <MDBListGroupItem className="d-flex justify-content-between align-items-center border-0 px-0 mb-4 mt-4">
+              <div>
+                <strong>Total amount</strong>
+                <strong>
+                  <p className="mb-0">(including VAT)</p>
+                </strong>
+              </div>
+              <span>
+                <strong>$53.98</strong>
+              </span>
+            </MDBListGroupItem>
+          </MDBListGroup>
+          <PaypalCheckoutButton product={product}/>
+        </MDBCardBody>
+      </MDBCard>
+    </MDBCol>
+  );
 }
