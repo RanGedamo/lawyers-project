@@ -1,9 +1,25 @@
-import React from 'react'
+import { useState } from "react";
+import {
+  Stack,
+  Container,
+  Box,
+  Flex,
+  Text,
+  Heading,
+  SimpleGrid,
+} from "@chakra-ui/react";
+import { Categories } from "../../sidder";
+import SelectedCategory from "../../component/Section/SelectedCategory";
 
-function Filter() {
+export default function Filter() {
+  const [categories, setCategories] = useState(Categories);
+
+  // const found = categories.find(category => );
+
   return (
-    <div>Filter</div>
-  )
-}
+    <>
 
-export default Filter
+    <SelectedCategory/>
+    </>
+  );
+}
