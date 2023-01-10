@@ -22,14 +22,15 @@ function RateReview({setStars,start}) {
         });
     });
   return (
-    <div class="rating-field">
-    <div class="rate-stars">
-        <div class="star fas fa-star"></div>
-        <div class="star fas fa-star"></div>
-        <div class="star fas fa-star"></div>
-        <div class="star fas fa-star"></div>
-        <div class="star fas fa-star"></div>
-        <h2 class="rating-count">{start}</h2>
+    
+    <div className="rating-field my-2 ">
+    <div className="rate-stars ">
+        <div className="star fas fa-star"></div>
+        <div className="star fas fa-star"></div>
+        <div className="star fas fa-star"></div>
+        <div className="star fas fa-star"></div>
+        <div className="star fas fa-star"></div>
+        <h2 className="rating-count">{start}</h2>
     </div>
 </div>
   )

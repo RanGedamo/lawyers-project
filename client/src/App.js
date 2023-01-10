@@ -7,17 +7,16 @@ import Cookies from "./component/pop/Cookies";
 import TopLawyerCard from "./component/cards/TopLawyerCard";
 import HomeLawyer from "./component/cards/HomeLawyer";
 import LawyerPayment from "./component/cards/LawyerPayment";
-import LawyerProfile from "./component/cards/LawyerProfile";
+import LawyerProfile from "./component/cards/LawyerProfileCard";
 
 export default function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Navbar />
-        {/* <Routing />
-        <Cookies /> */}
+        <Routing />
+        {/* <Cookies /> */}
       
-        <LawyerProfile/>
         <Footer />
       </BrowserRouter>
     </div>
