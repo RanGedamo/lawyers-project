@@ -29,19 +29,9 @@ export default function PopUpRole() {
               <MDBCardBody>
                 <MDBRow>
                   <MDBCol>
-                    <img
-                      src="https://mdbootstrap.com/img/new/standard/city/041.webp"
-                      className="img-thumbnail"
-                      alt="..."
-                    />
                     <MDBBtn onClick={formLawyer}>Lawyer</MDBBtn>
                   </MDBCol>
                   <MDBCol>
-                    <img
-                      src="https://mdbootstrap.com/img/new/standard/city/041.webp"
-                      className="img-thumbnail"
-                      alt="..."
-                    />
                     <MDBBtn onClick={formUser}>User</MDBBtn>
                   </MDBCol>
                 </MDBRow>

@@ -55,7 +55,7 @@ export default function SignUpLawyer() {
             <MDBInput
               wrapperClass="mb-4"
               label="Title"
-              id="form1"
+              id="form6"
               type="text"
             />
           </MDBCol>
@@ -63,7 +63,7 @@ export default function SignUpLawyer() {
             <MDBInput
               wrapperClass="mb-4"
               label="Category"
-              id="form2"
+              id="form7"
               type="text"
             />
           </MDBCol>
@@ -73,7 +73,7 @@ export default function SignUpLawyer() {
             <MDBInput
               wrapperClass="mb-4"
               label="Average Replay"
-              id="form1"
+              id="form8"
               type="number"
             />
           </MDBCol>
@@ -81,7 +81,7 @@ export default function SignUpLawyer() {
             <MDBInput
               wrapperClass="mb-4"
               label="Available"
-              id="form2"
+              id="form9"
               type="text"
             />
           </MDBCol>
@@ -91,7 +91,7 @@ export default function SignUpLawyer() {
             <MDBInput
               wrapperClass="mb-4"
               label="Price"
-              id="form1"
+              id="form10"
               type="number"
             />
           </MDBCol>
@@ -99,16 +99,16 @@ export default function SignUpLawyer() {
             <MDBInput
               wrapperClass="mb-4"
               label="Experience"
-              id="form2"
+              id="form11"
               type="text"
             />
           </MDBCol>
         </MDBRow>
-        <MDBInput wrapperClass="mb-4" label="Location" id="form2" type="text" />
+        <MDBInput wrapperClass="mb-4" label="Location" id="form12" type="text" />
         <MDBInput
           wrapperClass="mb-4"
           label="Description"
-          id="form2"
+          id="form13"
           type="text"
         />
         <MDBRow>
