@@ -13,6 +13,7 @@ import PopUpRole from "./component/pop/PopUpBtn";
 import { useSelector } from "react-redux";
 import { FireBaseConfig } from "./FireBaseConfig/FireBaseConfig";
 import { useEffect } from "react";
+import PaypalCheckoutButton from "./component/PaypalCheckoutButton/PaypalCheckoutButton";
 
 export default function App() {
 
@@ -28,8 +29,9 @@ export default function App() {
       <BrowserRouter>
         <Navbar />
         <Routing />
-        {/* <Cookies /> */}
-        {/* <PopUpRole/> */}
+        <Cookies />
+        <PopUpRole/>
+        <PaypalCheckoutButton/>
         <Footer />
       </BrowserRouter>
     </div>
