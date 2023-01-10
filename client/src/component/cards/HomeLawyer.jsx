@@ -3,7 +3,6 @@ import { MDBCol, MDBRipple, MDBRow, MDBTypography } from "mdb-react-ui-kit";
 import { Link } from "react-router-dom";
 
 export default function HomeLawyer({lawyers}) {
-console.log(lawyers)
 
   return (
     <MDBRow>
@@ -21,7 +20,7 @@ console.log(lawyers)
               src={lawyer.img}
               className="h-25"
             />
-            <Link to={"/lawyer/profile"}>
+            <Link to={`/lawyer/profile/${lawyer._id}`}>
               <div
                 className="mask "
                 style={{ backgroundImage: `${lawyer.selectedCover}` }}

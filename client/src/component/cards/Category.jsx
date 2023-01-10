@@ -1,40 +1,44 @@
 import react from "react";
-import { MDBContainer } from 'mdb-react-ui-kit';
-
+import { MDBCol, MDBRipple, MDBRow, MDBTypography } from "mdb-react-ui-kit";
+import { Link } from "react-router-dom";
 
 export default function Category({categories}) {
+
   return (
-    <MDBContainer breakpoint="sm"  className="d-flex justify-content-center mt-3">
-    <div className="row w-75">
+    <MDBRow>
       {categories ? (
-        categories.map((category, i) => (
-          <div className="col-lg-4 col-md-12 mb-4 mb-lg-4">
-            <div className="bg-image rounded-6">
-              <img
-                src={category.categoryImg}
-                className="w-100 h-100"
-                alt="category-image"
-              />
-              <div className="mask" style={{
-              background: 'linear-gradient(to bottom, hsla(0, 0%, 0%, 0) 50%, hsla(0.8, 0%, 0%, 0.8))',
-            }}>
-                <div className="bottom-0 d-flex align-items-end h-100 text-center justify-content-center">
-                  <div>
-                    <h2 className="fw-bold text-white mb-4">
-                      {category.categoryName}
-                    </h2>
-                  </div>
+        categories.map((category) => {
+          return(
+          <MDBCol size={4} key={category._id}>
+            <MDBRipple
+              className="bg-image hover-overlay shadow-1-strong rounded"
+              rippleTag="div"
+              rippleColor="light"
+            >
+                          <img
+              src={category.categoryImg}
+              className="h-25"
+            />
+              <Link to={`/category/${category._id}`}>
+                <div
+                  className="mask "
+                  style={{ backgroundImage: `${category.categoryImg}` }}
+                >
+                  <MDBRow className="text-center flex-column mt-5 pt-5">
+                    <MDBCol>
+                      <MDBTypography className="mb-0 mt-5 pt-5 fw-bold">
+                        {category.categoryName}
+                      </MDBTypography>
+                    </MDBCol>
+                  </MDBRow>
                 </div>
-              </div>
-            </div>
-          </div>
-        ))
+              </Link>
+            </MDBRipple>
+          </MDBCol>)
+        })
       ) : (
-        <div className="col-lg-4 col-md-12 mb-4 mb-lg-0">
-          There has been a problem
-        </div>
+        <MDBCol>no data found</MDBCol>
       )}
-    </div>
-    </MDBContainer>
+    </MDBRow>
   );
-};
+}

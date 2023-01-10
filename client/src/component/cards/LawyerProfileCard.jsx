@@ -12,7 +12,8 @@ import {
   MDBBtn,
 } from "mdb-react-ui-kit";
 
-export default function LawyerProfile() {
+export default function LawyerProfile({select}) {
+  
   return (
     <section className="vh-100" style={{ backgroundColor: "#f4f5f7" }}>
       <MDBContainer className="py-1 h-100">

@@ -23,7 +23,7 @@ export default function Navbar() {
           <Box>Themis</Box>
           </Link>
           <Link
-              to={'/categories'}
+              to={'/category/:id'}
           >
           <Box>Categories</Box>
           </Link>
