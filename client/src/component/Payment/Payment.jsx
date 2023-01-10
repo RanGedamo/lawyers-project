@@ -1,7 +1,12 @@
+import PayPal from "../payPal/PayPal"
 
 
 
 export default function Payment() {
+    const product ={
+        description:'bla bla bla',
+        price:24
+    }
     return (
         <div className="payment">
             <div className="card col-lg-4 col-sm-12" >
@@ -19,7 +24,9 @@ export default function Payment() {
                             <li className='col-12 m-2'>overtime</li>
                         </ul>
                     </div>
-
+                    <div>
+                        <PayPal/>
+                    </div>
 
                     <button type="button" className="btn btn-primary col-7 fw-bolder fs-6 mb-2" style={{ fontFamily: "inherit" }}>Payment</button>
                     <div>
