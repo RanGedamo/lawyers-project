@@ -16,6 +16,7 @@ export default function App() {
         <Navbar />
         {/* <Routing />
         <Cookies /> */}
+      
         <LawyerProfile/>
         <Footer />
       </BrowserRouter>
