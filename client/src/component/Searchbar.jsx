@@ -1,6 +1,7 @@
 import { LawyerFake } from "../sidder";
 import React from "react";
 import { useState } from "react";
+import HomeLawyer from "../component/cards/HomeLawyer"
 
 export default function Searchbar() {
   const [lawyers, setLawyers] = useState(LawyerFake);
@@ -27,7 +28,7 @@ return arr.filter(lawyers =>
     ) 
 
   }
-  return <div>
-    
-  </div>;
+  return (
+
+  )
 };
