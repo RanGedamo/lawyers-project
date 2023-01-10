@@ -8,7 +8,6 @@ import TopLawyerCard from "./component/cards/TopLawyerCard";
 import HomeLawyer from "./component/cards/HomeLawyer";
 import LawyerPayment from "./component/cards/LawyerPayment";
 import PayPal from "./component/payPal/PayPal";
-import { Payment } from "./AppRoute/pagesRoute";
 import PopUpRole from "./component/pop/PopUpBtn";
 import { useSelector } from "react-redux";
 import { FireBaseConfig } from "./FireBaseConfig/FireBaseConfig";
