@@ -11,15 +11,17 @@ import LawyerProfile from "./component/cards/LawyerProfile";
 import PayPal from "./component/payPal/PayPal";
 import { Payment } from "./AppRoute/pagesRoute";
 import PopUpRole from "./component/pop/PopUpBtn";
+import PaypalCheckoutButton from "./component/PaypalCheckoutButton/PaypalCheckoutButton";
 
 export default function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Navbar />
-        <Routing />
+        {/* <Routing /> */}
         {/* <Cookies /> */}
         {/* <PopUpRole/> */}
+        <PaypalCheckoutButton/>
         <Footer />
       </BrowserRouter>
     </div>
