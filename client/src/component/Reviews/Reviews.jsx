@@ -1,29 +1,19 @@
 import React from "react";
-
 import {
   MDBBtn,
-  MDBCard,
-  MDBCardBody,
   MDBCardImage,
-  MDBCol,
   MDBContainer,
-  MDBIcon,
-  MDBRow,
   MDBTextArea,
   MDBTypography,
 } from "mdb-react-ui-kit";
 import RateReview from "../RateReview/RateReview";
 import { useState } from "react";
-import { height } from "@mui/system";
 
 export default function ReviewsInput() {
   const [start, setStars] = useState(0);
   return (
-
-    
       <MDBContainer className="py-5"  >
             <section style={{background:"", height:"35vh"}}>
-
                    <div className="d-flex " >
                   <MDBCardImage
                     className="rounded-circle shadow-1-strong me-3"
@@ -37,16 +27,13 @@ export default function ReviewsInput() {
 
                 <div className="container">
                   <RateReview setStars={setStars} start={start} />
-
                   <MDBTextArea label="What is your view?" rows={4} />
-
                   <MDBBtn
                     color="light"
                     rounded
                     className="mt-3 float-end"
                   >
-                    {" "}
-                    Send{" "}
+                    Send
                   </MDBBtn>
                 </div>
                 </section>

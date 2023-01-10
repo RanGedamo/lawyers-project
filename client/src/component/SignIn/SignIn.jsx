@@ -1,18 +1,11 @@
 import React from "react";
 import { MDBCardBody, MDBIcon, MDBInput, MDBBtn } from "mdb-react-ui-kit";
-// import { UserAuth } from "../../context/UserContext";
-import {
-  FacebookLoginButton,
-  GoogleLoginButton,
-} from "react-social-login-buttons";
-import { useState } from "react";
-import { Alert } from "@mui/material";
+import {  FacebookLoginButton,GoogleLoginButton,} from "react-social-login-buttons";
 import { useSelector } from "react-redux";
 
 export default function SignIn() {
   const user=useSelector((state)=>state.userData)
 console.log(user);
-  // const { googleSignIn, facebookSignIn } = UserAuth();
   // const [error] = useState("");
   const handleGoogleSignIn = async (event) => {
     event.preventDefault();
