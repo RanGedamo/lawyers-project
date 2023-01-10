@@ -10,7 +10,7 @@ import {
   
   export default function Scheduling() {
     return (
-      <Container maxW={'5xl'}>
+      <Container maxW={'3xl'}>
         <Stack
           textAlign={'center'}
           align={'center'}
@@ -45,8 +45,8 @@ import {
           </Stack>
           <Flex w={'full'}>
             <Illustration
-              height={{ sm: '24rem', lg: '28rem' }}
-              mt={{ base: 12, sm: 16 }}
+              height={{ sm: '12rem', lg: '14rem' }}
+              mt={{ base: 6, sm: 8 }}
             />
           </Flex>
         </Stack>

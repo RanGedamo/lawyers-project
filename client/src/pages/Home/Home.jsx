@@ -1,36 +1,40 @@
-import Hero from '../../component/Hero/Hero';
-import Scheduling from '../../component/Section/Scheduling';
-import HowToHire from '../../component/Section/HowToHire';
-import SupportBoard from '../../component/Section/SupportBoard';
+import Hero from "../../component/Hero/Hero";
+import Scheduling from "../../component/Section/Scheduling";
+import HowToHire from "../../component/Section/HowToHire";
+import SupportBoard from "../../component/Section/SupportBoard";
 // import Category from '../../component/cards/Category';
-// import ContactUs from '../../components/Section/ContactUs';
-import { SimpleGrid, Box, VStack } from '@chakra-ui/react';
+import { GridItem, Box, Grid, Container } from "@chakra-ui/react";
+import ContactUs from "../../component/Section/ContactUs";
 
 export default function Home() {
   return (
-    <VStack spacing={4} align="center">
-      <Box>
+    <>
+      <Container>
         <Hero />
-      </Box>
-      <Box bg={'blue.700'} borderRadius="70px">
-        <SupportBoard />
-      </Box>
-      <Box>
+      </Container>
+      <Grid
+        templateRows="repeat(5)"
+        templateColumns="repeat(6)"
+        gap={4}
+      >
+        <GridItem colSpan={4}>
+          <Box bg={"blue.700"} borderRadius="70px">
+            <SupportBoard />
+          </Box>
+        </GridItem>
+        {/* <GridItem colSpan={5} bg="papayawhip"> */}
         {/* <Category /> */}
-      </Box>
-      <Box>
-        <SimpleGrid columns={2} spacingX="40px" spacingY="20px">
-          <Box height="80px">
-            {/* <ContactUs bg={'blue.400'} /> */}
-          </Box>
-          <Box height="80px">
-            <Scheduling bg={'blue.400'} />
-          </Box>
-        </SimpleGrid>
-      </Box>
-      <Box>
-        <HowToHire />
-      </Box>
-    </VStack>
+        {/* </GridItem> */}
+        <GridItem colSpan={2}>
+          <ContactUs bg={"blue.400"} />
+        </GridItem>
+        <GridItem colSpan={2}>
+          <Scheduling bg={"blue.400"} />
+        </GridItem>
+        <GridItem colSpan={4}>
+          <HowToHire />
+        </GridItem>
+      </Grid>
+    </>
   );
 }
