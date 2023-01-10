@@ -54,5 +54,5 @@ export default function AreaChart({item}) {
     ],
   };
   
-  return <Line  width={500} options={options} data={data} />;
+  return <Line  width={500} height={200} options={options} data={data} />;
 }

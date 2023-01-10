@@ -36,3 +36,11 @@
 .marked {
     color: #FFA41C;
 }
+
+
+@media screen and (max-width:765px) {
+    .fa-star {
+        font-size: 13px;
+       
+    }
+}
