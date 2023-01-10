@@ -1,7 +1,13 @@
+import PayPal from "../payPal/PayPal"
+import PaypalCheckoutButton from "../PaypalCheckoutButton/PaypalCheckoutButton"
 
 
 
 export default function Payment() {
+    const product = {
+        description: "Lawyer hire",
+        price: 10
+      };
     return (
         <div className="payment">
             <div className="card col-lg-4 col-sm-12" >
@@ -19,7 +25,9 @@ export default function Payment() {
                             <li className='col-12 m-2'>overtime</li>
                         </ul>
                     </div>
-
+                    <div>
+                        <PaypalCheckoutButton product={product} />
+                    </div>
 
                     <button type="button" className="btn btn-primary col-7 fw-bolder fs-6 mb-2" style={{ fontFamily: "inherit" }}>Payment</button>
                     <div>

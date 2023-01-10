@@ -11,7 +11,7 @@ export default function Navbar() {
   const [bool,setBool] = useState(false)
 
   const SignIn = () => {
-    setBool(!bool)
+    setBool(true)
   }
   return (
     <>

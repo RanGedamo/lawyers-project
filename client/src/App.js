@@ -7,6 +7,10 @@ import Cookies from "./component/pop/Cookies";
 import TopLawyerCard from "./component/cards/TopLawyerCard";
 import HomeLawyer from "./component/cards/HomeLawyer";
 import LawyerPayment from "./component/cards/LawyerPayment";
+import PayPal from "./component/payPal/PayPal";
+import { Payment } from "./AppRoute/pagesRoute";
+import PopUpRole from "./component/pop/PopUpBtn";
+import PaypalCheckoutButton from "./component/PaypalCheckoutButton/PaypalCheckoutButton";
 
 export default function App() {
   return (
@@ -15,6 +19,8 @@ export default function App() {
         <Navbar />
         <Routing />
         <Cookies />
+        <PopUpRole/>
+        <PaypalCheckoutButton/>
         <Footer />
       </BrowserRouter>
     </div>
