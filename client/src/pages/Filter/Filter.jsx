@@ -1,13 +1,5 @@
 import { useState } from "react";
-import {
-  Stack,
-  Container,
-  Box,
-  Flex,
-  Text,
-  Heading,
-  SimpleGrid,
-} from "@chakra-ui/react";
+import { Stack, Container, Box, Flex, Text, Heading, SimpleGrid, } from "@chakra-ui/react";
 import { Categories } from "../../sidder";
 import { useParams } from "react-router-dom";
 import SelectedCategory from "../../component/Section/SelectedCategory";

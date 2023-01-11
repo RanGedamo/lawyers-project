@@ -20,7 +20,6 @@ export default function ReviewsInput() {
   const [start, setStars] = useState(0);
   return (
 
-    
       <MDBContainer className="py-5"  >
             <section style={{background:"", height:"35vh"}}>
 
