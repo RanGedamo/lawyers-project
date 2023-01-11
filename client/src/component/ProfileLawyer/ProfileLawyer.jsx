@@ -18,7 +18,6 @@ function ProfileLawyer() {
             <MDBCol className="p-0 order-1">
             <Payment />
             </MDBCol>
-
         </MDBCol>
 
         <MDBCol className="flex-column md-4 p-0 ">
