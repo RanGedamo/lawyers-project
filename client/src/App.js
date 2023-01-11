@@ -3,18 +3,19 @@ import { BrowserRouter } from "react-router-dom";
 import Footer from "./component/Footer/Footer";
 import Routing from "./AppRoute/Routing";
 import Navbar from "./component/Navbar/Navbar";
-import Cookies from "./component/pop/Cookies";
-import PayPal from "./component/payPal/PayPal";
-import PaypalCheckoutButton from "./component/PaypalCheckoutButton/PaypalCheckoutButton";
+import { useSelector } from "react-redux";
+import { FireBaseConfig } from "./FireBaseConfig/FireBaseConfig";
 
 export default function App() {
+ FireBaseConfig()
+  const user=useSelector((state)=>state.userData)
+  const facebook=useSelector((state)=>state.facebookSignIn)
+  console.log(user)
   return (
     <div className="App">
       <BrowserRouter>
         <Navbar />
         <Routing />
-        <Cookies />
-        <PaypalCheckoutButton/>
         <Footer />
       </BrowserRouter>
     </div>

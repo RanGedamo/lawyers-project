@@ -17,7 +17,7 @@ import {
 
         <MDBCard  className='mb-4' >
         <MDBCardImage className='mb-4' src='/suit-card-img.jpg' fluid alt='suit-card-image' />
-        <a href='http/:'>
+        <a href='#'>
           <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}></div>
         </a>
     <div className='d-grid justify-content-center'> 
