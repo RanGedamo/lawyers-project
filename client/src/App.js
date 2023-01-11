@@ -10,7 +10,7 @@ export default function App() {
  FireBaseConfig()
   const user=useSelector((state)=>state.userData)
   const facebook=useSelector((state)=>state.facebookSignIn)
-  console.log(user)
+  // console.log(user)
   return (
     <div className="App">
       <BrowserRouter>
