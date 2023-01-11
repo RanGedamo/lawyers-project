@@ -2,40 +2,49 @@ import React from "react";
 import { MDBCol, MDBRipple, MDBRow, MDBTypography } from "mdb-react-ui-kit";
 import { Link } from "react-router-dom";
 
-function HomeLawyer() {
+export default function HomeLawyer({lawyers}) {
+
   return (
-    <MDBCol size={4}>
-      <MDBRipple
-        className="bg-image hover-overlay shadow-1-strong rounded"
-        rippleTag="div"
-        rippleColor="light"
-      >
-        <img
-          src="https://images.pexels.com/photos/5668774/pexels-photo-5668774.jpeg?auto=compress&cs=tinysrgb&w=1600"
-          className="h-25"
-        />
-        <Link to={"/lawyer/profile"}>
-          <div
-            className="mask "
-            style={{ backgroundColor: "rgba(251, 251, 251, 0.6)" }}
+    <MDBRow>
+          {lawyers ? 
+          (
+        lawyers.map(lawyer => 
+          
+          <MDBCol size={4} key={lawyer._id}>
+          <MDBRipple
+            className="bg-image hover-overlay shadow-1-strong rounded"
+            rippleTag="div"
+            rippleColor="light"
           >
-            <MDBRow className="text-center flex-column mt-5 pt-5">
-              <MDBCol>
-                <MDBTypography  className="mb-0 mt-5 pt-5 fw-bold">
-                  My name is Jefff
-                </MDBTypography>
-              </MDBCol>
-              <MDBCol>
-                <MDBTypography  className="text-black mt-2">
-                  With faded secondary text
-                </MDBTypography>
-              </MDBCol>
-            </MDBRow>
-          </div>
-        </Link>
-      </MDBRipple>
-    </MDBCol>
+            <img
+              src={lawyer.img}
+              className="h-25"
+            />
+            <Link to={`/lawyer/profile/${lawyer._id}`}>
+              <div
+                className="mask "
+                style={{ backgroundImage: `${lawyer.selectedCover}` }}
+              >
+                <MDBRow className="text-center flex-column mt-5 pt-5">
+                  <MDBCol>
+                    <MDBTypography  className="mb-0 mt-5 pt-5 fw-bold">
+                      My name is `${lawyer.fullName}`
+                    </MDBTypography>
+                  </MDBCol>
+                  <MDBCol>
+                    <MDBTypography  className="text-black mt-2">
+                      With faded secondary text
+                    </MDBTypography>
+                  </MDBCol>
+                </MDBRow>
+              </div>
+            </Link>
+          </MDBRipple>
+        </MDBCol>
+    
+        )):(
+<MDBCol>no data found</MDBCol>
+        )}
+    </MDBRow>
   );
 }
-
-export default HomeLawyer;

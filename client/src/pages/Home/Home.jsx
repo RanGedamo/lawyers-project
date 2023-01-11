@@ -6,8 +6,10 @@ import SupportBoard from "../../component/Section/SupportBoard";
 import ContactUs from "../../component/Section/ContactUs";
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 
-
 export default function Home() {
+  const [lawyers,setLawyers] = useState(Lawyers)
+  const [categories,setCategories] = useState(Categories)
+
   return (
     <MDBContainer>
       <MDBContainer>
@@ -37,7 +39,6 @@ export default function Home() {
       <HowToHire />
       </MDBCol>
     </MDBRow>
-
   </MDBContainer>
   );
 }

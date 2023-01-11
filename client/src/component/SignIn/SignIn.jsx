@@ -1,20 +1,16 @@
 import React from "react";
 import { MDBCardBody, MDBIcon, MDBInput, MDBBtn } from "mdb-react-ui-kit";
-import { UserAuth } from "../../context/UserContext";
-import {
-  FacebookLoginButton,
-  GoogleLoginButton,
-} from "react-social-login-buttons";
-import { useState } from "react";
-import { Alert } from "@mui/material";
+import {  FacebookLoginButton,GoogleLoginButton,} from "react-social-login-buttons";
+import { useSelector } from "react-redux";
 
 export default function SignIn() {
-  const { googleSignIn, facebookSignIn } = UserAuth();
-  const [error] = useState("");
+  const user=useSelector((state)=>state.userData)
+console.log(user);
+  // const [error] = useState("");
   const handleGoogleSignIn = async (event) => {
     event.preventDefault();
     try {
-      await googleSignIn();
+      await user.google();
     } catch (error) {
       console.log(error.message);
     }
@@ -22,11 +18,12 @@ export default function SignIn() {
   const signInWithFacebook = async (event) => {
     event.preventDefault();
     try {
-      await facebookSignIn();
+      await user.facebook();
     } catch (error) {
       console.log(error.message);
     }
   };
+
   return (
     <>
       <MDBCardBody className="d-flex flex-column">
@@ -37,7 +34,7 @@ export default function SignIn() {
         <h5 className="fw-normal my-4 pb-3" style={{ letterSpacing: "1px" }}>
           Sign into your account
         </h5>
-        {error && <Alert severity="error">{error}</Alert>}
+        {/* {error && <Alert severity="error">{error}</Alert>} */}
         <MDBInput
           wrapperClass="mb-4"
           label="Email address"
@@ -52,7 +49,7 @@ export default function SignIn() {
           type="password"
           size="lg"
         />
-        <MDBBtn className="mb-3 px-5" size="lg">
+        <MDBBtn className="mb-3 px-5" size="lg" onClick={user.logOut}>
           Login
         </MDBBtn>
         <GoogleLoginButton onClick={handleGoogleSignIn} />

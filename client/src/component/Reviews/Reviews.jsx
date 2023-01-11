@@ -1,35 +1,43 @@
 import React from "react";
 import {
-  MDBTextArea,
   MDBBtn,
-  MDBCard,
-  MDBRadio,
-  MDBBtnGroup,
-  MDBIcon,
+  MDBCardImage,
+  MDBContainer,
+  MDBTextArea,
+  MDBTypography,
 } from "mdb-react-ui-kit";
 import RateReview from "../RateReview/RateReview";
 import { useState } from "react";
 
 export default function ReviewsInput() {
-    const [start,setStars]=useState(0)
+  const [start, setStars] = useState(0);
   return (
-    <MDBCard>
+      <MDBContainer className="py-5"  >
+            <section style={{background:"", height:"35vh"}}>
+                   <div className="d-flex " >
+                  <MDBCardImage
+                    className="rounded-circle shadow-1-strong me-3"
+                    src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(21).webp"
+                    alt="avatar"
+                    width="40px"
+                    height=""
+                  />
+                  <MDBTypography className="mt-4" tag="h6">Add a comment</MDBTypography>
+                </div>
 
-      <MDBTextArea label="Review" id="textAreaExample" rows={4} />
-      <div className="mt-4 float-center d-flex justify-content-center align-content-center">
-        <RateReview setStars={setStars} start={start} />
+                <div className="container">
+                  <RateReview setStars={setStars} start={start} />
+                  <MDBTextArea label="What is your view?" rows={4} />
+                  <MDBBtn
+                    color="light"
+                    rounded
+                    className="mt-3 float-end"
+                  >
+                    Send
+                  </MDBBtn>
+                </div>
+                </section>
 
-        </div>
-      <div>
-        
-        <MDBBtn style={{ width: 100 }} color="light" rounded className="mt-3 float-center">
-            
-          {" "}
-          Send{" "}
-        </MDBBtn>
-      
-
-      </div>
-    </MDBCard>
+      </MDBContainer>
   );
 }
