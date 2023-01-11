@@ -5,37 +5,42 @@ import {
    MDBCol,  
    MDBCard,
   MDBCardBody,
-  MDBCardTitle,
   MDBCardText,
-  MDBCardImage,
+  MDBCardImage
    } from 'mdb-react-ui-kit';
-import { Hero, Scheduling, HowToHire, SupportBoard, Category, ContactUs, HomeLawyer} from "../../AppRoute/featuresRoute/home"
+import { Hero, Scheduling, HowToHire, SupportBoard, Category, ContactUs, HomeLawyer} from "../../AppRoute/featuresRoute/home.js"
+import {Categories} from "../../sidder"
 
 export default function Home() {
 
   return (
-    <MDBContainer className="bg-light text-dark" >
-      <MDBContainer className="mb-8" >
+    <MDBContainer>
+      <br />
+      <MDBContainer className="mb-4" >
       <Hero/>
       </MDBContainer>
-    <MDBRow className='bg-light mb-8 rounded-7'>
+      <br />
+    <MDBRow className='mb-4 rounded-7'>
     <SupportBoard/>
     </MDBRow>
-    <MDBRow className='bg-light mb-8'>
-      <MDBCol md='4' offsetMd='4'>
-        <Category/>
-      </MDBCol>
-    </MDBRow>
-    <MDBCard>
-      <MDBCardImage src='https://mdbootstrap.com/img/new/standard/nature/184.webp' position='top' alt='...' />
-      <MDBCardBody>
-        <MDBCardTitle>Card title</MDBCardTitle>
+    <br />
+    <MDBCol className='d-grid'>
+    {
+      Categories.map((key) =>{
+      return(
+    <MDBCard className="d-flex align-items-start bg-light mb-3">
+      <MDBCardImage src={key.categoryImg} position='top' />
+      <MDBCardBody id={key.id}>
         <MDBCardText>
-          Some quick example text to build on the card title and make up the bulk of the card's content.
+          {key.categoryName}
         </MDBCardText>
       </MDBCardBody>
     </MDBCard>
-    <MDBRow className='mb-3d d-flex justify-content-around rounded'>
+      )
+})}
+  </MDBCol>
+    <br />
+    <MDBRow className='mb-3d d-flex justify-content-around rounded-fluid'>
         <MDBCol size='6' md='4'>
           <ContactUs/>
         </MDBCol>
@@ -43,9 +48,11 @@ export default function Home() {
           <Scheduling/>
         </MDBCol>
       </MDBRow>
-      <MDBRow className='mb-4 d-flex justify-content-around rounded-7 '>
+      <br />
+      <MDBRow className='mb-8 d-flex justify-content-around rounded-7-fluid'>
       <HowToHire />
     </MDBRow>
+    <br />
   </MDBContainer>
   );
 }
