@@ -4,7 +4,7 @@
 export default function Payment() {
     return (
         <div className="payment">
-            <div className="card col-lg-4 col-sm-12" >
+            <div className="card " >
                 <div className="card-body col-12 " >
                     <div className='col-12 d-flex'>
                         <div className="card-title fw-bolder fs-6 col-10 " style={{ justifyContent: "flex-start" }}>Agreement is funded between the two parties</div>

@@ -8,7 +8,7 @@ import TopLawyerCard from "./component/cards/TopLawyerCard";
 import HomeLawyer from "./component/cards/HomeLawyer";
 import LawyerPayment from "./component/cards/LawyerPayment";
 import LawyerProfile from "./component/cards/LawyerProfile";
-
+import ProfileLawyer from "./component/ProfileLawyer/ProfileLawyer"
 export default function App() {
   return (
     <div className="App">
@@ -16,8 +16,8 @@ export default function App() {
         <Navbar />
         {/* <Routing />
         <Cookies /> */}
-      
-        <LawyerProfile/>
+  <ProfileLawyer/>
+        {/* <LawyerProfile/> */}
         <Footer />
       </BrowserRouter>
     </div>
