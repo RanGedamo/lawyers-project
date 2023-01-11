@@ -4,6 +4,7 @@ import Payment from "../Payment/Payment";
 import Form from "../form/Form";
 import "../ProfileLawyer/ProfileLawyer.css";
 import { MDBCol, MDBContainer, MDBRow } from "mdb-react-ui-kit";
+
 function ProfileLawyer() {
   return (
     <MDBContainer>

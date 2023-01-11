@@ -73,7 +73,6 @@ export default function HomeLawyer({lawyers}) {
   // avgTime: 5,
   // workDueTime: 4,
 
-
   return (
     <MDBRow>
           {lawyers ? 

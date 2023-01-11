@@ -1,12 +1,11 @@
-import Hero from "../../component/Hero/Hero";
-import Scheduling from "../../component/Section/Scheduling";
-import HowToHire from "../../component/Section/HowToHire";
-import SupportBoard from "../../component/Section/SupportBoard";
-// import Category from '../../component/cards/Category';
+import { useState } from "react";
 import { GridItem, Box, Grid, Container } from "@chakra-ui/react";
-import ContactUs from "../../component/Section/ContactUs";
-
+import { Hero, Scheduling, HowToHire, SupportBoard, Category, ContactUs, HomeLawyer} from "../../AppRoute/featuresRoute/home"
+import { Lawyers } from "../../sidder";
+import {Categories} from "../../sidder";
 export default function Home() {
+  const [lawyers,setLawyers] = useState(Lawyers)
+  const [categories,setCategories] = useState(Categories)
   return (
     <>
       <Container>
@@ -22,9 +21,12 @@ export default function Home() {
             <SupportBoard />
           </Box>
         </GridItem>
-        {/* <GridItem colSpan={5} bg="papayawhip"> */}
-        {/* <Category /> */}
-        {/* </GridItem> */}
+        <GridItem colSpan={5} bg="papayawhip">
+        <Category categories={categories}/>
+        </GridItem>
+        <GridItem colSpan={5} bg="papayawhip">
+        <HomeLawyer lawyers={lawyers} />
+        </GridItem>
         <GridItem colSpan={2}>
           <ContactUs bg={"blue.400"} />
         </GridItem>

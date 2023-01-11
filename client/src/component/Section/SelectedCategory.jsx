@@ -1,19 +1,10 @@
 import { useState } from "react";
-import {
-  Stack,
-  Container,
-  Box,
-  Flex,
-  Text,
-  Heading,
-  SimpleGrid,
-} from "@chakra-ui/react";
+import { Stack, Container, Box, Flex, Text, Heading, SimpleGrid } from "@chakra-ui/react";
 import { Categories } from "../../sidder";
 
 export default function SelectedCategory({ select }) {
 
   return (
-
     <Box bg={"gray.800"} position={"relative"} key={select._id}>
       {console.log(select)}
       <Flex

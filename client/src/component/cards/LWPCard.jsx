@@ -1,19 +1,5 @@
 import React from "react";
-import {
-  MDBCol,
-  MDBContainer,
-  MDBRow,
-  MDBCard,
-  MDBCardText,
-  MDBCardBody,
-  MDBCardImage,
-  MDBTypography,
-  MDBIcon,
-  MDBBtn,
-  MDBBadge,
-  MDBListGroup,
-  MDBListGroupItem,
-} from "mdb-react-ui-kit";
+import { MDBCol,MDBContainer,MDBRow,MDBCard,MDBCardText,MDBCardBody,MDBCardImage,MDBTypography,MDBIcon,MDBBtn, MDBBadge, MDBListGroup, MDBListGroupItem, } from "mdb-react-ui-kit";
 
 export default function LawyerProfile({ select }) {
   // {
@@ -54,7 +40,6 @@ export default function LawyerProfile({ select }) {
   //   workDueTime: 4,
   // },
 
-  
   return (
     <section
       className="vh-100"

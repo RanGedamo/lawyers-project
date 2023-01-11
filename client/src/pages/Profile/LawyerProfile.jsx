@@ -1,10 +1,6 @@
 import React from 'react';
 import { MDBRow, MDBCol } from 'mdb-react-ui-kit';
-import LawyerProfileCard from '../../component/cards/LawyerProfileCard';
-import AreaChart from '../../component/chart/Chart';
-import ReviewsInput from '../../component/Reviews/Reviews';
-import CommentSection from '../../component/commentSection/CommentSection';
-import LawyerCategories from '../../component/cards/LawyerCategories';
+import { LawyerProfileCard, Reviews, AreaChart, ReviewsInput, CommentSection, LawyerCategories} from "../../AppRoute/featuresRoute/lawyerProfile"
 import { useParams } from "react-router-dom";
 import {Lawyers} from "../../sidder"
 
