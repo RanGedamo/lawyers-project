@@ -7,8 +7,6 @@ import ContactUs from "../../component/Section/ContactUs";
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 
 export default function Home() {
-  const [lawyers,setLawyers] = useState(Lawyers)
-  const [categories,setCategories] = useState(Categories)
 
   return (
     <MDBContainer>
