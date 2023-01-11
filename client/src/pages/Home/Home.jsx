@@ -34,7 +34,7 @@ export default function Home() {
           <Scheduling/>
         </MDBCol>
       </MDBRow>
-      <MDBRow className='bg-light mb-3'>
+      <MDBRow className='bg-light mb-3 d-flex justify-content-between'>
       <MDBCol md='4' offsetMd='4'>
       <HowToHire />
       </MDBCol>
