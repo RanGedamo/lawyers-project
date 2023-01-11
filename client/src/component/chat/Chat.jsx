@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 const steps = [
   {
     id: '1',
-    message: 'מה השם שלך?',
+    message: 'Hi, whats your name?',
     trigger: '2',
   },
   {
@@ -14,9 +14,69 @@ const steps = [
   },
   {
     id: '3',
-    message: 'היי {previousValue}, נעים להכיר אותך',
-    end: true,
+    message: 'Hi {previousValue}, Nice to meet you. What service are you interested in?',
+    trigger: '100',
   },
+  {
+    id: '100',
+  options: [
+    { value: 1, label: 'Automobile Accidents', trigger: '4' },
+    { value: 2, label: 'Disabilities', trigger: '5' },
+    { value: 3, label: 'Mortgages', trigger: '6' },
+    { value: 4, label: 'Criminal Defense', trigger: '7' },
+    { value: 5, label: 'Government', trigger: '8' },
+    { value: 6, label: 'Business', trigger: '9' },
+    { value: 7, label: 'Financial', trigger: '10' },
+    { value: 8, label: 'Adoptions', trigger: '11' },
+    { value: 9, label: 'Wills Probate', trigger: '12' },
+  ],
+},
+{
+  id: '4',
+  message: 'Automobile Accidents',
+  trigger: '',
+},
+{
+  id: '5',
+  message: 'Disabilities',
+  trigger: '',
+},
+{
+  id: '6',
+  message: 'Mortgages',
+  trigger: '',
+},
+{
+  id: '7',
+  message: 'Criminal Defense',
+  trigger: '',
+},
+{
+  id: '8',
+  message: 'Government',
+  trigger: '',
+},
+{
+  id: '9',
+  message: 'Business',
+  trigger: '',
+},
+{
+  id: '10',
+  message: 'Financial',
+  trigger: '',
+},
+{
+  id: '11',
+  message: 'Adoptions',
+  trigger: '',
+},
+{
+  id: '12',
+  message: 'Wills Probate',
+  trigger: '',
+},
+
 ];
 
 function Chat() {
