@@ -1,12 +1,12 @@
-import Hero from "../../component/Hero/Hero";
-import Scheduling from "../../component/Section/Scheduling";
-import HowToHire from "../../component/Section/HowToHire";
-import SupportBoard from "../../component/Section/SupportBoard";
-// import Category from '../../component/cards/Category';
-import ContactUs from "../../component/Section/ContactUs";
+import { useState } from "react";
+import { Hero, HowToHire, SupportBoard, Category, ContactUs, HomeLawyer} from "../../AppRoute/featuresRoute/home"
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
+import { Lawyers } from "../../sidder";
+import {Categories} from "../../sidder";
 
 export default function Home() {
+  const [lawyers,setLawyers] = useState(Lawyers)
+  const [categories,setCategories] = useState(Categories)
 
   return (
     <MDBContainer>
@@ -18,18 +18,15 @@ export default function Home() {
     </MDBRow>
     <MDBRow className='bg-light mb-3'>
       <MDBCol md='4'>
-        .col-md-4
+      <Category categories={categories}/>
       </MDBCol>
       <MDBCol md='4' offsetMd='4'>
-        .col-md-4 .offset-md-4
+      <HomeLawyer lawyers={lawyers} />
       </MDBCol>
     </MDBRow>
     <MDBRow className='mb-3d d-flex justify-content-between'>
         <MDBCol size='6' md='4'>
           <ContactUs/>
-        </MDBCol>
-        <MDBCol size='6' md='4'>
-          <Scheduling/>
         </MDBCol>
       </MDBRow>
       <MDBRow className='bg-light mb-3 d-flex justify-content-between'>
