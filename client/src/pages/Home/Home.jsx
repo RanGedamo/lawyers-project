@@ -56,14 +56,12 @@ export default function Home() {
         </MDBRow>
       </MDBContainer>
       <br />
-      <MDBRow className="mb-3d d-flex justify-content-around rounded-fluid">
-        <MDBCol size="6" md="4">
+      <MDBRow className='mb-3'>
+        <MDBCol md='6' offsetMd='3'>
           <ContactUs />
         </MDBCol>
-        <MDBCol size="6" md="4">
-          <Scheduling />
-        </MDBCol>
       </MDBRow>
+   
       <br />
       <MDBRow className="mb-8 d-flex justify-content-around rounded-7-fluid">
         <HowToHire />
