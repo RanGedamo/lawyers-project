@@ -1,11 +1,9 @@
 import React from "react";
 import { MDBRow, MDBCol, MDBContainer } from "mdb-react-ui-kit";
-import AgreementCard from "../../component/cards/AgreementCard";
-import LawyerProfile from "../../component/cards/LawyerProfileCard";
-import LawyerPayment from "../../component/cards/LawyerPayment";
-import PaymentCard from "../../component/cards/PaymentCard";
+import { AgreementCard,  LawyerPayment, PaymentCard } from "../../AppRoute/featuresRoute/payment"
 import "./Payment.css"
-function Payment() {
+
+export default function Payment() {
   return (
     <div className="container-fluid h-100 paymentContainer">
       <MDBRow className="">
@@ -34,6 +32,4 @@ function Payment() {
       </MDBRow>
     </div>
   );
-}
-
-export default Payment;
+};
