@@ -19,7 +19,7 @@ import {
   MDBListGroup,
   MDBListGroupItem,
 } from "mdb-react-ui-kit";
-export default function AgreementCard() {
+export default function AgreementCard({category}) {
   return (
     <MDBCard className="">
       <MDBCardImage
@@ -29,7 +29,7 @@ export default function AgreementCard() {
         alt="..."
       />
       <MDBCardBody>
-        <MDBCardTitle className="">Card title</MDBCardTitle>
+        <MDBCardTitle className="">{category.categoryName}</MDBCardTitle>
         <MDBCardText>
           Some quick example text to build on the card title and make up the
           bulk of the card's content. Some quick example text to build on the

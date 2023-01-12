@@ -6,11 +6,11 @@ import Navbar from "./component/Navbar/Navbar";
 import { useSelector } from "react-redux";
 
 export default function App() {
-
   return (
     <div className="App">
       <BrowserRouter>
         <Navbar />
+        <CategoryNavbar/>
         <Routing />
         <Footer />
       </BrowserRouter>
