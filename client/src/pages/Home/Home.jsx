@@ -3,19 +3,22 @@ import { Hero, HowToHire, SupportBoard, Category, ContactUs, HomeLawyer} from ".
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 import { Lawyers } from "../../sidder";
 import {Categories} from "../../sidder";
+import Carousel from "../../component/carousel/Crousel";
 
 export default function Home() {
   const [lawyers,setLawyers] = useState(Lawyers)
   const [categories,setCategories] = useState(Categories)
 
   return (
-    <MDBContainer>
-      <MDBContainer>
-      <Hero/>
+    <MDBContainer className="w-100">
+      <br />
+      <MDBContainer className="mb-8">
+        <Hero />
       </MDBContainer>
     <MDBRow className='bg-light mb-3 rounded-9'>
     <SupportBoard/>
     </MDBRow>
+    <Carousel/>
     <MDBRow className='bg-light mb-3'>
       <MDBCol md='4'>
       <Category categories={categories}/>
