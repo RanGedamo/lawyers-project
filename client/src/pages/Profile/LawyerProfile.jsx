@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBRow, MDBCol } from "mdb-react-ui-kit";
+import { MDBRow, MDBCol, MDBContainer } from "mdb-react-ui-kit";
 import {
   LawyerProfileCard,
   Reviews,
@@ -89,34 +89,39 @@ export default function LawyerProfile() {
     return Wanted;
   };
 
-  let select = Lawyer();
+  let selectLawyer = Lawyer();
 
   return (
-    <div className="container-fluid h-100">
-      <MDBRow className="">
+    <MDBContainer>
+      <MDBRow> 
+      <MDBCol >
+        <LawyerProfileCard select={selectLawyer} />
+      </MDBCol>
+      <MDBCol>
+        {selectLawyer.filedCategory.map((item,i)=>{
+          return(
+            <LawyerCategories key={i} select={selectLawyer} />
+            
+          )
+        })}
+      </MDBCol>
+      </MDBRow>
+      <MDBRow></MDBRow>
+      <MDBCol>
+        <AreaChart select={selectLawyer} />
+      </MDBCol>
+      <MDBRow>
         <MDBCol>
-          <LawyerProfileCard select={select} />
-        </MDBCol>
-        <MDBCol md="8">
-          <div className="pb-3 ">{select.description}</div>
-          <MDBRow>
-            <MDBCol md="12">
-              <LawyerCategories select={select} />
-            </MDBCol>
-            <MDBCol md="12">
-              <AreaChart select={select} />
-            </MDBCol>
-            <MDBCol
-              md="12"
-              className="d-flex row justify-content-center align-align-items-center "
-            >
-              <CommentSection />
-              <CommentSection />
-              <ReviewsInput />
-            </MDBCol>
-          </MDBRow>
+          <CommentSection />
+          <CommentSection />
+          <CommentSection />
+          <CommentSection />
+          <ReviewsInput />
         </MDBCol>
       </MDBRow>
-    </div>
+    </MDBContainer>
   );
+}
+{
+  /* <div className="pb-3 ">{select.description}</div> */
 }
