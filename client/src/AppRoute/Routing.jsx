@@ -6,7 +6,7 @@ export default function Routing() {
     return (
         <div className="main" >
             <Routes>      
-                <Route path="/" element={<StamHome /> } />
+                <Route path="/" element={<Home /> } />
                 <Route path={'/category/:id'} element={<Filter /> } />
                 <Route path="/lawyer/profile/:id" element={<LawyerProfile /> } />
                 <Route path="/payment" element={<Payment/>} />
