@@ -26,70 +26,17 @@ export default function Filter() {
 
   let select = Category();
 
-  const lawyerCategories = []
-
-  // const GetLawyerCategories = () => {
-  //   Lawyers.map((lawyer) =>
-  //     lawyer.filedCategory.map((category) =>
-  //       lawyerCategories.push(category.categoryName)
-  //     )
-  //   );
-  //   return lawyerCategories;
-  // };
-
-  // const LawyersByCategory = () => {
-  //   const Wanted = lawyerCategories.filter(
-  //     (lawyersCategory) => lawyersCategory === select.categoryName
-  //   );
-  //   return Wanted;
-  // };
-
-// const GetRightToCategory = () => {
-//   const user = Lawyers.filter((lawyer ,i)=> lawyer.filedCategory[i].categoryName === select.categoryName
-//   // lawyer.filedCategory[i].categoryName === select.categoryName
-
-//   //   lawyer?.filedCategory?.map((category) =>{
-
-//   //     if (category?.categoryName === select?.categoryName) {
-//   //       console.log(lawyer);
-//   //       return category?.categoryName
-//   //       // LawyersByCategory.push(lawyer);
-//   //     }
-//   //   }    
-//   // )
-//   ) 
-//   console.log(user)
-
-// }
-const GetRightToCategory = () => {
-  return Lawyers.filter((lawyer ,i)=> console.log( select.categoryName)
-  // lawyer.filedCategory[i].categoryName === select.categoryName
-
-  //   lawyer?.filedCategory?.map((category) =>{
-
-  //     if (category?.categoryName === select?.categoryName) {
-  //       console.log(lawyer);
-  //       return category?.categoryName
-  //       // LawyersByCategory.push(lawyer);
-  //     }
-  //   }    
-  // )
-  ) 
-
-
-}
+  let result = Lawyers.filter((lawyer) =>
+    lawyer.filedCategory
+      .map((category) => category.categoryName)
+      .includes(select.categoryName)
+  );
 
   return (
     <>
-    {/* { console.log(LawyersByCategory) } */}
-    { GetRightToCategory()} 
-    {/* { console.log(select.categoryName) }  */}
-
-      {/* {console.log(GetLawyerCategories())}
-      {console.log(LawyersByCategory())} */}
       <SelectedCategory select={select} />
-      <HomeLawyer lawyers={GetRightToCategory()}/>
-      
+      <HomeLawyer lawyers={result} />
+
     </>
   );
 }
