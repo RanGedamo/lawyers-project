@@ -1,21 +1,14 @@
 import { useState } from "react";
-import {
-  Stack,
-  Container,
-  Box,
-  Flex,
-  Text,
-  Heading,
-  SimpleGrid,
-} from "@chakra-ui/react";
+import { Stack, Container, Box, Flex, Text, Heading, SimpleGrid, } from "@chakra-ui/react";
 import { Categories } from "../../sidder";
-import { useParams } from "react-router-dom";
-import SelectedCategory from "../../component/Section/SelectedCategory";
 import { Lawyers } from "../../sidder";
-import HomeLawyer from "../../component/cards/HomeLawyer";
+import { useParams } from "react-router-dom";
+import { SelectedCategory,HomeLawyer } from "../../sidder"
 
 export default function Filter() {
+
   const [categories, setCategories] = useState(Categories);
+  const [lawyers, setLawyers] = useState(Lawyers);
 
   let { id } = useParams();
 
@@ -26,7 +19,7 @@ export default function Filter() {
 
   let select = Category();
 
-  let result = Lawyers.filter((lawyer) =>
+  let result = lawyers.filter((lawyer) =>
     lawyer.filedCategory
       .map((category) => category.categoryName)
       .includes(select.categoryName)
@@ -36,7 +29,6 @@ export default function Filter() {
     <>
       <SelectedCategory select={select} />
       <HomeLawyer lawyers={result} />
-
     </>
   );
 }
