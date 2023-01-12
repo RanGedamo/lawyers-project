@@ -1,8 +1,11 @@
 import React from "react";
 import { MDBCol, MDBRipple, MDBRow, MDBTypography, MDBBadge } from "mdb-react-ui-kit";
+import cookie from "js-cookie"
 import { Link } from "react-router-dom";
+import { withDefaultColorScheme } from "@chakra-ui/react";
 
-export default function HomeLawyer({lawyers}) {
+
+export default function HomeLawyer({lawyers,id}) {
 
   // _id: "1",
   // selectedCover:
@@ -72,9 +75,11 @@ export default function HomeLawyer({lawyers}) {
   // available: true,
   // avgTime: 5,
   // workDueTime: 4,
-
+  const sendToCoockies=()=>{
+    cookie.set("categoryId",id)
+  }
   return (
-    <MDBRow>
+    <MDBRow  onClick={sendToCoockies} >
           {lawyers ? 
           (
         lawyers.map(lawyer => 
@@ -89,6 +94,7 @@ export default function HomeLawyer({lawyers}) {
               src={lawyer.img}
               alt="lawyer"
               className="h-25"
+             
             />
             <Link to={`/lawyer/profile/${lawyer._id}`}>
               <div

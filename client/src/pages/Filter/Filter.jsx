@@ -35,7 +35,8 @@ export default function Filter() {
   return (
     <>
       <SelectedCategory select={select} />
-      <HomeLawyer lawyers={result} />
+
+      <HomeLawyer lawyers={result} id={id} />
 
     </>
   );
