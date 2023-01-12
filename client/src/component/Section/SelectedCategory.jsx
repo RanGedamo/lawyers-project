@@ -6,7 +6,7 @@ export default function SelectedCategory({ select }) {
 
   return (
     <Box bg={"gray.800"} position={"relative"} key={select._id}>
-      {console.log(select)}
+      {/* {console.log(select)} */}
       <Flex
         flex={1}
         zIndex={0}
