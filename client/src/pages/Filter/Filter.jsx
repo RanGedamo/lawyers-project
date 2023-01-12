@@ -62,7 +62,7 @@ export default function Filter() {
       {result.length > 0 ? (
         <div>
           <h1>filter by category</h1>
-          <HomeLawyer lawyers={result} />
+          <HomeLawyer lawyers={result} id={id} />
         </div>
       ) : (
         <Spinner />
