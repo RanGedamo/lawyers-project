@@ -1,8 +1,16 @@
-import React from 'react';
-import { MDBRow, MDBCol } from 'mdb-react-ui-kit';
-import { LawyerProfileCard, Reviews, AreaChart, ReviewsInput, CommentSection, LawyerCategories} from "../../AppRoute/featuresRoute/lawyerProfile"
+import React from "react";
+import { MDBRow, MDBCol } from "mdb-react-ui-kit";
+import {
+  LawyerProfileCard,
+  Reviews,
+  AreaChart,
+  ReviewsInput,
+  CommentSection,
+  LawyerCategories,
+} from "../../AppRoute/featuresRoute/lawyerProfile";
 import { useParams } from "react-router-dom";
-import {Lawyers} from "../../sidder"
+import { Lawyers } from "../../sidder";
+import LWPCard from "../../component/cards/LWPCard";
 
 // _id: "1",
 // selectedCover:
@@ -74,7 +82,6 @@ import {Lawyers} from "../../sidder"
 // workDueTime: 4,
 
 export default function LawyerProfile() {
-
   let { id } = useParams();
 
   const Lawyer = () => {
@@ -85,42 +92,31 @@ export default function LawyerProfile() {
   let select = Lawyer();
 
   return (
-<div className='container-fluid h-100'>
-
-        <MDBRow className=''>
-            <MDBCol md='4'>
-            <LawyerProfileCard select={select}/>
-           </MDBCol>
-           <MDBCol md='8'>
-        <div className='pb-3 '>{select.description}</div>
-        <MDBRow >
-          <MDBCol md='12'>
-            <LawyerCategories  select={select}/>
-          </MDBCol>
-          <MDBCol md='12'>
-            <AreaChart  select={select}/>
-          </MDBCol>
-          <MDBCol md='12' className='d-flex row justify-content-center align-align-items-center '>
-          <CommentSection/>
-          <CommentSection/>
-
-          <ReviewsInput/>
-
-          </MDBCol>
-          <MDBCol>
-          </MDBCol>
-        </MDBRow>
-        
-      </MDBCol>
+    <div className="container-fluid h-100">
+      <MDBRow className="">
+        <MDBCol>
+          <LawyerProfileCard select={select} />
+        </MDBCol>
+        <MDBCol md="8">
+          <div className="pb-3 ">{select.description}</div>
+          <MDBRow>
+            <MDBCol md="12">
+              <LawyerCategories select={select} />
+            </MDBCol>
+            <MDBCol md="12">
+              <AreaChart select={select} />
+            </MDBCol>
+            <MDBCol
+              md="12"
+              className="d-flex row justify-content-center align-align-items-center "
+            >
+              <CommentSection />
+              <CommentSection />
+              <ReviewsInput />
+            </MDBCol>
+          </MDBRow>
+        </MDBCol>
       </MDBRow>
-      </div>
-
+    </div>
   );
 }
-
-
-
-
-
-
-
