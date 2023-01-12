@@ -2,8 +2,10 @@ import React from "react";
 import { MDBCardBody, MDBIcon, MDBInput, MDBBtn } from "mdb-react-ui-kit";
 import {  FacebookLoginButton,GoogleLoginButton,} from "react-social-login-buttons";
 import { useSelector } from "react-redux";
+import { FireBaseConfig } from "../../FireBaseConfig/FireBaseConfig";
 
 export default function SignIn() {
+FireBaseConfig()
   const user=useSelector((state)=>state.userData)
 console.log(user);
   // const [error] = useState("");
@@ -23,7 +25,6 @@ console.log(user);
       console.log(error.message);
     }
   };
-
   return (
     <>
       <MDBCardBody className="d-flex flex-column">
