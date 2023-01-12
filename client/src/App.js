@@ -5,6 +5,7 @@ import Routing from "./AppRoute/Routing";
 import Navbar from "./component/Navbar/Navbar";
 import { useSelector } from "react-redux";
 import { FireBaseConfig } from "./FireBaseConfig/FireBaseConfig";
+import CategoryNavbar from "./component/Navbar/CategoryNavbar";
 
 export default function App() {
 //  FireBaseConfig()
@@ -15,6 +16,7 @@ export default function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar />
+        <CategoryNavbar/>
         <Routing />
         <Footer />
       </BrowserRouter>
