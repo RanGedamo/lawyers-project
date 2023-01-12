@@ -97,7 +97,7 @@ export default function Hero() {
               align={'center'}
               w={'100%'}
               h={'100%'}
-              src="/animation/hero-lawyers.png"
+              src="animations/hero-lawyers.png"
             />
           </Box>
         </Flex>

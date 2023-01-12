@@ -32,6 +32,30 @@ export default function Filter() {
   //   console.log(fg)
   // }
 
+      // filter function
+      const filterFunction = (text)=>{
+        if(result.length>1){
+            const filter=result.filter((lawyer)=>
+            console.log(lawyer)
+            // lawyer.category===text 
+            // lawyer.category===text
+            // lawyer.category===text
+            // rate location price experience available avgTime
+            );
+            // setFilteredProducts(filter);
+        }
+        else{
+            console.log('no products to filter')
+        } 
+    }
+
+    // return to all products
+    // const returntoAllProducts=()=>{
+    //     setActive('');
+    //     setCategory('');
+    //     setFilteredProducts([]);
+    // }
+
   return (
     <>
       <SelectedCategory select={select} />
