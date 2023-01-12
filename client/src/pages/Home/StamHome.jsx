@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { GridItem, Box, Grid, Container } from "@chakra-ui/react";
-import { Hero, Scheduling, HowToHire, SupportBoard, Category, ContactUs, HomeLawyer} from "../../AppRoute/featuresRoute/home"
+import { Hero, HowToHire, SupportBoard, Category, ContactUs, HomeLawyer} from "../../AppRoute/featuresRoute/home"
 import { Lawyers } from "../../sidder";
 import {Categories} from "../../sidder";
+
+
 export default function Home() {
   const [lawyers,setLawyers] = useState(Lawyers)
   const [categories,setCategories] = useState(Categories)
@@ -29,9 +31,6 @@ export default function Home() {
         </GridItem>
         <GridItem colSpan={2}>
           <ContactUs bg={"blue.400"} />
-        </GridItem>
-        <GridItem colSpan={2}>
-          <Scheduling bg={"blue.400"} />
         </GridItem>
         <GridItem colSpan={4}>
           <HowToHire />
