@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { FireBaseConfig } from "./FireBaseConfig/FireBaseConfig";
 
 export default function App() {
- FireBaseConfig()
+//  FireBaseConfig()
   const user=useSelector((state)=>state.userData)
   const facebook=useSelector((state)=>state.facebookSignIn)
   // console.log(user)
