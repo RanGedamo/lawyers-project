@@ -18,15 +18,18 @@ export default function Home() {
     <MDBRow className='bg-light mb-3 rounded-9'>
     <SupportBoard/>
     </MDBRow>
-    <Carousel/>
-    <MDBRow className='bg-light mb-3'>
-      <MDBCol md='4'>
-      <Category categories={categories}/>
-      </MDBCol>
-      <MDBCol md='4' offsetMd='4'>
-      <HomeLawyer lawyers={lawyers} />
+    <br />
+    <MDBRow className='d-flex'>
+      <MDBCol md='8' >
+      <Carousel/>
       </MDBCol>
     </MDBRow>
+    <MDBRow className='d-flex justify-content-center'>
+      <MDBCol md='10'>
+      <Category categories={categories}/>
+      </MDBCol>
+    </MDBRow>
+    <br />
     <MDBRow className='mb-3'>
         <MDBCol md='6' offsetMd='3'>
           <ContactUs />
