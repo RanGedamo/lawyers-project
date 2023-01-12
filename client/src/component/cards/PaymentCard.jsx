@@ -35,8 +35,6 @@ export default function PaymentCard({category}) {
                 <MDBIcon icon='long-arrow-alt-right' className='me-2 text-info' />{item.name}
               </li>
               )}
-    
- 
     </MDBTypography>
             </MDBListGroupItem>
             <MDBListGroupItem className="d-flex justify-content-between align-items-center border-0 px-0 mb-4 mt-4">

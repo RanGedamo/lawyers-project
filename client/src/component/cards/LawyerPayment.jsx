@@ -15,7 +15,6 @@ import {
     return (
       <Center py={6}>
         <Box
-        
           w={'full'}
           bg={useColorModeValue('white', 'gray.800')}
           boxShadow={'xl'}
@@ -35,7 +34,6 @@ import {
               }}
             />
           </Flex>
-  
           <Box p={6}>
             <Stack spacing={0} align={'center'} mb={5}>
               <Heading fontSize={'2xl'} fontWeight={500} fontFamily={'body'}>
