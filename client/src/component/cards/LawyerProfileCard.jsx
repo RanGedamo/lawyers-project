@@ -51,16 +51,16 @@ export default function LawyerProfile({select}) {
                 <div key={i}>
                 
                   <MDBIcon icon='long-arrow-alt-right' className='me-2 ms-1 text-info' />
-                  <b>Title:</b> <br></br>{select.title}
+                  <b>Title:</b> <br></br>{item.subCategory[i].name}
                   </div> )}
                   )}
-                  <div>
+                  {/* <div>
                 
                   <MDBIcon icon='long-arrow-alt-right' className='me-2 ms-1 text-info' />
                   <b>Description:</b> 
                   <br></br>
                   {select.description}
-                  </div>
+                  </div> */}
                 </div>
                 <div className="mb-5 text-start">
                   <MDBCardBody className="p-0">
