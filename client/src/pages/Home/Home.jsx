@@ -32,6 +32,8 @@ export default function Home() {
         <SupportBoard />
       </MDBRow>
       <br />
+      <Carousel/>
+      <br />
       <MDBContainer className="d-flex justify-content-center">
         <MDBRow>
           {Categories.map((key) => {
@@ -54,7 +56,6 @@ export default function Home() {
         </MDBRow>
       </MDBContainer>
       <br />
-      <Carousel/>
       <MDBRow className="mb-3d d-flex justify-content-around rounded-fluid">
         <MDBCol size="6" md="4">
           <ContactUs />
@@ -63,7 +64,6 @@ export default function Home() {
           <Scheduling />
         </MDBCol>
       </MDBRow>
-      <Carousel/>
       <br />
       <MDBRow className="mb-8 d-flex justify-content-around rounded-7-fluid">
         <HowToHire />
