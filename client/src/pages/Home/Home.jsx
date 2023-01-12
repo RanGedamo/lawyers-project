@@ -27,16 +27,16 @@ export default function Home() {
       <HomeLawyer lawyers={lawyers} />
       </MDBCol>
     </MDBRow>
-    <MDBRow className='mb-3d d-flex justify-content-between'>
-        <MDBCol size='6' md='4'>
-          <ContactUs/>
+    <MDBRow className='mb-3'>
+        <MDBCol md='6' offsetMd='3'>
+          <ContactUs />
         </MDBCol>
       </MDBRow>
-      <MDBRow className='bg-light mb-3 d-flex justify-content-between'>
-      <MDBCol md='4' offsetMd='4'>
-      <HowToHire />
-      </MDBCol>
-    </MDBRow>
+   
+      <br />
+      <MDBRow className="mb-8 d-flex justify-content-around rounded-7-fluid">
+        <HowToHire />
+      </MDBRow>
   </MDBContainer>
   );
 }

@@ -43,17 +43,17 @@ export default function Filter() {
             lawyer.experience === experience &&
             lawyer.avgTime === avgTime
             )
-            setFilteredProducts(filter);
+            // setFilteredProducts(filter);
         }
         else{
             console.log('no products to filter')
         } 
     }
-    return to all products
+    // return to all products
     const returntoAllProducts=()=>{
-        setActive('');
-        setCategory('');
-        setFilteredProducts([]);
+        // setActive('');
+        // setCategory('');
+        // setFilteredProducts([]);
     }
 
   return (
