@@ -36,6 +36,7 @@ export default function Filter() {
     <>
       <SelectedCategory select={select} />
       <HomeLawyer lawyers={result} />
+
     </>
   );
 }
