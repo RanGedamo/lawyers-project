@@ -637,7 +637,7 @@ export const Lawyers = [
     available: true,
     avgTime: 10,
     workDueTime: 3,
-  },
+  }, 
   {
     _id: "10",
     selectedCover:
