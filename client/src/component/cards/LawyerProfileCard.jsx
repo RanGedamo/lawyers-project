@@ -1,5 +1,6 @@
 import React from 'react';
 import { MDBCol, MDBContainer, MDBRow, MDBCard,MDBBadge, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography, MDBListGroup, MDBListGroupItem, MDBIcon } from 'mdb-react-ui-kit';
+import { Link } from 'react-router-dom';
 
 export default function LawyerProfile({select}) {
   
@@ -12,16 +13,14 @@ export default function LawyerProfile({select}) {
               <div className="rounded-top text-white d-flex flex-row" style={{ backgroundImage: `url(${select.selectedCover})`,backgroundSize:'cover', height: '200px' }}>
                 <div className="ms-4 mt-2 d-flex flex-column" style={{ width: '150px' }}>
                   <MDBCardImage src={select.img}
-                    alt="Generic placeholder image" className="rounded-circle mt-4 mb-2" fluid style={{ width: '150px', zIndex: '1' }} />
+                    alt="Generic placeholder image" className="rounded-circle mt-4 mb-2" fluid style={{ zIndex: '1' }} />
                       {select.available ? (
                             <MDBBadge className='mt-3' pill light color="success">
-                            {" "}
-                            Available{" "}
+                            Available
                           </MDBBadge>
                         ) : (
                           <MDBBadge className='mt-3' pill light color="warning">
-                            {" "}
-                            Not Available{" "}
+                            Not Available
                           </MDBBadge>)}
                 </div>
                 <div className="ms-5 mt-5" >
@@ -32,7 +31,7 @@ export default function LawyerProfile({select}) {
                 <div className="d-flex justify-content-start text-center py-1">
                   <div>
                     <MDBCardText className="mb-1 h5">{select.rate}/5</MDBCardText>
-                    <MDBCardText className="small text-muted mb-0"><i className="far fa-star"></i> </MDBCardText>
+                    <MDBCardText className="small text-muted mb-0"><MDBIcon fas icon="star text-warning me-2" /> </MDBCardText>
                   </div>
                   <div className="px-3">
                     <MDBCardText className="mb-1 h5">{select.experience} Years</MDBCardText>
@@ -46,21 +45,14 @@ export default function LawyerProfile({select}) {
               </div>
               <MDBCardBody className="text-black p-4">
                 <div className=' text-start mb-4'>
-                {select.filedCategory.map((item,i)=>
-                {return(               
-                <div key={i}>
-                
-                  <MDBIcon icon='long-arrow-alt-right' className='me-2 ms-1 text-info' />
-                  <b>Title:</b> <br></br>{item.subCategory[i].name}
-                  </div> )}
-                  )}
-                  {/* <div>
-                
-                  <MDBIcon icon='long-arrow-alt-right' className='me-2 ms-1 text-info' />
-                  <b>Description:</b> 
-                  <br></br>
-                  {select.description}
-                  </div> */}
+                <p><MDBIcon icon='long-arrow-alt-right' className='me-2 ms-1 text-info' />
+                 <b>Title: </b>{select.title}</p> <br></br> 
+                 <p><MDBIcon icon='long-arrow-alt-right' className='me-2 ms-1 text-info' />
+                 <b>Description: </b>{select.description}</p> <br></br> 
+                 <p><MDBIcon icon='long-arrow-alt-right' className='me-2 ms-1 text-info' />
+                 <b>Estimated response time: </b>{select.avgTime} days</p> <br></br> 
+                 <p><MDBIcon icon='long-arrow-alt-right' className='me-2 ms-1 text-info' />
+                 <b>service cost: </b>{select.price} $</p> <br></br> 
                 </div>
                 <div className="mb-5 text-start">
                   <MDBCardBody className="p-0">
@@ -88,7 +80,7 @@ export default function LawyerProfile({select}) {
                 </MDBListGroup>
               </MDBCardBody>
                 </div>
-                  <MDBBtn className=' me-2'>Hire me</MDBBtn>
+                  <Link to={'/payment'}> <MDBBtn className=' me-2'>Hire me</MDBBtn></Link>
                   <MDBBtn className=' ms-2'>Contact me</MDBBtn>
               </MDBCardBody>
             </MDBCard>

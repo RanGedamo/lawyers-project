@@ -11,74 +11,44 @@ import {
   MDBTypography,
 } from "mdb-react-ui-kit";
 
-export default function CommentSection() {
+export default function CommentSection({ select ,index}) {
   return (
-    <section className="col-sm-12 mt-2" style={{ backgroundColor: "#f7f6f6" }}>
-      <MDBContainer className="py-5 text-dark" style={{ maxWidth: "1000px" }}>
-        <MDBRow className="justify-content-center">
-          <MDBCol md="2">
-            <MDBCardImage
-              className="rounded-circle shadow-1-strong me-3"
-              src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(26).webp"
-              alt="avatar"
-              width="40"
-              height="40"
-            />
-          </MDBCol>
-          <MDBCol md="8" className="flex-column">
-            <MDBTypography
-              tag="h6"
-              className="text-primary fw-bold mb-0 text-start"
-            >
-              lara_stewart
-            </MDBTypography>
-            <MDBTypography tag="h6" className="text-dark  mb-0 text-start">
-              Hmm, This poster looks cool{" "}
-            </MDBTypography>
-          </MDBCol>
-          <MDBCol md="2" className="flex-column">
-          <MDBTypography tag="h6" className="text-dark  mb-0 text-start">
-          2 days ago
-            </MDBTypography>
-            <MDBTypography tag="h6" className="text-dark  mb-0 text-start">
-            <MDBIcon fas icon="star text-warning me-2" />
-              3.5            </MDBTypography>
-            
-          </MDBCol>
-          {/* <MDBCard className="mb-3">
-              <MDBCardBody>
-                <div className="">
-                  <MDBCardImage
-                    className="rounded-circle shadow-1-strong me-3"
-                    src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(26).webp"
-                    alt="avatar"
-                    width="40"
-                    height="40"
-                  />
-
-                  <div className="w-100">
-                    <div className="d-flex justify-content-between align-items-center mb-3">
-                      <MDBTypography
-                        tag="h6"
-                        className="text-primary fw-bold mb-0"
-                      >
-                        lara_stewart
-                        <span className="text-dark ms-2">
-                          Hmm, This poster looks cool
-                        </span>
-                      </MDBTypography>
-                      <p className="mb-0">2 days ago</p>
-                    </div>
-                    <div className="d-flex flex-row">
-                        <MDBIcon fas icon="star text-warning me-2" />
-                       3.5
-                      </div>
-                  </div>
-                </div>
-              </MDBCardBody>
-            </MDBCard> */}
-        </MDBRow>
+      <MDBContainer className="py-2 text-dark">
+        <MDBCard className="mb-3 pb-5 pt-5">
+          <MDBCardBody>
+            <MDBRow className="justify-content-center">
+              <MDBCol size={1}>
+                <MDBCardImage
+                  className="rounded-circle shadow-1-strong me-3 "
+                  src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(26).webp"
+                  alt="avatar"
+                  width="40"
+                  height="40"
+                />
+              </MDBCol>
+              <MDBCol size={12} className="flex-column col-md-8">
+                <MDBTypography
+                  tag="h6"
+                  className="text-primary fw-bold text-start pb-3"
+                >
+                  {select.reviwes[index].user}
+                </MDBTypography>
+                <MDBTypography tag="h6" className="text-dark  mb-0 text-start ms-4">
+                  {select.reviwes[index].comment}
+                </MDBTypography>
+              </MDBCol>
+              <MDBCol size={12} className="flex-column col-md-2">
+                <MDBTypography tag="h6" className="text-dark  text-start mt-md-0 mt-3">
+                  2 days ago
+                </MDBTypography>
+                <MDBTypography tag="h6" className="text-dark  mt-3 text-start">
+                  <MDBIcon fas icon="star text-warning me-2 " />
+                  {select.reviwes[index].rate}
+                </MDBTypography>
+              </MDBCol>
+            </MDBRow>
+          </MDBCardBody>
+        </MDBCard>
       </MDBContainer>
-    </section>
   );
 }
