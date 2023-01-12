@@ -32,6 +32,30 @@ export default function Filter() {
   //   console.log(fg)
   // }
 
+      // filter function
+      const filterFunction = (rate,location,price,experience,avgTime)=>{
+        if(result.length>1){
+            const filter=result.filter((lawyer)=>
+            lawyer.available === true &&
+            lawyer.rate === rate &&
+            lawyer.location === location &&
+            lawyer.price === price &&
+            lawyer.experience === experience &&
+            lawyer.avgTime === avgTime
+            )
+            setFilteredProducts(filter);
+        }
+        else{
+            console.log('no products to filter')
+        } 
+    }
+    return to all products
+    const returntoAllProducts=()=>{
+        setActive('');
+        setCategory('');
+        setFilteredProducts([]);
+    }
+
   return (
     <>
       <SelectedCategory select={select} />
