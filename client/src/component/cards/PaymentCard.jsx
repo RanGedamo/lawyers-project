@@ -8,15 +8,14 @@ import {
   MDBListGroupItem,
   MDBTypography,
 } from "mdb-react-ui-kit";
-import PaypalCheckoutButton from "../PaypalCheckoutButton/PaypalCheckoutButton";
-
-export default function Payment() {
+import PaypalCheckoutButton from "../../component/PaypalCheckoutButton/PaypalCheckoutButton"
+export default function PaymentCard() {
   const product = {
     description: "Lawyer hire asds djkabk kjdbcnoa",
     price: 10,
   };
   return (
-    <MDBCol md="4">
+    <MDBCol md="4" className="w-100">
       <MDBCard className="mb-4">
         <MDBCardHeader>
           <MDBTypography tag="h5" className="mb-0">

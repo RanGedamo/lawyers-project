@@ -1,5 +1,6 @@
 import { Route, Routes  } from "react-router-dom"
 import { Home, Filter, Payment, LawyerProfile, ErrorPage } from "./pagesRoute/pages"
+import StamHome from "../pages/Home/StamHome"
 
 export default function Routing() {
     return (
@@ -8,7 +9,7 @@ export default function Routing() {
                 <Route path="/" element={<Home /> } />
                 <Route path={'/category/:id'} element={<Filter /> } />
                 <Route path="/lawyer/profile/:id" element={<LawyerProfile /> } />
-                <Route path="payment" element={<Payment/>} />
+                <Route path="/payment" element={<Payment/>} />
                 <Route path="*" element={<ErrorPage /> } />
             </Routes>
         </div>

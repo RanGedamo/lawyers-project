@@ -5,7 +5,7 @@ import "./carousel.css"
 
 function Carousel() {
     return (
-        <div class="slider">
+        <div class="slider mb-5 mt-5">
         <div class="slide-track2">
           <div class="slide bg-red-500" style={{background:"black"}}>1</div>
           <div class="slide bg-purple-500">2</div>

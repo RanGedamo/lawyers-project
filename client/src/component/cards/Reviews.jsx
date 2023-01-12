@@ -7,7 +7,7 @@ import {
   MDBBtn,
   MDBIcon,
 } from "mdb-react-ui-kit";
-import RateReview from "../RateReview/RateReview";
+import RateReview from "../RateReviewStars/RateReview";
 
 export default function Reviews() {
     const [start,setStars]=useState(0)

@@ -14,7 +14,7 @@ import {
 function CardSuit() {
     return (
         <MDBContainer className="my-3 square border border-2 rounded-5 ">
-            <MDBCarouselInner>
+            {/* <MDBCarouselInner> */}
                 <br />
               <MDBCarouselItem className="active text-center">
                 <div className="d-flex justify-content-evenly">
@@ -40,7 +40,7 @@ function CardSuit() {
                     </div>
                 </MDBRow>
               </MDBCarouselItem>
-            </MDBCarouselInner>
+            {/* </MDBCarouselInner> */}
             <br />
         </MDBContainer>
       );

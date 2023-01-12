@@ -6,7 +6,7 @@ import {
   MDBTextArea,
   MDBTypography,
 } from "mdb-react-ui-kit";
-import RateReview from "../RateReview/RateReview";
+import RateReview from "../RateReviewStars/RateReview";
 import { useState } from "react";
 
 export default function ReviewsInput() {
