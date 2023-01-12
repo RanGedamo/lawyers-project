@@ -9,7 +9,6 @@ export default function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar />
-        <CategoryNavbar/>
         <Routing />
         <Footer />
       </BrowserRouter>
