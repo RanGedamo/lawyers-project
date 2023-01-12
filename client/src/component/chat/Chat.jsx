@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from 'styled-components';
+import { Lawyers } from "../../sidder";
 
 function Chat() {
   const [supportChat, setSupportChat] = useState(false)
   const user=useSelector((state)=>state.userData)
+
 
   const steps = [
     {
@@ -40,8 +42,20 @@ function Chat() {
   {
     id: '4',
     message: 'Automobile Accidents',
-    trigger: '',
+    trigger: '101',
   },
+  {
+    id: '101',
+  options: [
+    { value: 1, label: `${Lawyers[0].firstName}`},
+    { value: 2, label: `${Lawyers[1].firstName}`},
+    { value: 3, label: `${Lawyers[2].firstName}`},
+    { value: 4, label: `${Lawyers[3].firstName}`},
+    { value: 5, label: `${Lawyers[4].firstName}`},
+    { value: 6, label: `${Lawyers[5].firstName}`},
+    { value: 7, label: `${Lawyers[6].firstName}`},
+  ],
+},
   {
     id: '5',
     message: 'Disabilities',
