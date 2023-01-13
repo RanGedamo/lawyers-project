@@ -41,61 +41,103 @@ function Chat() {
   },
   {
     id: '4',
-    message: 'Automobile Accidents',
+    message: 'Click on the image',
     trigger: '101',
   },
   {
     id: '101',
-  options: [
-    { value: 1, label: `${Lawyers[0].firstName}`},
-    { value: 2, label: `${Lawyers[1].firstName}`},
-    { value: 3, label: `${Lawyers[2].firstName}`},
-    { value: 4, label: `${Lawyers[3].firstName}`},
-    { value: 5, label: `${Lawyers[4].firstName}`},
-    { value: 6, label: `${Lawyers[5].firstName}`},
-    { value: 7, label: `${Lawyers[6].firstName}`},
-  ],
-},
+    component: (
+    <a href="/category/63b57b92bf06bcefd6812e98" className="col-12"><img src="/images/chat-bot-img/real-estate.png" style={{borderRadius:"10%"}} /></a>
+    ),
+    },
   {
     id: '5',
     message: 'Disabilities',
-    trigger: '',
+    trigger: '102',
   },
+  {
+    id: '102',
+    component: (
+    <a href="/category/63b57b92bf06bcefd6812e98" className="col-12"><img src="/images/chat-bot-img/real-estate.png" style={{borderRadius:"10%"}} /></a>
+    ),
+    },
   {
     id: '6',
     message: 'Mortgages',
-    trigger: '',
+    trigger: '103',
   },
+  {
+    id: '103',
+    component: (
+    <a href="/category/63b57b92bf06bcefd6812e98" className="col-12"><img src="/images/chat-bot-img/real-estate.png" style={{borderRadius:"10%"}} /></a>
+    ),
+    },
   {
     id: '7',
     message: 'Criminal Defense',
-    trigger: '',
+    trigger: '104',
   },
+  {
+    id: '104',
+    component: (
+    <a href="/category/63b57b92bf06bcefd6812e98" className="col-12"><img src="/images/chat-bot-img/real-estate.png" style={{borderRadius:"10%"}} /></a>
+    ),
+    },
   {
     id: '8',
     message: 'Government',
-    trigger: '',
+    trigger: '105',
   },
+  {
+    id: '105',
+    component: (
+    <a href="/category/63b57b92bf06bcefd6812e98" className="col-12"><img src="/images/chat-bot-img/real-estate.png" style={{borderRadius:"10%"}} /></a>
+    ),
+    },
   {
     id: '9',
     message: 'Business',
-    trigger: '',
+    trigger: '106',
   },
+  {
+    id: '106',
+    component: (
+    <a href="/category/63b57b92bf06bcefd6812e98" className="col-12"><img src="/images/chat-bot-img/real-estate.png" style={{borderRadius:"10%"}} /></a>
+    ),
+    },
   {
     id: '10',
     message: 'Financial',
-    trigger: '',
+    trigger: '107',
   },
+  {
+    id: '107',
+    component: (
+    <a href="/category/63b57b92bf06bcefd6812e98" className="col-12"><img src="/images/chat-bot-img/real-estate.png" style={{borderRadius:"10%"}} /></a>
+    ),
+    },
   {
     id: '11',
     message: 'Adoptions',
-    trigger: '',
+    trigger: '108',
   },
+  {
+    id: '108',
+    component: (
+    <a href="/category/63b57b92bf06bcefd6812e98" className="col-12"><img src="/images/chat-bot-img/real-estate.png" style={{borderRadius:"10%"}} /></a>
+    ),
+    },
   {
     id: '12',
     message: 'Wills Probate',
-    trigger: '',
+    trigger: '109',
   },
+  {
+    id: '109',
+    component: (
+    <a href="/category/63b57b92bf06bcefd6812e98" className="col-12"><img src="/images/chat-bot-img/real-estate.png" style={{borderRadius:"10%"}} /></a>
+    ),
+    },
   
   ];
 
@@ -120,7 +162,7 @@ function Chat() {
               speechSynthesis={{ enable: true, lang: 'he' }}
               color={{ background: '#f5f8fb' }}
               steps={steps}
-              botAvatar={"images/chat-bot-img/supportAvatar.png"}
+              botAvatar={"/images/chat-bot-img/supportAvatar.png"}
               userAvatar={user?.currentUser?.photoURL}
 
             />
