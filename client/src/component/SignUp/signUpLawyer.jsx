@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   MDBCardBody,
   MDBInput,
@@ -8,7 +8,14 @@ import {
   MDBCheckbox,
   MDBFile
 } from "mdb-react-ui-kit";
+import { PlacesAddress } from "../../GoogleMap/GoogleMap";
 export default function SignUpLawyer() {
+  const [inputs, setInputs] = useState();
+  const changeInputs = (e) => {
+    setInputs({ ...inputs, [e.target.name]: e.target.value })
+    console.log(inputs);
+  };
+  
   return (
     <>
       <MDBCardBody className="p-5">
@@ -20,6 +27,8 @@ export default function SignUpLawyer() {
               label="First name"
               id="form1"
               type="text"
+              name="firstName"
+              onChange={(e) => changeInputs(e)}
             />
           </MDBCol>
           <MDBCol col="6">
@@ -28,10 +37,18 @@ export default function SignUpLawyer() {
               label="Last name"
               id="form2"
               type="text"
+              name="lastName"
+              onChange={(e) => changeInputs(e)}
             />
           </MDBCol>
         </MDBRow>
-        <MDBInput wrapperClass="mb-4" label="Email" id="form3" type="email" />
+        <MDBInput
+          wrapperClass="mb-4"
+          label="Email"
+          id="form3"
+          type="email"
+          name="email"
+          onChange={(e) => changeInputs(e)} />
         <MDBRow>
           <MDBCol col="6">
             <MDBInput
@@ -39,6 +56,8 @@ export default function SignUpLawyer() {
               label="Password"
               id="form4"
               type="password"
+              name="Password"
+              onChange={(e) => changeInputs(e)}
             />
           </MDBCol>
           <MDBCol col="6">
@@ -47,6 +66,8 @@ export default function SignUpLawyer() {
               label="Phone"
               id="form5"
               type="text"
+              name="phone"
+              onChange={(e) => changeInputs(e)}
             />
           </MDBCol>
         </MDBRow>
@@ -57,6 +78,8 @@ export default function SignUpLawyer() {
               label="Title"
               id="form6"
               type="text"
+              name="title"
+              onChange={(e) => changeInputs(e)}
             />
           </MDBCol>
           <MDBCol col="6">
@@ -65,6 +88,8 @@ export default function SignUpLawyer() {
               label="Category"
               id="form7"
               type="text"
+              name="category"
+              onChange={(e) => changeInputs(e)}
             />
           </MDBCol>
         </MDBRow>
@@ -75,6 +100,8 @@ export default function SignUpLawyer() {
               label="Average Replay"
               id="form8"
               type="number"
+              name="averageReplay"
+              onChange={(e) => changeInputs(e)}
             />
           </MDBCol>
           <MDBCol col="6">
@@ -83,6 +110,8 @@ export default function SignUpLawyer() {
               label="Available"
               id="form9"
               type="text"
+              name="available"
+              onChange={(e) => changeInputs(e)}
             />
           </MDBCol>
         </MDBRow>
@@ -93,6 +122,8 @@ export default function SignUpLawyer() {
               label="Price"
               id="form10"
               type="number"
+              name="price"
+              onChange={(e) => changeInputs(e)}
             />
           </MDBCol>
           <MDBCol col="6">
@@ -101,15 +132,19 @@ export default function SignUpLawyer() {
               label="Experience"
               id="form11"
               type="text"
+              name="experience"
+              onChange={(e) => changeInputs(e)}
             />
           </MDBCol>
         </MDBRow>
-        <MDBInput wrapperClass="mb-4" label="Location" id="form12" type="text" />
+        <PlacesAddress />
         <MDBInput
           wrapperClass="mb-4"
           label="Description"
           id="form13"
           type="text"
+          name="description"
+          onChange={(e) => changeInputs(e)}
         />
         <MDBRow>
           <MDBCol col="6">

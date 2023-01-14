@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { MDBCardBody, MDBIcon, MDBInput, MDBBtn } from "mdb-react-ui-kit";
 
 export default function SignInLawyer() {
-
+  const [inputs, setInputs] = useState();
+  const changeInputs = (e) => {
+    setInputs({ ...inputs, [e.target.name]: e.target.value })
+    console.log(inputs);
+  }
   return (
     <>
       <MDBCardBody className="d-flex flex-column">
@@ -19,6 +23,8 @@ export default function SignInLawyer() {
           id="formControlLgEmail"
           type="email"
           size="lg"
+          name="email"
+          onChange={(e) => changeInputs(e)}
         />
         <MDBInput
           wrapperClass="mb-4"
@@ -26,6 +32,8 @@ export default function SignInLawyer() {
           id="formControlLgPassword"
           type="password"
           size="lg"
+          name="password"
+          onChange={(e) => changeInputs(e)}
         />
         <MDBBtn className="mb-3 px-5"  size="lg">
           Login

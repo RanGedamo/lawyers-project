@@ -48,7 +48,7 @@ export default function LawyerProfile() {
         </MDBCol>
       </MDBRow>
       <MDBContainer>
-        <MDBRow>
+        <MDBRow className="col-sm-12">
           <MDBCol className="mt-5">
             {selectLawyer.filedCategory.map((item, i) => {
               return <CommentSection key={i} index={i} select={selectLawyer} />;
