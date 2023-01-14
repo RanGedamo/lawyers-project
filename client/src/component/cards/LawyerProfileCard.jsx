@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MDBCol, MDBContainer, MDBRow, MDBCard,MDBBadge, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography, MDBListGroup, MDBListGroupItem, MDBIcon } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
+import ContactLawyer from '../contactLawyer/ContactLawyer';
 
 export default function LawyerProfile({select}) {
-  
+  const [popUp,setPopUp] = useState(false)
+  const PopUpContact = ()=>{
+    return setPopUp(!popUp)
+  }
   return (
     <div className="gradient-custom-2" style={{ backgroundColor: '#9de2ff' }} key={select._id}>
       < >
@@ -80,8 +84,20 @@ export default function LawyerProfile({select}) {
                 </MDBListGroup>
               </MDBCardBody>
                 </div>
-                  <Link to={'/payment'}> <MDBBtn className=' me-2'>Hire me</MDBBtn></Link>
-                  <MDBBtn className=' ms-2'>Contact me</MDBBtn>
+                  {select.available ?
+                  <>
+                    <Link to={'/payment'}> <MDBBtn className=' me-2'>Hire me</MDBBtn></Link>
+                    
+                    <MDBBtn className=' ms-2' onClick={PopUpContact}>Contact me {popUp?<ContactLawyer/>:""}</MDBBtn>
+                  
+                  </>
+                :
+                  <>
+                    <MDBBtn className=' disabled me-2'>Hire me</MDBBtn>
+                    <MDBBtn className=' ms-2' onClick={PopUpContact}>Contact me {popUp?<ContactLawyer/>:""}</MDBBtn>
+                  </>
+                }
+                  
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
