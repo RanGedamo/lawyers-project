@@ -2,14 +2,11 @@ import { useState } from "react";
 import { Categories } from "../../sidder";
 import { Lawyers } from "../../sidder";
 import { useParams } from "react-router-dom";
-import {
-  SelectedCategory,
-  HomeLawyer,
-} from "../../AppRoute/featuresRoute/categories";
+import { SelectedCategory, HomeLawyer } from "../../AppRoute/featuresRoute/categories";
 import { Spinner } from "@chakra-ui/react";
+import FilterByCategory from "../../component/Section/FilterByCategory";
 
 export default function Filter() {
-  const [categories, setCategories] = useState(Categories);
   const [lawyers, setLawyers] = useState(Lawyers);
   const [filter, setFilter] = useState([]);
 
@@ -28,14 +25,10 @@ export default function Filter() {
       .includes(select.categoryName)
   );
 
-  // const = fiilterByParams = () => {
-  //   console.log(fg)
-  // }
-
       // filter function
-      const filterFunction = (rate,location,price,experience,avgTime)=>{
+      const fiilterByParams = (rate,location,price,experience,avgTime)=>{
         if(result.length>1){
-            const filter=result.filter((lawyer)=>
+            const filter = result.filter((lawyer)=>
             lawyer.available === true &&
             lawyer.rate === rate &&
             lawyer.location === location &&
@@ -43,7 +36,7 @@ export default function Filter() {
             lawyer.experience === experience &&
             lawyer.avgTime === avgTime
             )
-            // setFilteredProducts(filter);
+            setFilter(filter);
         }
         else{
             console.log('no products to filter')
@@ -62,7 +55,10 @@ export default function Filter() {
       {result.length > 0 ? (
         <div>
           <h1>filter by category</h1>
-          <HomeLawyer lawyers={result} id={id} />
+          <FilterByCategory lawyers={result} id={id} />
+
+          {/* <HomeLawyer lawyers={result} id={id} /> */}
+          {/* <FilterBar/> */}
         </div>
       ) : (
         <Spinner />
