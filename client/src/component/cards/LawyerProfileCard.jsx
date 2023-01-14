@@ -88,13 +88,13 @@ export default function LawyerProfile({select}) {
                   <>
                     <Link to={'/payment'}> <MDBBtn className=' me-2'>Hire me</MDBBtn></Link>
                     
-                    <MDBBtn className=' ms-2' onClick={PopUpContact}>Contact me {popUp?<ContactLawyer/>:""}</MDBBtn>
+                    <MDBBtn className=' ms-2' onClick={PopUpContact}>Contact me {popUp?<ContactLawyer select={select} />:""}</MDBBtn>
                   
                   </>
                 :
                   <>
                     <MDBBtn className=' disabled me-2'>Hire me</MDBBtn>
-                    <MDBBtn className=' ms-2' onClick={PopUpContact}>Contact me {popUp?<ContactLawyer/>:""}</MDBBtn>
+                    <MDBBtn className=' ms-2' onClick={PopUpContact}>Contact me {popUp?<ContactLawyer select={select}/>:""}</MDBBtn>
                   </>
                 }
                   

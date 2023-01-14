@@ -8,9 +8,17 @@ import {
   MDBModalTitle,
   MDBModalBody,
   MDBModalFooter,
+  MDBCardTitle,
+  MDBCardBody,
+  MDBCardText,
+  MDBCardImage,
+  MDBCard,
+  MDBCol,
+  MDBRow,
+  MDBContainer
 } from 'mdb-react-ui-kit';
 
-export default function ContactLawyer() {
+export default function ContactLawyer({select}) {
   const [basicModal, setBasicModal] = useState(true);
 
   const toggleShow = () => setBasicModal(!basicModal);
@@ -20,17 +28,45 @@ export default function ContactLawyer() {
       <MDBModal show={basicModal} setShow={setBasicModal} tabIndex='-1'>
         <MDBModalDialog>
           <MDBModalContent>
-            <MDBModalHeader>
-              <MDBModalTitle>Modal title</MDBModalTitle>
-              <MDBBtn className='btn-close' color='none' onClick={toggleShow}></MDBBtn>
-            </MDBModalHeader>
-            <MDBModalBody>...</MDBModalBody>
+                    <MDBRow className="justify-content-center">
+                    <MDBCol >
+                        <MDBCard style={{ borderRadius: '15px' }}>
+                        <MDBCardBody className="p-4">
+                            <div className="d-flex text-black">
+                            <div className="flex-shrink-0">
+                                <MDBCardImage
+                                style={{ width: '180px', borderRadius: '10px' }}
+                                src={select.img}
+                                alt='Generic placeholder image'
+                                fluid />
+                            </div>
+                            <div className="">
+                                <MDBCardTitle>{select.firstName} {select.lastName}</MDBCardTitle>
+                                <MDBCardText>{select.title}</MDBCardText>
 
+                                <div className="d-flex justify-content-start rounded-3 p-4 mb-2"
+                                style={{ backgroundColor: '#efefef' }}>
+                                <div>
+                                    <p className="small text-muted mb-1">Phone</p>
+                                    <p className="mb-0">{select.phone}</p>
+                                </div>
+                                <div className="px-3">
+                                    <p className="small text-muted mb-1">Email</p>
+                                    <p className="mb-0">{select.email}</p>
+                                </div>
+                                </div>
+                                <div className="d-flex pt-1">
+                                </div>
+                            </div>
+                            </div>
+                        </MDBCardBody>
+                        </MDBCard>
+                    </MDBCol>
+                    </MDBRow>
             <MDBModalFooter>
               <MDBBtn color='secondary' onClick={toggleShow}>
                 Close
               </MDBBtn>
-              <MDBBtn>Save changes</MDBBtn>
             </MDBModalFooter>
           </MDBModalContent>
         </MDBModalDialog>
