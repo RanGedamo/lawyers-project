@@ -24,7 +24,7 @@ export default function LawyerProfile() {
   return (
     <MDBContainer>
       <MDBRow>
-        <MDBCol size={12} className=" col-md-6 mt-5">
+        <MDBCol size={12} className=" col-md-12 col-lg-6 mt-5">
           <LawyerProfileCard select={selectLawyer} />
         </MDBCol>
         <MDBCol>
@@ -39,16 +39,16 @@ export default function LawyerProfile() {
               })}
             </MDBRow>
           </MDBCol>
-          <MDBCol className="mb-3" >
+          <MDBCol className="mb-3 " >
             <AreaChart select={selectLawyer} />
           </MDBCol>
-          <MDBCol className="col-sm-12 col-md-2 col-lg-12">
+          <MDBCol className="">
             <GoogleMapLocation />
           </MDBCol>
         </MDBCol>
       </MDBRow>
       <MDBContainer>
-        <MDBRow className="col-sm-12">
+        <MDBRow >
           <MDBCol className="mt-5">
             {selectLawyer.filedCategory.map((item, i) => {
               return <CommentSection key={i} index={i} select={selectLawyer} />;
