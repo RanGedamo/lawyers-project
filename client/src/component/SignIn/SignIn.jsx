@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { MDBCardBody, MDBIcon, MDBInput, MDBBtn } from "mdb-react-ui-kit";
 import {  FacebookLoginButton,GoogleLoginButton,} from "react-social-login-buttons";
 import { useSelector } from "react-redux";
 import { FireBaseConfig } from "../../FireBaseConfig/FireBaseConfig";
 
 export default function SignIn() {
+  const [inputs, setInputs] = useState();
+  const changeInputs = (e) => {
+    setInputs({ ...inputs, [e.target.name]: e.target.value })
+    console.log(inputs);
+  }
+
 FireBaseConfig()
   const user=useSelector((state)=>state.userData)
 console.log(user);
@@ -42,6 +48,8 @@ console.log(user);
           id="formControlLgEmail"
           type="email"
           size="lg"
+          name="email"
+          onChange={(e) => changeInputs(e)}
         />
         <MDBInput
           wrapperClass="mb-4"
@@ -49,6 +57,8 @@ console.log(user);
           id="formControlLgPassword"
           type="password"
           size="lg"
+          name="password"
+          onChange={(e) => changeInputs(e)}
         />
         <MDBBtn className="mb-3 px-5" size="lg" onClick={user.logOut}>
           Login

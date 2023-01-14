@@ -67,11 +67,8 @@ export default function Navbar() {
           </Flex>
         </Flex>
       </Box>
-      <div
-        className="chat d-flex sticky-top"
-        style={{ height: "0px", justifyContent: "end", width: "100" }}
-      >
-        <Chat />
+      <div className="chat d-flex sticky-top" style={{ height: "0px", justifyContent: "end", width: "100" }}>
+        {/* <Chat /> */}
       </div>
     </>
   );
