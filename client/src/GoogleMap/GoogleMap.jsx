@@ -18,23 +18,15 @@ function GoogleMapLocation() {
 
   if (loadError) return <div>Error loading map</div>
   if (!isLoaded) return <div>loading...</div>
-  return (
-    <div className='ran' >
-      <div style={{display:"flex",justifyContent:"center"}}>
 
- 
-      </div>
-      <Map />
-    </div>
-
-  );
+  return <Map />
 }
 export default GoogleMapLocation;
 
 const Map = ({coordinates}) => {
   return <GoogleMap zoom={16} center={{ lat: 32.3185138, lng: 34.935631}} mapContainerStyle={{ width: "100%", height: "49vh" }}>
 
-{ coordinates?<MarkerF position={{ lat: 32.3185138, lng: 34.935631}} /> : ""}
+<MarkerF  position={{ lat: 32.1463519, lng: 34.8040703}} />
 
   </GoogleMap>
 }

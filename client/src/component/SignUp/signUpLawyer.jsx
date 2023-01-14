@@ -17,7 +17,7 @@ export default function SignUpLawyer() {
   };
   
   return (
-    <>
+    <div>
       <MDBCardBody className="p-5">
         <h2 className="fw-bold mb-5">Sign up now</h2>
         <MDBRow>
@@ -166,6 +166,6 @@ export default function SignUpLawyer() {
           sign up
         </MDBBtn>
       </MDBCardBody>
-    </>
+    </div>
   );
 }

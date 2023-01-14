@@ -32,7 +32,7 @@ function CardSuit() {
                 />
                 </div>
                  <p className="text-start">Lawyer for criminals</p>
-                 <hr class="hr" />
+                 <hr className="hr" />
                 <MDBRow className="d-flex justify-content-center text-end">
                   <div className="text-start mi-1" >
                     <span><li>money</li></span>
