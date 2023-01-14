@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from 'styled-components';
-import { Lawyers } from "../../sidder";
 
 function Chat() {
   const [supportChat, setSupportChat] = useState(false)
@@ -158,7 +157,7 @@ function Chat() {
               headerFontSize:"25px"
           }}>
             <ChatBot
-              headerTitle="some text"
+              headerTitle="Support Chat"
               speechSynthesis={{ enable: true, lang: 'he' }}
               color={{ background: '#f5f8fb' }}
               steps={steps}

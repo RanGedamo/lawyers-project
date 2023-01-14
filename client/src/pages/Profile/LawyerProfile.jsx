@@ -9,6 +9,7 @@ import {
 } from "../../AppRoute/featuresRoute/lawyerProfile";
 import { useParams } from "react-router-dom";
 import { Lawyers } from "../../sidder";
+import GoogleMapLocation from "../../GoogleMap/GoogleMap";
 
 export default function LawyerProfile() {
   let { id } = useParams();
@@ -32,14 +33,17 @@ export default function LawyerProfile() {
               {selectLawyer.filedCategory.map((item, i) => {
                 return (
                   <MDBCol key={i} size={12} className="p-0 mb-3 mt-5">
-                    <LawyerCategories  index={i} select={selectLawyer} />
+                    <LawyerCategories index={i} select={selectLawyer} />
                   </MDBCol>
                 );
               })}
             </MDBRow>
           </MDBCol>
-          <MDBCol>
+          <MDBCol className="mb-3" >
             <AreaChart select={selectLawyer} />
+          </MDBCol>
+          <MDBCol className="col-sm-12 col-md-2 col-lg-12">
+            <GoogleMapLocation />
           </MDBCol>
         </MDBCol>
       </MDBRow>
