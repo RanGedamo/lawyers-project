@@ -18,7 +18,7 @@ console.log(findCategory[0])
               <LawyerPayment />
             </MDBCol>
             <MDBCol className="paymentCard" >
-              {/* <PaymentCard category={findCategory[0]} /> */}
+              <PaymentCard category={findCategory[0]} />
             </MDBCol>
           </MDBRow>
         </MDBCol>
@@ -29,7 +29,7 @@ console.log(findCategory[0])
               md="12"
               className="d-flex row justify-content-center align-align-items-center agreement "
             >
-              {/* <AgreementCard category={findCategory[0]}/> */}
+              <AgreementCard category={findCategory[0]}/>
             </MDBCol>
             <MDBCol></MDBCol>
           </MDBRow>

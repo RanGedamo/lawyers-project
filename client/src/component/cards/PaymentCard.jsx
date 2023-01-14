@@ -7,7 +7,8 @@ import {
   MDBListGroup,
   MDBListGroupItem,
   MDBTypography,
-  MDBIcon
+  MDBIcon,
+  MDBCheckbox
 } from "mdb-react-ui-kit";
 import PaypalCheckoutButton from "../../component/PaypalCheckoutButton/PaypalCheckoutButton"
 export default function PaymentCard({category}) {
@@ -32,7 +33,7 @@ export default function PaymentCard({category}) {
             <MDBTypography listUnStyled className='text-start mb-0'>
               {category.subCategory.map((item)=>
                 <li className='mb-1'>
-                <MDBIcon icon='long-arrow-alt-right' className='me-2 text-info' />{item.name}
+                     <MDBCheckbox name='flexCheck' value='' id={item.name} label={item.name} />
               </li>
               )}
     </MDBTypography>
