@@ -24,6 +24,7 @@ export default function Home() {
       <Carousel/>
       </MDBCol>
     </MDBRow>
+    <br /><br />
     <MDBRow className='d-flex justify-content-center'>
       <MDBCol md='10'>
       <Category categories={categories}/>
@@ -35,9 +36,8 @@ export default function Home() {
           <ContactUs />
         </MDBCol>
       </MDBRow>
-   
       <br />
-      <MDBRow className="mb-8 d-flex justify-content-around rounded-7-fluid">
+      <MDBRow className="mb-8 d-flex justify-content-around rounded-7-fluid text-start ">
         <HowToHire />
       </MDBRow>
   </MDBContainer>
