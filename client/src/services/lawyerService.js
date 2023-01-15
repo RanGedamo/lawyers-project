@@ -27,7 +27,7 @@ export const registerLawyer = async (data) => {
     avgReplayTime:data.avgReplayTime,
     workDueTime:data.workDueTime,
     available:data.available
-  });
+  }).then(res=>console.log(res));
 
   const newLawyer = await response.data;
   return newLawyer;

@@ -61,7 +61,6 @@ export default function PopUpRole() {
               ) : (
                 ""
               )}
-              {console.log(lawyer)}
               {user === true ? <SignUpFormUser /> : ""}
               {lawyer === true ? <SignUpFormLawyer /> : ""}
           </MDBModalContent>

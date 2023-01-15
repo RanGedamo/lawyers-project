@@ -34,8 +34,14 @@ const lawyer = new Schema({
     ref:"reviews",
   }],
   image: {
-    type: String,
-    required: true,
+    public_id: {
+      type: String,
+      default: "cloud img default"
+    },
+    url: {
+      type: String,
+      default: "cloud img default"
+    }
   },
   price: {
     type: String,
