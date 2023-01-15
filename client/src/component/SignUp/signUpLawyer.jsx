@@ -14,7 +14,9 @@ import { useSelector } from "react-redux";
 
 export default function SignUpLawyer() {
   const [inputs, setInputs] = useState();
+  const [imgFile, setImageFile] = useState();
   const [profileImg, setProfileImg] = useState();
+
 
   const lawyerData = useSelector((state) => state.lawyerReducer.lawyerData);
 
@@ -25,13 +27,12 @@ export default function SignUpLawyer() {
 
   const changeInputs = (e) => { 
       setInputs({ ...inputs, [e.target.name]: e.target.value })
-    console.log(inputs); 
-         console.log(inputs.lawter_profile_img, "hnjmk")
     const Generate = new FileReader();
-    if (inputs.lawter_profile_img) {
-      Generate.readAsDataURL(inputs.lawter_profile_img);
-      Generate.onloadend = () => setInputs({...inputs,lawter_profile_img: Generate.result});
+    if (imgFile) {
 
+      Generate.readAsDataURL(imgFile);
+      Generate.onloadend = () => setInputs({...inputs,lawyer_profile_img: Generate.result});
+      console.log(inputs)
     }
  
   setProfileImg("");
@@ -75,10 +76,10 @@ export default function SignUpLawyer() {
 
             <MDBCol col="6">
               <MDBFile
-              name="lawter_profile_img"
+              name="lawyer_profile_img"
                 label="image upload"
                 id="formControlLgImage"
-                onChange={(e) => changeInputs(e)}
+                onChange={(e) => setImageFile(e.target.files)}
 
               />
             </MDBCol>

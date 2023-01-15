@@ -9,15 +9,11 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import Blob from "../Shape/Blob";
-import AOS from 'aos';
-import 'aos/dist/aos.css'; 
-AOS.init();
+
+
 
 export default function SubCategory({ subCategory }) {
 
-  AOS.init({
-    duration: 1200,
-  })
 
   return (
     <Box
