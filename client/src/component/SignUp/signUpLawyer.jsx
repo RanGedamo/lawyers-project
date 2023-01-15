@@ -20,7 +20,6 @@ export default function SignUpLawyer() {
 
   const changeInputs = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value })
-    // console.log(inputs);
   };
 
   const GenerateImgFile = (imgFile) => {
@@ -34,7 +33,7 @@ export default function SignUpLawyer() {
 
   return (
     <div>
-      <MDBCardBody className="p-5">
+      <MDBCardBody className="p-1">
         <h2 className="fw-bold mb-5">Sign up now</h2>
         <MDBRow>
           <MDBCol col="6">
@@ -57,14 +56,6 @@ export default function SignUpLawyer() {
               onChange={(e) => changeInputs(e)}
             />
           </MDBCol>
-
-            <MDBCol col="6">
-              <MDBFile
-                label="image upload"
-                id="formControlLgImage"
-                onChange={(e) => GenerateImgFile(e.target.value)}
-              />
-            </MDBCol>
         </MDBRow>
         <MDBInput
           wrapperClass="mb-4"
@@ -119,23 +110,13 @@ export default function SignUpLawyer() {
           </MDBCol>
         </MDBRow>
         <MDBRow>
-          <MDBCol col="6">
+          <MDBCol col="12">
             <MDBInput
               wrapperClass="mb-4"
               label="Average Replay"
               id="form8"
               type="number"
               name="averageReplay"
-              onChange={(e) => changeInputs(e)}
-            />
-          </MDBCol>
-          <MDBCol col="6">
-            <MDBInput
-              wrapperClass="mb-4"
-              label="Available"
-              id="form9"
-              type="text"
-              name="available"
               onChange={(e) => changeInputs(e)}
             />
           </MDBCol>
