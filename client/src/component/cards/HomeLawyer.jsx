@@ -14,9 +14,9 @@ export default function HomeLawyer({lawyers,id}) {
     <MDBRow  onClick={sendToCoockies} >
           {lawyers ? 
           (
-        lawyers.map(lawyer => 
+        lawyers.map((lawyer,i) => 
           
-          <MDBCol size={4} >
+          <MDBCol key={i} size={4} >
           <MDBRipple
             className="bg-image hover-overlay shadow-1-strong rounded"
             rippleTag="div"

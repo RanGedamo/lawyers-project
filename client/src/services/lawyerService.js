@@ -3,7 +3,7 @@ import axios from "axios";
 axios.defaults.baseURL = "http://localhost:6060/lawyer";
 
 export const getLawyers = async () => {
-  const response = await axios.get("/")
+  const response = await axios.get("http://localhost:6060/lawyer")
 
   const lawyer = await response.data;
   return lawyer;

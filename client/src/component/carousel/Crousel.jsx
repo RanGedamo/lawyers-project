@@ -15,25 +15,38 @@ import { getLawyers } from "../../services/lawyerService";
 import { useEffect, useState } from "react";
 
 function Carousel() {
-  const [lawyers,setLawyers]=useState([])
+  const [lawyers, setLawyers] = useState([]);
 
-  useEffect(()=>{
-    getLawyers().then(res=>setLawyers(res))
-
-  },[])
+  useEffect(() => {
+    getLawyers().then((res) => setLawyers(res));
+  }, []);
+  console.log(lawyers);
   return (
-    <div 
-      className="slider mb-5 mt-5 d-flex justify-content-evenly"
-      style={{ height: 100 }}
-    >
-      <div className="slide-track2">
-        <MDBCard className="mw-100">
-          <MDBRipple className="text-center flex-column mt-5 pt-5" >
-            <HomeLawyer lawyers={lawyers} />
-          </MDBRipple>
-        </MDBCard>
+    <>
+      <h1>Our amazing people</h1>
+      <div className="container">
+        <div className="faders">
+          <div className="left"></div>
+          <div className="right"></div>
+        </div>
+        <div className="items">
+          {lawyers.map((item,i) => {
+            return (
+              <div key={i} className="entry">
+                <p className="name">{item.firstName}+{item.lastName}</p>
+                <img
+                  src={item.image}
+                  alt="Smiling person"
+                />
+                <p className="quote">
+                  {item.description}
+                </p>
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -20,7 +20,7 @@ export default function Home() {
     </MDBRow>
     <br />
     <MDBRow className='d-flex'>
-      <MDBCol md='8' >
+      <MDBCol >
       <Carousel/>
       </MDBCol>
     </MDBRow>
