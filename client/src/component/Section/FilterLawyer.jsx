@@ -54,7 +54,6 @@ export default function FilterLawyer({ lawyers, id }) {
     setFilteredData(filtered);
   };
   // const {_id,selectedCover,img,fullName,filedCategory,rate,reviwes,location,price,experience,available,avgTime,workDueTime} = lawyer
-
   const sendToCoockies = () => {
     cookie.set("categoryId", id);
   };
@@ -63,26 +62,31 @@ export default function FilterLawyer({ lawyers, id }) {
     <MDBContainer>
       <MDBRow className='mb-3'>
         <MDBCol sm='6' md='4' lg='5'>
-    <MDBCard className="w-25 p-1" onClick={sendToCoockies}>
+    <MDBCard className="w-75 p-1 ms-0" onClick={sendToCoockies}>
       <br />
       <p className="fs-5">Filter</p>
       <MDBInput label='search lawyer name' type='text' id='formWhite'/>
       <br />
 
       <MDBCardBody className="d-grid">
-        <MDBCardTitle className="fs-7 d-inline-flex">Rate</MDBCardTitle>
-        <hr />
-        <select onChange={handleRateChange}>
+      <div className="d-flex">
+      <div className="p-2 w-100">
+      <MDBCardTitle className="fs-7 d-inline-flex">Rate</MDBCardTitle>
+      </div>
+      <div className="p-2 flex-shrink-1">
+                <select onChange={handleRateChange}>
           <option>5</option>
           <option>4</option>
           <option>3</option>
           <option>2</option>
           <option>1</option>
         </select>
+      </div>
+    </div>
+        
+
       </MDBCardBody>
       <MDBCardBody className="d-grid">
-        <MDBCardTitle className="fs-7 d-inline-flex">Price</MDBCardTitle>
-        <hr />
         <MDBRange
       defaultValue={3}
       min='100'
@@ -96,26 +100,36 @@ export default function FilterLawyer({ lawyers, id }) {
       </MDBCardBody>
 
       <MDBCardBody className="d-grid ">
-        <MDBCardTitle className="fs-7 d-inline-flex">
-          Years of experience
-        </MDBCardTitle>
-        <hr />
-        <select onChange={handleExperienceChange}>
+      <div className="d-flex">
+      <div className="p-2 w-100">
+        <MDBCardTitle className="fs-7 d-inline-flex">Years of experience</MDBCardTitle>
+      </div>
+      <div className="p-2 flex-shrink-1">
+      <select onChange={handleExperienceChange}>
           <option>1-3</option>
           <option>3-5</option>
           <option>5-10</option>
           <option>10+</option>
         </select>
+      </div>
+    </div>
+      
       </MDBCardBody>
       <MDBCardBody className="d-grid">
+      <div className="d-flex">
+      <div className="p-2 w-100">
         <MDBCardTitle className="fs-7 d-inline-flex">Location</MDBCardTitle>
-        <hr />
+      </div>
+      <div className="p-2 flex-shrink-1">
         <select onChange={handleLocationChange}>
           <option>Rehovot</option>
           <option>Lod</option>
           <option>Yafo</option>
         </select>
+      </div>
+    </div>
       </MDBCardBody>
+      
       <br />
     </MDBCard>
     </MDBCol>

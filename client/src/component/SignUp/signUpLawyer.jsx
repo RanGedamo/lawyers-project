@@ -18,26 +18,39 @@ export default function SignUpLawyer() {
 
   const lawyerData = useSelector((state) => state.lawyerReducer.lawyerData);
 
+  // const changeInputs = (e) => {
+  //   const location = lawyerData?.location;
+  //   setInputs({ ...inputs, [e.target.name]: e.target.value, location });
+  //   console.log(inputs);
+  // };
   const changeInputs = (e) => {
+    const Generate = new FileReader();
     const location = lawyerData?.location;
-    setInputs({ ...inputs, [e.target.name]: e.target.value, location });
+    if (e.target.profileImg) {
+      Generate.readAsDataURL(e.target.profileImg);
+      Generate.onloadend = () => setProfileImg(Generate.result);
+    setInputs({ ...inputs, [e.target.name]: e.target.value, location,profileImg });
     console.log(inputs);
+  }
+  setProfileImg("");
+
   };
 
-  const GenerateImgFile = (imgFile) => {
-    const Generate = new FileReader();
-    if (imgFile) {
-      Generate.readAsDataURL(imgFile);
-      Generate.onloadend = () => setProfileImg(Generate.result);
-    }
-    setProfileImg("");
-  };
+  // const GenerateImgFile = (imgFile) => {
+  //   const Generate = new FileReader();
+  //   if (imgFile) {
+  //     Generate.readAsDataURL(imgFile);
+  //     Generate.onloadend = () => setProfileImg(Generate.result);
+  //   }
+  //   setProfileImg("");
+  // };
 
   return (
     <div>
       <MDBCardBody className="p-5">
         <h2 className="fw-bold mb-5">Sign up now</h2>
         <MDBRow>
+
           <MDBCol col="6">
             <MDBInput
               wrapperClass="mb-4"
@@ -48,6 +61,7 @@ export default function SignUpLawyer() {
               onChange={(e) => changeInputs(e)}
             />
           </MDBCol>
+
           <MDBCol col="6">
             <MDBInput
               wrapperClass="mb-4"
@@ -57,16 +71,17 @@ export default function SignUpLawyer() {
               name="lastName"
               onChange={(e) => changeInputs(e)}
             />
-          </MDBCol>
+          </MDBCol>       
 
             <MDBCol col="6">
               <MDBFile
                 label="image upload"
                 id="formControlLgImage"
-                onChange={(e) => GenerateImgFile(e.target.value)}
+                name="profileImg"
+                onChange={(e) => changeInputs(e.target.value)}
               />
             </MDBCol>
-          </MDBCol>
+
         </MDBRow>
         <MDBInput
           wrapperClass="mb-4"
@@ -173,14 +188,14 @@ export default function SignUpLawyer() {
           name="description"
           onChange={(e) => changeInputs(e)}
         />
-        <MDBRow>
+        {/* <MDBRow>
           <MDBCol col="6">
             <MDBFile label="Profile Picture" id="customFile" />
           </MDBCol>
           <MDBCol col="6">
             <MDBFile label="Cover Picture" id="customFile" />
           </MDBCol>
-        </MDBRow>
+        </MDBRow> */}
         <div className="d-flex justify-content-center mb-4 mt-4">
           <MDBCheckbox
             name="flexCheck"
