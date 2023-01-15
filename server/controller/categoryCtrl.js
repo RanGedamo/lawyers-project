@@ -15,14 +15,15 @@ const getCategory = async (req, res) => {
 };
 
 const createCategory = async (req, res) => {
-  const { description,subCategory, name } = req.body; //13
+  const { categoryImg,description,subCategory, name } = req.body; //13
 
   let category;
   try {
     category = new CategoryModel({
       subCategory,
       name,
-      description
+      description,
+      categoryImg
     });
 
     category = await category.save();
