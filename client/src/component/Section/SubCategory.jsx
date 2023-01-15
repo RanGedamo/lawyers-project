@@ -9,22 +9,16 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import Blob from "../Shape/Blob";
-
-// <SimpleGrid
-//   columns={{ base: 1, md: 2 }}
-//   spacing={10}
-//   key={subCategory._id}
-// >
-//   <Box>
-//     <Text fontSize={"xl"} color={"gray.400"}>
-//       <Text as={"span"} fontWeight={700} color={"white"}>
-//         {subCategory.name}
-//       </Text>
-//     </Text>
-//   </Box>
-// </SimpleGrid>
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
 
 export default function SubCategory({ subCategory }) {
+
+  AOS.init({
+    duration: 1200,
+  })
+
   return (
     <Box
       marginTop={{ base: "1", sm: "5" }}
@@ -75,6 +69,8 @@ export default function SubCategory({ subCategory }) {
                 w={"100%"}
                 h={"100%"}
                 src={subCategory.img}
+                className="subCategory-photo"
+                data-aos="fade-left"
               />
             </Box>
           </Flex>

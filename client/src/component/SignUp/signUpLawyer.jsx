@@ -18,19 +18,34 @@ export default function SignUpLawyer() {
 
   const lawyerData = useSelector((state) => state.lawyerReducer.lawyerData);
 
-  const changeInputs = (e) => {
-    setInputs({ ...inputs, [e.target.name]: e.target.value })
-    // console.log(inputs);
-  };
+  // const changeInputs = (e) => {
+  //   setInputs({ ...inputs, [e.target.name]: e.target.value })
+  //   // console.log(inputs);
+  // };
 
-  const GenerateImgFile = (imgFile) => {
+  const changeInputs = (e) => { 
+      setInputs({ ...inputs, [e.target.name]: e.target.value })
+    console.log(inputs); 
+         console.log(inputs.lawter_profile_img, "hnjmk")
     const Generate = new FileReader();
-    if (imgFile) {
-      Generate.readAsDataURL(imgFile);
-      Generate.onloadend = () => setProfileImg(Generate.result);
+    if (inputs.lawter_profile_img) {
+      Generate.readAsDataURL(inputs.lawter_profile_img);
+      Generate.onloadend = () => setInputs({...inputs,lawter_profile_img: Generate.result});
+
     }
-    setProfileImg("");
+ 
+  setProfileImg("");
   };
+  
+
+  // const GenerateImgFile = (imgFile) => {
+  //   const Generate = new FileReader();
+  //   if (imgFile) {
+  //     Generate.readAsDataURL(imgFile);
+  //     Generate.onloadend = () => setProfileImg(Generate.result);
+  //   }
+  //   setProfileImg("");
+  // };
 
   return (
     <div>
@@ -60,9 +75,11 @@ export default function SignUpLawyer() {
 
             <MDBCol col="6">
               <MDBFile
+              name="lawter_profile_img"
                 label="image upload"
                 id="formControlLgImage"
-                onChange={(e) => GenerateImgFile(e.target.value)}
+                onChange={(e) => changeInputs(e)}
+
               />
             </MDBCol>
         </MDBRow>
