@@ -12,7 +12,7 @@ import {
 export default function LawyerCategories({ item }) {
   return (
       <MDBRipple className='bg-image' rippleTag='div' rippleColor='light'>
-      <img src="https://www.w3schools.com/css/img_forest.jpg" className='w-100' />
+      <img src={item.img}  style={{maxHeight:"20vh" ,width:"20vw"}} />
         <div className='mask' >
           <div className='d-flex justify-content-center align-items-center h-100'>
             <p className=' display-6 mb-0 text-white'><b>{item.name}</b></p>
@@ -20,8 +20,8 @@ export default function LawyerCategories({ item }) {
         </div>
         <div className='hover-overlay'>
           <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.9)' }}>
-            <p className="mt-3 fw-bold">{item.name}</p>
-            {/* <p className="mt-3 fw-bold"><MDBIcon far icon="window-minimize" />{item.subCategory[0].name}</p> */}
+            <p className="mt-3 fw-bold">{item.description}</p>
+            {/* <p className="mt-3 fw-bold">{item.description}</p> */}
           
           </div>
         </div>
