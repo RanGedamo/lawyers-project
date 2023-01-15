@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { Categories } from "../../sidder";
-import { Lawyers } from "../../sidder";
 import { useParams } from "react-router-dom";
 import { SelectedCategory, HomeLawyer } from "../../AppRoute/featuresRoute/categories";
 import { Spinner } from "@chakra-ui/react";
@@ -8,24 +6,30 @@ import { Spinner } from "@chakra-ui/react";
 // import FilterBar from "../../component/Section/FilterBar";
 // import FilterPure from "../../component/Section/FilterPure";
 import FilterLawyer from "../../component/Section/FilterLawyer";
+import { getCategoryById } from "../../services/categoryService";
+import { useEffect } from "react";
+import { getLawyers } from "../../services/lawyerService";
 
 export default function Filter() {
-  const [lawyers, setLawyers] = useState(Lawyers);
+  const [lawyers, setLawyers] = useState([]);
   const [filter, setFilter] = useState([]);
+const [category,setCategory]=useState({})
+  let id = useParams().id;
 
-  let { id } = useParams();
+console.log(id);
 
-  const Category = () => {
-    const Wanted = Categories.find((category) => category._id === id);
-    return Wanted;
-  };
 
-  let select = Category();
+  useEffect(()=>{
+   getCategoryById(id).then(res=>setCategory(res)).catch((error)=>console.error(error))
+   getLawyers().then(res=>setLawyers(res))
+  },[])
+
+
 
   let result = lawyers.filter((lawyer) =>
-    lawyer.filedCategory
-      .map((category) => category.categoryName)
-      .includes(select.categoryName)
+    lawyer.category
+      .map((category) => category.name)
+      .includes(category.name)
   );
 
 //   let filteredArray = result.filter(function(lawyer) {
@@ -60,15 +64,13 @@ export default function Filter() {
 
   return (
     <>
-      <SelectedCategory select={select} />
-      {result.length > 0 ? (
+      <SelectedCategory category={category} />
+      {result?.length > 0 ? (
         <div>
           <h1>filter by category</h1>
-          {/* <FilterByCategory lawyers={result} id={id} /> */}
-{/* <FilterPure  lawyers={result} /> */}
+         
 <FilterLawyer lawyers={result} id={id}/>
-          {/* <HomeLawyer lawyers={result} id={id} /> */}
-          {/* <FilterBar><FilterByCategory/></FilterBar> */}
+         
         </div>
       ) : (
         <Spinner />
