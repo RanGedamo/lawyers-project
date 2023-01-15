@@ -13,7 +13,7 @@ export default function SignIn() {
 
 FireBaseConfig()
   const user=useSelector((state)=>state.userData)
-console.log(user);
+  console.log(user);
   // const [error] = useState("");
   const handleGoogleSignIn = async (event) => {
     event.preventDefault();

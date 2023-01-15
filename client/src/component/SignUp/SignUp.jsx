@@ -8,7 +8,23 @@ import {
   MDBCheckbox,
   MDBFile
 } from "mdb-react-ui-kit";
+import { useState } from "react";
 export default function SignUp() {
+  const [auth,setAuth] = useState({firstName:"",lastName:"",email:"",image:"",password:""})
+
+  const checkInputUser = (e)=>{
+    e.preventDefault()
+  
+  }
+
+  const formHandel=(e)=>{
+    setAuth({...auth,[e.target.name]:e.target.value})
+
+    console.log(auth);
+  }
+
+
+
   return (
     <>
       <MDBCardBody className="p-5">
@@ -20,6 +36,8 @@ export default function SignUp() {
               label="First name"
               id="form1"
               type="text"
+              name="firstName"
+              onChange={formHandel}
             />
           </MDBCol>
           <MDBCol col="6">
@@ -28,14 +46,24 @@ export default function SignUp() {
               label="Last name"
               id="form2"
               type="text"
+              name="lastName"
+              onChange={formHandel}
             />
           </MDBCol>
         </MDBRow>
-        <MDBInput wrapperClass="mb-4" label="Email" id="form3" type="email" />
+        <MDBInput wrapperClass="mb-4" label="Email" id="form3" type="email" name="email" onChange={formHandel}/>
         <MDBInput
           wrapperClass="mb-4"
           label="Password"
           id="form4"
+          type="password"
+          name="password"
+          onChange={formHandel}
+        />
+        <MDBInput
+          wrapperClass="mb-4"
+          label="ConfirmPassword"
+          id="form5"
           type="password"
         />
           <MDBFile label='Profile Picture' id='customFile' />
