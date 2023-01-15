@@ -7,11 +7,27 @@ body {
   background-color: #f9f9f9;
 }
 
+/* h1 {
+  text-align: center;
+  margin: 1.5em;
+}
+
+img {
+  width: 35%;
+  border-radius: 50%;
+} */
+
+.container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
 .items {
   display: flex;
   align-items: center;
   width: fit-content;
-  animation: carouselAnim 50s infinite alternate linear;
+  animation: carouselAnim 10s infinite alternate linear;
 }
 
 .entry {
@@ -29,7 +45,7 @@ body {
 
 @media only screen and (max-width: 768px) {
   .items {
-    animation: carouselAnim 35s infinite alternate linear;
+    animation: carouselAnim 8s infinite alternate linear;
   }
   
   @keyframes carouselAnim {
@@ -66,4 +82,24 @@ body {
   height: 100%;
 }
 
+/* .faders .right,
+.faders .left {
+  background: linear-gradient(
+    to right,
+    rgba(245, 245, 245, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  width: 15%;
+  height: 100%;
+  position: absolute;
+  z-index: 200;
+}
 
+.right {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    rgba(245, 245, 245, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+} */
