@@ -9,8 +9,11 @@ import {
   MDBFile
 } from "mdb-react-ui-kit";
 import { PlacesAddress } from "../../GoogleMap/GoogleMap";
+import { useSelector } from "react-redux";
 export default function SignUpLawyer() {
   const [inputs, setInputs] = useState();
+  const lawyerData = useSelector((state)=>state.lawyerReducer.lawyerData) 
+console.log(lawyerData);
   const changeInputs = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value })
     console.log(inputs);
