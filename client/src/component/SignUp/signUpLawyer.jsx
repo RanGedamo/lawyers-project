@@ -17,8 +17,12 @@ export default function SignUpLawyer() {
   const [imgFile, setImageFile] = useState();
   const [profileImg, setProfileImg] = useState();
 
-
   const lawyerData = useSelector((state) => state.lawyerReducer.lawyerData);
+
+  const changeInputs = (e) => {
+    setInputs({ ...inputs, [e.target.name]: e.target.value })
+    // console.log(inputs);
+  };
 
   const changeInputs = (e) => { 
       setInputs({ ...inputs, [e.target.name]: e.target.value })
@@ -74,7 +78,6 @@ export default function SignUpLawyer() {
                 label="image upload"
                 id="formControlLgImage"
                 onChange={(e) => setImageFile(e.target.files)}
-
               />
             </MDBCol>
         </MDBRow>
