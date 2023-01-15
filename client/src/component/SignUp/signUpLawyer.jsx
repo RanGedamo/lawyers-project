@@ -9,15 +9,18 @@ import {
   MDBFile
 } from "mdb-react-ui-kit";
 import { PlacesAddress } from "../../GoogleMap/GoogleMap";
+import { useSelector } from "react-redux";
 export default function SignUpLawyer() {
   const [inputs, setInputs] = useState();
+  const lawyerData = useSelector((state)=>state.lawyerReducer.lawyerData) 
+console.log(lawyerData);
   const changeInputs = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value })
     console.log(inputs);
   };
   
   return (
-    <>
+    <div>
       <MDBCardBody className="p-5">
         <h2 className="fw-bold mb-5">Sign up now</h2>
         <MDBRow>
@@ -166,6 +169,6 @@ export default function SignUpLawyer() {
           sign up
         </MDBBtn>
       </MDBCardBody>
-    </>
+    </div>
   );
 }
