@@ -33,7 +33,7 @@ function Carousel() {
           {lawyers.map((item,i) => {
             return (
               <div key={i} className="entry">
-                <p className="name">{item.firstName}+{item.lastName}</p>
+                <p className="name">{item.firstName}{" "}{item.lastName}</p>
                 <img
                   src={item.image}
                   alt="Smiling person"
