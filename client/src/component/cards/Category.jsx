@@ -28,8 +28,9 @@ export default function Category() {
                     className="mask"
                     style={{ backgroundColor: "rgba(251, 251, 251, 0.2)" }}
                   >
-                    <p>{category.name}</p>
-                    <p>{category.description}</p>
+                    <p className="lead mb-0" >{category.name}</p>
+                    <br />
+                    <p className="lead mb-0 d-flex " >{category.description}</p>
                   </div>
                   </Link>
               </MDBRipple>

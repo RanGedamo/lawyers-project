@@ -23,7 +23,7 @@ function Carousel() {
   console.log(lawyers);
   return (
     <>
-      <h1>Our amazing people</h1>
+      <h1 className="fs-3">Our Top people</h1>
       <div className="container">
         <div className="faders">
           <div className="left"></div>
@@ -34,10 +34,12 @@ function Carousel() {
             return (
               <div key={i} className="entry">
                 <p className="name">{item.firstName}{" "}{item.lastName}</p>
+                <br />
                 <img
                   src={item.image}
                   alt="Smiling person"
                 />
+                <br />
                 <p className="quote">
                   {item.description}
                 </p>
