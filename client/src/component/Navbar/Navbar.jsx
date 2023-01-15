@@ -21,12 +21,7 @@ import PopUpRole from "../pop/PopUpBtn";
 import Chat from "../chat/Chat";
 
 export default function Navbar() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [bool, setBool] = useState(false);
 
-  const SignIn = () => {
-    setBool(true);
-  };
   return (
     <>
       <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
@@ -44,23 +39,8 @@ export default function Navbar() {
                   direction={"row"}
                   spacing={6}
                 >
-                  <ColorModeSwitcher justifySelf="flex-end" />
-                  <Button
-                    as={"a"}
-                    fontSize={"sm"}
-                    fontWeight={400}
-                    color={"white"}
-                    bg={"blue.400"}
-                    variant={"link"}
-                    href={"#"}
-                    _hover={{
-                      bg: "pink.300",
-                    }}
-                    onClick={SignIn}
-                  >
-                    Sign In
+                  <ColorModeSwitcher justifySelf="flex-end" />                    
                     <PopUpRole />
-                  </Button>
                 </Stack>
               </Menu>
             </Stack>

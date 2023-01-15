@@ -146,7 +146,7 @@ const searchCountryByName = (
     </MDBCard>
     </MDBCol>
         <MDBCol sm='6' md='6' lg='7' offsetMd='2' offsetLg='0'>
-    <HomeLawyer lawyers={filteredData} id={id} />
+    <HomeLawyer lawyers={lawyers} id={id} />
     </MDBCol>
       </MDBRow>
     </MDBContainer>

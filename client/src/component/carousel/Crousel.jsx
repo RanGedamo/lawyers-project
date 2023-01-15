@@ -1,5 +1,6 @@
 import { Categories } from "../../sidder";
 // import { Lawyers } from "../../sidder";
+import { Link } from "react-router-dom";
 import { HomeLawyer } from "../../AppRoute/featuresRoute/home";
 import {
   MDBCard,
@@ -23,29 +24,30 @@ function Carousel() {
   console.log(lawyers);
   return (
     <>
-      <h1>Our amazing people</h1>
-      <div className="container">
-        <div className="faders">
-          <div className="left"></div>
-          <div className="right"></div>
+        <h1 className="fs-3">Our Top people</h1>
+        <div className="container">
+          <div className="faders">
+            <div className="left"></div>
+            <div className="right"></div>
+          </div>
+          <div className="items">
+            {lawyers.map((item, i) => {
+              return (
+                <div key={i} className="entry">
+                  <p className="name">
+                    {item.firstName} {item.lastName}
+                  </p>
+                  <br />
+                  <Link to={`/lawyer/profile/${item.email}`}>
+                  <img src={item.image} alt="Smiling person" />
+            </Link>
+                  <br />
+                  <p className="quote">{item.description}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
-        <div className="items">
-          {lawyers.map((item,i) => {
-            return (
-              <div key={i} className="entry">
-                <p className="name">{item.firstName}{" "}{item.lastName}</p>
-                <img
-                  src={item.image}
-                  alt="Smiling person"
-                />
-                <p className="quote">
-                  {item.description}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
     </>
   );
 }

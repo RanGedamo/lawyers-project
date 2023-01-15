@@ -14,7 +14,6 @@ import {
   import { CheckCircleIcon } from '@chakra-ui/icons'
   import { ReactElement } from 'react';
 
-  
   const Feature = ({ text, icon, iconBg }) => {
     return (
       <Stack direction={'row'} align={'center'}>
@@ -33,6 +32,7 @@ import {
   };
   
   export default function SupportBoard() {
+
     return (
       <Container maxW={'5xl'} py={12}>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
