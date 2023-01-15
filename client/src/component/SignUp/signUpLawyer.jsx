@@ -19,11 +19,6 @@ export default function SignUpLawyer() {
 
   const lawyerData = useSelector((state) => state.lawyerReducer.lawyerData);
 
-  const changeInputs = (e) => {
-    setInputs({ ...inputs, [e.target.name]: e.target.value })
-    // console.log(inputs);
-  };
-
   const changeInputs = (e) => { 
       setInputs({ ...inputs, [e.target.name]: e.target.value })
     const Generate = new FileReader();

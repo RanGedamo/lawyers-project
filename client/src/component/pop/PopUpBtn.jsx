@@ -86,7 +86,7 @@ export default function PopUpRole() {
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent className="containerpopup ">
+        <ModalContent className="popUpContainer ">
              {(lawyer||user) === false ? (
                 <MDBCard className="h-25 text-center" >
                   <h1 className="mt-5 display-5">Who Are You ?</h1>
