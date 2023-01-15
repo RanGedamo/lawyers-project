@@ -14,22 +14,38 @@ import { useSelector } from "react-redux";
 
 export default function SignUpLawyer() {
   const [inputs, setInputs] = useState();
+  const [imgFile, setImageFile] = useState();
   const [profileImg, setProfileImg] = useState();
+
 
   const lawyerData = useSelector((state) => state.lawyerReducer.lawyerData);
 
   const changeInputs = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value })
+    // console.log(inputs);
   };
 
   const GenerateImgFile = (imgFile) => {
     const Generate = new FileReader();
     if (imgFile) {
+
       Generate.readAsDataURL(imgFile);
-      Generate.onloadend = () => setProfileImg(Generate.result);
+      Generate.onloadend = () => setInputs({...inputs,lawyer_profile_img: Generate.result});
+      console.log(inputs)
     }
-    setProfileImg("");
+ 
+  setProfileImg("");
   };
+  
+
+  // const GenerateImgFile = (imgFile) => {
+  //   const Generate = new FileReader();
+  //   if (imgFile) {
+  //     Generate.readAsDataURL(imgFile);
+  //     Generate.onloadend = () => setProfileImg(Generate.result);
+  //   }
+  //   setProfileImg("");
+  // };
 
   return (
     <div>
@@ -56,6 +72,14 @@ export default function SignUpLawyer() {
               onChange={(e) => changeInputs(e)}
             />
           </MDBCol>
+
+            <MDBCol col="6">
+              <MDBFile
+                label="image upload"
+                id="formControlLgImage"
+                onChange={(e) => GenerateImgFile(e.target.value)}
+              />
+            </MDBCol>
         </MDBRow>
         <MDBInput
           wrapperClass="mb-4"
