@@ -39,6 +39,7 @@ export const PlacesAddress = ()=>{
     lat: null,
     lng: null
   });
+const [location,setLocation] = useState('')
 
   const dispatch = useDispatch()
 
@@ -47,8 +48,8 @@ export const PlacesAddress = ()=>{
     const latLng = await getLatLng(results[0]);
     setAddress(value);
     setCoordinates(latLng);
-    console.log(latLng);
-    dispatch(lawyerData(latLng))
+    
+    dispatch(lawyerData({location:{...latLng,address:results[0].formatted_address}}))
   };
   return(
     <PlacesAutocomplete
@@ -61,7 +62,7 @@ export const PlacesAddress = ()=>{
             {/* <p>Latitude: {coordinates.lat}</p>
             <p>Longitude: {coordinates.lng}</p> */}
 
-            <MDBInput  wrapperClass="mb-4" label="Location" {...getInputProps()} /> 
+            <MDBInput  wrapperClass="mb-4" label="Location"  {...getInputProps()}  /> 
 
             <div>
               {loading ? <div>...loading</div> : null}

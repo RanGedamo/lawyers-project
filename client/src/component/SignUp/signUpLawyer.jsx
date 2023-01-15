@@ -12,12 +12,14 @@ import { PlacesAddress } from "../../GoogleMap/GoogleMap";
 import { useSelector } from "react-redux";
 export default function SignUpLawyer() {
   const [inputs, setInputs] = useState();
-  const lawyerData = useSelector((state)=>state.lawyerReducer.lawyerData) 
-console.log(lawyerData);
+  const lawyerData = useSelector((state) => state.lawyerReducer.lawyerData);
+
   const changeInputs = (e) => {
-    setInputs({ ...inputs, [e.target.name]: e.target.value })
+    const location = lawyerData?.location;
+    setInputs({ ...inputs, [e.target.name]: e.target.value, location });
     console.log(inputs);
   };
+
   
   return (
     <div>
