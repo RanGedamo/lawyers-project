@@ -8,17 +8,32 @@ import {
   Icon,
   useColorModeValue,
   createIcon,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+  Alert,
 } from '@chakra-ui/react';
+import { MDBInput, MDBTextArea } from 'mdb-react-ui-kit';
+import { useState } from 'react';
 
 export default function ContactUs() {
+  const [contact, setContact] = useState()
+  const [sendContext, setSendContext] = useState(false)
+  const contactInputs = (e) => {
+    setContact({ ...contact, [e.target.name]: e.target.value })
+
+  }
+  const submitContact = () => {
+    console.log(contact);
+    setSendContext(true)
+  }
   return (
     <>
-
       <Container maxW={'3xl'}>
         <Stack
           as={Box}
           textAlign={'center'}
-          spacing={{ base: 8, md: 14 }}
+          spacing={{ base: 8, md: 8 }}
           py={{ base: 20, md: 36 }}>
           <Heading
             fontWeight={600}
@@ -34,6 +49,19 @@ export default function ContactUs() {
             them loyalty points. Give back to your loyal readers by granting
             them access to your pre-releases and sneak-peaks.
           </Text>
+          <Container>
+            <MDBInput className="mb-3" type="email" label="Email" name='email' onChange={(e) => { contactInputs(e) }} />
+            <MDBTextArea className="mb-3" type="text" label="Massage" name='massage' onChange={(e) => { contactInputs(e) }} />
+            
+            {sendContext?<Alert status='success'>
+              <AlertIcon />
+              <AlertTitle>successfully sent!</AlertTitle>
+              <AlertDescription>We thank you for your request and we'll take it as soon as possible.
+                - Thank you</AlertDescription>
+            </Alert>:""}
+          
+          </Container>
+
           <Stack
             direction={'column'}
             spacing={3}
@@ -41,6 +69,8 @@ export default function ContactUs() {
             alignSelf={'center'}
             position={'relative'}>
             <Button
+              onClick={() => submitContact()}
+              disabled={sendContext}
               colorScheme={'green'}
               bg={'green.400'}
               rounded={'full'}
@@ -49,9 +79,6 @@ export default function ContactUs() {
                 bg: 'green.500',
               }}>
               contact us
-            </Button>
-            <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
-              Learn more
             </Button>
             <Box>
               <Icon
@@ -69,7 +96,7 @@ export default function ContactUs() {
                 right={'-125px'}
                 top={'-15px'}
                 transform={'rotate(10deg)'}>
-                Starting at $15/mo
+                Talk to us
               </Text>
             </Box>
           </Stack>
