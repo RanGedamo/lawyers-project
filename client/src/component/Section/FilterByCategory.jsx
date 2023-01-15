@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import Checkbox from "../Checkbox/Checkbox";
-import FilterBar from "./FilterBar";
 import { Lawyers } from "../../sidder";
 import HomeLawyer from "../cards/HomeLawyer";
-import cookie from "js-cookie"
 
 
 export default class FilterByCategory extends Component {
@@ -17,12 +15,9 @@ export default class FilterByCategory extends Component {
       location: "",
       price: 0,
       avgTime: 0,
+      experience: 0,
     },
   };
-
-    // sendToCookies = () => {
-  //   cookie.set("categoryId",this.props.id)
-  // };
 
   handleChange = (e) => {
     const { name } = e.target;
@@ -39,7 +34,7 @@ export default class FilterByCategory extends Component {
 
   render() {
     const checkedLawyers = Object.entries(this.state.categories)
-    // result.filter((lawyer)=>
+    // result.filter((lawyer) =>
     //         lawyer.available === true &&
     //         lawyer.rate === rate &&
     //         lawyer.location === location &&
@@ -57,7 +52,6 @@ export default class FilterByCategory extends Component {
       // <div className="div"   onClick={sendToCookies}>
       <div className="div">
         <h2>All the lawyers shown here are available!</h2>
-        <FilterBar/>
         <Checkbox
           id="1"
           title="price"
