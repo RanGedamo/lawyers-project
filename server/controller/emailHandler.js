@@ -1,7 +1,10 @@
 const nodemailer = require('nodemailer');
 
-const sendEmail = (rate,email,comments,userEmail) => {
-    return new Promise((resolve, reject) => {
+const postContactUs = async(req,res)=>{
+    const {userEmail,userCommend} = req.body
+    console.log(userEmail,userCommend);
+    if(!userEmail || !userCommend) return res.json({massage:"email or commend not found"})
+    return await new Promise((resolve, reject) => {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
@@ -11,10 +14,9 @@ const sendEmail = (rate,email,comments,userEmail) => {
         })
         const mail_configs = {
             from:'lawyerandorderthemis@gmail.com',
-            to:email,
-            subject:"testing our nodemailer",
-            html:`<h4>Comment from:</h4><h3> ${userEmail}</h3> </br><h2 style=color:"blue">${comments}</h2><h2>${rate}</h2>`
-      
+            to:req.body.userEmail,
+            subject:"Contact Us:",
+            html:`<h4>Comment from:</h4><h3> ${req.body.userEmail}</h3> </br><h2 style=color:"blue">${req.body.userCommend}</h2>`
         }
         transporter.sendMail(mail_configs, (error)=>{
             if(error){
@@ -23,7 +25,7 @@ const sendEmail = (rate,email,comments,userEmail) => {
             };
             return reject({massage:"Email Sent successfully"})
         } )
-    })
+    }).then(res=>console.log(res)).catch(res=>console.log(res))
 }
 
-module.exports={sendEmail}
+module.exports = {postContactUs}

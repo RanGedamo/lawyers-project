@@ -59,7 +59,7 @@ export default function Navbar() {
                     onClick={SignIn}
                   >
                     Sign In
-                    {bool ? <PopUpRole /> : ""}
+                    <PopUpRole />
                   </Button>
                 </Stack>
               </Menu>

@@ -5,6 +5,7 @@ const { validateLawyer , validateUpdateLawyer } = require("../validation/lawyerR
 const {validationLogin} = require('../validation/lawyerLoginValidation');
 const mongoose=require("mongoose");
 const lawyerModel = require("../models/lawyerModel");
+const Cloudinary = require("../config/cloudinary")
 
 const getLawyers = async (req, res) => {
   const lawyer = await LawyerModel.find()
@@ -42,6 +43,16 @@ const registerLawyer = async (req, res) => {
     workDueTime,
     available
   } = req.body; //18
+
+  if(image && image.length !=  0 ){
+    const endImg = await Cloudinary.uploader.upload(image,{
+      folder: "lawyersProfileImages"
+    })
+    image = {
+      public_id: endImg.public_id,
+      url: endImg.url
+    }
+  }
   const emailExist = await LawyerModel.findOne({ email });
   if (emailExist) {
     return res.status(400).json({ message: "email already exist" });
@@ -86,6 +97,7 @@ const registerLawyer = async (req, res) => {
 
   return res.status(200).json(lawyer);
 };
+
 const loginLawyer = async (req, res) => {
   const {error} = validationLogin(req.body);
    

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MDBRow, MDBCol, MDBContainer, MDBTypography } from "mdb-react-ui-kit";
 import {
   LawyerProfileCard,
@@ -8,39 +8,41 @@ import {
   LawyerCategories,
 } from "../../AppRoute/featuresRoute/lawyerProfile";
 import { useParams } from "react-router-dom";
-import { Lawyers } from "../../sidder";
+// import { Lawyers } from "../../sidder";
 import GoogleMapLocation from "../../GoogleMap/GoogleMap";
+import { getLawyerByEmail } from "../../services/lawyerService";
 
 export default function LawyerProfile() {
-  let { id } = useParams();
-
-  const Lawyer = () => {
-    const Wanted = Lawyers.find((lawyer) => lawyer._id === id);
-    return Wanted;
-  };
-
-  let selectLawyer = Lawyer();
-
+  let { email } = useParams();
+const[lawyer,setLawyers]=useState({})
+const [category,setCategory]=useState([])
+useEffect(()=>{
+  getLawyerByEmail(email).then((res)=>{
+    setLawyers(res) 
+    setCategory(res.category[0].subCategory)}).catch((error)=>console.log(error))
+},[])
+console.log((category));
   return (
+    <div>
     <MDBContainer>
       <MDBRow>
         <MDBCol size={12} className=" col-md-12 col-lg-6 mt-5">
-          <LawyerProfileCard select={selectLawyer} />
+          <LawyerProfileCard lawyer={lawyer} />
         </MDBCol>
         <MDBCol>
           <MDBCol>
             <MDBRow className=" row-cols-md-2">
-              {selectLawyer.filedCategory.map((item, i) => {
+              {category?.map((item) => {
                 return (
-                  <MDBCol key={i} size={12} className="p-0 mb-3 mt-5">
-                    <LawyerCategories index={i} select={selectLawyer} />
+                  <MDBCol  size={12} className="p-0 mb-3 mt-5">
+                  <LawyerCategories  item={item} />
                   </MDBCol>
                 );
               })}
             </MDBRow>
           </MDBCol>
           <MDBCol className="mb-3 " >
-            <AreaChart select={selectLawyer} />
+            <AreaChart lawyer={lawyer} />
           </MDBCol>
           <MDBCol className="">
             <GoogleMapLocation />
@@ -50,13 +52,14 @@ export default function LawyerProfile() {
       <MDBContainer>
         <MDBRow >
           <MDBCol className="mt-5">
-            {selectLawyer.filedCategory.map((item, i) => {
-              return <CommentSection key={i} index={i} select={selectLawyer} />;
+            {lawyer.reviews?.map((item, i) => {
+              return <CommentSection key={i} index={i} item={item} />;
             })}
             <ReviewsInput />
           </MDBCol>
         </MDBRow>
       </MDBContainer>
     </MDBContainer>
+    </div>
   );
 }

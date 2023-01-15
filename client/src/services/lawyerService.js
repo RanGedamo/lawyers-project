@@ -2,7 +2,7 @@ import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost:6060/lawyer";
 
-export const getLayers = async () => {
+export const getLawyers = async () => {
   const response = await axios.get("/")
 
   const lawyer = await response.data;
@@ -28,7 +28,7 @@ export const registerLawyer = async (data) => {
     avgReplayTime:data.avgReplayTime,
     workDueTime:data.workDueTime,
     available:data.available
-  });
+  }).then(res=>console.log(res));
 
   const newLawyer = await response.data;
   return newLawyer;
@@ -45,7 +45,7 @@ export const loginLawyer = async (data) => {
   };
 
   export const getLawyerByEmail = async (email) => {
-    const response = await axios.get(`${email}`);
+    const response = await axios.get(`/${email}`);
   
     const lawyer = await response.data;
     return lawyer;

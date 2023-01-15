@@ -1,48 +1,70 @@
-import React, { useState } from "react";
-import { MDBBtn, MDBModal, MDBModalBody, MDBCard,  MDBCardBody,  MDBCol,  MDBRow } from "mdb-react-ui-kit";
-import SignUpFormUser from "../SignUp/SignUpFormUser";
-import SignUpFormLawyer from "../SignUp/SignUpFormLawyer";
-
+import React, { useEffect, useState } from "react";
+import {
+  MDBBtn,
+  MDBModal,
+  MDBModalDialog,
+  MDBModalContent,
+  MDBModalHeader,
+  MDBModalTitle,
+  MDBModalBody,
+  MDBModalFooter,
+  MDBRow,
+  MDBCol,
+  MDBCardBody,
+  MDBCard,
+} from "mdb-react-ui-kit";
+import SignUpFormUser from '../SignUp/SignUpFormUser'
+import SignUpFormLawyer from '../SignUp/SignUpFormLawyer'
 export default function PopUpRole() {
+  const [basicModal, setBasicModal] = useState(false);
+
+  const toggleShow = () =>setLawyer(false)+setUser(false)+ setBasicModal(!basicModal);
   const [user, setUser] = useState(false);
   const [lawyer, setLawyer] = useState(false);
-  const [staticModal, setStaticModal] = useState(true);
-  const toggleShow = () => setStaticModal(!staticModal);
-  
 
   const formUser = () => {
-    setUser(true);
+    setUser(!false);
   };
   const formLawyer = () => {
-    setLawyer(true);
+    setLawyer(!lawyer);
   };
+
   return (
     <>
-      <MDBModal staticBackdrop tabIndex='-1' show={staticModal} setShow={setStaticModal}>
-        <MDBBtn className=" mt-5 mb-3" color="secondary" onClick={toggleShow}>
-          Close
-        </MDBBtn>
-        <MDBModalBody className="pt-0">
-          {user + lawyer == false ? (
-            <MDBCard>
-              <h1>Who Are You ?</h1>
-              <MDBCardBody>
-                <MDBRow>
-                  <MDBCol>
-                    <MDBBtn onClick={formLawyer}>Lawyer</MDBBtn>
-                  </MDBCol>
-                  <MDBCol>
-                    <MDBBtn onClick={formUser}>User</MDBBtn>
-                  </MDBCol>
-                </MDBRow>
-              </MDBCardBody>
-            </MDBCard>
-          ) : (
-            ""
-          )}
-          {user === true ? <SignUpFormUser /> : ""}
-          {lawyer === true ? <SignUpFormLawyer /> : ""}
-        </MDBModalBody>
+      <MDBBtn onClick={toggleShow}>Sign In</MDBBtn>
+      <MDBModal show={basicModal} tabIndex="-1">
+        <MDBModalDialog className=" w-100">
+          <MDBModalContent>
+            <MDBModalHeader>
+              <MDBModalTitle></MDBModalTitle>
+              <MDBBtn
+                className="btn-close"
+                color="none"
+                onClick={toggleShow}
+              ></MDBBtn>
+            </MDBModalHeader>
+
+              {(lawyer||user) === false ? (
+                <MDBCard>
+                  <h1>Who Are You ?</h1>
+                  <MDBCardBody>
+                    <MDBRow>
+                      <MDBCol>
+                        <MDBBtn onClick={formLawyer}>Lawyer</MDBBtn>
+                      </MDBCol>
+                      <MDBCol>
+                        <MDBBtn onClick={formUser}>User</MDBBtn>
+                      </MDBCol>
+                    </MDBRow>
+                  </MDBCardBody>
+                </MDBCard>
+              ) : (
+                ""
+              )}
+              {user === true ? <SignUpFormUser /> : ""}
+              {lawyer === true ? <SignUpFormLawyer /> : ""}
+          </MDBModalContent>
+        </MDBModalDialog>
       </MDBModal>
     </>
   );

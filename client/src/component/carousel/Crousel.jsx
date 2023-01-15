@@ -1,8 +1,4 @@
-import { Lawyers } from "../../sidder";
-import { HomeLawyer } from "../../AppRoute/featuresRoute/home";
 import "./carousel.css";
-import { getLayers } from "../../services/lawyerService";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Carousel({ lawyer }) {
@@ -25,6 +21,7 @@ function Carousel({ lawyer }) {
             );
           })}
         </div>
+
       </div>
     </>
   );

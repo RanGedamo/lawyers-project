@@ -18,7 +18,7 @@ import {
   MDBContainer
 } from 'mdb-react-ui-kit';
 
-export default function ContactLawyer({select}) {
+export default function ContactLawyer({lawyer}) {
   const [basicModal, setBasicModal] = useState(true);
 
   const toggleShow = () => setBasicModal(!basicModal);
@@ -36,23 +36,23 @@ export default function ContactLawyer({select}) {
                             <div className="flex-shrink-0">
                                 <MDBCardImage
                                 style={{ width: '180px', borderRadius: '10px' }}
-                                src={select.img}
+                                src={lawyer.image}
                                 alt='Generic placeholder image'
                                 fluid />
                             </div>
                             <div className="">
-                                <MDBCardTitle>{select.firstName} {select.lastName}</MDBCardTitle>
-                                <MDBCardText>{select.title}</MDBCardText>
+                                <MDBCardTitle>{lawyer.firstName} {lawyer.lastName}</MDBCardTitle>
+                                <MDBCardText>{lawyer.title}</MDBCardText>
 
                                 <div className="d-flex justify-content-start rounded-3 p-4 mb-2"
                                 style={{ backgroundColor: '#efefef' }}>
                                 <div>
                                     <p className="small text-muted mb-1">Phone</p>
-                                    <p className="mb-0">{select.phone}</p>
+                                    <p className="mb-0">{lawyer.phone}</p>
                                 </div>
                                 <div className="px-3">
                                     <p className="small text-muted mb-1">Email</p>
-                                    <p className="mb-0">{select.email}</p>
+                                    <p className="mb-0">{lawyer.email}</p>
                                 </div>
                                 </div>
                                 <div className="d-flex pt-1">

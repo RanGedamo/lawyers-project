@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MDBCardBody, MDBIcon, MDBInput, MDBBtn } from "mdb-react-ui-kit";
+import { MDBCardBody, MDBIcon, MDBInput, MDBBtn, MDBFile } from "mdb-react-ui-kit";
 
 export default function SignInLawyer() {
   const [inputs, setInputs] = useState();
@@ -7,6 +7,7 @@ export default function SignInLawyer() {
     setInputs({ ...inputs, [e.target.name]: e.target.value })
     console.log(inputs);
   }
+
   return (
     <>
       <MDBCardBody className="d-flex flex-column">

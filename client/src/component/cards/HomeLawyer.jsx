@@ -12,7 +12,6 @@ export default function Homelawyer({lawyer,id}) {
   }
   return (
 <div class="container">
-
     <MDBRow   >
           <MDBCol size={4} key={lawyer._id}>
           <MDBRipple
@@ -21,12 +20,12 @@ export default function Homelawyer({lawyer,id}) {
             rippleColor="light"
           >
             <img
-              src={lawyer.img}
+              src={lawyer.image}
               alt="lawyer"
               className="h-25"
              
             />
-            <Link to={`/lawyer/profile/${lawyer._id}`}>
+            <Link to={`/lawyer/profile/${lawyer.email}`}>
               <div
                 className="mask "
                 style={{ backgroundImage: `${lawyer.selectedCover}` }}
@@ -34,7 +33,7 @@ export default function Homelawyer({lawyer,id}) {
                 <MDBRow className="text-center flex-column mt-5 pt-5">
                   <MDBCol>
                     <MDBTypography  className="mb-0 mt-5 pt-5 fw-bold">
-                      My name is `${lawyer.fullName}`
+                      My name is `${lawyer.firstName +lawyer.lastName}`
                     </MDBTypography>
                   </MDBCol>
                   <MDBCol>
