@@ -15,7 +15,6 @@ import {
 } from "mdb-react-ui-kit";
 import SignUpFormUser from '../SignUp/SignUpFormUser'
 import SignUpFormLawyer from '../SignUp/SignUpFormLawyer'
-import { Button } from "@chakra-ui/react";
 export default function PopUpRole() {
   const [basicModal, setBasicModal] = useState(false);
 
@@ -32,14 +31,14 @@ export default function PopUpRole() {
 
   return (
     <>
-      <Button className="w-100 fw-bolder " colorScheme={'blue'} onClick={toggleShow} >Sign In</Button>
-      <MDBModal className="mt-5 justify-content-center d-flex" show={basicModal} tabIndex="-1">
-              <MDBModalBody>
+      <MDBBtn onClick={toggleShow} >Sign In</MDBBtn>
+      <MDBModal show={basicModal} tabIndex="-1">
               <MDBBtn
                 className="btn-close"
                 color="none"
                 onClick={toggleShow}
               ></MDBBtn>
+
               {(lawyer||user) === false ? (
                 <MDBCard className="h-25" >
                   <h1 className="mt-5">Who Are You ?</h1>
@@ -56,10 +55,9 @@ export default function PopUpRole() {
                 </MDBCard>
               ) : (
                 ""
-                )}
+              )}
               {user === true ? <SignUpFormUser /> : ""}
               {lawyer === true ? <SignUpFormLawyer /> : ""}
-                </MDBModalBody>
       </MDBModal>
       </>
   );
