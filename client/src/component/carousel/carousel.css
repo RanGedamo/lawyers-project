@@ -7,22 +7,6 @@ body {
   background-color: #f9f9f9;
 }
 
-h1 {
-  text-align: center;
-  margin: 1.5em;
-}
-
-img {
-  width: 35%;
-  border-radius: 50%;
-}
-
-.container {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
 .items {
   display: flex;
   align-items: center;
