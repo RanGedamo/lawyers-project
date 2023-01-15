@@ -18,6 +18,7 @@ app.use("/lawyer", require("./routes/lawyerRouter"));
 app.use("/category", require("./routes/categoryRouter"));
 app.use("/review", require("./routes/reviewRouter"));
 app.use("/user", require("./routes/userRouter"));
+app.use("/emailHandler", require("./routes/emailRouter"));
 
 // const client = require('twilio')(process.env.SID,process.env.AUTH_TOKEN)
  

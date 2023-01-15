@@ -15,17 +15,19 @@ import {
 } from '@chakra-ui/react';
 import { MDBInput, MDBTextArea } from 'mdb-react-ui-kit';
 import { useState } from 'react';
+import { postContactUs } from '../../services/emailHandler';
 
 export default function ContactUs() {
   const [contact, setContact] = useState()
   const [sendContext, setSendContext] = useState(false)
+
   const contactInputs = (e) => {
     setContact({ ...contact, [e.target.name]: e.target.value })
 
   }
-  const submitContact = () => {
-    console.log(contact);
+  const submitContact = async() => {
     setSendContext(true)
+    return await postContactUs(contact).then(res=>console.log(res))
   }
   return (
     <>
@@ -50,16 +52,16 @@ export default function ContactUs() {
             them access to your pre-releases and sneak-peaks.
           </Text>
           <Container>
-            <MDBInput className="mb-3" type="email" label="Email" name='email' onChange={(e) => { contactInputs(e) }} />
-            <MDBTextArea className="mb-3" type="text" label="Massage" name='massage' onChange={(e) => { contactInputs(e) }} />
-            
-            {sendContext?<Alert status='success'>
+            <MDBInput className="mb-3" type="email" label="Email" name='userEmail' onChange={(e) => { contactInputs(e) }} />
+            <MDBTextArea className="mb-3" type="text" label="Massage" name='userCommend' onChange={(e) => { contactInputs(e) }} />
+
+            {sendContext ? <Alert status='success'>
+              
               <AlertIcon />
               <AlertTitle>successfully sent!</AlertTitle>
               <AlertDescription>We thank you for your request and we'll take it as soon as possible.
                 - Thank you</AlertDescription>
-            </Alert>:""}
-          
+            </Alert> : ""}
           </Container>
 
           <Stack
