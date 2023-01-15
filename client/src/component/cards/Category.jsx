@@ -23,7 +23,7 @@ export default function Category() {
                   src="https://mdbootstrap.com/img/new/fluid/city/113.webp"
                   className="w-100"
                 />
-                <Link to={`/category/${category._id}`}>
+                <Link to={`/category/${category._id}`}>                  
                   <div
                     className="mask"
                     style={{ backgroundColor: "rgba(251, 251, 251, 0.2)" }}

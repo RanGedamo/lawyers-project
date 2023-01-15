@@ -2,16 +2,16 @@ import { useState } from "react";
 import { Stack, Container, Box, Flex, Text, Heading, SimpleGrid } from "@chakra-ui/react";
 import SubCategory from "./SubCategory";
 
-export default function SelectedCategory({ select }) {
+export default function categoryedCategory({ category }) {
 
   return (
-    <Box bg={"gray.800"} position={"relative"} key={select._id}>
-      {/* {console.log(select)} */}
+    <Box bg={"gray.800"} position={"relative"} key={category._id}>
+      {console.log(category)}
       <Flex
         flex={1}
         zIndex={0}
         display={{ base: "none", lg: "flex" }}
-        backgroundImage={select.categoryImg}
+        backgroundImage={category.categoryImg}
         backgroundSize={"cover"}
         backgroundPosition="center"
         backgroundRepeat="no-repeat"
@@ -42,24 +42,12 @@ export default function SelectedCategory({ select }) {
                 textTransform={"uppercase"}
                 fontSize={{ base: "3xl", md: "5xl" }}
               >
-                {select.categoryName}
+                {category.categoryName}
               </Heading>
             </Box>
-            {select.subCategory.map((subCategory) => (
+            {category.subCategory?.map((subCategory) => (
               <SubCategory subCategory={subCategory}/>
-              // <SimpleGrid
-              //   columns={{ base: 1, md: 2 }}
-              //   spacing={10}
-              //   key={subCategory._id}
-              // >
-              //   <Box>
-              //     <Text fontSize={"xl"} color={"gray.400"}>
-              //       <Text as={"span"} fontWeight={700} color={"white"}>
-              //         {subCategory.name}
-              //       </Text>
-              //     </Text>
-              //   </Box>
-              // </SimpleGrid>
+          
             ))}
           </Stack>
           <Flex flex={1} />
