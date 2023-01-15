@@ -24,7 +24,7 @@ ChartJS.register(
   Legend
 );
 
-export default function AreaChart({item}) {
+export default function AreaChart({lawyer}) {
   const options = {
     responsive: true,
     plugins: {

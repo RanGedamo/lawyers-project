@@ -1,4 +1,3 @@
-const { boolean } = require("joi");
 const mongoose = require("mongoose");
 
 const Schema = require("mongoose").Schema;
@@ -17,7 +16,7 @@ const lawyer = new Schema({
     required: true,
   },
   location: {
-    type: String,
+    type: Object,
     required: true,
   },
   description: {

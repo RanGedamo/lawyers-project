@@ -11,7 +11,7 @@ import {
   MDBTypography,
 } from "mdb-react-ui-kit";
 
-export default function CommentSection({ select ,index}) {
+export default function CommentSection({ item ,index}) {
   return (
       <MDBContainer className="py-2 text-dark">
         <MDBCard className="mb-3 pb-5 pt-5">
@@ -31,19 +31,19 @@ export default function CommentSection({ select ,index}) {
                   tag="h6"
                   className="text-primary fw-bold text-start pb-3"
                 >
-                  {select.reviwes[index].user}
+                  "user name"
                 </MDBTypography>
                 <MDBTypography tag="h6" className="text-dark  mb-0 text-start ms-4">
-                  {select.reviwes[index].comment}
+                  {item.comment}
                 </MDBTypography>
               </MDBCol>
               <MDBCol size={12} className="flex-column col-md-2">
                 <MDBTypography tag="h6" className="text-dark  text-start mt-md-0 mt-3">
-                  2 days ago
+                  {new Date (item.createdAt).toLocaleDateString()}
                 </MDBTypography>
                 <MDBTypography tag="h6" className="text-dark  mt-3 text-start">
                   <MDBIcon fas icon="star text-warning me-2 " />
-                  {select.reviwes[index].rate}
+                  {item.rate}
                 </MDBTypography>
               </MDBCol>
             </MDBRow>
