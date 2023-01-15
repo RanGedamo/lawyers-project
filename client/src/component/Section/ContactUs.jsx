@@ -52,8 +52,8 @@ export default function ContactUs() {
             them access to your pre-releases and sneak-peaks.
           </Text>
           <Container>
-            <MDBInput className="mb-3" type="email" label="Email" name='userEmail' onChange={(e) => { contactInputs(e) }} />
-            <MDBTextArea className="mb-3" type="text" label="Massage" name='userCommend' onChange={(e) => { contactInputs(e) }} />
+            <MDBInput className="mb-3" type="email" label="Email" name='userEmail' required onChange={(e) => { contactInputs(e) }} />
+            <MDBTextArea className="mb-3" type="text" label="Massage" name='userCommend' required onChange={(e) => { contactInputs(e) }} />
 
             {sendContext ? <Alert status='success'>
               
