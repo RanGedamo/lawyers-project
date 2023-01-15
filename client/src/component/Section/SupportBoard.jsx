@@ -13,7 +13,6 @@ import {
     useColorModeValue,
   } from '@chakra-ui/react';
   import { CheckCircleIcon } from '@chakra-ui/icons'
-  import { ReactElement } from 'react';
   
   
   const Feature = ({ text, icon, iconBg }) => {
@@ -34,6 +33,7 @@ import {
   };
   
   export default function SupportBoard() {
+
     return (
       <Container maxW={'5xl'} py={12}>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
