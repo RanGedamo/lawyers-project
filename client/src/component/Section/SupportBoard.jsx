@@ -10,18 +10,12 @@ import {
     Icon,
     FormControl,
     Input,
-    useColorModeValue,
-  } from '@chakra-ui/react';
+    useColorModeValue, } from '@chakra-ui/react';
   import { CheckCircleIcon } from '@chakra-ui/icons'
   import { ReactElement } from 'react';
+
   
-  interface FeatureProps {
-    text: string;
-    iconBg: string;
-    icon?: ReactElement;
-  }
-  
-  const Feature = ({ text, icon, iconBg }: FeatureProps) => {
+  const Feature = ({ text, icon, iconBg }) => {
     return (
       <Stack direction={'row'} align={'center'}>
         <Flex

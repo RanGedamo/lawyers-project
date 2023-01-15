@@ -1,16 +1,20 @@
 import React from "react";
 import { MDBCard, MDBCardBody, MDBCardTitle, MDBInput,  MDBContainer, MDBRow, MDBCol, MDBRange } from "mdb-react-ui-kit";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import HomeLawyer from "../cards/HomeLawyer";
 import cookie from "js-cookie";
 
 export default function FilterLawyer({ lawyers, id }) {
+
   const [rate, setRate] = useState("");
   const [location, setLocation] = useState("");
   const [price, setPrice] = useState(0);
   const [experience, setExperience] = useState(0);
-  const [available, setAvailable] = useState(true);
+  const [available] = useState(true);
   const [filteredData, setFilteredData] = useState(lawyers);
+
+  const [searchString, setSearchString] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
 
   const handleRateChange = (event) => {
     setRate(event.target.value);
@@ -55,18 +59,40 @@ export default function FilterLawyer({ lawyers, id }) {
   };
   // const {_id,selectedCover,img,fullName,filedCategory,rate,reviwes,location,price,experience,available,avgTime,workDueTime} = lawyer
 
-  const sendToCoockies = () => {
+  const sendToCockies = () => {
     cookie.set("categoryId", id);
   };
+
+// const  caseInsensitiveSearch =(e,lawyers) => {
+//   lawyers.map(lawyer => lawyer.firstName.toLowerCase());
+
+//   let results = lawyers.filter(lawyer => lawyer.firstName.includes( {...e.target.value.toLowerCase()}));
+//   console.log(results);
+//   return results;
+// }
+const searchCountryByName = (
+  searchString,
+  countries,
+  setSearchResult
+) => {
+
+};
 
   return (
     <MDBContainer>
       <MDBRow className='mb-3'>
-        <MDBCol sm='6' md='4' lg='5'>
-    <MDBCard className="w-25 p-1" onClick={sendToCoockies}>
+        <MDBCol sm='6' md='4' lg='6'>
+    <MDBCard className="w-50 p-5" onClick={sendToCockies}>
       <br />
-      <p className="fs-5">Filter</p>
-      <MDBInput label='search lawyer name' type='text' id='formWhite'/>
+      <p className="fs-5">Filter</p><br/>
+      <MDBInput 
+      label='search lawyer name' 
+      type='text' id='formWhite' 
+      name="searchString" 
+      value={searchString} 
+      onChange={(e)=> setSearchString(e.target.value)} 
+      onKeyUp={(e) => searchLawyerByName( e.target.value, hatches, setSearchResult )}
+      />
       <br />
 
       <MDBCardBody className="d-grid">
