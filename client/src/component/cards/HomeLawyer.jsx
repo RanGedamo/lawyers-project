@@ -5,17 +5,15 @@ import { Link } from "react-router-dom";
 import { withDefaultColorScheme } from "@chakra-ui/react";
 
 
-export default function HomeLawyer({lawyers,id}) {
+export default function Homelawyer({lawyer,id}) {
 
   const sendToCoockies=()=>{
     cookie.set("categoryId",id)
   }
   return (
-    <MDBRow  onClick={sendToCoockies} >
-          {lawyers ? 
-          (
-        lawyers.map(lawyer => 
-          
+<div class="container">
+
+    <MDBRow   >
           <MDBCol size={4} key={lawyer._id}>
           <MDBRipple
             className="bg-image hover-overlay shadow-1-strong rounded"
@@ -61,9 +59,7 @@ export default function HomeLawyer({lawyers,id}) {
             </Link>
           </MDBRipple>
         </MDBCol>
-        )):(
-<MDBCol>no data found</MDBCol>
-        )}
     </MDBRow>
+    </div>
   );
 }

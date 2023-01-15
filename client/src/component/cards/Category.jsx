@@ -1,33 +1,43 @@
-import { MDBCol, MDBRipple, MDBRow, MDBTypography } from "mdb-react-ui-kit";
+import {
+  MDBCol,
+  MDBContainer,
+  MDBRipple,
+  MDBRow,
+  MDBTypography,
+} from "mdb-react-ui-kit";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { getCategory } from "../../services/categoryService";
+import { useState } from "react";
 
-export default function Category({ categories }) {
+export default function Categories({ categories }) {
+  const [category, setCategory] = useState();
+  useEffect(() => {
+    getCategory().then((res) => setCategory(res));
+  }, []);
+  // console.log(category);
+
   return (
     <MDBRow>
       {categories ? (
-        categories.map((category) => {
+        categories.map((category, index) => {
           return (
-            <MDBCol size={4} key={category._id} className="d-grid mt-4 md-4">
+            <MDBCol size={12} className="col-md-4">
               <MDBRipple
                 className="bg-image hover-overlay shadow-1-strong rounded"
                 rippleTag="div"
                 rippleColor="light"
               >
-                <img src={category.categoryImg} className="h-50 d-flex justify-content-evenly" />
-                <Link to={`/category/${category._id}`}>
+                {console.log(category)}
+                <img src={category.categoryImg} className="w-100" />
+                <a href="#!">
                   <div
-                    className="mask "
-                    style={{ backgroundImage: `${category.categoryImg}` }}
+                    className="mask"
+                    style={{ backgroundColor: "rgba(251, 251, 251, 0.2)" }}
                   >
-                    <MDBRow className="text-center flex-column mt-4 pt-4">
-                      <MDBCol>
-                        <MDBTypography className="mb-0 mt-5 pt-5 fw-bold">
-                          {category.categoryName}
-                        </MDBTypography>
-                      </MDBCol>
-                    </MDBRow>
+                    {category.categoryName}
                   </div>
-                </Link>
+                </a>
               </MDBRipple>
             </MDBCol>
           );

@@ -8,6 +8,7 @@ export const getLayers = async () => {
   const lawyer = await response.data;
   return lawyer;
 };
+
 export const registerLawyer = async (data) => {
   const response = await axios.post("/register",{
     firstName:data.firstName,

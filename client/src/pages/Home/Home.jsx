@@ -15,15 +15,18 @@ export default function Home() {
       <MDBContainer className="mb-8">
         <Hero />
       </MDBContainer>
-    <MDBRow className='bg-light mb-3 rounded-9'>
+    <MDBRow className='bg-light mb-8 rounded-9 '>
     <SupportBoard/>
     </MDBRow>
     <br />
-    <MDBRow className='d-flex'>
-      <MDBCol md='8' >
-      <Carousel/>
+    <br />
+    <MDBRow>
+      <MDBCol>
+      <Carousel lawyer={Lawyers}/>
       </MDBCol>
     </MDBRow>
+    <br />
+    <br />
     <MDBRow className='d-flex justify-content-center'>
       <MDBCol md='10'>
       <Category categories={categories}/>
@@ -35,7 +38,6 @@ export default function Home() {
           <ContactUs />
         </MDBCol>
       </MDBRow>
-   
       <br />
       <MDBRow className="mb-8 d-flex justify-content-around rounded-7-fluid">
         <HowToHire />
