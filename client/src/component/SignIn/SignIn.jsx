@@ -60,9 +60,9 @@ FireBaseConfig()
           name="password"
           onChange={(e) => changeInputs(e)}
         />
-        <MDBBtn className="mb-3 px-5" size="lg" onClick={user.logOut}>
+        {/* <MDBBtn className="mb-3 px-5" size="lg" onClick={user.logOut}>
           Login
-        </MDBBtn>
+        </MDBBtn> */}
         <GoogleLoginButton onClick={handleGoogleSignIn} />
         <FacebookLoginButton className="mt-3" onClick={signInWithFacebook} />
         <div className="d-flex justify-content-center text-center align-items-center mt-5">
