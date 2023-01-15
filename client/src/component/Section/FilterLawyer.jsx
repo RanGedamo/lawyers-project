@@ -91,7 +91,7 @@ const searchCountryByName = (
       name="searchString" 
       value={searchString} 
       onChange={(e)=> setSearchString(e.target.value)} 
-      onKeyUp={(e) => searchLawyerByName( e.target.value, hatches, setSearchResult )}
+      // onKeyUp={(e) => searchLawyerByName( e.target.value, hatches, setSearchResult )}
       />
       <br />
 
