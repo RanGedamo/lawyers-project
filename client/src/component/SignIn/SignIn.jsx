@@ -1,18 +1,45 @@
 import React, { useState } from "react";
-import { MDBCardBody, MDBIcon, MDBInput, MDBBtn } from "mdb-react-ui-kit";
-import {  FacebookLoginButton,GoogleLoginButton,} from "react-social-login-buttons";
+import { MDBCardBody, MDBIcon, MDBInput, MDBBtn, MDBContainer, MDBCollapse } from "mdb-react-ui-kit";
+import { FacebookLoginButton, GoogleLoginButton, } from "react-social-login-buttons";
 import { useSelector } from "react-redux";
 import { FireBaseConfig } from "../../FireBaseConfig/FireBaseConfig";
+import { loginUser } from "../../services/userService";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
+import { Alert, AlertDescription, AlertIcon, AlertTitle } from "@chakra-ui/react";
 
 export default function SignIn() {
   const [inputs, setInputs] = useState();
+  const [userError, setUserError] = useState(false);
+  const [userSuccess, setUserSuccess] = useState(false);
+  const navigate = useNavigate()
   const changeInputs = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value })
     console.log(inputs);
   }
 
-FireBaseConfig()
-  const user=useSelector((state)=>state.userData)
+  const submitUserLogin = async () => {
+    return await loginUser(inputs)
+      .then(res => {
+        if (res.token) {
+          Cookies.set('authorization', res.token)
+          Cookies.set('user', res.user.email)
+          setUserError(false)
+          setUserSuccess(true)
+          setTimeout(()=>{
+            navigate('/')
+          },2000)
+        }
+      }).catch(err => {
+        if(err){
+          setUserSuccess(false)
+          return setUserError(true)
+        }
+      })
+  }
+
+  FireBaseConfig()
+  const user = useSelector((state) => state.userData)
   console.log(user);
   // const [error] = useState("");
   const handleGoogleSignIn = async (event) => {
@@ -60,11 +87,36 @@ FireBaseConfig()
           name="password"
           onChange={(e) => changeInputs(e)}
         />
-        {/* <MDBBtn className="mb-3 px-5" size="lg" onClick={user.logOut}>
-          Login
-        </MDBBtn> */}
-        <GoogleLoginButton onClick={handleGoogleSignIn} />
-        <FacebookLoginButton className="mt-3" onClick={signInWithFacebook} />
+
+        {userError?
+          <Alert status='error' className="mb-3">
+          <AlertIcon />
+          <AlertTitle>Error :</AlertTitle>
+          <AlertDescription>Something went wrong... Check again.</AlertDescription>
+        </Alert>:
+        ""
+        }
+        {userSuccess?
+          <Alert status='success' className="mb-3">
+          <AlertIcon />
+          <AlertTitle>Successfully :</AlertTitle>
+          <AlertDescription>Welcome to law market</AlertDescription>
+        </Alert>:
+        ""
+        }
+        
+        <div className="d-flex">
+          <MDBContainer className="justify-content-center align-items-center d-grid">
+
+            <GoogleLoginButton style={{ width: "250px" }} onClick={handleGoogleSignIn} />
+
+            <FacebookLoginButton className="mt-3 mb-5 " style={{ width: "250px" }} onClick={signInWithFacebook} />
+          </MDBContainer>
+        </div>
+
+        <MDBBtn className="w-100 mb-4" size="md" onClick={() => submitUserLogin()}>
+          sign in
+        </MDBBtn>
         <div className="d-flex justify-content-center text-center align-items-center mt-5">
           <p href="#!" className="small text-muted me-1">
             Terms of use.
@@ -73,6 +125,7 @@ FireBaseConfig()
             Privacy policy
           </p>
         </div>
+
       </MDBCardBody>
     </>
   );

@@ -1,4 +1,5 @@
 import axios from "axios";
+import jwtInterceptor from "../middleware/auth";
 
 axios.defaults.baseURL = "http://localhost:6060/user";
 
@@ -9,14 +10,7 @@ export const getUsers = async () => {
   return user;
 };
 export const registerUser= async (data) => {
-  const response = await axios.post("/register",{
-    firstName:data.firstName,
-    lastName:data.lastName,
-    image:data.image,
-    email:data.email,
-    password:data.password,
-  
-  });
+  const response = await axios.post("http://localhost:6060/user/register",data);
 
   const newLawyer = await response.data;
   return newLawyer;
@@ -34,11 +28,7 @@ export const updateUser = async (data,email) => {
   };
 
 export const loginUser = async (data) => {
-    const response = await axios.post("/login",{
-        email:data.email,
-        password:data.password
-    })
-  
+    const response = await jwtInterceptor.post("/user/login",data)
     const loginUser = await response.data;
     return loginUser;
   };

@@ -9,20 +9,23 @@ import {
   MDBFile
 } from "mdb-react-ui-kit";
 import { useState } from "react";
+import { registerUser } from "../../services/userService";
 export default function SignUp() {
-  const [auth,setAuth] = useState({firstName:"",lastName:"",email:"",image:"",password:""})
-
-  const checkInputUser = (e)=>{
-    e.preventDefault()
-  
-  }
+  const [auth,setAuth] = useState()
 
   const formHandel=(e)=>{
     setAuth({...auth,[e.target.name]:e.target.value})
 
     console.log(auth);
   }
-
+  
+  const checkInputUser = async()=>{
+    return await registerUser(auth)
+    .then(res=>console.log(res))
+    .then(err=>
+      console.log(err)
+      )
+  }
 
 
   return (
@@ -66,7 +69,7 @@ export default function SignUp() {
           id="form5"
           type="password"
         />
-          <MDBFile label='Profile Picture' id='customFile' />
+          {/* <MDBFile label='Profile Picture' id='customFile' /> */}
         <div className="d-flex justify-content-center mb-4 mt-4">
           <MDBCheckbox
             name="flexCheck"
@@ -76,7 +79,7 @@ export default function SignUp() {
           />
         </div>
 
-        <MDBBtn className="w-100 mb-4" size="md">
+        <MDBBtn className="w-100 mb-4" size="md" onClick={()=>checkInputUser()}>
           sign up
         </MDBBtn>
       </MDBCardBody>
