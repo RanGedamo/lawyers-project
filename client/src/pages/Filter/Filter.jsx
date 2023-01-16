@@ -5,9 +5,6 @@ import {
   HomeLawyer,
 } from "../../AppRoute/featuresRoute/categories";
 import { Spinner } from "@chakra-ui/react";
-// import FilterByCategory from "../../component/Section/FilterByCategory";
-// import FilterBar from "../../component/Section/FilterBar";
-// import FilterPure from "../../component/Section/FilterPure";
 import FilterLawyer from "../../component/Section/FilterLawyer";
 import { getCategoryById } from "../../services/categoryService";
 import { useEffect } from "react";
