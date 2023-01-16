@@ -36,7 +36,7 @@ export default function ContactLawyer({lawyer}) {
                             <div className="flex-shrink-0">
                                 <MDBCardImage
                                 style={{ width: '180px', borderRadius: '10px' }}
-                                src={lawyer.image}
+                                src={lawyer.imageString}
                                 alt='Generic placeholder image'
                                 fluid />
                             </div>

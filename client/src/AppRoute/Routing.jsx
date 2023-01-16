@@ -9,7 +9,7 @@ export default function Routing() {
                 <Route path="/" element={<Home /> } />
                 <Route path={'/category/:id'} element={<Filter /> } />
                 <Route path="/lawyer/profile/:email" element={<LawyerProfile /> } />
-                <Route path="/payment" element={<Payment/>} />
+                <Route path="/payment/:id" element={<Payment/>} />
                 <Route path="*" element={<ErrorPage /> } />
             </Routes>
         </div>

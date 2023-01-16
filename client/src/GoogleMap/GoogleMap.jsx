@@ -8,27 +8,29 @@ import { lawyerData } from '../store/lawyerReducer';
 
 const libraries = ["places"]
 
-function GoogleMapLocation() {
+function GoogleMapLocation({lawyer}) {
+
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_KEY,
     libraries
   })
-  const [coordinates, setCoordinates] = useState({
-    lat: null,
-    lng: null
-  });
+  // const [coordinates, setCoordinates] = useState({
+  //   lat: null,
+  //   lng: null
+  // });
 
   if (loadError) return <div>Error loading map</div>
   if (!isLoaded) return <div>loading...</div>
 
-  return <Map />
+  return <Map coordinates={lawyer}/>
 }
 export default GoogleMapLocation;
 
 const Map = ({coordinates}) => {
-  return <GoogleMap zoom={16} center={{ lat: 32.3185138, lng: 34.935631}} mapContainerStyle={{ width: "100%", height: "49vh" }}>
 
-<MarkerF  position={{ lat: 32.1463519, lng: 34.8040703}} />
+  return <GoogleMap zoom={16} center={{ lat: coordinates?.lat, lng:coordinates?.lng}} mapContainerStyle={{ width: "100%", height: "49vh" }}>
+
+<MarkerF  position={{ lat: coordinates?.lat, lng: coordinates?.lng}} />
 
   </GoogleMap>
 }
