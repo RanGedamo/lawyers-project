@@ -32,6 +32,9 @@ const lawyer = new Schema({
     type: mongoose.Types.ObjectId,
     ref:"reviews",
   }],
+  imageString:{
+    type:String
+  },
   image: {
     public_id: {
       type: String,
