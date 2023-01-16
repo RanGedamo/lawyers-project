@@ -1,17 +1,10 @@
-
 import react, { useState } from "react";
 import { MDBCard,  MDBCardBody, MDBCardTitle, MDBInput, MDBContainer, MDBRow, MDBCol, MDBRange, MDBBtn } from "mdb-react-ui-kit";
 import HomeLawyer from "../cards/HomeLawyer";
 import cookie from "js-cookie";
 
 export default function FilterLawyer({ lawyers, id }) {
-  // const [filteredLawyer, setFilteredLawyer] = useState({
-  //   rate: "",
-  //   location: "",
-  //   price: "",
-  //   experience: "",
-  //   available: true,
-  // });
+
   const [rate, setRate] = useState("");
   const [location, setLocation] = useState("");
   const [price, setPrice] = useState(0);
@@ -51,45 +44,6 @@ export default function FilterLawyer({ lawyers, id }) {
   const sendToCockies = () => {
     cookie.set("categoryId", id);
   };
-  // const handelChoice = (event) => {
-  //   setFilteredLawyer({
-  //     ...filteredLawyer,
-  //     [event.target.name]: event.target.value,
-  //   });
-  //   getFilterData();
-  // };
-
-  // const getFilterData = () => {
-  //   let filtered = lawyers;
-  //   if (filteredLawyer.available) {
-  //     filtered = filtered.filter((lawyers) => lawyers.available === true);
-  //   }
-  //   console.log(filtered);
-  //   if (filteredLawyer.rate) {
-  //     filtered = filtered.filter((lawyers) => lawyers.rate === filteredLawyer.rate);
-  //   }
-  //   console.log(filtered);
-  //   if (filteredLawyer.location) {
-  //     filtered = filtered.filter((lawyers) => lawyers.location === filteredLawyer.location);
-  //   }
-  //   console.log(filtered);
-    // if (filteredLawyer.price) {
-    //   filtered = filtered.filter((lawyers) => lawyers.price <= filteredLawyer.price);
-    // }
-  //   console.log(filtered);
-  //   if (filteredLawyer.experience) {
-  //     filtered = filtered.filter(
-  //       (lawyers) => lawyers.experience === filteredLawyer.experience
-  //     );
-  //   }
-  //   console.log(filtered);
-  //   setFilteredData(filtered);
-  //   console.log(filteredLawyer);
-
-  // };
-
-
-  // console.log(filteredData);
 
   return (
     <MDBContainer>
@@ -98,16 +52,6 @@ export default function FilterLawyer({ lawyers, id }) {
           <MDBCard onClick={sendToCockies}>
             <br />
             <p className="fs-5">Filter bar</p>
-            <br />
-            <MDBInput
-              label="search lawyer name"
-              type="text"
-              id="formWhite"
-              name="searchString"
-              // value={searchString}
-              // onChange={(e) => setSearchString(e.target.value)}
-              // onKeyUp={(e) => searchLawyerByName( e.target.value, hatches, setSearchResult )}
-            />
             <br />
             <MDBCardBody className="d-grid">
               <MDBCardTitle className="fs-7 d-inline-flex">Rate</MDBCardTitle>

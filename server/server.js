@@ -1,4 +1,3 @@
-
 require("dotenv").config();
 require("./DB");
 const cors = require("cors");
