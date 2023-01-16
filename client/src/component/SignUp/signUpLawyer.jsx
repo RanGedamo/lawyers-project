@@ -1,13 +1,6 @@
+
 import React, { useState } from "react";
-import {
-  MDBCardBody,
-  MDBInput,
-  MDBBtn,
-  MDBRow,
-  MDBCol,
-  MDBCheckbox,
-  MDBFile,
-} from "mdb-react-ui-kit";
+import { MDBCardBody, MDBInput, MDBBtn, MDBRow, MDBCol, MDBCheckbox, MDBFile,} from "mdb-react-ui-kit";
 import { PlacesAddress } from "../../GoogleMap/GoogleMap";
 import { useSelector } from "react-redux";
 
@@ -32,9 +25,9 @@ export default function SignUpLawyer() {
     Generate.readAsDataURL(image);
     Generate.onloadend = async() =>
     await setInputs({ ...inputs, lawyer_profile_img: Generate.result });
-  console.log(inputs);
-  console.log(image);
+    console.log(image);
   }
+  console.log(inputs);
 
   return (
     <div>

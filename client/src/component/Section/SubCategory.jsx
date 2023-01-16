@@ -10,10 +10,7 @@ import {
 } from "@chakra-ui/react";
 import Blob from "../Shape/Blob";
 
-
-
 export default function SubCategory({ subCategory }) {
-
 
   return (
     <Box
@@ -68,7 +65,7 @@ export default function SubCategory({ subCategory }) {
                 src={subCategory.img}
                 className="subCategory-photo"
                 data-aos="fade-left"
-                rounded={'lg'}
+                rounded={'xl'}
                 justify
               />
             </Box>
@@ -84,7 +81,7 @@ export default function SubCategory({ subCategory }) {
             </Link> */}
         </Box>
         <Box zIndex="1" width="100%" position="absolute" height="100%">
-          <Link textDecoration="none" _hover={{ textDecoration: "none" }}>
+          <Text textDecoration="none" _hover={{ textDecoration: "none" }}>
             <Box
               bgGradient={useColorModeValue(
                 "radial(orange.600 1px, transparent 1px)",
@@ -94,7 +91,7 @@ export default function SubCategory({ subCategory }) {
               opacity="0.4"
               height="100%"
             />
-          </Link>
+          </Text>
         </Box>
       </Box>
       <Box

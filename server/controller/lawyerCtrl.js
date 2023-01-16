@@ -1,3 +1,4 @@
+
 const LawyerModel = require("../models/lawyerModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -45,13 +46,22 @@ const registerLawyer = async (req, res) => {
     imageString
   } = req.body; //18
 
-
   const emailExist = await LawyerModel.findOne({ email });
   if (emailExist) {
     return res.status(400).json({ message: "email already exist" });
   }
   const salt = await bcrypt.genSalt(8);
   const hashedPassword = await bcrypt.hash(password, salt);
+
+  if(image && image.length !=  0 ){
+    const endImg = await Cloudinary.uploader.upload(image,{
+      folder: "lawyersProfileImages"
+    })
+    image = {
+      public_id: endImg.public_id,
+      url: endImg.url
+    }
+  }
 
   let lawyer = new LawyerModel({
     firstName,
@@ -74,25 +84,12 @@ const registerLawyer = async (req, res) => {
     available,
     imageString
   });
-  try {
-    // if(image && image.length !=  0 ){
-    //   const endImg = await Cloudinary.uploader.upload(image,{
-    //     folder: "lawyersProfileImages"
-    //   })
-    //   image = {
-    //     public_id: endImg.public_id,
-    //     url: endImg.url
-    //   }
-    // }
     const { error } = validateLawyer(req.body);
 
     if (error) {
       return res.status(400).send({ message: error.details[0].message });
     }
     lawyer = await lawyer.save();
-  } catch (error) {
-    console.log(error);
-  }
 
   if (!lawyer) {
     return res.status(400).json({ message: "error in creating lawyers" });
