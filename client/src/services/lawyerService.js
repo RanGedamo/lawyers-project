@@ -9,7 +9,7 @@ export const getLawyers = async () => {
   return lawyer;
 };
 export const registerLawyer = async (data) => {
-  const response = await axios.post("/register",{
+  const response = await axios.post("http://localhost:6060/lawyer/register",{
     firstName:data.firstName,
     lastName:data.lastName,
     location:data.location,
@@ -44,13 +44,13 @@ export const loginLawyer = async (data) => {
   };
 
   export const getLawyerByEmail = async (email) => {
-    const response = await axios.get(`/${email}`);
+    const response = await axios.get(`http://localhost:6060/lawyer/${email}`);
   
     const lawyer = await response.data;
     return lawyer;
   };
   export const deleteLawyer = async (email) => {
-    const response = await axios.delete(`${email}`);
+    const response = await axios.delete(`http://localhost:6060/lawyer/${email}`);
   
     const lawyer = await response.data;
     return lawyer;

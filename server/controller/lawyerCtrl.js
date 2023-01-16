@@ -9,6 +9,7 @@ const lawyerModel = require("../models/lawyerModel");
 const Cloudinary = require("../config/cloudinary")
 
 const getLawyers = async (req, res) => {
+  console.log("dadada");
   const lawyer = await LawyerModel.find()
     .populate("category")
     .populate("reviews").select("-_id -password");
