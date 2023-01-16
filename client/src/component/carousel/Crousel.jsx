@@ -38,7 +38,7 @@ function Carousel() {
                   </p>
                   <br />
                   <Link to={`/lawyer/profile/${item.email}`}>
-                  <img src={item.image} alt="Smiling person" />
+                  <img src={item.imageString} alt="Smiling person" />
             </Link>
                   <br />
                   <p className="quote">{item.description}</p>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Hero,
   HowToHire,
@@ -11,11 +11,16 @@ import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 import { Lawyers } from "../../sidder";
 import { Categories } from "../../sidder";
 import Carousel from "../../component/carousel/Crousel";
+import { getCategory } from "../../services/categoryService";
 
 export default function Home() {
-  const [lawyers, setLawyers] = useState(Lawyers);
-  const [categories, setCategories] = useState(Categories);
+  const [category, setCategory] = useState([]);
 
+  useEffect(() => {
+    getCategory()
+    .then((res) => setCategory(res))
+    .catch((error) => console.error(error));
+  },[]);
   return (
     <MDBContainer className="w-100">
       <br />
@@ -37,7 +42,7 @@ export default function Home() {
       <br />
       <MDBRow className="d-flex justify-content-center">
         <MDBCol md="10">
-          <Category categories={categories} />
+          <Category categories={category} />
         </MDBCol>
       </MDBRow>
       <br />
