@@ -1,21 +1,21 @@
 @import url("https://fonts.googleapis.com/css?family=Muli:400,700&display=swap");
 
-body {
+/* body {
   margin: 0;
   height: calc(100vh - 8em);
   font-family: "Muli", sans-serif;
   background-color: #f9f9f9;
-}
+} */
 
 /* h1 {
   text-align: center;
   margin: 1.5em;
 }
 
-img {
+ img {
   width: 35%;
   border-radius: 50%;
-} */
+}  */
 
 .container {
   width: 100%;
