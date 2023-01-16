@@ -1,3 +1,4 @@
+
 import React from "react";
 import {
   MDBContainer,
@@ -7,7 +8,7 @@ import {
   MDBCardImage,
 } from "mdb-react-ui-kit";
 import SignInTabLawyer from "../Tab/SignInTabLawyer";
- 
+
 export default function SignUpFormLawyer() {
   return (
     <MDBContainer>

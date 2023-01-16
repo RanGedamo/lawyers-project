@@ -1,93 +1,103 @@
-import React from "react";
-import {
-  MDBCard,
-  MDBCardBody,
-  MDBCardTitle,
-  MDBInput,
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBRange,
-} from "mdb-react-ui-kit";
-import { useState } from "react";
+
+import react, { useState } from "react";
+import { MDBCard,  MDBCardBody, MDBCardTitle, MDBInput, MDBContainer, MDBRow, MDBCol, MDBRange, MDBBtn } from "mdb-react-ui-kit";
 import HomeLawyer from "../cards/HomeLawyer";
 import cookie from "js-cookie";
 
 export default function FilterLawyer({ lawyers, id }) {
-  const [filteredLawyer, setFilteredLawyer] = useState({
-    rate: "",
-    location: "",
-    price: "",
-    experience: "",
-    available: true
-  });
+  // const [filteredLawyer, setFilteredLawyer] = useState({
+  //   rate: "",
+  //   location: "",
+  //   price: "",
+  //   experience: "",
+  //   available: true,
+  // });
+  const [rate, setRate] = useState("");
+  const [location, setLocation] = useState("");
+  const [price, setPrice] = useState(0);
+  const [experience, setExperience] = useState(0);
+  const [available] = useState(true);
+  const [filteredData, setFilteredData] = useState([...lawyers]);
 
-  // const [rate, setRate] = useState("");
-  // const [location, setLocation] = useState("");
-  // const [price, setPrice] = useState(0);
-  // const [experience, setExperience] = useState(0);
-  // const [available] = useState(true);
-  const [filteredData, setFilteredData] = useState(lawyers);
-
-
-
-  // const  = (event) => {
-  //   setRate(event.target.value);
-  //   filterData();
-  // };
-
-  // const handleLocationChange = (event) => {
-  //   setLocation(event.target.value);
-  //   filterData();
-  // };
-
-  // const handlePriceChange = (event) => {
-  //   setPrice(event.target.value);
-  //   filterData();
-  // };
-
-  // const handleExperienceChange = (event) => {
-  //   setExperience(event.target.value);
-  //   filterData();
-  // };
-const handelChooies = (event) => {
-  setFilteredLawyer({...filteredLawyer,[event.target.name]:event.target.value})
-}
-
-  const filterData = () => {
-    let filtered = lawyers;
-    if (filteredLawyer.available) {
-      filtered = filtered.filter((lawyers) => lawyers.available === true);
+  const handleRateChange = (event) => {
+    setRate(event.target.value);
+    if (rate) {
+      setFilteredData(lawyers.filter((lawyers) => lawyers.rate === rate));
     }
-    if (filteredLawyer.rate) {
-      filtered = filtered.filter((lawyers) => lawyers.rate === filteredLawyer.rate);
+  };
+  const handleLocationChange = (event) => {
+    setLocation(event.target.value);
+    if (location) {
+      setFilteredData(lawyers.filter((lawyers) => lawyers.location === location));
     }
-    if (filteredLawyer.location) {
-      filtered = filtered.filter((lawyers) => lawyers.location === filteredLawyer.location);
+  };
+  const handlePriceChange = (event) => {
+    setPrice(event.target.value);
+    if (price) {
+      setFilteredData(lawyers.filter((lawyers) => lawyers.price <= price));
     }
-    if (filteredLawyer.price) {
-      filtered = filtered.filter((lawyers) => lawyers.price === filteredLawyer.price);
-    }
-    if (filteredLawyer.experience) {
-      filtered = filtered.filter(
-        (lawyers) => lawyers.experience === filteredLawyer.experience
-      );
-    }
-    setFilteredData(filtered);
+  };
+  const handleExperienceChange = (event) => {
+    setExperience(event.target.value);
+        if (experience) {
+          setFilteredData(lawyers.filter( (lawyers) => lawyers.experience === experience ))
+        }
+  };
+  const resetFilter = () => {
+    setFilteredData([...lawyers])
+    console.log(filteredData)
   };
 
   const sendToCockies = () => {
     cookie.set("categoryId", id);
   };
-  console.log(filteredData);
+  // const handelChoice = (event) => {
+  //   setFilteredLawyer({
+  //     ...filteredLawyer,
+  //     [event.target.name]: event.target.value,
+  //   });
+  //   getFilterData();
+  // };
+
+  // const getFilterData = () => {
+  //   let filtered = lawyers;
+  //   if (filteredLawyer.available) {
+  //     filtered = filtered.filter((lawyers) => lawyers.available === true);
+  //   }
+  //   console.log(filtered);
+  //   if (filteredLawyer.rate) {
+  //     filtered = filtered.filter((lawyers) => lawyers.rate === filteredLawyer.rate);
+  //   }
+  //   console.log(filtered);
+  //   if (filteredLawyer.location) {
+  //     filtered = filtered.filter((lawyers) => lawyers.location === filteredLawyer.location);
+  //   }
+  //   console.log(filtered);
+    // if (filteredLawyer.price) {
+    //   filtered = filtered.filter((lawyers) => lawyers.price <= filteredLawyer.price);
+    // }
+  //   console.log(filtered);
+  //   if (filteredLawyer.experience) {
+  //     filtered = filtered.filter(
+  //       (lawyers) => lawyers.experience === filteredLawyer.experience
+  //     );
+  //   }
+  //   console.log(filtered);
+  //   setFilteredData(filtered);
+  //   console.log(filteredLawyer);
+
+  // };
+
+
+  // console.log(filteredData);
 
   return (
     <MDBContainer>
       <MDBRow className="mb-3">
-        <MDBCol sm="6" md="4" lg="6">
-          <MDBCard className="w-50 p-5" onClick={sendToCockies}>
+        <MDBCol size={12} className="col-md-3 col-lg-3 me-5">
+          <MDBCard onClick={sendToCockies}>
             <br />
-            <p className="fs-5">Filter</p>
+            <p className="fs-5">Filter bar</p>
             <br />
             <MDBInput
               label="search lawyer name"
@@ -99,11 +109,10 @@ const handelChooies = (event) => {
               // onKeyUp={(e) => searchLawyerByName( e.target.value, hatches, setSearchResult )}
             />
             <br />
-
             <MDBCardBody className="d-grid">
               <MDBCardTitle className="fs-7 d-inline-flex">Rate</MDBCardTitle>
               <hr />
-              <select name='rate' onChange={(e)=>handelChooies(e)}>
+              <select name="rate" onChange={(e) => handleRateChange(e)}>
                 <option>5</option>
                 <option>4</option>
                 <option>3</option>
@@ -117,12 +126,12 @@ const handelChooies = (event) => {
               <MDBRange
                 defaultValue={3}
                 min="100"
-                max="500"
+                max="800"
                 step="0.5"
                 id="customRange3"
                 label="lawyer price range"
                 name="price"
-                onChange={(e)=>handelChooies(e)}
+                onChange={(e) => handlePriceChange(e)}
               />
             </MDBCardBody>
 
@@ -131,11 +140,11 @@ const handelChooies = (event) => {
                 Years of experience
               </MDBCardTitle>
               <hr />
-              <select name="experience" onChange={(e)=>handelChooies(e)}>
-                <option>1-3</option>
-                <option>3-5</option>
+              <select name="experience" onChange={(e) => handleExperienceChange(e)}>
+                <option>1-5</option>
                 <option>5-10</option>
-                <option>10+</option>
+                <option>10-20</option>
+                <option>20+</option>
               </select>
             </MDBCardBody>
             <MDBCardBody className="d-grid">
@@ -143,16 +152,18 @@ const handelChooies = (event) => {
                 Location
               </MDBCardTitle>
               <hr />
-              <select name="location" onChange={(e)=>handelChooies(e)}>
+              <select name="location" onChange={(e) => handleLocationChange(e)}>
                 <option>Rehovot</option>
                 <option>Lod</option>
                 <option>Yafo</option>
               </select>
+              <br />
+              <MDBBtn onClick={()=>resetFilter()}>Reset</MDBBtn>
             </MDBCardBody>
             <br />
           </MDBCard>
         </MDBCol>
-        <MDBCol sm="6" md="6" lg="7" offsetMd="2" offsetLg="0">
+        <MDBCol size={12} className="col-md-8 col-lg-8">
           <HomeLawyer lawyers={filteredData} id={id} />
         </MDBCol>
       </MDBRow>

@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import {
@@ -25,7 +26,7 @@ export default function Filter() {
   }, []);
 
   let result = lawyers.filter((lawyer) =>
-    lawyer.category.map((category) => category.name.includes(category.name))
+   lawyer.category[0].name.includes(category.name)
   );
 
   return (
@@ -33,7 +34,7 @@ export default function Filter() {
       <SelectedCategory category={category} />
       {result?.length > 0 ? (
         <div>
-          <h1>filter by category</h1>
+          <i><h1>our category lawyers</h1></i>
           <FilterLawyer lawyers={result} id={id} />
         </div>
       ) : (

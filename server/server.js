@@ -1,3 +1,4 @@
+
 require("dotenv").config();
 require("./DB");
 const cors = require("cors");
@@ -8,10 +9,10 @@ const app = express();
 
 
 
-app.use(express.json({ extended: true })); 
+app.use(express.json({ limit: "5mb", extended: true })); 
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
-app.use(cors());
+app.use(cors({origin:"*"}));
 app.use(helmet());
 
 app.use("/lawyer", require("./routes/lawyerRouter"));
