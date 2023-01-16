@@ -23,7 +23,7 @@ export default function SignIn() {
       .then(res => {
         if (res.token) {
           Cookies.set('authorization', res.token)
-          Cookies.set('user', res.user.email)
+          Cookies.set('userEmail', res.user.email)
           setUserError(false)
           setUserSuccess(true)
           setTimeout(()=>{
@@ -37,7 +37,7 @@ export default function SignIn() {
         }
       })
   }
-
+console.log( Cookies.get('userEmail'));
   FireBaseConfig()
   const user = useSelector((state) => state.userData)
   console.log(user);
