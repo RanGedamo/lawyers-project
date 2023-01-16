@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   MDBCard,
   MDBCardBody,
@@ -19,7 +19,20 @@ import {
   MDBListGroup,
   MDBListGroupItem,
 } from "mdb-react-ui-kit";
+import { postContactUs } from "../../services/emailHandler";
 export default function AgreementCard({category}) {
+  const [inputs,setInputs] = useState()
+  const [sendForm,setSendForm] =useState(false)
+
+  const formInputs = (e)=>{
+    setInputs({...inputs,[e.target.name]: e.target.value})
+  }
+
+  const submitForm = async()=>{
+    setSendForm(true)
+    return await postContactUs(inputs).then(res=>console.log(res))
+  }
+
   return (
     <MDBCard className="">
       <MDBCardImage
@@ -40,10 +53,10 @@ export default function AgreementCard({category}) {
         <MDBCardBody>
           <MDBRow className="mb-4">
             <MDBCol>
-              <MDBInput id="form6Example1" label="First name" />
+              <MDBInput id="form6Example1" label="First name" name="firstName"/>
             </MDBCol>
             <MDBCol>
-              <MDBInput id="form6Example2" label="Last name" />
+              <MDBInput id="form6Example2" label="Last name" name="lastName"/>
             </MDBCol>
           </MDBRow>
 
@@ -52,8 +65,9 @@ export default function AgreementCard({category}) {
             type="email"
             id="form6Example5"
             label="Email"
+            name="email"
           />
-          <MDBInput wrapperClass="mb-4" type="date" label="BirthDay" />
+          <MDBInput wrapperClass="mb-4" type="date" label="BirthDay" name="bit"/>
           <div className="text-start">
             sex
             <div className="d-flex">
