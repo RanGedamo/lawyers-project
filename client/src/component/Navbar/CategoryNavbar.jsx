@@ -32,7 +32,6 @@ export default function CategoryNavbar() {
     .then((res) => setCategory(res))
     .catch((error) => console.error(error));
   },[]);
-
   return (
     <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
       <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
@@ -42,14 +41,14 @@ export default function CategoryNavbar() {
           aria-label={"Open Menu"}
           display={{ md: "none" }}
           onClick={isOpen ? onClose : onOpen}
-        />
+          />
         <Link to={"/"}>
           <>Themisss</>
         </Link>
         <HStack as={"nav"} spacing={4} display={{ base: "none", lg: "flex" }}>
           {category?.map((category, i) => (
             <Link key={i} to={`/category/${category._id}`}>
-              <i>{category.categoryName}</i>
+              <i key={i}>{category.name}</i>
             </Link>
           ))}
         </HStack>

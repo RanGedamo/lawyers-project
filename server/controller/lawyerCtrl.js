@@ -41,18 +41,11 @@ const registerLawyer = async (req, res) => {
     experience,
     avgReplayTime,
     workDueTime,
-    available
+    available,
+    imageString
   } = req.body; //18
 
-  if(image && image.length !=  0 ){
-    const endImg = await Cloudinary.uploader.upload(image,{
-      folder: "lawyersProfileImages"
-    })
-    image = {
-      public_id: endImg.public_id,
-      url: endImg.url
-    }
-  }
+
   const emailExist = await LawyerModel.findOne({ email });
   if (emailExist) {
     return res.status(400).json({ message: "email already exist" });
@@ -78,9 +71,19 @@ const registerLawyer = async (req, res) => {
     experience,
     avgReplayTime,
     workDueTime,
-    available
+    available,
+    imageString
   });
   try {
+    // if(image && image.length !=  0 ){
+    //   const endImg = await Cloudinary.uploader.upload(image,{
+    //     folder: "lawyersProfileImages"
+    //   })
+    //   image = {
+    //     public_id: endImg.public_id,
+    //     url: endImg.url
+    //   }
+    // }
     const { error } = validateLawyer(req.body);
 
     if (error) {
