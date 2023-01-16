@@ -19,11 +19,13 @@ const [category,setCategory]=useState([])
 useEffect(()=>{
   getLawyerByEmail(email).then((res)=>{
     setLawyers(res) 
-    setCategory(res.category[0].subCategory)}).catch((error)=>console.log(error))
+    setCategory(res?.category[0].subCategory)}).catch((error)=>console.log(error))
+
 },[])
-console.log((category));
+console.log(lawyer);
+
   return (
-    <div>
+    <div cla>
     <MDBContainer>
       <MDBRow>
         <MDBCol size={12} className=" col-md-12 col-lg-6 mt-5">
@@ -31,22 +33,23 @@ console.log((category));
         </MDBCol>
         <MDBCol>
           <MDBCol>
-            <MDBRow className=" row-cols-md-2">
+            <MDBRow className=" row-cols-md-2 mt-5">
               {category?.map((item) => {
                 return (
-                  <MDBCol  size={12} className="p-0 mb-3 mt-5">
+                  <MDBCol  size={12} className="p-0 mb-3 ">
                   <LawyerCategories  item={item} />
                   </MDBCol>
                 );
               })}
             </MDBRow>
           </MDBCol>
+          <MDBCol className="">
+            <GoogleMapLocation lawyer={lawyer.location} />
+          </MDBCol>
           <MDBCol className="mb-3 " >
             <AreaChart lawyer={lawyer} />
           </MDBCol>
-          <MDBCol className="">
-            <GoogleMapLocation />
-          </MDBCol>
+        
         </MDBCol>
       </MDBRow>
       <MDBContainer>
