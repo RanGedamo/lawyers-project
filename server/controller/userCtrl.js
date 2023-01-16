@@ -76,8 +76,8 @@ const loginUser = async (req, res) => {
 
   return res
     .status(200)
-    .header("auth-token", token)
-    .json({ user: existUser, message: "login successfully" });
+    .header("authorization", token)
+    .json({ user: existUser, token,message: "login successfully" });
 };
 
 const getUserByEmail = async (req, res) => {

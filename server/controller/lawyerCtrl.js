@@ -124,7 +124,7 @@ const loginLawyer = async (req, res) => {
 
   return res
     .status(200)
-    .header("auth-token", token)
+    .header("authorization", token)
     .json({ user: existUser, message: "login successfully" });
 };
 
@@ -203,6 +203,7 @@ const updateLawyer = async (req, res) => {
   } catch (error) {
     console.log(error);
   }
+  
   if (!lawyer) {
     return res.status(400).json({ message: "error in updating lawyers" });
   }
