@@ -29,13 +29,13 @@ function Carousel() {
         <div className="items">
           {lawyers.map((item, i) => {
             return (
-              <div key={i} className="entry hover-overlay ">
+              <div key={i} className="entry hover-overlay">
                 <p className="name">
                   {item.firstName} {item.lastName}
                 </p>
                 <br />
                 <br />
-                <p className="quote">{item.description}</p>
+                <p className="quote ">{item.description}</p>
                 <Link to={`/lawyer/profile/${item.email}`}>
                   <img
                     src={item.imageString}
@@ -48,6 +48,7 @@ function Carousel() {
           })}
         </div>
       </div>
+  
     </>
   );
 }
