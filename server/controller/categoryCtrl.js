@@ -40,7 +40,7 @@ const createCategory = async (req, res) => {
 
 
 const getCategoryById = async (req, res) => {
-
+console.log(req.params.id);
   let category;
 
   try {

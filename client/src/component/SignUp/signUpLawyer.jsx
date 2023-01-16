@@ -7,7 +7,6 @@ import {
   MDBCol,
   MDBCheckbox,
   MDBFile,
-  
 } from "mdb-react-ui-kit";
 import { PlacesAddress } from "../../GoogleMap/GoogleMap";
 import { useSelector } from "react-redux";
@@ -19,19 +18,18 @@ export default function SignUpLawyer() {
 
   const lawyerData = useSelector((state) => state.lawyerReducer.lawyerData);
 
-  const changeInputs = (e) => { 
-      setInputs({ ...inputs, [e.target.name]: e.target.value })
+  const changeInputs = (e) => {
+    setInputs({ ...inputs, [e.target.name]: e.target.value });
     const Generate = new FileReader();
     if (imgFile) {
-
       Generate.readAsDataURL(imgFile);
-      Generate.onloadend = () => setInputs({...inputs,lawyer_profile_img: Generate.result});
-      console.log(inputs)
+      Generate.onloadend = () =>
+        setInputs({ ...inputs, lawyer_profile_img: Generate.result });
+      console.log(inputs);
     }
- 
-  setProfileImg("");
+
+    setProfileImg("");
   };
-  
 
   // const GenerateImgFile = (imgFile) => {
   //   const Generate = new FileReader();
@@ -67,14 +65,6 @@ export default function SignUpLawyer() {
               onChange={(e) => changeInputs(e)}
             />
           </MDBCol>
-            <MDBCol col="6">
-              <MDBFile
-              name="lawyer_profile_img"
-                label="image upload"
-                id="formControlLgImage"
-                onChange={(e) => setImageFile(e.target.files)}
-              />
-            </MDBCol>
         </MDBRow>
         <MDBInput
           wrapperClass="mb-4"
@@ -173,7 +163,12 @@ export default function SignUpLawyer() {
         />
         <MDBRow>
           <MDBCol col="6">
-            <MDBFile label="Profile Picture" id="customFile" />
+            <MDBFile
+              name="lawyer_profile_img"
+              label="image upload"
+              id="formControlLgImage"
+              onChange={(e) => setImageFile(e.target.files)}
+            />
           </MDBCol>
           <MDBCol col="6">
             <MDBFile label="Cover Picture" id="customFile" />
