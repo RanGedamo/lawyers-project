@@ -12,6 +12,7 @@ import { Lawyers } from "../../sidder";
 import { Categories } from "../../sidder";
 import Carousel from "../../component/carousel/Crousel";
 import { getCategory } from "../../services/categoryService";
+import ScrollTOTop from "react-scroll-to-top"
 
 export default function Home() {
   const [category, setCategory] = useState([]);
@@ -29,11 +30,12 @@ export default function Home() {
       </MDBContainer>
       <MDBRow className="bg-light mb-3 rounded-9">
         <SupportBoard />
+
       </MDBRow>
       <br />
       <MDBRow className="d-flex">
         <>
-          <MDBContainer>
+          <MDBContainer className>
             <Carousel />
           </MDBContainer>
         </>
@@ -52,9 +54,11 @@ export default function Home() {
         </MDBCol>
       </MDBRow>
       <br />
+      <ScrollTOTop smooth top="500"/>
       <MDBRow className="mb-8 d-flex justify-content-around rounded-7-fluid text-start ">
         <HowToHire />
       </MDBRow>
     </MDBContainer>
+    
   );
 }

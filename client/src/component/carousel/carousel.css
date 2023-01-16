@@ -29,6 +29,9 @@ img {
   width: fit-content;
   animation: carouselAnim 10s infinite alternate linear;
 }
+.items:hover{
+  animation-play-state: paused;
+}
 
 .entry {
   display: flex;
