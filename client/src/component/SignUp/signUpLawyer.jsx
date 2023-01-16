@@ -18,27 +18,23 @@ export default function SignUpLawyer() {
 
   const lawyerData = useSelector((state) => state.lawyerReducer.lawyerData);
 
-  const changeInputs = (e) => {
+  const changeInputs = async(e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
-    const Generate = new FileReader();
-    if (imgFile) {
-      Generate.readAsDataURL(imgFile);
-      Generate.onloadend = () =>
-        setInputs({ ...inputs, lawyer_profile_img: Generate.result });
-      console.log(inputs);
+    if (e.target.type ===  "file") {
+      await imgHandler(e)
     }
-
-    setProfileImg("");
   };
 
-  // const GenerateImgFile = (imgFile) => {
-  //   const Generate = new FileReader();
-  //   if (imgFile) {
-  //     Generate.readAsDataURL(imgFile);
-  //     Generate.onloadend = () => setProfileImg(Generate.result);
-  //   }
-  //   setProfileImg("");
-  // };
+  const imgHandler = (e) => {
+    const Generate = new FileReader();
+    const image =e.target.files[0]
+    setImageFile(image)
+    Generate.readAsDataURL(image);
+    Generate.onloadend = async() =>
+    await setInputs({ ...inputs, lawyer_profile_img: Generate.result });
+  console.log(inputs);
+  console.log(image);
+  }
 
   return (
     <div>
@@ -167,7 +163,7 @@ export default function SignUpLawyer() {
               name="lawyer_profile_img"
               label="image upload"
               id="formControlLgImage"
-              onChange={(e) => setImageFile(e.target.files)}
+              onChange={(e) => changeInputs(e)}
             />
           </MDBCol>
           <MDBCol col="6">

@@ -29,6 +29,7 @@ export default function SubCategory({ subCategory }) {
         marginRight="3"
         position="relative"
         alignItems="center"
+        my='10'
       >
         <Box
           width={{ base: "100%", sm: "85%" }}
@@ -45,7 +46,7 @@ export default function SubCategory({ subCategory }) {
           >
             <Blob
               w={"550%"}
-              h={"550%"}
+              h={"520%"}
               position={"absolute"}
               top={"-220%"}
               left={0}
@@ -62,11 +63,13 @@ export default function SubCategory({ subCategory }) {
                 alt={"sub category Image"}
                 fit={"cover"}
                 align={"center"}
-                w={"100%"}
+                w={"80%"}
                 h={"100%"}
                 src={subCategory.img}
                 className="subCategory-photo"
                 data-aos="fade-left"
+                rounded={'lg'}
+                justify
               />
             </Box>
           </Flex>

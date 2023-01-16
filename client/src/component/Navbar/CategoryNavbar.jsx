@@ -32,7 +32,6 @@ export default function CategoryNavbar() {
     .then((res) => setCategory(res))
     .catch((error) => console.error(error));
   },[]);
-  console.log(category);
 
   return (
     <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>

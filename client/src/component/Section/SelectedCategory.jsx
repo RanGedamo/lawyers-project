@@ -5,7 +5,6 @@ export default function categoryedCategory({ category }) {
 
   return (
     <Box bg={"light.800"} position={"relative"} key={category._id} >
-
       <Flex
         flex={1}
         zIndex={0}
