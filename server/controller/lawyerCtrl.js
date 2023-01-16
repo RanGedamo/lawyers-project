@@ -1,4 +1,3 @@
-
 const LawyerModel = require("../models/lawyerModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -9,7 +8,6 @@ const lawyerModel = require("../models/lawyerModel");
 const Cloudinary = require("../config/cloudinary")
 
 const getLawyers = async (req, res) => {
-  console.log("dadada");
   const lawyer = await LawyerModel.find()
     .populate("category")
     .populate("reviews").select("-_id -password");
@@ -237,3 +235,9 @@ module.exports = {
   updateLawyer,
   deleteLawyer
 };
+
+
+
+
+
+
