@@ -21,7 +21,6 @@ function Carousel() {
   useEffect(() => {
     getLawyers().then((res) => setLawyers(res));
   }, []);
-  console.log(lawyers);
   return (
     <>
         <h1 className="fs-3">Our Top people</h1>

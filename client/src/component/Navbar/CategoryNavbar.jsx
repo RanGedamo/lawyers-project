@@ -14,13 +14,25 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Categories } from "../../sidder";
 import PopUpRole from "../pop/PopUpBtn";
 import { ColorModeSwitcher } from "../../ColorModeSwitcher";
+import { useEffect, useState } from "react";
+import { getCategory } from "../../services/categoryService";
+import { getLawyers } from "../../services/lawyerService";
 
 export default function CategoryNavbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [category, setCategory] = useState([]);
+  const [lawyers, setLawyers] = useState([]);
+
+  useEffect(() => {
+    getCategory()
+    .then((res) => setCategory(res))
+    .catch((error) => console.error(error));
+  },[]);
+  console.log(category);
 
   return (
     <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
@@ -35,10 +47,10 @@ export default function CategoryNavbar() {
         <Link to={"/"}>
           <>Themisss</>
         </Link>
-        <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
-          {Categories.map((category, i) => (
+        <HStack as={"nav"} spacing={4} display={{ base: "none", lg: "flex" }}>
+          {category?.map((category, i) => (
             <Link key={i} to={`/category/${category._id}`}>
-              {category.categoryName}
+              <i>{category.categoryName}</i>
             </Link>
           ))}
         </HStack>
@@ -62,11 +74,11 @@ export default function CategoryNavbar() {
       {isOpen ? (
         <Box pb={4} display={{ md: "none" }}>
           <Stack as={"nav"} spacing={4}>
-            {Categories.map((category, i) => (
+            {category?.map((category, i) => (
               <Link key={i} to={`/category/${category._id}`}>
                 {category.categoryName}
               </Link>
-            ))}{" "}
+            ))}
           </Stack>
         </Box>
       ) : null}
