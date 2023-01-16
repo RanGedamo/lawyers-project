@@ -1,7 +1,4 @@
-import { Categories } from "../../sidder";
-// import { Lawyers } from "../../sidder";
 import { Link } from "react-router-dom";
-import { HomeLawyer } from "../../AppRoute/featuresRoute/home";
 import {
   MDBCard,
   MDBCardBody,
@@ -23,30 +20,34 @@ function Carousel() {
   }, []);
   return (
     <>
-        <h1 className="fs-3">Our Top people</h1>
-        <div className="container">
-          <div className="faders">
-            <div className="left"></div>
-            <div className="right"></div>
-          </div>
-          <div className="items">
-            {lawyers.map((item, i) => {
-              return (
-                <div key={i} className="entry">
-                  <p className="name">
-                    {item.firstName} {item.lastName}
-                  </p>
-                  <br />
-                  <Link to={`/lawyer/profile/${item.email}`}>
-                  <img src={item.imageString} alt="Smiling person" />
-            </Link>
-                  <br />
-                  <p className="quote">{item.description}</p>
-                </div>
-              );
-            })}
-          </div>
+      <h1 className="fs-3">Our Top Lawyers</h1>
+      <div className="container">
+        <div className="faders">
+          <div className="left"></div>
+          <div className="right"></div>
         </div>
+        <div className="items">
+          {lawyers.map((item, i) => {
+            return (
+              <div key={i} className="entry hover-overlay ">
+                <p className="name">
+                  {item.firstName} {item.lastName}
+                </p>
+                <br />
+                <br />
+                <p className="quote">{item.description}</p>
+                <Link to={`/lawyer/profile/${item.email}`}>
+                  <img
+                    src={item.imageString}
+                    alt="Smiling person"
+                    className="mask"
+                  />
+                </Link>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </>
   );
 }
