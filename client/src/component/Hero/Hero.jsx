@@ -63,7 +63,7 @@ export default function Hero() {
           <Stack
             spacing={{ base: 4, sm: 6 }}
             direction={{ base: "column", sm: "row" }}
-          >{onOpen? <PopUpRole text='Get started'/>: 
+          >{onOpen? <PopUpRole  text='Get started'/>: 
             <Button
               rounded={"full"}
               size={"lg"}

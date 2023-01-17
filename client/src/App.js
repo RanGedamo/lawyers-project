@@ -8,7 +8,7 @@ import CategoryNavbar from "./component/Navbar/CategoryNavbar";
 export default function App() {
 
   return (
-    <div className="App">
+    <div data-cy="AppContainer" className="App">
       <BrowserRouter>
         {/* <Navbar /> */}
         <CategoryNavbar/>
