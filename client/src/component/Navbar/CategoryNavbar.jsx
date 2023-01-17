@@ -103,11 +103,11 @@ const navigate = useNavigate()
       {isOpen ? (
         <Box pb={4} display={{ md: "none" }}>
           <Stack as={"nav"} spacing={4}>
-            {category?.map((category, i) => (
-              <Link key={i} to={`/category/${category._id}`}>
-                {category.categoryName}
-              </Link>
-            ))}
+          {category?.map((category, i) => (
+            <Link key={i} to={`/category/${category._id}`}>
+              <i key={i}>{category.name}</i>
+            </Link>
+          ))}
           </Stack>
         </Box>
       ) : null}
