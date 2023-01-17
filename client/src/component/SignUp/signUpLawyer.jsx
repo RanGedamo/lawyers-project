@@ -3,31 +3,47 @@ import React, { useState } from "react";
 import { MDBCardBody, MDBInput, MDBBtn, MDBRow, MDBCol, MDBCheckbox, MDBFile,} from "mdb-react-ui-kit";
 import { PlacesAddress } from "../../GoogleMap/GoogleMap";
 import { useSelector } from "react-redux";
+import { registerLawyer } from "../../services/lawyerService";
+import { Alert, AlertDescription, AlertIcon, AlertTitle } from "@chakra-ui/react";
+import { registerUser } from "../../services/userService";
 
 export default function SignUpLawyer() {
   const [inputs, setInputs] = useState();
   const [imgFile, setImageFile] = useState();
   const [profileImg, setProfileImg] = useState();
 
+  const [userError, setUserError] = useState({
+    error: false,
+    msg: ""
+  });
+  const [userSuccess, setUserSuccess] = useState(false);
+
+
   const lawyerData = useSelector((state) => state.lawyerReducer.lawyerData);
 
   const changeInputs = async(e) => {
-    setInputs({ ...inputs, [e.target.name]: e.target.value });
-    if (e.target.type ===  "file") {
-      await imgHandler(e)
-    }
+    setInputs({ ...inputs, [e.target.name]: e.target.value,location:lawyerData.location });
+console.log(inputs);
   };
 
-  const imgHandler = (e) => {
-    const Generate = new FileReader();
-    const image =e.target.files[0]
-    setImageFile(image)
-    Generate.readAsDataURL(image);
-    Generate.onloadend = async() =>
-    await setInputs({ ...inputs, lawyer_profile_img: Generate.result });
-    console.log(image);
+  const submitInputs = async()=>{
+   return await registerLawyer(inputs)
+    .then(res => {
+      console.log(res.data);
+      if (res) {
+        setUserError({ error: false })
+      return  setUserSuccess(true)
+        
+      }
+    })
+    .catch(err => {
+      if (err.response.data.message) {
+        setUserSuccess(false)
+        return setUserError({ msg: err.response.data.message, error: true });
+      }
+      console.log(err.data);
+    })
   }
-  console.log(inputs);
 
   return (
     <div>
@@ -70,7 +86,7 @@ export default function SignUpLawyer() {
               label="Password"
               id="form4"
               type="password"
-              name="Password"
+              name="password"
               onChange={(e) => changeInputs(e)}
             />
           </MDBCol>
@@ -114,7 +130,17 @@ export default function SignUpLawyer() {
               label="Average Replay"
               id="form8"
               type="number"
-              name="averageReplay"
+              name="avgReplayTime"
+              onChange={(e) => changeInputs(e)}
+            />
+          </MDBCol>
+          <MDBCol col="12">
+            <MDBInput
+              wrapperClass="mb-4"
+              label="Work Due Time"
+              id="form8"
+              type="number"
+              name="workDueTime"
               onChange={(e) => changeInputs(e)}
             />
           </MDBCol>
@@ -151,27 +177,27 @@ export default function SignUpLawyer() {
           onChange={(e) => changeInputs(e)}
         />
         <MDBRow>
-          <MDBCol col="6">
-            <MDBFile
-              name="lawyer_profile_img"
-              label="image upload"
-              id="formControlLgImage"
-              onChange={(e) => changeInputs(e)}
-            />
-          </MDBCol>
-          <MDBCol col="6">
-            <MDBFile label="Cover Picture" id="customFile" />
-          </MDBCol>
+
         </MDBRow>
-        <div className="d-flex justify-content-center mb-4 mt-4">
-          <MDBCheckbox
-            name="flexCheck"
-            value=""
-            id="flexCheckDefault"
-            label="Subscribe to our newsletter"
-          />
-        </div>
-        <MDBBtn className="w-100 mb-4" size="md">
+
+        {userError.error ?
+          <Alert status='error' className="mb-3">
+            <AlertIcon />
+            <AlertTitle>Error :</AlertTitle>
+            <AlertDescription>{userError.msg}</AlertDescription>
+          </Alert> :
+          ""
+        }
+        {userSuccess ?
+          <Alert status='success' className="mb-3">
+            <AlertIcon />
+            <AlertTitle>Successfully :</AlertTitle>
+            <AlertDescription>Welcome to law market</AlertDescription>
+          </Alert> :
+          ""
+        }
+
+        <MDBBtn className="w-100 mb-4" size="md" onClick={()=>submitInputs()}>
           sign up
         </MDBBtn>
       </MDBCardBody>
