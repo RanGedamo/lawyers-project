@@ -8,6 +8,7 @@ import {
   Text,
   useColorModeValue,
   Flex,
+  
 } from "@chakra-ui/react";
 import Blob from "../Shape/Blob";
 
@@ -40,13 +41,13 @@ export default function SubCategory({ subCategory }) {
             justify={"center"}
             align={"center"}
             position={"relative"}
-            w={"full"} >
-              
+            w={"full"}
+          >
             <Blob
-              w={"100%"}
-              h={"300px"}
+              w={"550%"}
+              h={"520%"}
               position={"absolute"}
-
+              top={"-220%"}
               left={0}
               zIndex={-1}
               color={useColorModeValue("blue.50", "blue.400")}
