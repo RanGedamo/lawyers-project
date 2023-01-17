@@ -107,7 +107,7 @@ export default function LawyerProfile({lawyer}) {
         </select>
       </div>
                   
-                    <MDBBtn disabled={selectedOption?false:true} onClick={cookie.set("categoryName",selectedOption,{ expires: 7 })} className=' me-2'><Link to={`/payment/${sub?._id}`}>Hire me </Link></MDBBtn>
+                    <MDBBtn disabled={selectedOption?false:true} onClick={cookie.set("categoryName",selectedOption,{ expires: 7 })&&cookie.set("emailPayment",lawyer.email,{ expires: 7 })} className=' me-2'><Link to={`/payment/${sub?._id}`}>Hire me </Link></MDBBtn>
                     
                     <MDBBtn className=' ms-2' onClick={PopUpContact}>Contact me {popUp?<ContactLawyer lawyer={lawyer} />:""}</MDBBtn>
                   

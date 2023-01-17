@@ -8,35 +8,46 @@ import {
   MDBListGroupItem,
   MDBTypography,
   MDBIcon,
-  MDBCheckbox
+  MDBCheckbox,
 } from "mdb-react-ui-kit";
-import PaypalCheckoutButton from "../../component/PaypalCheckoutButton/PaypalCheckoutButton"
-export default function PaymentCard({category}) {
+import { useState } from "react";
+import PaypalCheckoutButton from "../../component/PaypalCheckoutButton/PaypalCheckoutButton";
+export default function PaymentCard({ category,o }) {
   console.log();
-  const product = {
-    description: "Lawyer hire asds djkabk kjdbcnoa",
-    price: 10,
-  };
+  const [price,setPrice]=useState()
+  
+
   return (
     <MDBCol md="4" className="w-100">
-      <MDBCard className="mb-4">
+      {category?.subCategory.map((item) => {
+        const product = {
+          description: item.name,
+          price:item.price,
+        };
+        if(item.name==o)
+        return  <MDBCard className="mb-4">
         <MDBCardHeader>
           <MDBTypography tag="h5" className="mb-0">
-            {category.categoryName}
+            {category?.name}
           </MDBTypography>
-          
         </MDBCardHeader>
         <MDBCardBody>
           <MDBListGroup flush>
-         
             <MDBListGroupItem className="d-flex justify-content-between align-items-center px-0 mt-3">
-            <MDBTypography listUnStyled className='text-start mb-0'>
-              {category.subCategory.map((item)=>
-                <li className='mb-1'>
-                     <MDBCheckbox name='flexCheck' value='' id={item.name} label={item.name} />
-              </li>
-              )}
-    </MDBTypography>
+              <MDBTypography listUnStyled className="text-start mb-0">
+                
+
+                  
+                <li className="mb-1">
+                    <MDBCheckbox
+                      name="flexCheck"
+                      value={item.price}
+                      label={item.name}
+                      id="price"
+                    />
+                  </li>
+            
+              </MDBTypography>
             </MDBListGroupItem>
             <MDBListGroupItem className="d-flex justify-content-between align-items-center border-0 px-0 mb-4 mt-4">
               <div>
@@ -46,13 +57,14 @@ export default function PaymentCard({category}) {
                 </strong>
               </div>
               <span>
-                <strong>$53.98</strong>
+                <strong>{item.price}$</strong>
               </span>
             </MDBListGroupItem>
           </MDBListGroup>
-          <PaypalCheckoutButton product={product}/>
+          <PaypalCheckoutButton product={product} />
         </MDBCardBody>
       </MDBCard>
+          })}
     </MDBCol>
   );
 }
