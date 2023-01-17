@@ -12,27 +12,34 @@ import { useState } from "react";
 import { registerUser } from "../../services/userService";
 import { Alert, AlertDescription, AlertIcon, AlertTitle } from "@chakra-ui/react";
 export default function SignUp() {
-  const [auth,setAuth] = useState()
+  const [auth, setAuth] = useState()
 
   const [userError, setUserError] = useState({
-    error:false,
-    msg:""
+    error: false,
+    msg: ""
   });
   const [userSuccess, setUserSuccess] = useState(false);
 
-  const formHandel=(e)=>{
-    setAuth({...auth,[e.target.name]:e.target.value})
+  const formHandel = (e) => {
+    setAuth({ ...auth, [e.target.name]: e.target.value })
     console.log(auth);
   }
-  
-  const checkInputUser = async()=>{
+
+  const checkInputUser = async () => {
     return await registerUser(auth)
-    .then(res=>console.log(res))
-    .catch(err=>{
-      if(err.response.data.message){
-       return setUserError({msg:err.response.data.message,error:true});
-      }
-    })
+      .then(res => {
+        console.log("afasfa");
+        if (res) {
+          setUserError({ error: false })
+          setUserSuccess(true)
+        }
+      })
+      .catch(err => {
+        if (err.response.data.message) {
+          setUserSuccess(false)
+          return setUserError({ msg: err.response.data.message, error: true });
+        }
+      })
   }
 
 
@@ -63,7 +70,7 @@ export default function SignUp() {
             />
           </MDBCol>
         </MDBRow>
-        <MDBInput wrapperClass="mb-4" label="Email" id="form3" type="email" name="email" onChange={formHandel}/>
+        <MDBInput wrapperClass="mb-4" label="Email" id="form3" type="email" name="email" onChange={formHandel} />
         <MDBInput
           wrapperClass="mb-4"
           label="Password"
@@ -78,7 +85,7 @@ export default function SignUp() {
           id="form5"
           type="password"
         />
-          {/* <MDBFile label='Profile Picture' id='customFile' /> */}
+        {/* <MDBFile label='Profile Picture' id='customFile' /> */}
         <div className="d-flex justify-content-center mb-4 mt-4">
           <MDBCheckbox
             name="flexCheck"
@@ -88,24 +95,24 @@ export default function SignUp() {
           />
         </div>
 
-        {userError.error?
+        {userError.error ?
           <Alert status='error' className="mb-3">
-          <AlertIcon />
-          <AlertTitle>Error :</AlertTitle>
-          <AlertDescription>{userError.msg}</AlertDescription>
-        </Alert>:
-        ""
+            <AlertIcon />
+            <AlertTitle>Error :</AlertTitle>
+            <AlertDescription>{userError.msg}</AlertDescription>
+          </Alert> :
+          ""
         }
-        {userSuccess?
+        {userSuccess ?
           <Alert status='success' className="mb-3">
-          <AlertIcon />
-          <AlertTitle>Successfully :</AlertTitle>
-          <AlertDescription>Welcome to law market</AlertDescription>
-        </Alert>:
-        ""
+            <AlertIcon />
+            <AlertTitle>Successfully :</AlertTitle>
+            <AlertDescription>Welcome to law market</AlertDescription>
+          </Alert> :
+          ""
         }
 
-        <MDBBtn className="w-100 mb-4" size="md" onClick={()=>checkInputUser()}>
+        <MDBBtn className="w-100 mb-4" size="md" onClick={() => checkInputUser()}>
           sign up
         </MDBBtn>
       </MDBCardBody>
