@@ -43,10 +43,10 @@ export default function SubCategory({ subCategory }) {
             w={"full"}
           >
             <Blob
-              w={"550%"}
-              h={"520%"}
+              w={"100%"}
+              h={"300px"}
               position={"absolute"}
-              top={"-220%"}
+
               left={0}
               zIndex={-1}
               color={useColorModeValue("blue.50", "blue.400")}
