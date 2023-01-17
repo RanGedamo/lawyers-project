@@ -20,7 +20,7 @@ const lawyer = new Schema({
       type: String,
       required: true,
     },
-    lat: {
+    lat: { 
       type: Number,
       required: true,
     },
