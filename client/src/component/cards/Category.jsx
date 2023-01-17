@@ -43,13 +43,12 @@ export default function Category({ categories }) {
             </MDBCol>
           );
         })
-      ) : (
-      )}
-        <Stack>
+      ) : (        <Stack>
           <Skeleton height="20px" />
           <Skeleton height="20px" />
           <Skeleton height="20px" />
         </Stack>
+      )}
     </>
   );
 }
