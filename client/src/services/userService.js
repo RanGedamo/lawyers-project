@@ -4,7 +4,7 @@ import jwtInterceptor from "../middleware/auth";
 axios.defaults.baseURL = "http://lawmarket.us-east-1.elasticbeanstalk.com/user";
 
 export const getUsers = async () => {
-  const response = await axios.get("/")
+  const response = await axios.get("http://lawmarket.us-east-1.elasticbeanstalk.com/user")
 
   const user = await response.data;
   return user;

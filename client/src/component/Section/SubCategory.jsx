@@ -40,8 +40,8 @@ export default function SubCategory({ subCategory }) {
             justify={"center"}
             align={"center"}
             position={"relative"}
-            w={"full"}
-          >
+            w={"full"} >
+              
             <Blob
               w={"100%"}
               h={"300px"}

@@ -1,10 +1,10 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:6060/lawyer";
+// axios.defaults.baseURL = "http://localhost:6060/lawyer";
 
 export const getLawyers = async () => {
   const response = await axios.get("http://lawmarket.us-east-1.elasticbeanstalk.com/lawyer")
-
+console.log(response);
   const lawyer = await response.data;
   return lawyer;
 };
@@ -34,7 +34,7 @@ export const registerLawyer = async (data) => {
 };
 
 export const loginLawyer = async (data) => {
-    const response = await axios.post("/login",{
+    const response = await axios.post("http://lawmarket.us-east-1.elasticbeanstalk.com/lawyer/login",{
         email:data.email,
         password:data.password
     })
@@ -44,13 +44,13 @@ export const loginLawyer = async (data) => {
   };
 
   export const getLawyerByEmail = async (email) => {
-    const response = await axios.get(`http://localhost:6060/lawyer/${email}`);
-  
+    const response = await axios.get(`http://lawmarket.us-east-1.elasticbeanstalk.com/lawyer/${email}`);
+  console.log(response);
     const lawyer = await response.data;
     return lawyer;
   };
   export const deleteLawyer = async (email) => {
-    const response = await axios.delete(`http://localhost:6060/lawyer/${email}`);
+    const response = await axios.delete(`http://lawmarket.us-east-1.elasticbeanstalk.com/lawyer/${email}`);
   
     const lawyer = await response.data;
     return lawyer;

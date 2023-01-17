@@ -14,15 +14,18 @@ import { getLawyerByEmail } from "../../services/lawyerService";
 
 export default function LawyerProfile() {
   let { email } = useParams();
-const[lawyer,setLawyers]=useState({})
+const[lawyer,setLawyers]=useState()
 const [category,setCategory]=useState([])
+
+console.log("asfasfas");
 useEffect(()=>{
   getLawyerByEmail(email).then((res)=>{
+    console.log(res);
     setLawyers(res) 
     setCategory(res?.category[0].subCategory)}).catch((error)=>console.log(error))
 
-},[])
-console.log(lawyer);
+},)
+// console.log(lawyer);
 
   return (
     <div cla>
@@ -44,7 +47,7 @@ console.log(lawyer);
             </MDBRow>
           </MDBCol>
           <MDBCol className="">
-            <GoogleMapLocation lawyer={lawyer.location} />
+            <GoogleMapLocation lawyer={lawyer?.location} />
           </MDBCol>
           <MDBCol className="mb-3 " >
             <AreaChart lawyer={lawyer} />
@@ -55,7 +58,7 @@ console.log(lawyer);
       <MDBContainer>
         <MDBRow >
           <MDBCol className="mt-5">
-            {lawyer.reviews?.map((item, i) => {
+            {lawyer?.reviews?.map((item, i) => {
               return <CommentSection key={i} index={i} item={item} />;
             })}
             <ReviewsInput />
