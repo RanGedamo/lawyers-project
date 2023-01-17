@@ -6,16 +6,16 @@ export default function categoryedCategory({ category }) {
   return (
     <Box bg={"light.800"} position={"relative"} key={category._id} >
       <Flex
-        flex={1}
+        flex={3}
         zIndex={0}
-        display={{ base: "none", lg: "flex" }}
+        display={{ base: "none", md: "flex" }}
         backgroundImage={category.categoryImg}
         backgroundSize={"cover"}
         backgroundPosition="center"
         backgroundRepeat="no-repeat"
         position={"absolute"}
-        width={"50%"}
-        height={"90%"}
+        width={"100%"}
+        height={"85%"}
         insetY={0}
         right={0}
       >

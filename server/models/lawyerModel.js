@@ -23,27 +23,12 @@ const lawyer = new Schema({
     type: String,
     required: true,
   },
-  category:[ {
-    type: mongoose.Types.ObjectId,
-    ref:"category",
-    required: true,
-  }],
   reviews: [{
     type: mongoose.Types.ObjectId,
     ref:"reviews",
   }],
   imageString:{
     type:String
-  },
-  image: {
-    public_id: {
-      type: String,
-      default: "cloud img default"
-    },
-    url: {
-      type: String,
-      default: "cloud img default"
-    }
   },
   price: {
     type: String,
@@ -57,16 +42,9 @@ const lawyer = new Schema({
     type: String,
     required: true,
   },
-  selectedCover: {
-    type: String,
-    required: true,
-  },
   phone: {
     type: String,
     required: true,
-  },
-  rate: {
-    type: Number,
   },
   experience: {
     type: String,
