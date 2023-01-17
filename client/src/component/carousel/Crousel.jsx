@@ -21,12 +21,13 @@ function Carousel() {
   return (
     <>
       <h1 className="fs-3">Our Top Lawyers</h1>
-      <div className="container">
+      <div className="containerr">
         <div className="faders">
           <div className="left"></div>
           <div className="right"></div>
         </div>
-        <div className="items">
+        <div>
+        <div className="items" >
           {lawyers.map((item, i) => {
             return (
               <div key={i} className="entry hover-overlay">
@@ -34,18 +35,18 @@ function Carousel() {
                   {item.firstName} {item.lastName}
                 </p>
                 <br />
-                <br />
-                <p className="quote ">{item.description}</p>
-                <Link to={`/lawyer/profile/${item.email}`}>
+                <Link to={`/lawyer/profile/${item.email}`} className="d-flex">
                   <img
                     src={item.imageString}
                     alt="Smiling person"
-                    className="mask"
+                    className="quote "
                   />
+                <p className="mask">{item.description}</p>
                 </Link>
               </div>
             );
           })}
+        </div>
         </div>
       </div>
   
