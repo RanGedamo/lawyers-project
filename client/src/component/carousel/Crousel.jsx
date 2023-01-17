@@ -48,7 +48,7 @@ navigate(dd)
         <div className="items" >
           {lawyers.map((item, i) => {
             return (
-              <div key={i} className="entry hover-overlay opacity-50">
+              <div key={i} className="entry hover-overlay">
                 <p className="name">
                   {item.firstName} {item.lastName}
                 </p>
@@ -59,7 +59,8 @@ navigate(dd)
                     alt="Smiling person"
                     className="quote imageLawyerPicture"
                   />
-                <p className="mask mt-5">{item.description}</p>
+                <p className="mask mt-2 bg-light text-center note note-light mb-2 text-muted strong">
+                  {item.description}</p>
                 </div>
               </div>
             );
