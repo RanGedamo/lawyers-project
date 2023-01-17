@@ -63,7 +63,7 @@ export default function CategoryNavbar() {
                 spacing={6}
               >
                 <ColorModeSwitcher justifySelf="flex-end" />
-                <PopUpRole />
+                <PopUpRole text='Sign in'/>
               </Stack>
             </Menu>
           </Stack>
