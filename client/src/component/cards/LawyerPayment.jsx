@@ -10,8 +10,9 @@ import {
     Button,
     useColorModeValue,
   } from '@chakra-ui/react';
+import { Lawyers } from '../../sidder';
   
-  export default function LawyerPayment() {
+  export default function LawyerPayment({lawyer}) {
     return (
       <Center py={6}>
         <Box
@@ -26,7 +27,7 @@ import {
             className='hover-zoom'
               size={'2xl'}
               src={
-                'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ'
+                lawyer?.imageString
               }
               alt={'Author'}
               css={{
@@ -37,16 +38,15 @@ import {
           <Box p={6}>
             <Stack spacing={0} align={'center'} mb={5}>
               <Heading fontSize={'2xl'} fontWeight={500} fontFamily={'body'}>
-                John Doe
+                {lawyer?.firstName} {lawyer?.lastName}
               </Heading>
-              <Text color={'gray.500'}>Frontend Developer</Text>
+              <Text color={'gray.500'}>{lawyer?.title}</Text>
             </Stack>
   
             <Stack direction={'row'} justify={'center'} spacing={6}>
               <Stack spacing={0} align={'center'}>
                 <Text fontSize={'sm'} color={'gray.500'}>
-                  Followersasdddddddddddddddddddddd
-                  asdddddddddddddddddddd
+                 {lawyer?.description}
                 </Text>
               </Stack>
     

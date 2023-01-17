@@ -20,7 +20,7 @@ import {
   MDBListGroupItem,
 } from "mdb-react-ui-kit";
 import { postContactUs } from "../../services/emailHandler";
-export default function AgreementCard({category}) {
+export default function AgreementCard({category,o}) {
   const [inputs,setInputs] = useState()
   const [sendForm,setSendForm] =useState(false)
 
@@ -34,21 +34,30 @@ export default function AgreementCard({category}) {
   }
 
   return (
-    <MDBCard className="">
+
+    <>
+
+{category?.subCategory.map((item) => {
+if(item.name==o){
+          
+
+  return <MDBCard className="">
+
+        
+
+      
       <MDBCardImage
         style={{ height: 250 }}
-        src="https://mdbootstrap.com/img/new/standard/nature/184.webp"
+        src={item.img}
         position="top"
         alt="..."
       />
       <MDBCardBody>
-        <MDBCardTitle className="">{category.categoryName}</MDBCardTitle>
+        <MDBCardTitle className="">{item.name}</MDBCardTitle>
         <MDBCardText>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content. Some quick example text to build on the
-          card title and make up the bulk of the card's content. Some quick
-          example text to build on the card title and make up the bulk of the
-          card's content.
+       {
+        item.description
+       }
         </MDBCardText>
         <MDBCardBody>
           <MDBRow className="mb-4">
@@ -103,6 +112,11 @@ export default function AgreementCard({category}) {
           Button
         </MDBBtn>
       </MDBCardBody>
+      
     </MDBCard>
+    }
+
+  })}
+    </>
   );
 }
