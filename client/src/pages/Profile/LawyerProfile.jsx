@@ -11,18 +11,22 @@ import { useParams } from "react-router-dom";
 // import { Lawyers } from "../../sidder";
 import GoogleMapLocation from "../../GoogleMap/GoogleMap";
 import { getLawyerByEmail } from "../../services/lawyerService";
+import cookie from "js-cookie";
 
 export default function LawyerProfile() {
   let { email } = useParams();
 const[lawyer,setLawyers]=useState({})
 const [category,setCategory]=useState([])
+const [userLoged,setUserLoged]=useState()
 useEffect(()=>{
   getLawyerByEmail(email).then((res)=>{
     setLawyers(res) 
     setCategory(res?.category[0].subCategory)}).catch((error)=>console.log(error))
+    setUserLoged(cookie.get("user"))
 
-},[])
+},[lawyer?.reviews])
 console.log(lawyer);
+
 
   return (
     <div cla>
@@ -58,7 +62,8 @@ console.log(lawyer);
             {lawyer.reviews?.map((item, i) => {
               return <CommentSection key={i} index={i} item={item} />;
             })}
-            <ReviewsInput />
+            {userLoged?<ReviewsInput  userLoged={userLoged} lawyer={lawyer}/>:""}
+            
           </MDBCol>
         </MDBRow>
       </MDBContainer>
