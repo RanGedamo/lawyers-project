@@ -47,7 +47,7 @@ export default function FilterLawyer({ lawyers, id }) {
 
   return (
     <MDBContainer>
-      <MDBRow className="mb-3">
+      <MDBRow>
         <MDBCol size={12} className="col-md-3 col-lg-3 me-5">
           <MDBCard onClick={sendToCockies}>
             <br />
@@ -107,7 +107,7 @@ export default function FilterLawyer({ lawyers, id }) {
             <br />
           </MDBCard>
         </MDBCol>
-        <MDBCol size={12} className="col-md-8 col-lg-8">
+        <MDBCol >
           <HomeLawyer lawyers={filteredData} id={id} />
         </MDBCol>
       </MDBRow>

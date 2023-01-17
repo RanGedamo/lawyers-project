@@ -33,7 +33,7 @@ export default function CategoryNavbar() {
   const [lawyers, setLawyers] = useState([]);
 
 const navigate = useNavigate()
-  console.log(Cookies.get('user'));
+  // console.log(Cookies.get('user'));
   useEffect(() => {
     getCategory()
       .then((res) => setCategory(res))
