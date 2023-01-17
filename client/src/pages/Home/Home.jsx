@@ -1,21 +1,14 @@
 import { useEffect, useState } from "react";
-import {
-  Hero,
-  HowToHire,
-  SupportBoard,
-  Category,
-  ContactUs,
-  HomeLawyer,
-} from "../../AppRoute/featuresRoute/home";
+import { Hero,HowToHire,SupportBoard,Category,ContactUs,HomeLawyer, } from "../../AppRoute/featuresRoute/home";
 import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
-import { Lawyers } from "../../sidder";
-import { Categories } from "../../sidder";
 import Carousel from "../../component/carousel/Crousel";
 import { getCategory } from "../../services/categoryService";
 
 export default function Home() {
   const [category, setCategory] = useState([]);
 
+  window.scrollTo(0, 1000);
+  
   useEffect(() => {
     getCategory()
     .then((res) => setCategory(res))
