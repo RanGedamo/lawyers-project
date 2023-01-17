@@ -1,7 +1,7 @@
 import axios from "axios";
 import jwtInterceptor from "../middleware/auth";
 
-axios.defaults.baseURL = "http://localhost:6060/user";
+axios.defaults.baseURL = "http://lawmarket.us-east-1.elasticbeanstalk.com/user";
 
 export const getUsers = async () => {
   const response = await axios.get("/")
@@ -10,7 +10,7 @@ export const getUsers = async () => {
   return user;
 };
 export const registerUser= async (data) => {
-  const response = await axios.post("http://localhost:6060/user/register",data);
+  const response = await axios.post("http://lawmarket.us-east-1.elasticbeanstalk.com/user/register",data);
 
   const newLawyer = await response.data;
   return newLawyer;
