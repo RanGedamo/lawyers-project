@@ -19,7 +19,7 @@ export default function Home() {
       <MDBContainer className="mb-8">
         <Hero />
       </MDBContainer>
-      <MDBRow className="bg-light mb-3 rounded-9">
+      <MDBRow className="mb-3 rounded-9">
         <SupportBoard />
 
       </MDBRow>
@@ -45,7 +45,7 @@ export default function Home() {
         </MDBCol>
       </MDBRow>
       <br />
-      <ScrollTOTop smooth top="500"/>
+      <ScrollTOTop smooth top="800"/>
       <MDBRow className="mb-8 d-flex justify-content-around rounded-7-fluid text-start ">
         <HowToHire />
       </MDBRow>
