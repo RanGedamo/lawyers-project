@@ -1,17 +1,33 @@
 import { Skeleton, Stack } from "@chakra-ui/react";
 import { MDBCol, MDBRipple, MDBRow, MDBTypography } from "mdb-react-ui-kit";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getCategory } from "../../services/categoryService";
 import "./Category.css";
+import Cookies from "js-cookie";
 
 export default function Category({ categories }) {
   // const [category, setCategory] = useState();
   // useEffect(() => {
   //   getCategory().then((res) => setCategory(res));
   // }, []);
+  const navigate=useNavigate()
+  const navigateTo=(dd)=>{
+    navigate(dd)
+      }
+  const popup=()=>{
+    document.getElementById("caro").innerHTML=`<div class="w-50 alert alert-danger" role="alert">
+    Sing in or Sing up for more information!
+  </div>`
+    setTimeout(()=>{
+      document.getElementById("caro").innerText=""
+
+    },2000)
+  }
   return (
     <>
+        <span id="caro" className="d-flex justify-content-center align-items-center"></span>
+
       {categories ? (
         categories?.map((categories, i) => {
           return (
@@ -25,7 +41,7 @@ export default function Category({ categories }) {
                   src={categories.categoryImg}
                   className="w-100 imagecsscategory"
                 />
-                <Link to={`/category/${categories._id}`}>
+                <div  onClick={Cookies.get("user")?()=>navigateTo(`/category/${categories._id}`):popup}>
                   <div
                     className="mask "
                     style={{ backgroundColor: "rgba(251, 251, 251, 0.9)" }}
@@ -38,7 +54,7 @@ export default function Category({ categories }) {
                       );
                     })}
                   </div>
-                </Link>
+                </div>
               </MDBRipple>
             </MDBCol>
           );

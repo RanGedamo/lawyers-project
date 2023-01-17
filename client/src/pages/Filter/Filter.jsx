@@ -24,8 +24,8 @@ export default function Filter() {
     getLawyers().then((res) => setLawyers(res));
   }, []);
 
-  let result = lawyers.filter((lawyer) =>
-   lawyer.category[0].name.includes(category.name)
+  let result = lawyers?.filter((lawyer) =>
+   lawyer.category[0]?.name.includes(category.name)
   );
 
   return (

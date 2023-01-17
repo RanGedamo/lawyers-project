@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   MDBCard,
   MDBCardBody,
@@ -11,16 +11,33 @@ import {
 import "./carousel.css";
 import { getLawyers } from "../../services/lawyerService";
 import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
+import PopUpRole from "../pop/PopUpBtn";
 
 function Carousel() {
   const [lawyers, setLawyers] = useState([]);
 
+  const navigate=useNavigate()
+
+  const navigateTo=(dd)=>{
+navigate(dd)
+  }
+  const popup=()=>{
+    document.getElementById("sing").innerHTML=`<div class="w-50 alert alert-danger" role="alert">
+    Sing in or Sing up for more information!
+  </div>`
+    setTimeout(()=>{
+      document.getElementById("sing").innerText=""
+
+    },2000)
+  }
   useEffect(() => {
     getLawyers().then((res) => setLawyers(res));
   }, []);
   return (
     <>
       <h1 className="fs-3">Our Top Lawyers</h1>
+    <span id="sing" className="d-flex justify-content-center align-items-center"></span>
       <div className="containerr">
         <div className="faders">
           <div className="left"></div>
@@ -35,14 +52,14 @@ function Carousel() {
                   {item.firstName} {item.lastName}
                 </p>
                 <br />
-                <Link to={`/lawyer/profile/${item.email}`} className="d-flex">
+                <div className="d-flex" onClick={Cookies.get("user")?()=>navigateTo(`/lawyer/profile/${item.email}`):popup}>
                   <img
                     src={item.imageString}
                     alt="Smiling person"
                     className="quote "
                   />
                 <p className="mask">{item.description}</p>
-                </Link>
+                </div>
               </div>
             );
           })}
