@@ -11,6 +11,7 @@ export default function SignUpLawyer() {
   const [inputs, setInputs] = useState();
   const [imgFile, setImageFile] = useState();
   const [profileImg, setProfileImg] = useState();
+  const [selectedOption, setSelectedOption] = useState();
 
   const [userError, setUserError] = useState({
     error: false,
@@ -18,11 +19,12 @@ export default function SignUpLawyer() {
   });
   const [userSuccess, setUserSuccess] = useState(false);
 
-
   const lawyerData = useSelector((state) => state.lawyerReducer.lawyerData);
+  const location = lawyerData?.location 
+
 
   const changeInputs = async(e) => {
-    setInputs({ ...inputs, [e.target.name]: e.target.value,location:lawyerData.location });
+    setInputs({ ...inputs, [e.target.name]: e.target.value,location:location ,category:selectedOption});
 console.log(inputs);
   };
 
@@ -31,6 +33,7 @@ console.log(inputs);
     .then(res => {
       console.log(res.data);
       if (res) {
+        
         setUserError({ error: false })
       return  setUserSuccess(true)
         
@@ -79,6 +82,19 @@ console.log(inputs);
           name="email"
           onChange={(e) => changeInputs(e)}
         />
+        
+        <div className='mb-2'>
+        <select value={selectedOption} onChange={(e)=>setSelectedOption(e.target.value)}  id="select" className="browser-default custom-select border-4"> 
+        <option >Choose your category</option>
+           <option value="63c438bfc6d4d52b2c1fa52f" >Family law</option>
+           <option value="63c44349539b4d290ee7fd64" >Government law</option>
+           <option value="63c44e26b187c601731ff1b5" >Crime Law</option>
+           <option value="63c4504bb187c601731ff1bb" >Business law</option>
+           <option value="63c4405057c87f24ec8c3771"  >Probate law</option>
+           
+     value={selectedOption} onChange={(e)=>setSelectedOption(e.target.value)}
+        </select>
+      </div>
         <MDBRow>
           <MDBCol col="6">
             <MDBInput
@@ -112,16 +128,7 @@ console.log(inputs);
               onChange={(e) => changeInputs(e)}
             />
           </MDBCol>
-          <MDBCol col="6">
-            <MDBInput
-              wrapperClass="mb-4"
-              label="Category"
-              id="form7"
-              type="text"
-              name="category"
-              onChange={(e) => changeInputs(e)}
-            />
-          </MDBCol>
+
         </MDBRow>
         <MDBRow>
           <MDBCol col="12">

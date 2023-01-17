@@ -21,6 +21,7 @@ export default function SignIn() {
   const submitUserLogin = async () => {
     return await loginUser(inputs)
       .then(res => {
+        console.log(res);
         if (res.token) {
           Cookies.set('authorization', res.token)
           Cookies.set('user', res.user.email)
@@ -31,6 +32,7 @@ export default function SignIn() {
           },2000)
         }
       }).catch(err => {
+        console.log(err);
         if(err){
           setUserSuccess(false)
           return setUserError(true)

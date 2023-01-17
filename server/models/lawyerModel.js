@@ -16,8 +16,18 @@ const lawyer = new Schema({
     required: true,
   },
   location: {
-    type: Object,
-    required: true,
+    address: {
+      type: String,
+      required: true,
+    },
+    lat: {
+      type: Number,
+      required: true,
+    },
+    lng: {
+      type: Number,
+      required: true,
+    },
   },
   description: {
     type: String,
@@ -26,9 +36,14 @@ const lawyer = new Schema({
   reviews: [{
     type: mongoose.Types.ObjectId,
     ref:"reviews",
+  }], category: [{
+    type: mongoose.Types.ObjectId,
+    ref:"category",
   }],
+
   imageString:{
-    type:String
+    type:String,
+    default:"https://i.pinimg.com/736x/8c/42/fe/8c42fe75fb910ddb30fbf9479038e078--suits-alpha-male.jpg"
   },
   price: {
     type: String,

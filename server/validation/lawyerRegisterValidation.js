@@ -5,6 +5,7 @@ const validateLawyer = (data) => {
     firstName: Joi.string().required(),
     lastName: Joi.string().required(),
     title: Joi.string().required(),
+    location: Joi.object(),
     description: Joi.string().required(),
     category: Joi.string().required(),
     reviews: Joi.string(),

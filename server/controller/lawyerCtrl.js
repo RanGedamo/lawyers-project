@@ -44,7 +44,7 @@ const registerLawyer = async (req, res) => {
     available,
     imageString
   } = req.body; //18
-  console.log(location,available);
+  console.log(location,workDueTime);
   const { error } = validateLawyer(req.body);
 
   if (error) {
@@ -57,8 +57,6 @@ const registerLawyer = async (req, res) => {
   }
   const salt = await bcrypt.genSalt(8);
   const hashedPassword = await bcrypt.hash(password, salt);
-
-
 
   let lawyer = new LawyerModel({
     firstName,

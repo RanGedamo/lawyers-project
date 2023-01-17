@@ -9,7 +9,7 @@ console.log(response);
   return lawyer;
 };
 export const registerLawyer = async (data) => {
-  const response = await axios.post("http://lawmarket.us-east-1.elasticbeanstalk.com/lawyer/register",{
+  const response = await axios.post("http://localhost:6060/lawyer/register",{
     firstName:data.firstName,
     lastName:data.lastName,
     location:data.location,

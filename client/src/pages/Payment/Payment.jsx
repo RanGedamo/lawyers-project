@@ -15,7 +15,6 @@ const [category,setCategory]=useState()
 const [selectedCategory,setSelectedCategory]=useState()
 const [lawyer,setLawyer]=useState()
 
-
 const o=cookie.get('categoryName')
 const id=useParams().id
 console.log(id);

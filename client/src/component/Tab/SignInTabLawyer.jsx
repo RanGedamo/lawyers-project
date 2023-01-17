@@ -10,7 +10,9 @@ import SignInLawyer from '../SignIn/signInLawyer';
 import SignUpLawyer from '../SignUp/signUpLawyer';
 
 export default function SignInTabLawyer() {
+
   const [basicActive, setBasicActive] = useState('tab1');
+  
   const handleBasicClick = (value) => {
     if (value === basicActive) {
       return;
