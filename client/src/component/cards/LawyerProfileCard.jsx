@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { MDBCol, MDBContainer, MDBRow, MDBCard,MDBBadge, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography, MDBListGroup, MDBListGroupItem, MDBIcon } from 'mdb-react-ui-kit';
-import { Link } from 'react-router-dom';
+import { a } from 'react-router-dom';
 import ContactLawyer from '../contactLawyer/ContactLawyer';
 import cookie from "js-cookie"
 export default function LawyerProfile({lawyer}) {
@@ -107,7 +107,7 @@ export default function LawyerProfile({lawyer}) {
         </select>
       </div>
                   
-                    <MDBBtn disabled={selectedOption?false:true} onClick={cookie.set("categoryName",selectedOption,{ expires: 7 })&&cookie.set("emailPayment",lawyer?.email,{ expires: 7 })} className=' me-2'><Link to={`/payment/${sub?._id}`}>Hire me </Link></MDBBtn>
+                    <MDBBtn disabled={selectedOption?false:true} onClick={cookie.set("categoryName",selectedOption,{ expires: 7 })&&cookie.set("emailPayment",lawyer?.email,{ expires: 7 })} className=' me-2'><a href={`/payment/${sub?._id}`}>Hire me </a></MDBBtn>
                     
                     <MDBBtn className=' ms-2' onClick={PopUpContact}>Contact me {popUp?<ContactLawyer lawyer={lawyer} />:""}</MDBBtn>
                   

@@ -6,12 +6,14 @@ import Navbar from "./component/Navbar/Navbar";
 import CategoryNavbar from "./component/Navbar/CategoryNavbar";
 
 export default function App() {
+  const current = window.location.pathname;
+  const bool = current == '/'? true :false
 
   return (
     <div className="App">
       <BrowserRouter>
         {/* <Navbar /> */}
-        <CategoryNavbar/>
+        <CategoryNavbar bool={bool}/>
         <Routing />
         <Footer />
       </BrowserRouter>

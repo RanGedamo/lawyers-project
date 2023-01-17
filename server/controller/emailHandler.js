@@ -1,4 +1,5 @@
 const nodemailer = require('nodemailer');
+const {supportBoardValid} = require('../validation/handlerEmail');
 
 const postContactUs = async(req,res)=>{
     const {userEmail,userCommend} = req.body
@@ -26,6 +27,37 @@ const postContactUs = async(req,res)=>{
             return reject({massage:"Email Sent successfully"})
         } )
     }).then(res=>console.log(res)).catch(res=>console.log(res))
+}
+const postDomain = async (req, res) => {
+
+    const { error } = supportBoardValid(req.body);
+    console.log(error);
+    if (error) {
+        return res.status(400).send({ message: error.details[0].message });
+    }
+
+    return await new Promise((resolve, reject) => {
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'lawyerandorderthemis@gmail.com',
+                pass: 'dqtukwvngshsiind'
+            }
+        })
+        const mail_configs = {
+            from: 'lawyerandorderthemis@gmail.com',
+            to: "lawyerandorderthemis@gmail.com",
+            subject: "User Domain:",
+            html: `<h4>Domain from:</h4><h3> ${req.body.email}</h3> </br><h2 style=color:"blue">${req.body.domain}</h2>`
+        }
+        transporter.sendMail(mail_configs, (error) => {
+            if (error) {
+                console.log(error);
+                return reject({ message: "an error has occurred" })
+            };
+            return reject({ massage: "Email Sent successfully" })
+        })
+    }).then(res => console.log(res)).catch(res => console.log(res))
 }
 
 const postContactUsPayment = async(req,res)=>{
@@ -55,4 +87,4 @@ const postContactUsPayment = async(req,res)=>{
 }
 
 
-module.exports = {postContactUs,postContactUsPayment}
+module.exports = {postContactUs,postContactUsPayment,postDomain}

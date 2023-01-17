@@ -7,7 +7,7 @@ import {
   MDBBadge,
 } from "mdb-react-ui-kit";
 import cookie from "js-cookie";
-import { Link } from "react-router-dom";
+import { a } from "react-router-dom";
 import { withDefaultColorScheme } from "@chakra-ui/react";
 import { Spinner } from "@chakra-ui/react";
 import './HomeLawyer.css'
@@ -23,7 +23,7 @@ export default function HomeLawyer({ lawyers, id }) {
             <div class=" cardMaskLawyer p-0 ">
               <blockquote class=" cardMaskLawyer mb-0">
               <img src={lawyer.imageString} alt="lawyer" className=" rounded-7 imageForLawYer p-0"  />
-            <Link to={`/lawyer/profile/${lawyer.email}`}>
+            <a href={`/lawyer/profile/${lawyer.email}`}>
                 <div
                   className="mask cardMaskLawyer"
                   style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}
@@ -53,7 +53,7 @@ export default function HomeLawyer({ lawyers, id }) {
                       </MDBTypography>
                     </MDBCol>
                 </div>
-              </Link>
+              </a>
               </blockquote>
             </div>
           </div>
@@ -74,7 +74,7 @@ export default function HomeLawyer({ lawyers, id }) {
         //     rippleColor="light"
         //   >
         //     <img src={lawyer.imageString} alt="lawyer" className="h-25 w-50 "  />
-        //     <Link to={`/lawyer/profile/${lawyer.email}`}>
+        //     <a href={`/lawyer/profile/${lawyer.email}`}>
         //       <div
         //         className="mask "
         //         style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}
@@ -105,6 +105,6 @@ export default function HomeLawyer({ lawyers, id }) {
         //           </MDBCol>
         //         </MDBRow>
         //       </div>
-        //     </Link>
+        //     </a>
         //   </MDBRipple>
         // </MDBCol>

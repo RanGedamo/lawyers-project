@@ -9,7 +9,7 @@ import {
   VStack,
   Icon,
   useColorModeValue,
-  Link,
+  a,
   Drawer,
   DrawerContent,
   Text,
@@ -88,7 +88,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
 
 const NavItem = ({ icon, children, ...rest }) => {
   return (
-    <Link
+    <a
       href="#"
       style={{ textDecoration: "none" }}
       _focus={{ boxShadow: "none" }}
@@ -118,7 +118,7 @@ const NavItem = ({ icon, children, ...rest }) => {
         )}
         {children}
       </Flex>
-    </Link>
+    </a>
   );
 };
 

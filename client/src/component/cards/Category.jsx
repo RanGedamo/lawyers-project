@@ -1,6 +1,6 @@
 import { MDBCol, MDBRipple, MDBRow, MDBTypography } from "mdb-react-ui-kit";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { a } from "react-router-dom";
 import { getCategory } from "../../services/categoryService";
 import "./Category.css";
 export default function Category({ categories }) {
@@ -26,7 +26,7 @@ export default function Category({ categories }) {
                   src={category.categoryImg}
                   className="w-100 imagecsscategory"
                 />
-                <Link to={`/category/${category._id}`}>
+                <a href={`/category/${category._id}`}>
                   <div
                     className="mask "
                     style={{ backgroundColor: "rgba(251, 251, 251, 0.8)" }}
@@ -41,7 +41,7 @@ export default function Category({ categories }) {
                       ))}
                     </p>
                   </div>
-                </Link>
+                </a>
               </MDBRipple>
             </MDBCol>
           );

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { a } from "react-router-dom";
 import {
   MDBCard,
   MDBCardBody,
@@ -35,14 +35,14 @@ function Carousel() {
                   {item.firstName} {item.lastName}
                 </p>
                 <br />
-                <Link to={`/lawyer/profile/${item.email}`} className="d-flex">
+                <a href={`/lawyer/profile/${item.email}`} className="d-flex">
                   <img
                     src={item.imageString}
                     alt="Smiling person"
                     className="quote imageLawyerPicture"
                   />
                 <p className="mask mt-5">{item.description}</p>
-                </Link>
+                </a>
               </div>
             );
           })}

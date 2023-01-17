@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "../../ColorModeSwitcher";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { a } from "react-router-dom";
 import PopUpRole from "../pop/PopUpBtn";
 import Chat from "../chat/Chat";
 
@@ -26,9 +26,9 @@ export default function Navbar() {
     <>
       <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-          <Link to={"/"}>
+          <a href={"/"}>
             <Box>Themis</Box>
-          </Link>
+          </a>
 
           <Flex alignItems={"center"}>
             <Stack direction={"row"} spacing={7}>

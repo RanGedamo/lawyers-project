@@ -6,7 +6,7 @@ import {
   Text,
   Stack,
   Button,
-  Link,
+  a,
   Badge,
   useColorModeValue,
 } from "@chakra-ui/react";

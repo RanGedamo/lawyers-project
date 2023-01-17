@@ -3,7 +3,7 @@ import React from "react";
 import {
   Box,
   Heading,
-  Link,
+  a,
   Image,
   Text,
   useColorModeValue,
@@ -73,14 +73,14 @@ export default function SubCategory({ subCategory }) {
             </Box>
           </Flex>
 
-          {/* <Link textDecoration="none" _hover={{ textDecoration: 'none' }}>
+          {/* <a textDecoration="none" _hover={{ textDecoration: 'none' }}>
               <Image
                 borderRadius="lg"
                 src={subCategory.img}
                 alt="sub category"
                 objectFit="contain"
               />
-            </Link> */}
+            </a> */}
         </Box>
         <Box zIndex="1" width="100%" position="absolute" height="100%">
           <Text textDecoration="none" _hover={{ textDecoration: "none" }}>
@@ -104,9 +104,9 @@ export default function SubCategory({ subCategory }) {
         marginTop={{ base: "3", sm: "0" }}
       >
         <Heading marginTop="1">
-          <Link textDecoration="none" _hover={{ textDecoration: "none" }}>
+          <a textDecoration="none" _hover={{ textDecoration: "none" }}>
             {subCategory.name}
-          </Link>
+          </a>
         </Heading>
         <Text
           as="p"
