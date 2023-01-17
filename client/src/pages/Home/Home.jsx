@@ -8,8 +8,6 @@ import ScrollTOTop from "react-scroll-to-top"
 export default function Home() {
   const [category, setCategory] = useState([]);
 
-
-  
   useEffect(() => {
     getCategory()
     .then((res) => setCategory(res))

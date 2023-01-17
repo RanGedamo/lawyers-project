@@ -31,7 +31,7 @@ export default function CategoryNavbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [category, setCategory] = useState([]);
   const [lawyers, setLawyers] = useState([]);
-  
+
 const navigate = useNavigate()
   console.log(Cookies.get('user'));
   useEffect(() => {
@@ -91,7 +91,7 @@ const navigate = useNavigate()
                       </MenuList>
                     </Menu>
                   </WrapItem> :
-                    <PopUpRole />
+                    <PopUpRole text='Sign in'/>
                 }
 
               </Stack>
