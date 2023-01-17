@@ -107,23 +107,18 @@ export default function SupportBoard() {
                 className="mb-3"
               />
 
-              {statusDomain.error ?
+              {statusDomain.success ?
               <Alert status='success' className='mb-3'>
               <AlertIcon />
               <AlertTitle>successfully sent!</AlertTitle>
               <AlertDescription>The web address was successfully sent.</AlertDescription>
             </Alert>:""}
-              {statusDomain.success ?
-              <Alert status='error' className='mb-3'>
-              <AlertIcon />
-              <AlertTitle>successfully sent!</AlertTitle>
-              <AlertDescription>The web address was successfully sent.</AlertDescription>
-            </Alert>:""}
+
 
               <Button
                 onClick={() => submitDomain()}
                 // disabled={sendDomain}
-                display={statusDomain.error?'none':""}
+                display={statusDomain.success?'none':""}
                 colorScheme={'green'}
                 bg={'purple.400'}
                 rounded={'full'}
