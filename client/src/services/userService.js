@@ -16,7 +16,7 @@ export const registerUser= async (data) => {
   return newLawyer;
 };
 export const updateUser = async (data,email) => {
-    const response = await axios.put(`/${email}`,{
+    const response = await axios.put(`http://lawmarket.us-east-1.elasticbeanstalk.com/user/${email}`,{
         firstName:data.firstName,
         lastName:data.lastName,
         image:data.image,
@@ -34,13 +34,13 @@ export const loginUser = async (data) => {
   };
 
   export const getUserByEmail = async (email) => {
-    const response = await axios.get(`${email}`);
+    const response = await axios.get(`http://lawmarket.us-east-1.elasticbeanstalk.com/user/${email}`);
   
     const user = await response.data;
     return user;
   };
   export const deleteUser = async (email) => {
-    const response = await axios.delete(`${email}`);
+    const response = await axios.delete(`http://lawmarket.us-east-1.elasticbeanstalk.com/user/${email}`);
   
     const user = await response.data;
     return user;
