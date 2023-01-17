@@ -27,14 +27,14 @@ export default function HowToHire() {
       <SimpleGrid columns={{ base: 1, md: 4 }} spacing={7}>
         <Feature
           icon={<Icon as={FcAssistant} w={10} h={10} />}
-          title={'Post a Law problem'}
+          title={'Have a Law problem'}
           text={
-            "Tell us what you need. Provide as many details as possible, but don’t worry about getting it perfect."
+            "We will be happy to assist you. Please provide as much information as possible, and we will help you to find the most suitable lawyer for your needs."
             }
         />
         <Feature
           icon={<Icon as={FcBusinessman} w={10} h={10} />}
-          title={'Talent comes to you'}
+          title={'Find the right lawyer for you'}
           text={
             "Get qualified proposals within 24 hours, and meet the candidates you’re excited about."
           }
@@ -43,14 +43,14 @@ export default function HowToHire() {
           icon={<Icon as={FcBusinessContact} w={10} h={10} />}
           title={'Collaborate easily'}
           text={
-            "Use Themisss to chat or video call, share files, and track project progress right from the app."
+            "Use Themis to chat, share files, and track suits progress right from the app."
           }
         />
         <Feature
           icon={<Icon as={FcCurrencyExchange} w={10} h={10} />}
           title={'Payment simplified'}
           text={
-            "Receive invoices and make payments through Themisss. Only pay for work you authorize."
+            "Receive invoices and make payments through Themis. Only pay for work you authorize."
           }
         />
       </SimpleGrid>
