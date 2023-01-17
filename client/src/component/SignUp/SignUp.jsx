@@ -10,22 +10,31 @@ import {
 } from "mdb-react-ui-kit";
 import { useState } from "react";
 import { registerUser } from "../../services/userService";
+import { Alert, AlertDescription, AlertIcon, AlertTitle } from "@chakra-ui/react";
 export default function SignUp() {
   const [auth,setAuth] = useState()
 
+  const [userError, setUserError] = useState({
+    error:false,
+    msg:""
+  });
+  const [userSuccess, setUserSuccess] = useState(false);
+
   const formHandel=(e)=>{
     setAuth({...auth,[e.target.name]:e.target.value})
-
     console.log(auth);
   }
   
   const checkInputUser = async()=>{
     return await registerUser(auth)
     .then(res=>console.log(res))
-    .then(err=>
-      console.log(err)
-      )
+    .catch(err=>{
+      if(err.response.data.message){
+       return setUserError({msg:err.response.data.message,error:true});
+      }
+    })
   }
+
 
 
   return (
@@ -78,6 +87,23 @@ export default function SignUp() {
             label="Subscribe to our newsletter"
           />
         </div>
+
+        {userError.error?
+          <Alert status='error' className="mb-3">
+          <AlertIcon />
+          <AlertTitle>Error :</AlertTitle>
+          <AlertDescription>{userError.msg}</AlertDescription>
+        </Alert>:
+        ""
+        }
+        {userSuccess?
+          <Alert status='success' className="mb-3">
+          <AlertIcon />
+          <AlertTitle>Successfully :</AlertTitle>
+          <AlertDescription>Welcome to law market</AlertDescription>
+        </Alert>:
+        ""
+        }
 
         <MDBBtn className="w-100 mb-4" size="md" onClick={()=>checkInputUser()}>
           sign up
