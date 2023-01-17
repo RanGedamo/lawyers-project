@@ -69,6 +69,7 @@ export default function Hero() {
               colorScheme={"blue"}
               bg={"blue.400"}
               _hover={{ bg: "blue.500" }}
+              onClick={()=>document.documentElement.scrollTo(0,1500)}
             >
               Get started
             </Button>

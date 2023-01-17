@@ -35,7 +35,7 @@ export default function Home() {
       <br />
       <MDBRow className="d-flex">
         <>
-          <MDBContainer>
+          <MDBContainer className="ran">
             <Carousel />
           </MDBContainer>
         </>
