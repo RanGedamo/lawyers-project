@@ -28,4 +28,31 @@ const postContactUs = async(req,res)=>{
     }).then(res=>console.log(res)).catch(res=>console.log(res))
 }
 
-module.exports = {postContactUs}
+const postContactUsPayment = async(req,res)=>{
+    // const {fname,lname,date,phone,message} = req.body
+    return await new Promise((resolve, reject) => {
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'lawyerandorderthemis@gmail.com',
+                pass: 'dqtukwvngshsiind'
+            }
+        })
+        const mail_configs = {
+            from:'lawyerandorderthemis@gmail.com',
+            to:"lawyerandorderthemis@gmail.com",
+            subject:"Contact Us:",
+            html:`<h4>Comment from:</h4><h3> ${req.body.fname+req.body.lname}</h3> </br><h2 style=color:"blue">${req.body.message}</h2></br><h2 style=color:"blue">${req.body.phone}</h2></br><h2 style=color:"blue">${req.body.date}</h2>`
+        }
+        transporter.sendMail(mail_configs, (error)=>{
+            if(error){
+                console.log(error);
+                return reject({message:"an error has occurred"})
+            };
+            return reject({massage:"Email Sent successfully"})
+        } )
+    }).then(res=>console.log(res)).catch(res=>console.log(res))
+}
+
+
+module.exports = {postContactUs,postContactUsPayment}

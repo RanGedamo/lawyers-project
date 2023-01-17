@@ -52,7 +52,7 @@ console.log(lawyer);
               md="12"
               className="d-flex row justify-content-center align-align-items-center agreement "
             >
-              <AgreementCard category={category} o={o}/>
+              <AgreementCard category={category} o={o} lawyer={lawyer}/>
             </MDBCol>
             <MDBCol></MDBCol>
           </MDBRow>
