@@ -3,7 +3,7 @@ import { Hero,HowToHire,SupportBoard,Category,ContactUs,HomeLawyer, } from "../.
 import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 import Carousel from "../../component/carousel/Crousel";
 import { getCategory } from "../../services/categoryService";
-
+import ScrollTOTop from "react-scroll-to-top"
 
 export default function Home() {
   const [category, setCategory] = useState([]);
@@ -47,6 +47,7 @@ export default function Home() {
         </MDBCol>
       </MDBRow>
       <br />
+      <ScrollTOTop smooth top="500"/>
       <MDBRow className="mb-8 d-flex justify-content-around rounded-7-fluid text-start ">
         <HowToHire />
       </MDBRow>
