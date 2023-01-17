@@ -2,14 +2,14 @@ import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost:6060/lawyer";
 
-export const getLayers = async () => {
-  const response = await axios.get("/")
+export const getLawyers = async () => {
+  const response = await axios.get("http://localhost:6060/lawyer")
 
   const lawyer = await response.data;
   return lawyer;
 };
 export const registerLawyer = async (data) => {
-  const response = await axios.post("/register",{
+  const response = await axios.post("http://localhost:6060/lawyer/register",{
     firstName:data.firstName,
     lastName:data.lastName,
     location:data.location,
@@ -27,7 +27,7 @@ export const registerLawyer = async (data) => {
     avgReplayTime:data.avgReplayTime,
     workDueTime:data.workDueTime,
     available:data.available
-  });
+  }).then(res=>console.log(res));
 
   const newLawyer = await response.data;
   return newLawyer;
@@ -44,13 +44,13 @@ export const loginLawyer = async (data) => {
   };
 
   export const getLawyerByEmail = async (email) => {
-    const response = await axios.get(`${email}`);
+    const response = await axios.get(`http://localhost:6060/lawyer/${email}`);
   
     const lawyer = await response.data;
     return lawyer;
   };
   export const deleteLawyer = async (email) => {
-    const response = await axios.delete(`${email}`);
+    const response = await axios.delete(`http://localhost:6060/lawyer/${email}`);
   
     const lawyer = await response.data;
     return lawyer;

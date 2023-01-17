@@ -1,4 +1,3 @@
-const { boolean } = require("joi");
 const mongoose = require("mongoose");
 
 const Schema = require("mongoose").Schema;
@@ -17,7 +16,7 @@ const lawyer = new Schema({
     required: true,
   },
   location: {
-    type: String,
+    type: Object,
     required: true,
   },
   description: {
@@ -33,9 +32,18 @@ const lawyer = new Schema({
     type: mongoose.Types.ObjectId,
     ref:"reviews",
   }],
+  imageString:{
+    type:String
+  },
   image: {
-    type: String,
-    required: true,
+    public_id: {
+      type: String,
+      default: "cloud img default"
+    },
+    url: {
+      type: String,
+      default: "cloud img default"
+    }
   },
   price: {
     type: String,

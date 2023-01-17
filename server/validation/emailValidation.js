@@ -5,12 +5,12 @@ const sendEmail = (rate,email,comments,userEmail) => {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'tech.career.campus@gmail.com',
-                pass: 'sqkduayyxqtoazut'
+                user: 'lawyerandorderthemis@gmail.com',
+                pass: 'dqtukwvngshsiind'
             }
         })
         const mail_configs = {
-            from:'tech.career.campus@gmail.com',
+            from:'lawyerandorderthemis@gmail.com',
             to:email,
             subject:"testing our nodemailer",
             html:`<h4>Comment from:</h4><h3> ${userEmail}</h3> </br><h2 style=color:"blue">${comments}</h2><h2>${rate}</h2>`

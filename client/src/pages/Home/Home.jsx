@@ -1,36 +1,60 @@
-import Hero from '../../component/Hero/Hero';
-import Scheduling from '../../component/Section/Scheduling';
-import HowToHire from '../../component/Section/HowToHire';
-import SupportBoard from '../../component/Section/SupportBoard';
-// import Category from '../../component/cards/Category';
-// import ContactUs from '../../components/Section/ContactUs';
-import { SimpleGrid, Box, VStack } from '@chakra-ui/react';
+import { useEffect, useState } from "react";
+import {
+  Hero,
+  HowToHire,
+  SupportBoard,
+  Category,
+  ContactUs,
+  HomeLawyer,
+} from "../../AppRoute/featuresRoute/home";
+import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
+import { Lawyers } from "../../sidder";
+import { Categories } from "../../sidder";
+import Carousel from "../../component/carousel/Crousel";
+import { getCategory } from "../../services/categoryService";
 
 export default function Home() {
+  const [category, setCategory] = useState([]);
+
+  useEffect(() => {
+    getCategory()
+    .then((res) => setCategory(res))
+    .catch((error) => console.error(error));
+  },[]);
   return (
-    <VStack spacing={4} align="center">
-      <Box>
+    <MDBContainer className="w-100">
+      <br />
+      <MDBContainer className="mb-8">
         <Hero />
-      </Box>
-      <Box bg={'blue.700'} borderRadius="70px">
+      </MDBContainer>
+      <MDBRow className="bg-light mb-3 rounded-9">
         <SupportBoard />
-      </Box>
-      <Box>
-        {/* <Category /> */}
-      </Box>
-      <Box>
-        <SimpleGrid columns={2} spacingX="40px" spacingY="20px">
-          <Box height="80px">
-            {/* <ContactUs bg={'blue.400'} /> */}
-          </Box>
-          <Box height="80px">
-            <Scheduling bg={'blue.400'} />
-          </Box>
-        </SimpleGrid>
-      </Box>
-      <Box>
+      </MDBRow>
+      <br />
+      <MDBRow className="d-flex">
+        <>
+          <MDBContainer>
+            <Carousel />
+          </MDBContainer>
+        </>
+      </MDBRow>
+      <br />
+      <br />
+      <MDBRow className="d-flex justify-content-center">
+        <MDBCol md="10">
+          <Category categories={category} />
+        </MDBCol>
+      </MDBRow>
+      <br />
+      <MDBRow className="mb-3">
+        <MDBCol md="6" offsetMd="3">
+          <ContactUs />
+        </MDBCol>
+      </MDBRow>
+      <br />
+      <MDBRow className="mb-8 d-flex justify-content-around rounded-7-fluid text-start ">
         <HowToHire />
-      </Box>
-    </VStack>
+      </MDBRow>
+    </MDBContainer>
   );
 }

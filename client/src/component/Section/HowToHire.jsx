@@ -1,5 +1,5 @@
 import { Box, SimpleGrid, Icon, Text, Stack, Flex } from '@chakra-ui/react';
-import { FcAssistant, FcDonate, FcInTransit } from 'react-icons/fc';
+import { FcAssistant, FcBusinessman , FcBusinessContact,FcCurrencyExchange} from 'react-icons/fc';
 
 const Feature = ({ title, text, icon }) => {
   return (
@@ -27,30 +27,30 @@ export default function HowToHire() {
       <SimpleGrid columns={{ base: 1, md: 4 }} spacing={7}>
         <Feature
           icon={<Icon as={FcAssistant} w={10} h={10} />}
-          title={'Lifetime Support'}
+          title={'Post a Law problem'}
           text={
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
+            "Tell us what you need. Provide as many details as possible, but don’t worry about getting it perfect."
+            }
+        />
+        <Feature
+          icon={<Icon as={FcBusinessman} w={10} h={10} />}
+          title={'Talent comes to you'}
+          text={
+            "Get qualified proposals within 24 hours, and meet the candidates you’re excited about."
           }
         />
         <Feature
-          icon={<Icon as={FcDonate} w={10} h={10} />}
-          title={'Unlimited Donations'}
+          icon={<Icon as={FcBusinessContact} w={10} h={10} />}
+          title={'Collaborate easily'}
           text={
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
+            "Use Themisss to chat or video call, share files, and track project progress right from the app."
           }
         />
         <Feature
-          icon={<Icon as={FcInTransit} w={10} h={10} />}
-          title={'Instant Delivery'}
+          icon={<Icon as={FcCurrencyExchange} w={10} h={10} />}
+          title={'Payment simplified'}
           text={
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
-          }
-        />
-        <Feature
-          icon={<Icon as={FcInTransit} w={10} h={10} />}
-          title={'Instant Delivery'}
-          text={
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
+            "Receive invoices and make payments through Themisss. Only pay for work you authorize."
           }
         />
       </SimpleGrid>

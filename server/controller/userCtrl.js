@@ -20,28 +20,29 @@ const getUsers = async (req, res) => {
 };
 
 const registerUser = async (req, res) => {
-  const { firstName, lastName,image, email, password } = req.body; //13
+  const { firstName, lastName, email, password , confirmPassword } = req.body; //13
   const emailExistInLayerModel = await LawyerModel.findOne({ email });
   const emailExistInUserModel = await UsersModel.findOne({ email });
 
+  const { error } = userRegisterValidate(req.body);
+  if (error) {
+    return res.status(400).send({ message: error.details[0].message });
+  }
   if (emailExistInLayerModel || emailExistInUserModel) {
     return res.status(400).json({ message: "email already exist" });
   }
+
   const salt = await bcrypt.genSalt(8);
   const hashedPassword = await bcrypt.hash(password, salt);
-
   let user = new UsersModel({
     firstName,
     lastName,
-    image,
     email,
     password: hashedPassword,
   });
   try {
-    const { error } = userRegisterValidate(req.body);
-    if (error) {
-      return res.status(400).send({ message: error.details[0].message });
-    }
+
+
     user = await user.save();
   } catch (error) {
     console.log(error);
@@ -76,8 +77,7 @@ const loginUser = async (req, res) => {
 
   return res
     .status(200)
-    .header("auth-token", token)
-    .json({ user: existUser, message: "login successfully" });
+    .json({ user: existUser, token,message: "login successfully" });
 };
 
 const getUserByEmail = async (req, res) => {

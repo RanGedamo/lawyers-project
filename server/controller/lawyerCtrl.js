@@ -5,6 +5,7 @@ const { validateLawyer , validateUpdateLawyer } = require("../validation/lawyerR
 const {validationLogin} = require('../validation/lawyerLoginValidation');
 const mongoose=require("mongoose");
 const lawyerModel = require("../models/lawyerModel");
+const Cloudinary = require("../config/cloudinary")
 
 const getLawyers = async (req, res) => {
   const lawyer = await LawyerModel.find()
@@ -40,14 +41,26 @@ const registerLawyer = async (req, res) => {
     experience,
     avgReplayTime,
     workDueTime,
-    available
+    available,
+    imageString
   } = req.body; //18
+
   const emailExist = await LawyerModel.findOne({ email });
   if (emailExist) {
     return res.status(400).json({ message: "email already exist" });
   }
   const salt = await bcrypt.genSalt(8);
   const hashedPassword = await bcrypt.hash(password, salt);
+
+  if(image && image.length !=  0 ){
+    const endImg = await Cloudinary.uploader.upload(image,{
+      folder: "lawyersProfileImages"
+    })
+    image = {
+      public_id: endImg.public_id,
+      url: endImg.url
+    }
+  }
 
   let lawyer = new LawyerModel({
     firstName,
@@ -67,18 +80,15 @@ const registerLawyer = async (req, res) => {
     experience,
     avgReplayTime,
     workDueTime,
-    available
+    available,
+    imageString
   });
-  try {
     const { error } = validateLawyer(req.body);
 
     if (error) {
       return res.status(400).send({ message: error.details[0].message });
     }
     lawyer = await lawyer.save();
-  } catch (error) {
-    console.log(error);
-  }
 
   if (!lawyer) {
     return res.status(400).json({ message: "error in creating lawyers" });
@@ -86,6 +96,7 @@ const registerLawyer = async (req, res) => {
 
   return res.status(200).json(lawyer);
 };
+
 const loginLawyer = async (req, res) => {
   const {error} = validationLogin(req.body);
    
@@ -112,7 +123,7 @@ const loginLawyer = async (req, res) => {
 
   return res
     .status(200)
-    .header("auth-token", token)
+    .header("authorization", token)
     .json({ user: existUser, message: "login successfully" });
 };
 
@@ -191,6 +202,7 @@ const updateLawyer = async (req, res) => {
   } catch (error) {
     console.log(error);
   }
+  
   if (!lawyer) {
     return res.status(400).json({ message: "error in updating lawyers" });
   }
@@ -223,3 +235,9 @@ module.exports = {
   updateLawyer,
   deleteLawyer
 };
+
+
+
+
+
+

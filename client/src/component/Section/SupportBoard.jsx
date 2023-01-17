@@ -8,23 +8,13 @@ import {
     Stack,
     StackDivider,
     Icon,
-    useColorModeValue,
-  } from '@chakra-ui/react';
+    FormControl,
+    Input,
+    useColorModeValue, } from '@chakra-ui/react';
   import { CheckCircleIcon } from '@chakra-ui/icons'
-//   import {
-//     IoAnalyticsSharp,
-//     IoLogoBitcoin,
-//     IoSearchSharp,
-//   } from 'react-icons/io5';
   import { ReactElement } from 'react';
-  
-  interface FeatureProps {
-    text: string;
-    iconBg: string;
-    icon?: ReactElement;
-  }
-  
-  const Feature = ({ text, icon, iconBg }: FeatureProps) => {
+
+  const Feature = ({ text, icon, iconBg }) => {
     return (
       <Stack direction={'row'} align={'center'}>
         <Flex
@@ -42,6 +32,7 @@ import {
   };
   
   export default function SupportBoard() {
+
     return (
       <Container maxW={'5xl'} py={12}>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
@@ -55,20 +46,21 @@ import {
               p={2}
               alignSelf={'flex-start'}
               rounded={'md'}>
-              Our Story
+              Dont be varnable
             </Text>
-            <Heading>A digital Product design agency</Heading>
+            <Heading>let us cheack your website leagal wise</Heading>
             <Text color={'gray.500'} fontSize={'lg'}>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore
+              let us cheack your website leagal wise
             </Text>
             <Stack
-              spacing={4}
-              divider={
-                <StackDivider
-                  borderColor={useColorModeValue('gray.100', 'gray.700')}
-                />
-              }>
+              spacing={4}>
+                <FormControl id="domain">
+          <Input
+            placeholder="your-domainwebsite@example.com"
+            _placeholder={{ color: 'gray.500' }}
+            type="domain"
+          />
+        </FormControl>
               <Feature
                 icon={
                   <Icon as={CheckCircleIcon} color={'purple.500'} w={5} h={5} />
