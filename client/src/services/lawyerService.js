@@ -45,7 +45,6 @@ export const loginLawyer = async (data) => {
 
   export const getLawyerByEmail = async (email) => {
     const response = await axios.get(`http://lawmarket.us-east-1.elasticbeanstalk.com/lawyer/${email}`);
-  console.log(response);
     const lawyer = await response.data;
     return lawyer;
   };

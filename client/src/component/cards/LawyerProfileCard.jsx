@@ -21,7 +21,7 @@ export default function LawyerProfile({lawyer}) {
   //   console.log(selectedOption);
 
   // }
-  console.log(sub);
+
   return (
     <div className="gradient-custom-2" style={{ backgroundColor: '#9de2ff' }} >
       < >

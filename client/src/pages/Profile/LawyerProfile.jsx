@@ -20,13 +20,11 @@ const [category,setCategory]=useState([])
 const [userLoged,setUserLoged]=useState()
 useEffect(()=>{
   getLawyerByEmail(email).then((res)=>{
-    console.log(res);
     setLawyers(res) 
     setCategory(res?.category[0].subCategory)}).catch((error)=>console.log(error))
     setUserLoged(cookie.get("user"))
 
 },[lawyer?.reviews])
-console.log(lawyer);
 
 
   return (

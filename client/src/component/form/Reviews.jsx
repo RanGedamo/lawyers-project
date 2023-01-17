@@ -40,7 +40,7 @@ setReviewInput({rate:start, name:user?.name,image: user?.image})
 getUserByEmail(userLoged).then((res)=>setUser(res))
   },[])
 
-  console.log(obj);
+
 
   return (
     <MDBContainer className="py-5">
