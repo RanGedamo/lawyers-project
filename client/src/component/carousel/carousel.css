@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
   width: fit-content;
-  animation: carouselAnim 60s infinite alternate linear;
+  animation: carouselAnim 35s infinite alternate linear;
 }
 .items:hover{
   animation-play-state: paused;
@@ -34,7 +34,7 @@
 
 @media only screen and (max-width: 768px) {
   .items {
-    animation: carouselAnim 25s infinite alternate linear;
+    animation: carouselAnim 17s infinite alternate linear;
   }
   
   @keyframes carouselAnim {
