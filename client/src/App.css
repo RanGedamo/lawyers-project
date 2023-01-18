@@ -1,7 +1,19 @@
 .App {
   text-align: center;
+  height: 100%;
 }
+#toggleHomPage{
 
+}
+.main{
+  height: 80%;
+}
+.header{
+  height: 10%;
+}
+.footer{
+  height: 10%;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -19,20 +31,4 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

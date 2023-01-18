@@ -1,0 +1,15 @@
+
+
+
+@media screen and (max-width:765px) {
+    .paymentCard{
+        position:relative;
+        top: 900px;
+    }
+    .agreement{
+        position:relative;
+        top: -490px; 
+        left: 14px; 
+
+    }
+}

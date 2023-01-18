@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import Footer from "./component/Footer/Footer";
+import Routing from "./AppRoute/Routing";
+import Navbar from "./component/Navbar/Navbar";
+import CategoryNavbar from "./component/Navbar/CategoryNavbar";
 
-function App() {
+export default function App() {
+  const current = window.location.pathname;
+  const bool = current == '/'? true :false
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        {/* <Navbar /> */}
+        <CategoryNavbar bool={bool}/>
+        <Routing />
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }
-
-export default App;

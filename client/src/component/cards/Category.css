@@ -1,0 +1,16 @@
+@media screen and (max-width: 600px) {
+  .imagecsscategory {
+    min-width: 90vw;
+    min-height: 30vh;
+    max-height: 50vh;
+  }
+}
+@media screen and (min-width: 600px) {
+    .imagecsscategory {
+      min-width: 20vw;
+      min-height: 30vh;
+    
+    }
+  }
+  
+  
