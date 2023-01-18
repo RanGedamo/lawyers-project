@@ -32,7 +32,7 @@ console.log(lawyer);
 
 
   return (
-    <MDBContainer className="container-fluid h-100 paymentContainer">
+    <MDBContainer className="container-fluid mt-5 h-100 paymentContainer">
       <MDBRow className="">
         <MDBCol md="4">
           <MDBRow className="flex-column">
