@@ -1,11 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MDBCardBody, MDBIcon, MDBInput, MDBBtn, MDBFile } from "mdb-react-ui-kit";
+import { loginLawyer } from "../../services/lawyerService";
+import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 export default function SignInLawyer() {
   const [inputs, setInputs] = useState();
+  const [error, setError] = useState();
+const navigate=useNavigate()
   const changeInputs = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value })
     console.log(inputs);
+  }
+
+  
+  const submitUserLogin = async () => {
+    return await loginLawyer(inputs)
+      .then(res => {
+          Cookies.set('user', res.user.email)
+          Cookies.set('rate', res.user.rate)
+
+          setTimeout(()=>{
+            navigate('/')
+          },2000)
+      }).catch(err => setError(err))
   }
 
   return (
@@ -36,9 +54,11 @@ export default function SignInLawyer() {
           name="password"
           onChange={(e) => changeInputs(e)}
         />
-        <MDBBtn className="mb-3 px-5"  size="lg">
+        <MDBBtn className="mb-3 px-5"  size="lg" onClick={submitUserLogin}>
           Login
         </MDBBtn>
+
+        <div className="text-danger text-center" id="error">{error}</div>
         <div className="d-flex justify-content-center text-center align-items-center mt-5">
           <p href="#!" className="small text-muted me-1">
             Terms of use.

@@ -30,7 +30,7 @@ export default function Filter() {
 
   return (
     <>
-      <SelectedCategory category={category} />
+      {/* <SelectedCategory category={category} /> */}
       {result?.length > 0 ? (
         <div>
           <i><h1>our category lawyers</h1></i>

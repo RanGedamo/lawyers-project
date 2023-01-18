@@ -61,7 +61,10 @@ useEffect(()=>{
             {lawyer?.reviews?.map((item, i) => {
               return <CommentSection key={i} index={i} item={item} />;
             })}
+            <div className={cookie.get("rate")?"d-none":""}>
             {userLoged?<ReviewsInput  userLoged={userLoged} lawyer={lawyer}/>:""}
+
+            </div>
             
           </MDBCol>
         </MDBRow>
