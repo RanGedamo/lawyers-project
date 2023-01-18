@@ -46,7 +46,7 @@ useEffect(()=>{
               })}
             </MDBRow>
           </MDBCol>
-          <MDBCol className="mt-5">
+          <MDBCol className="mt-4">
             <GoogleMapLocation lawyer={lawyer?.location} />
           </MDBCol>    
         </MDBCol>

@@ -28,7 +28,7 @@ export default GoogleMapLocation;
 
 const Map = ({coordinates}) => {
 
-  return <GoogleMap zoom={16} center={{ lat: coordinates?.lat, lng:coordinates?.lng}} mapContainerStyle={{ width: "100%", height: "49vh" }}>
+  return <GoogleMap zoom={16} center={{ lat: coordinates?.lat, lng:coordinates?.lng}} mapContainerStyle={{ width: "100%", height: "65vh" }}>
 
 <MarkerF  position={{ lat: coordinates?.lat, lng: coordinates?.lng}} />
 
