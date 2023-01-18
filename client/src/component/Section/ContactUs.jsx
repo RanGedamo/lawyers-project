@@ -41,7 +41,7 @@ export default function ContactUs() {
             fontWeight={600}
             fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
             lineHeight={'110%'}>
-            whant some more information <br />
+            want some more information <br />
             <Text as={'span'} color={'green.400'}>
               contact us
             </Text>

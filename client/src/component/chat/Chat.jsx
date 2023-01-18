@@ -27,119 +27,117 @@ function Chat() {
     {
       id: '100',
     options: [
-      { value: 1, label: 'Automobile Accidents', trigger: '4' },
-      { value: 2, label: 'Disabilities', trigger: '5' },
-      { value: 3, label: 'Mortgages', trigger: '6' },
-      { value: 4, label: 'Criminal Defense', trigger: '7' },
-      { value: 5, label: 'Government', trigger: '8' },
-      { value: 6, label: 'Business', trigger: '9' },
-      { value: 7, label: 'Financial', trigger: '10' },
-      { value: 8, label: 'Adoptions', trigger: '11' },
-      { value: 9, label: 'Wills Probate', trigger: '12' },
+      { value: 1, label: 'Employment', trigger: '4' },
+      { value: 2, label: 'Personal Injury', trigger: '5' },
+      { value: 3, label: 'Family Law', trigger: '6' },
+      { value: 4, label: 'Real Estate', trigger: '7' },
+      { value: 5, label: 'Probate', trigger: '8' },
+      { value: 6, label: 'Financial', trigger: '9' },
+      { value: 7, label: 'Business', trigger: '10' },
+      { value: 8, label: 'Government', trigger: '11' },
+      { value: 9, label: 'Criminal Defense', trigger: '12' },
     ],
   },
   {
     id: '4',
-    message: 'Click on the image',
+    message: 'Click on the image - Employment',
     trigger: '101',
   },
   {
     id: '101',
     component: (
-    <a href="/category/63b57b92bf06bcefd6812e98" className="col-12"><img src="/images/chat-bot-img/real-estate.png" style={{borderRadius:"10%"}} /></a>
+    <a href="/category/63c43ba1a234173839cd98a3" className="col-12"><img src="/images/chat-bot-img/Employment.png" style={{borderRadius:"10%"}} /></a>
     ),
     },
   {
     id: '5',
-    message: 'Disabilities',
+    message: 'Click on the image - Personal Injury',
     trigger: '102',
   },
   {
     id: '102',
     component: (
-    <a href="/category/63b57b92bf06bcefd6812e98" className="col-12"><img src="/images/chat-bot-img/real-estate.png" style={{borderRadius:"10%"}} /></a>
+    <a href="/category/63c439aea234173839cd9894" className="col-12"><img src="/images/chat-bot-img/PersonalInjury.png" style={{borderRadius:"10%"}} /></a>
     ),
     },
   {
     id: '6',
-    message: 'Mortgages',
+    message: 'Click on the image - Family Law',
     trigger: '103',
   },
   {
     id: '103',
     component: (
-    <a href="/category/63b57b92bf06bcefd6812e98" className="col-12"><img src="/images/chat-bot-img/real-estate.png" style={{borderRadius:"10%"}} /></a>
+    <a href="/category/63c438bfc6d4d52b2c1fa52f" className="col-12"><img src="/images/chat-bot-img/FamilyLaw.png" style={{borderRadius:"10%"}} /></a>
     ),
     },
   {
     id: '7',
-    message: 'Criminal Defense',
+    message: 'Click on the image - Real Estate',
     trigger: '104',
   },
   {
     id: '104',
     component: (
-    <a href="/category/63b57b92bf06bcefd6812e98" className="col-12"><img src="/images/chat-bot-img/real-estate.png" style={{borderRadius:"10%"}} /></a>
+    <a href="/category/63c44106539b4d290ee7fd45" className="col-12"><img src="/images/chat-bot-img/RealEstate.png" style={{borderRadius:"10%"}} /></a>
     ),
     },
   {
     id: '8',
-    message: 'Government',
+    message: 'Click on the image - Probate',
     trigger: '105',
   },
   {
     id: '105',
     component: (
-    <a href="/category/63b57b92bf06bcefd6812e98" className="col-12"><img src="/images/chat-bot-img/real-estate.png" style={{borderRadius:"10%"}} /></a>
+    <a href="/category/63c4405057c87f24ec8c3771" className="col-12"><img src="/images/chat-bot-img/Probate.png" style={{borderRadius:"10%"}} /></a>
     ),
     },
   {
     id: '9',
-    message: 'Business',
+    message: 'Click on the image - Financial',
     trigger: '106',
   },
   {
     id: '106',
     component: (
-    <a href="/category/63b57b92bf06bcefd6812e98" className="col-12"><img src="/images/chat-bot-img/real-estate.png" style={{borderRadius:"10%"}} /></a>
+    <a href="/category/63c43e6757c87f24ec8c376b" className="col-12"><img src="/images/chat-bot-img/Financial.png" style={{borderRadius:"10%"}} /></a>
     ),
     },
   {
     id: '10',
-    message: 'Financial',
+    message: 'Click on the image - Business',
     trigger: '107',
   },
   {
     id: '107',
     component: (
-    <a href="/category/63b57b92bf06bcefd6812e98" className="col-12"><img src="/images/chat-bot-img/real-estate.png" style={{borderRadius:"10%"}} /></a>
+    <a href="/category/63c4504bb187c601731ff1bb" className="col-12"><img src="/images/chat-bot-img/Business.png" style={{borderRadius:"10%"}} /></a>
     ),
     },
   {
     id: '11',
-    message: 'Adoptions',
+    message: 'Click on the image - Government',
     trigger: '108',
   },
   {
     id: '108',
     component: (
-    <a href="/category/63b57b92bf06bcefd6812e98" className="col-12"><img src="/images/chat-bot-img/real-estate.png" style={{borderRadius:"10%"}} /></a>
+    <a href="/category/63c44e26b187c601731ff1b5" className="col-12"><img src="/images/chat-bot-img/Government.png" style={{borderRadius:"10%"}} /></a>
     ),
     },
   {
     id: '12',
-    message: 'Wills Probate',
+    message: 'Click on the image - Criminal Defense',
     trigger: '109',
   },
   {
     id: '109',
     component: (
-    <a href="/category/63b57b92bf06bcefd6812e98" className="col-12"><img src="/images/chat-bot-img/real-estate.png" style={{borderRadius:"10%"}} /></a>
+    <a href="/category/63c44349539b4d290ee7fd64" className="col-12"><img src="images/chat-bot-img/criminalDefense.png" style={{borderRadius:"10%"}} /></a>
     ),
     },
-  
   ];
-
   return (
     <div className="chat d-flex " style={{ marginTop: "20px", justifyContent: "end" }} >
       {supportChat ?
