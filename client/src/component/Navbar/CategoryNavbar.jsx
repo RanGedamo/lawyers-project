@@ -129,6 +129,7 @@ export default function CategoryNavbar({bool}) {
   
     const logOut = ()=>{
       Cookies.remove("user")
+      Cookies.remove("rate")
       return navigate('/')
     }
   switch (bool){
