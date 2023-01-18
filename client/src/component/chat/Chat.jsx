@@ -60,7 +60,7 @@ function Chat() {
     <a href="/category/63c439aea234173839cd9894" className="col-12"><img src="/images/chat-bot-img/PersonalInjury.png" style={{borderRadius:"10%"}} /></a>
     ),
     },
-  {
+  { 
     id: '6',
     message: 'Click on the image - Family Law',
     trigger: '103',
