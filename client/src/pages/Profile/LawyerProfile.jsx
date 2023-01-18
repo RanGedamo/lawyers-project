@@ -31,7 +31,7 @@ useEffect(()=>{
     <div cla>
     <MDBContainer>
       <MDBRow>
-        <MDBCol size={12} className=" col-md-12 col-lg-6 mt-5">
+        <MDBCol size={12} className=" col-md-12 col-lg-6 mt-5 pt-4">
           <LawyerProfileCard lawyer={lawyer} />
         </MDBCol>
         <MDBCol>
@@ -39,20 +39,16 @@ useEffect(()=>{
             <MDBRow className=" row-cols-md-2 mt-5">
               {category?.map((item) => {
                 return (
-                  <MDBCol  size={12} className="p-0 mb-3 ">
+                  <MDBCol  size={12} className="p-0 mb-3 pt-4">
                   <LawyerCategories  item={item} />
                   </MDBCol>
                 );
               })}
             </MDBRow>
           </MDBCol>
-          <MDBCol className="">
+          <MDBCol className="mt-5">
             <GoogleMapLocation lawyer={lawyer?.location} />
-          </MDBCol>
-          <MDBCol className="mb-3 " >
-            <AreaChart lawyer={lawyer} />
-          </MDBCol>
-        
+          </MDBCol>    
         </MDBCol>
       </MDBRow>
       <MDBContainer>

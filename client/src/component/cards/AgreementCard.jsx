@@ -40,9 +40,9 @@ const navigate=useNavigate()
       postContactUsPayment(inputs).then((res)=>console.log(res)).catch(res=>console.log(res))
 
       setSend(true)
-      setTimeout(() => {
-        navigate('/')
-      }, 1200);
+      // setTimeout(() => {
+      //   navigate('/')
+      // }, 1200);
   }
 
   useEffect(()=>{
@@ -97,7 +97,7 @@ if(item.name==o){
           />
           <MDBInput wrapperClass="mb-4" type="date" label="BirthDay" defaultValue="2023-01-29" name="date" onChange={(e)=>formInputs(e)}/>
           <div className="text-start">
-            sex
+            gender
             <div className="d-flex">
               <MDBRadio
                 name="flexRadioDefault"

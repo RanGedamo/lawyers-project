@@ -44,7 +44,7 @@ export default function ContactLawyer({lawyer}) {
                                 <MDBCardTitle>{lawyer.firstName} {lawyer.lastName}</MDBCardTitle>
                                 <MDBCardText>{lawyer.title}</MDBCardText>
 
-                                <div className="d-flex justify-content-start rounded-3 p-4 mb-2"
+                                <div className="d-flex justify-content-start rounded-3 p-2 mb-2"
                                 style={{ backgroundColor: '#efefef' }}>
                                 <div>
                                     <p className="small text-muted mb-1">Phone</p>
