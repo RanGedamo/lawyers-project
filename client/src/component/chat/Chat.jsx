@@ -57,7 +57,7 @@ function Chat() {
   {
     id: '102',
     component: (
-    <a href="/category/63c439aea234173839cd9894" className="col-12"><img src="/images/chat-bot-img/PersonalInjury.png" style={{borderRadius:"10%"}} /></a>
+    <a href="/category/63c439aea234173839cd9894" className="col-12"><img src="/images/chat-bot-img/personalInjurys.png" style={{borderRadius:"10%"}} /></a>
     ),
     },
   { 
