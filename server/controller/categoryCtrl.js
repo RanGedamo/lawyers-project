@@ -15,7 +15,7 @@ const getCategory = async (req, res) => {
 };
 
 const createCategory = async (req, res) => {
-  const { categoryImg,description,subCategory, name } = req.body; //13
+  const { categoryImg,description,subCategory, name } = req.body;
 
   let category;
   try {
@@ -37,7 +37,6 @@ const createCategory = async (req, res) => {
 
   return res.status(200).json(category);
 };
-
 
 const getCategoryById = async (req, res) => {
 console.log(req.params.id);

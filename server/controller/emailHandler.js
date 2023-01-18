@@ -3,7 +3,6 @@ const {supportBoardValid} = require('../validation/handlerEmail');
 
 const postContactUs = async(req,res)=>{
     const {userEmail,userCommend} = req.body
-    console.log(userEmail,userCommend);
     if(!userEmail || !userCommend) return res.json({massage:"email or commend not found"})
     return await new Promise((resolve, reject) => {
         const transporter = nodemailer.createTransport({
@@ -29,7 +28,6 @@ const postContactUs = async(req,res)=>{
     }).then(res=>console.log(res)).catch(res=>console.log(res))
 }
 const postDomain = async (req, res) => {
-
     const { error } = supportBoardValid(req.body);
     console.log(error);
     if (error) {

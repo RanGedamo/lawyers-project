@@ -43,8 +43,7 @@ const registerLawyer = async (req, res) => {
     workDueTime,
     available,
     imageString
-  } = req.body; //18
-  console.log(location,workDueTime);
+  } = req.body;
   const { error } = validateLawyer(req.body);
 
   if (error) {
