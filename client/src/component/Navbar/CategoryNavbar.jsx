@@ -145,7 +145,7 @@ export default function CategoryNavbar({bool}) {
         onClick={isOpen ? onClose : onOpen}
       />
       <a href={"/"}>
-        <>Themis</>
+      <><span style={{fontSize:"3vw"}}><b>Law</b></span><span style={{fontSize:"3vw"}}>Market</span></>
       </a>
       <HStack as={"nav"} spacing={4} display={{ base: "none", lg: "flex" }}>
         {category?.map((category, i) => (
