@@ -1,13 +1,13 @@
-import axios from "axios";
+import jwtInterceptor from "../middleware/auth";
 
 export const getCategory = async () => {
-  const response = await axios.get("http://localhost:6060/category")
+  const response = await jwtInterceptor.get("/category")
 
   const category = await response.data;
   return category;
 };
 export const getCategoryById = async (id) => {
-  const response = await axios.get(`http://lawmarket.us-east-1.elasticbeanstalk.com/category/${id}`)
+  const response = await jwtInterceptor.get(`/category/${id}`)
 
   const category = await response.data;
   return category;
