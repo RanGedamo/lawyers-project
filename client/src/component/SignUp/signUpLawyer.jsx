@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { registerLawyer } from "../../services/lawyerService";
 import { Alert, AlertDescription, AlertIcon, AlertTitle } from "@chakra-ui/react";
 import { registerUser } from "../../services/userService";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUpLawyer() {
   const [inputs, setInputs] = useState();
@@ -32,13 +33,12 @@ console.log(inputs);
    return await registerLawyer(inputs)
     .then(res => {
       console.log(res.data);
-      if (res) {
-        
-        setUserError({ error: false })
-      return  setUserSuccess(true)
-        
+        setUserError({ error: false,msg:"" })
+      setUserSuccess(true)
+
+        return
       }
-    })
+    )
     .catch(err => {
       if (err.response.data.message) {
         setUserSuccess(false)
@@ -85,7 +85,7 @@ console.log(inputs);
         
         <div className='mb-2'>
         <select value={selectedOption} onChange={(e)=>setSelectedOption(e.target.value)}  id="select" className="browser-default custom-select border-4"> 
-        <option >Choose your category</option>
+        <option>Choose your category</option>
            <option value="63c438bfc6d4d52b2c1fa52f" >Family law</option>
            <option value="63c44349539b4d290ee7fd64" >Government law</option>
            <option value="63c44e26b187c601731ff1b5" >Crime Law</option>
