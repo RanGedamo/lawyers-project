@@ -79,11 +79,11 @@ export default function SupportBoard() {
             p={2}
             alignSelf={'flex-start'}
             rounded={'md'}>
-            Dont be varnable
+            Dont be variable
           </Text>
-          <Heading>let us cheack your website leagal wise</Heading>
+          <Heading>let us check your website leagal wise</Heading>
           <Text color={'gray.500'} fontSize={'lg'}>
-            let us cheack your website leagal wise
+            let us check your website legal wise
           </Text>
           <Stack
             spacing={4}>
